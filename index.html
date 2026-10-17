@@ -2,9 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Finally... The Wait Is Over ❤️</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Finally... The Wait Is Over</title>
 
     <style>
 
@@ -31,7 +35,7 @@
                     #09030d 100%
                 );
 
-            color: white;
+            color: #ffffff;
 
             font-family:
                 Georgia,
@@ -41,7 +45,7 @@
 
 
         /* =========================================
-           SCREEN
+           MAIN SCREEN
         ========================================= */
 
         .screen {
@@ -77,7 +81,7 @@
 
 
         /* =========================================
-           BACKGROUND
+           BACKGROUND GLOW
         ========================================= */
 
         .background-glow {
@@ -141,54 +145,63 @@
         .star:nth-child(2) {
             left: 18%;
             top: 65%;
+
             animation-delay: 1s;
         }
 
         .star:nth-child(3) {
             left: 30%;
             top: 35%;
+
             animation-delay: 2s;
         }
 
         .star:nth-child(4) {
             left: 45%;
             top: 15%;
+
             animation-delay: 0.5s;
         }
 
         .star:nth-child(5) {
             left: 63%;
             top: 27%;
+
             animation-delay: 1.5s;
         }
 
         .star:nth-child(6) {
             left: 77%;
             top: 62%;
+
             animation-delay: 2.5s;
         }
 
         .star:nth-child(7) {
             left: 90%;
             top: 25%;
+
             animation-delay: 1s;
         }
 
         .star:nth-child(8) {
             left: 73%;
             top: 82%;
+
             animation-delay: 2s;
         }
 
         .star:nth-child(9) {
             left: 42%;
             top: 78%;
+
             animation-delay: 0.8s;
         }
 
         .star:nth-child(10) {
             left: 94%;
             top: 53%;
+
             animation-delay: 1.8s;
         }
 
@@ -198,12 +211,16 @@
             0%,
             100% {
                 opacity: 0.2;
-                transform: scale(0.8);
+
+                transform:
+                    scale(0.8);
             }
 
             50% {
                 opacity: 1;
-                transform: scale(1.5);
+
+                transform:
+                    scale(1.5);
             }
         }
 
@@ -217,7 +234,8 @@
 
             z-index: 5;
 
-            width: min(900px, 100%);
+            width:
+                min(900px, 100%);
 
             display: flex;
 
@@ -230,12 +248,13 @@
 
 
         /* =========================================
-           EYEBROW
+           TOP SMALL TEXT
         ========================================= */
 
         .eyebrow {
+
             font-size:
-                clamp(12px, 1.2vw, 17px);
+                clamp(12px, 1.3vw, 17px);
 
             letter-spacing:
                 clamp(3px, 0.5vw, 6px);
@@ -243,10 +262,10 @@
             text-transform: uppercase;
 
             color:
-                rgba(255, 255, 255, 0.62);
+                rgba(255, 255, 255, 0.65);
 
             margin-bottom:
-                clamp(12px, 2vh, 22px);
+                clamp(14px, 2vh, 22px);
 
             opacity: 0;
 
@@ -258,12 +277,13 @@
 
 
         /* =========================================
-           TITLE
+           MAIN TITLE
         ========================================= */
 
         h1 {
+
             font-size:
-                clamp(40px, 6.4vw, 86px);
+                clamp(42px, 6.5vw, 88px);
 
             line-height: 0.95;
 
@@ -275,11 +295,14 @@
             text-transform: uppercase;
 
             margin-bottom:
-                clamp(16px, 2.5vh, 25px);
+                clamp(18px, 2.5vh, 25px);
 
             text-shadow:
-                0 0 15px rgba(255, 150, 220, 0.25),
-                0 0 45px rgba(220, 90, 255, 0.15);
+                0 0 15px
+                rgba(255, 150, 220, 0.25),
+
+                0 0 45px
+                rgba(220, 90, 255, 0.15);
 
             opacity: 0;
 
@@ -295,7 +318,9 @@
         ========================================= */
 
         .description {
-            width: min(620px, 100%);
+
+            width:
+                min(620px, 100%);
 
             font-size:
                 clamp(15px, 1.5vw, 20px);
@@ -306,7 +331,7 @@
                 rgba(255, 255, 255, 0.72);
 
             margin-bottom:
-                clamp(16px, 2.5vh, 25px);
+                clamp(18px, 2.5vh, 25px);
 
             opacity: 0;
 
@@ -322,19 +347,21 @@
         ========================================= */
 
         .question {
+
             font-size:
                 clamp(18px, 2.1vw, 28px);
 
             line-height: 1.35;
 
-            color: white;
-
             max-width: 650px;
 
             margin-bottom: 28px;
 
+            color: #ffffff;
+
             text-shadow:
-                0 0 18px rgba(255, 100, 200, 0.3);
+                0 0 18px
+                rgba(255, 100, 200, 0.3);
 
             opacity: 0;
 
@@ -346,7 +373,7 @@
 
 
         /* =========================================
-           BUTTON
+           READY BUTTON
         ========================================= */
 
         .ready-button {
@@ -368,7 +395,8 @@
             border-radius: 50px;
 
             border:
-                1px solid rgba(255, 255, 255, 0.4);
+                1px solid
+                rgba(255, 255, 255, 0.4);
 
             background:
                 linear-gradient(
@@ -390,7 +418,8 @@
             z-index: 100;
 
             box-shadow:
-                0 8px 30px rgba(230, 70, 180, 0.35);
+                0 8px 30px
+                rgba(230, 70, 180, 0.35);
 
             transition:
                 left 0.45s ease,
@@ -402,15 +431,17 @@
         .ready-button:hover {
 
             box-shadow:
-                0 12px 45px rgba(230, 70, 180, 0.6);
+                0 12px 45px
+                rgba(230, 70, 180, 0.6);
         }
 
 
         /* =========================================
-           SCREEN 2
+           SECOND SCREEN
         ========================================= */
 
         .screen-two-content {
+
             max-width: 750px;
         }
 
@@ -447,6 +478,7 @@
         @keyframes fadeUp {
 
             from {
+
                 opacity: 0;
 
                 transform:
@@ -454,6 +486,7 @@
             }
 
             to {
+
                 opacity: 1;
 
                 transform:
@@ -465,6 +498,7 @@
         @keyframes titleReveal {
 
             from {
+
                 opacity: 0;
 
                 transform:
@@ -475,6 +509,7 @@
             }
 
             to {
+
                 opacity: 1;
 
                 transform:
@@ -493,16 +528,22 @@
         @media (max-width: 600px) {
 
             .screen {
+
                 padding: 18px;
             }
 
+
             .description {
+
                 max-width: 340px;
             }
 
+
             .question {
+
                 max-width: 340px;
             }
+
 
             .ready-button {
 
@@ -524,7 +565,7 @@
 
 
     <!-- =========================================
-         SCREEN 1
+         FIRST SCREEN
     ========================================= -->
 
     <section
@@ -532,7 +573,10 @@
         id="screen1"
     >
 
-        <div class="background-glow"></div>
+
+        <div
+            class="background-glow"
+        ></div>
 
 
         <div class="stars">
@@ -554,20 +598,22 @@
         <div class="content">
 
 
+            <!-- EXACT TEXT YOU ASKED FOR -->
+
             <div class="eyebrow">
 
-                30 Days • 30 Wishes
+                30 DAYS • 30 WISHES
 
             </div>
 
 
             <h1>
 
-                Finally...
+                FINALLY...
 
                 <br>
 
-                The Wait Is Over.
+                THE WAIT IS OVER.
 
             </h1>
 
@@ -594,7 +640,7 @@
         </div>
 
 
-        <!-- BUTTON -->
+        <!-- READY BUTTON -->
 
         <button
             id="readyButton"
@@ -612,7 +658,7 @@
 
 
     <!-- =========================================
-         SCREEN 2
+         SECOND SCREEN
     ========================================= -->
 
     <section
@@ -674,17 +720,23 @@
 
 
         /* =========================================
-           STATES
+           BUTTON STATES
 
            0 = ORIGINAL
-           1 = TOP
+
+           1 = TOP CENTER
+
            2 = DOWN
+
            3 = TOP RIGHT
-           4 = ORIGINAL / READY
+
+           4 = ORIGINAL / FINAL CLICK
+
            5 = NEXT SCREEN
         ========================================= */
 
         let state = 0;
+
 
         let pointerX = null;
 
@@ -707,7 +759,7 @@
         };
 
 
-        const topPosition = {
+        const topCenterPosition = {
 
             left: "50vw",
 
@@ -727,7 +779,7 @@
 
 
         /* =========================================
-           GET BUTTON CENTER
+           BUTTON CENTER
         ========================================= */
 
         function getButtonCenter() {
@@ -753,11 +805,16 @@
 
 
         /* =========================================
-           CHECK POINTER DISTANCE
+           CHECK DISTANCE
         ========================================= */
 
         function checkDistance() {
 
+
+            /*
+             * Do nothing while button
+             * is moving.
+             */
 
             if (
                 moving ||
@@ -771,18 +828,28 @@
 
 
             /*
-             * State 0:
-             * Original → TOP
+             * FINAL STATE
              *
-             * State 2:
-             * Down → TOP RIGHT
-             *
-             * State 3:
-             * Top Right → ORIGINAL
+             * Button is back at original
+             * position and is waiting for
+             * an actual click.
+             */
+
+            if (state === 4) {
+
+                return;
+
+            }
+
+
+            /*
+             * Only these states can
+             * respond to proximity.
              */
 
             if (
                 state !== 0 &&
+                state !== 1 &&
                 state !== 2 &&
                 state !== 3
             ) {
@@ -814,7 +881,7 @@
 
 
             /*
-             * Pointer/finger is approaching.
+             * Detection distance.
              */
 
             if (
@@ -840,9 +907,13 @@
 
 
             /*
-             * 1st movement:
+             * -------------------------------------
              *
-             * ORIGINAL → TOP
+             * STEP 1
+             *
+             * ORIGINAL → TOP CENTER
+             *
+             * -------------------------------------
              */
 
             if (state === 0) {
@@ -851,19 +922,48 @@
 
 
                 button.style.left =
-                    topPosition.left;
+                    topCenterPosition.left;
 
 
                 button.style.top =
-                    topPosition.top;
+                    topCenterPosition.top;
 
             }
 
 
             /*
-             * 2nd movement:
+             * -------------------------------------
+             *
+             * STEP 2
+             *
+             * TOP CENTER → DOWN
+             *
+             * -------------------------------------
+             */
+
+            else if (state === 1) {
+
+                state = 2;
+
+
+                button.style.left =
+                    originalPosition.left;
+
+
+                button.style.top =
+                    originalPosition.top;
+
+            }
+
+
+            /*
+             * -------------------------------------
+             *
+             * STEP 3
              *
              * DOWN → TOP RIGHT
+             *
+             * -------------------------------------
              */
 
             else if (state === 2) {
@@ -882,9 +982,13 @@
 
 
             /*
-             * 3rd movement:
+             * -------------------------------------
+             *
+             * STEP 4
              *
              * TOP RIGHT → ORIGINAL
+             *
+             * -------------------------------------
              */
 
             else if (state === 3) {
@@ -902,6 +1006,10 @@
             }
 
 
+            /*
+             * Wait until movement finishes.
+             */
+
             setTimeout(
                 function() {
 
@@ -917,13 +1025,14 @@
 
 
         /* =========================================
-           MOUSE SUPPORT
+           DESKTOP MOUSE
         ========================================= */
 
         document.addEventListener(
             "mousemove",
 
             function(event) {
+
 
                 pointerX =
                     event.clientX;
@@ -941,7 +1050,7 @@
 
 
         /* =========================================
-           MOBILE TOUCH SUPPORT
+           MOBILE TOUCH
         ========================================= */
 
         document.addEventListener(
@@ -976,7 +1085,6 @@
                 passive: true
             }
         );
-
 
 
         document.addEventListener(
@@ -1023,51 +1131,18 @@
 
             function(event) {
 
+
                 event.preventDefault();
 
 
                 /*
-                 * FIRST CLICK
+                 * -------------------------------------
                  *
-                 * TOP → DOWN
-                 */
-
-                if (state === 1) {
-
-                    moving = true;
-
-
-                    state = 2;
-
-
-                    button.style.left =
-                        originalPosition.left;
-
-
-                    button.style.top =
-                        originalPosition.top;
-
-
-                    setTimeout(
-                        function() {
-
-                            moving = false;
-
-                        },
-
-                        500
-                    );
-
-
-                    return;
-
-                }
-
-
-                /*
-                 * FINAL CLICK
+                 * ONLY FINAL CLICK
                  *
                  * ORIGINAL → NEXT SCREEN
+                 *
+                 * -------------------------------------
                  */
 
                 if (state === 4) {
@@ -1089,11 +1164,8 @@
 
                         },
 
-                        200
+                        300
                     );
-
-
-                    return;
 
                 }
 
@@ -1147,10 +1219,10 @@
                 if (state === 1) {
 
                     button.style.left =
-                        topPosition.left;
+                        topCenterPosition.left;
 
                     button.style.top =
-                        topPosition.top;
+                        topCenterPosition.top;
 
                 }
 
