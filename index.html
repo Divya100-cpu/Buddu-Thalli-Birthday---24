@@ -7,6 +7,7 @@
     <title>Finally... The Wait Is Over ❤️</title>
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -26,17 +27,18 @@
                 radial-gradient(
                     circle at 50% 45%,
                     #351044 0%,
-                    #1d0826 42%,
+                    #1d0826 45%,
                     #09030d 100%
                 );
 
-            color: #ffffff;
+            color: white;
 
             font-family:
                 Georgia,
                 "Times New Roman",
                 serif;
         }
+
 
         /* =========================================
            SCREEN
@@ -60,20 +62,22 @@
             padding: 20px;
 
             transition:
-                opacity 1s ease,
-                transform 1s ease;
+                opacity 0.9s ease,
+                transform 0.9s ease;
         }
+
 
         .screen.hidden {
             opacity: 0;
 
             pointer-events: none;
 
-            transform: scale(1.04);
+            transform: scale(1.05);
         }
 
+
         /* =========================================
-           BACKGROUND
+           BACKGROUND GLOW
         ========================================= */
 
         .background-glow {
@@ -90,7 +94,7 @@
             background:
                 radial-gradient(
                     circle,
-                    rgba(206, 77, 255, 0.14),
+                    rgba(210, 80, 255, 0.16),
                     transparent 70%
                 );
 
@@ -98,6 +102,11 @@
 
             pointer-events: none;
         }
+
+
+        /* =========================================
+           STARS
+        ========================================= */
 
         .stars {
             position: absolute;
@@ -107,65 +116,68 @@
             pointer-events: none;
         }
 
+
         .star {
             position: absolute;
 
             width: 2px;
             height: 2px;
 
-            background: rgba(255, 255, 255, 0.65);
-
             border-radius: 50%;
+
+            background:
+                rgba(255, 255, 255, 0.7);
 
             animation:
                 twinkle 3s ease-in-out infinite;
         }
 
+
         .star:nth-child(1) {
-            left: 10%;
-            top: 22%;
+            left: 8%;
+            top: 20%;
             animation-delay: 0s;
         }
 
         .star:nth-child(2) {
-            left: 20%;
+            left: 18%;
             top: 65%;
             animation-delay: 1s;
         }
 
         .star:nth-child(3) {
-            left: 31%;
+            left: 30%;
             top: 35%;
             animation-delay: 2s;
         }
 
         .star:nth-child(4) {
-            left: 47%;
+            left: 45%;
             top: 15%;
             animation-delay: 0.5s;
         }
 
         .star:nth-child(5) {
-            left: 64%;
-            top: 30%;
+            left: 63%;
+            top: 27%;
             animation-delay: 1.5s;
         }
 
         .star:nth-child(6) {
             left: 77%;
-            top: 63%;
+            top: 62%;
             animation-delay: 2.5s;
         }
 
         .star:nth-child(7) {
-            left: 89%;
-            top: 27%;
+            left: 90%;
+            top: 25%;
             animation-delay: 1s;
         }
 
         .star:nth-child(8) {
             left: 73%;
-            top: 83%;
+            top: 82%;
             animation-delay: 2s;
         }
 
@@ -176,12 +188,14 @@
         }
 
         .star:nth-child(10) {
-            left: 93%;
-            top: 52%;
+            left: 94%;
+            top: 53%;
             animation-delay: 1.8s;
         }
 
+
         @keyframes twinkle {
+
             0%,
             100% {
                 opacity: 0.2;
@@ -193,6 +207,7 @@
                 transform: scale(1.5);
             }
         }
+
 
         /* =========================================
            CONTENT
@@ -213,6 +228,11 @@
 
             text-align: center;
         }
+
+
+        /* =========================================
+           SMALL TITLE
+        ========================================= */
 
         .eyebrow {
             font-size:
@@ -237,16 +257,16 @@
             animation-delay: 0.3s;
         }
 
+
         /* =========================================
-           TITLE
+           MAIN TITLE
         ========================================= */
 
         h1 {
             font-size:
                 clamp(40px, 6.4vw, 86px);
 
-            line-height:
-                0.95;
+            line-height: 0.95;
 
             font-weight: 500;
 
@@ -270,6 +290,7 @@
             animation-delay: 0.8s;
         }
 
+
         /* =========================================
            DESCRIPTION
         ========================================= */
@@ -280,8 +301,7 @@
             font-size:
                 clamp(15px, 1.5vw, 20px);
 
-            line-height:
-                1.55;
+            line-height: 1.55;
 
             color:
                 rgba(255, 255, 255, 0.72);
@@ -297,6 +317,7 @@
             animation-delay: 1.8s;
         }
 
+
         /* =========================================
            QUESTION
         ========================================= */
@@ -305,10 +326,9 @@
             font-size:
                 clamp(18px, 2.1vw, 28px);
 
-            line-height:
-                1.35;
+            line-height: 1.35;
 
-            color: #ffffff;
+            color: white;
 
             max-width: 650px;
 
@@ -326,35 +346,23 @@
             animation-delay: 2.5s;
         }
 
-        /* =========================================
-           BUTTON AREA
-        ========================================= */
-
-        .button-area {
-            position: relative;
-
-            width: 100%;
-
-            height:
-                clamp(90px, 12vh, 115px);
-
-            opacity: 0;
-
-            animation:
-                fadeUp 1s ease forwards;
-
-            animation-delay: 3.1s;
-        }
 
         /* =========================================
            BUTTON
         ========================================= */
 
         .ready-button {
-            position: absolute;
+
+            /*
+             * IMPORTANT:
+             * fixed = button position is based
+             * on the entire browser screen.
+             */
+
+            position: fixed;
 
             left: 50%;
-            top: 50%;
+            top: 78%;
 
             transform:
                 translate(-50%, -50%);
@@ -386,38 +394,46 @@
 
             cursor: pointer;
 
+            z-index: 100;
+
             box-shadow:
                 0 8px 30px rgba(230, 70, 180, 0.35);
 
-            z-index: 20;
-
             transition:
-                left 0.45s cubic-bezier(0.2, 1.4, 0.4, 1),
-                top 0.45s cubic-bezier(0.2, 1.4, 0.4, 1),
+                left 0.42s cubic-bezier(0.2, 1.3, 0.4, 1),
+                top 0.42s cubic-bezier(0.2, 1.3, 0.4, 1),
                 transform 0.15s ease,
-                box-shadow 0.3s ease;
+                box-shadow 0.25s ease;
         }
+
 
         .ready-button:hover {
+
             box-shadow:
-                0 12px 45px rgba(230, 70, 180, 0.55);
+                0 12px 45px rgba(230, 70, 180, 0.6);
         }
 
+
         .ready-button:active {
+
             transform:
                 translate(-50%, -50%)
                 scale(0.94);
         }
+
 
         /* =========================================
            SCREEN 2
         ========================================= */
 
         .screen-two-content {
+
             max-width: 750px;
         }
 
+
         .screen-two-content h2 {
+
             font-size:
                 clamp(38px, 6vw, 75px);
 
@@ -428,7 +444,9 @@
             margin-bottom: 25px;
         }
 
+
         .screen-two-content p {
+
             font-size:
                 clamp(16px, 2vw, 22px);
 
@@ -438,11 +456,13 @@
                 rgba(255, 255, 255, 0.72);
         }
 
+
         /* =========================================
            ANIMATIONS
         ========================================= */
 
         @keyframes fadeUp {
+
             from {
                 opacity: 0;
 
@@ -458,7 +478,9 @@
             }
         }
 
+
         @keyframes titleReveal {
+
             from {
                 opacity: 0;
 
@@ -480,6 +502,7 @@
             }
         }
 
+
         /* =========================================
            MOBILE
         ========================================= */
@@ -487,18 +510,25 @@
         @media (max-width: 600px) {
 
             .screen {
+
                 padding: 18px;
             }
 
+
             .description {
+
                 max-width: 340px;
             }
+
 
             .question {
+
                 max-width: 340px;
             }
 
+
             .ready-button {
+
                 min-width: 160px;
 
                 padding:
@@ -508,6 +538,7 @@
             }
         }
 
+
         /* =========================================
            SHORT SCREEN
         ========================================= */
@@ -515,30 +546,36 @@
         @media (max-height: 700px) {
 
             .eyebrow {
+
                 margin-bottom: 8px;
             }
 
+
             h1 {
+
                 margin-bottom: 12px;
             }
+
 
             .description {
+
                 margin-bottom: 12px;
             }
+
 
             .question {
+
                 margin-bottom: 12px;
             }
-
-            .button-area {
-                height: 75px;
-            }
         }
+
     </style>
+
 </head>
 
 
 <body>
+
 
     <!-- =========================================
          SCREEN 1
@@ -550,6 +587,7 @@
     >
 
         <div class="background-glow"></div>
+
 
         <div class="stars">
 
@@ -569,46 +607,64 @@
 
         <div class="content">
 
+
             <div class="eyebrow">
+
                 30 Days • 30 Wishes
+
             </div>
 
 
             <h1>
+
                 Finally...
+
                 <br>
+
                 The Wait Is Over.
+
             </h1>
 
 
             <p class="description">
+
                 Thirty days of wishes brought us all the way here...
                 and now there's only one thing left to ask.
+
             </p>
 
 
             <p class="question">
+
                 Are you ready to see
+
                 <br>
+
                 what surprise I planned for you? 👀❤️
+
             </p>
 
 
-            <div class="button-area">
-
-                <button
-                    id="readyButton"
-                    class="ready-button"
-                    type="button"
-                >
-                    I'M READY ✨
-                </button>
-
-            </div>
-
         </div>
 
+
+        <!-- =====================================
+             RUNAWAY BUTTON
+        ===================================== -->
+
+        <button
+            id="readyButton"
+            class="ready-button"
+            type="button"
+        >
+
+            I'M READY ✨
+
+        </button>
+
+
     </section>
+
 
 
     <!-- =========================================
@@ -620,16 +676,25 @@
         id="screen2"
     >
 
-        <div class="content screen-two-content">
+        <div
+            class="content screen-two-content"
+        >
 
             <h2>
+
                 Oh...
+
                 <br>
+
                 You Actually Made It. 👀
+
             </h2>
 
+
             <p>
+
                 And this is only the beginning...
+
             </p>
 
         </div>
@@ -637,56 +702,81 @@
     </section>
 
 
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================= -->
+
     <script>
+
 
         /* =========================================
            ELEMENTS
         ========================================= */
 
         const button =
-            document.getElementById("readyButton");
+            document.getElementById(
+                "readyButton"
+            );
+
 
         const screen1 =
-            document.getElementById("screen1");
+            document.getElementById(
+                "screen1"
+            );
+
 
         const screen2 =
-            document.getElementById("screen2");
+            document.getElementById(
+                "screen2"
+            );
+
 
 
         /* =========================================
-           SETTINGS
+           RUNAWAY SETTINGS
         ========================================= */
 
+
         /*
-         * The cursor does NOT need to touch
-         * the button.
+         * Distance from cursor to button
+         * before the button runs away.
          *
-         * When it comes within this distance,
-         * the button runs away.
+         * Increase this if you want it
+         * to escape earlier.
          */
 
-        const detectionDistance = 220;
+        const detectionDistance = 180;
 
 
         /*
-         * Distance the button moves away
-         * from the cursor.
+         * How far the button runs.
          */
 
-        const escapeDistance = 220;
+        const escapeDistance = 230;
 
 
         /*
-         * Prevents the button from being
-         * triggered repeatedly during one
-         * animation.
+         * Prevent multiple movements
+         * during the same animation.
          */
 
         let moving = false;
 
 
+
         /* =========================================
-           GET BUTTON POSITION
+           POINTER POSITION
+        ========================================= */
+
+        let pointerX = null;
+
+        let pointerY = null;
+
+
+
+        /* =========================================
+           GET BUTTON CENTER
         ========================================= */
 
         function getButtonPosition() {
@@ -694,24 +784,44 @@
             const rect =
                 button.getBoundingClientRect();
 
+
             return {
-                x: rect.left + rect.width / 2,
-                y: rect.top + rect.height / 2,
-                width: rect.width,
-                height: rect.height
+
+                x:
+                    rect.left +
+                    rect.width / 2,
+
+                y:
+                    rect.top +
+                    rect.height / 2,
+
+                width:
+                    rect.width,
+
+                height:
+                    rect.height
+
             };
 
         }
 
 
+
         /* =========================================
-           CHECK POINTER DISTANCE
+           CHECK DISTANCE
         ========================================= */
 
-        function checkPointer(pointerX, pointerY) {
+        function checkDistance() {
 
-            if (moving) {
+
+            if (
+                pointerX === null ||
+                pointerY === null ||
+                moving
+            ) {
+
                 return;
+
             }
 
 
@@ -720,10 +830,13 @@
 
 
             const dx =
-                pointerX - buttonPosition.x;
+                buttonPosition.x -
+                pointerX;
+
 
             const dy =
-                pointerY - buttonPosition.y;
+                buttonPosition.y -
+                pointerY;
 
 
             const distance =
@@ -734,32 +847,30 @@
 
 
             /*
-             * Cursor is close.
-             * Make the button escape.
+             * CURSOR IS CLOSE.
+             *
+             * RUN!
              */
 
             if (
-                distance < detectionDistance
+                distance <
+                detectionDistance
             ) {
 
-                moveButtonAway(
-                    pointerX,
-                    pointerY
-                );
+                moveButtonAway();
 
             }
 
         }
 
 
+
         /* =========================================
            MOVE BUTTON AWAY
         ========================================= */
 
-        function moveButtonAway(
-            pointerX,
-            pointerY
-        ) {
+        function moveButtonAway() {
+
 
             moving = true;
 
@@ -769,13 +880,14 @@
 
 
             /*
-             * Direction from cursor
-             * toward button.
+             * Direction AWAY
+             * from cursor.
              */
 
             let dx =
                 buttonPosition.x -
                 pointerX;
+
 
             let dy =
                 buttonPosition.y -
@@ -793,57 +905,102 @@
              * Normalize direction.
              */
 
-            if (distance < 1) {
+            if (
+                distance < 1
+            ) {
 
                 dx = 0;
+
                 dy = -1;
 
-            } else {
+            }
 
-                dx /= distance;
-                dy /= distance;
+            else {
+
+                dx /=
+                    distance;
+
+                dy /=
+                    distance;
 
             }
 
 
             /*
-             * Calculate new position.
+             * Add random angle.
              *
-             * It moves AWAY from the
-             * pointer.
+             * This prevents the button
+             * from always escaping in
+             * exactly the same direction.
              */
+
+            const angle =
+                (Math.random() - 0.5) *
+                0.8;
+
+
+            const cos =
+                Math.cos(angle);
+
+
+            const sin =
+                Math.sin(angle);
+
+
+            const finalDX =
+                dx * cos -
+                dy * sin;
+
+
+            const finalDY =
+                dx * sin +
+                dy * cos;
+
+
+
+            /* =====================================
+               NEW POSITION
+            ===================================== */
 
             let newX =
                 buttonPosition.x +
-                dx * escapeDistance;
+                finalDX *
+                escapeDistance;
 
 
             let newY =
                 buttonPosition.y +
-                dy * escapeDistance;
+                finalDY *
+                escapeDistance;
 
 
-            /*
-             * Keep the button completely
-             * inside the screen.
-             */
 
-            const margin = 35;
+            /* =====================================
+               KEEP BUTTON ON SCREEN
+            ===================================== */
+
+            const margin = 40;
+
 
             const halfWidth =
-                buttonPosition.width / 2;
+                buttonPosition.width /
+                2;
+
 
             const halfHeight =
-                buttonPosition.height / 2;
+                buttonPosition.height /
+                2;
 
 
             newX =
                 Math.max(
                     halfWidth + margin,
+
                     Math.min(
                         window.innerWidth -
                         halfWidth -
                         margin,
+
                         newX
                     )
                 );
@@ -852,81 +1009,92 @@
             newY =
                 Math.max(
                     halfHeight + margin,
+
                     Math.min(
                         window.innerHeight -
                         halfHeight -
                         margin,
+
                         newY
                     )
                 );
 
 
-            /*
-             * Convert pixel position
-             * into percentage.
-             */
 
-            const left =
-                (newX /
-                    window.innerWidth) *
-                100;
-
-
-            const top =
-                (newY /
-                    window.innerHeight) *
-                100;
-
-
-            /*
-             * Move the button.
-             */
+            /* =====================================
+               MOVE
+            ===================================== */
 
             button.style.left =
-                left + "%";
+                newX + "px";
+
 
             button.style.top =
-                top + "%";
+                newY + "px";
 
 
-            /*
-             * Wait until movement finishes.
-             * Then it can escape again.
-             */
 
-            setTimeout(() => {
+            /* =====================================
+               READY TO ESCAPE AGAIN
+            ===================================== */
 
-                moving = false;
+            setTimeout(
+                function() {
 
-            }, 470);
+                    moving = false;
+
+
+                    /*
+                     * If cursor is STILL close
+                     * to the new button position,
+                     * run again.
+                     */
+
+                    checkDistance();
+
+                },
+
+                420
+            );
 
         }
 
 
+
         /* =========================================
-           MOUSE / CURSOR
+           MOUSE
         ========================================= */
 
         document.addEventListener(
             "mousemove",
+
             function(event) {
 
-                checkPointer(
-                    event.clientX,
-                    event.clientY
-                );
+
+                pointerX =
+                    event.clientX;
+
+
+                pointerY =
+                    event.clientY;
+
+
+                checkDistance();
 
             }
         );
 
 
+
         /* =========================================
-           TOUCH
+           TOUCH START
         ========================================= */
 
         document.addEventListener(
-            "touchmove",
+            "touchstart",
+
             function(event) {
+
 
                 if (
                     !event.touches ||
@@ -938,88 +1106,167 @@
                 }
 
 
-                const touch =
-                    event.touches[0];
+                pointerX =
+                    event.touches[0].clientX;
 
 
-                checkPointer(
-                    touch.clientX,
-                    touch.clientY
-                );
+                pointerY =
+                    event.touches[0].clientY;
+
+
+                checkDistance();
 
             },
+
             {
                 passive: true
             }
         );
 
 
+
         /* =========================================
-           CLICK
+           TOUCH MOVE
+        ========================================= */
+
+        document.addEventListener(
+            "touchmove",
+
+            function(event) {
+
+
+                if (
+                    !event.touches ||
+                    event.touches.length === 0
+                ) {
+
+                    return;
+
+                }
+
+
+                pointerX =
+                    event.touches[0].clientX;
+
+
+                pointerY =
+                    event.touches[0].clientY;
+
+
+                checkDistance();
+
+            },
+
+            {
+                passive: true
+            }
+        );
+
+
+
+        /* =========================================
+           BUTTON CLICK
         ========================================= */
 
         button.addEventListener(
             "click",
+
             function(event) {
+
 
                 event.preventDefault();
 
 
                 /*
-                 * If she actually manages to
-                 * catch the button, it returns
-                 * to the center.
+                 * She finally caught it.
+                 *
+                 * Bring button to center.
                  */
 
-                button.style.left = "50%";
+                button.style.left =
+                    "50vw";
 
-                button.style.top = "50%";
+
+                button.style.top =
+                    "50vh";
 
 
                 /*
-                 * Give the center movement
-                 * a moment to finish.
+                 * Then open Screen 2.
                  */
 
-                setTimeout(() => {
+                setTimeout(
+                    function() {
 
-                    screen1.classList.add(
-                        "hidden"
-                    );
 
-                    screen2.classList.remove(
-                        "hidden"
-                    );
+                        screen1.classList.add(
+                            "hidden"
+                        );
 
-                }, 600);
+
+                        screen2.classList.remove(
+                            "hidden"
+                        );
+
+
+                    },
+
+                    700
+                );
 
             }
         );
 
 
+
         /* =========================================
-           RESIZE
+           INITIAL POSITION
+        ========================================= */
+
+        window.addEventListener(
+            "load",
+
+            function() {
+
+
+                /*
+                 * Button starts at lower
+                 * center of screen.
+                 */
+
+                button.style.left =
+                    "50vw";
+
+
+                button.style.top =
+                    "78vh";
+
+            }
+        );
+
+
+
+        /* =========================================
+           SCREEN RESIZE
         ========================================= */
 
         window.addEventListener(
             "resize",
+
             function() {
 
-                /*
-                 * Keep the button visible
-                 * if the screen size changes.
-                 */
 
                 const rect =
                     button.getBoundingClientRect();
 
 
-                const margin = 25;
+                const margin = 35;
 
 
                 let x =
                     rect.left +
                     rect.width / 2;
+
 
                 let y =
                     rect.top +
@@ -1029,6 +1276,7 @@
                 const halfWidth =
                     rect.width / 2;
 
+
                 const halfHeight =
                     rect.height / 2;
 
@@ -1036,10 +1284,12 @@
                 x =
                     Math.max(
                         halfWidth + margin,
+
                         Math.min(
                             window.innerWidth -
                             halfWidth -
                             margin,
+
                             x
                         )
                     );
@@ -1048,30 +1298,30 @@
                 y =
                     Math.max(
                         halfHeight + margin,
+
                         Math.min(
                             window.innerHeight -
                             halfHeight -
                             margin,
+
                             y
                         )
                     );
 
 
                 button.style.left =
-                    (x /
-                        window.innerWidth *
-                        100) + "%";
+                    x + "px";
 
 
                 button.style.top =
-                    (y /
-                        window.innerHeight *
-                        100) + "%";
+                    y + "px";
 
             }
         );
 
+
     </script>
+
 
 </body>
 </html>
