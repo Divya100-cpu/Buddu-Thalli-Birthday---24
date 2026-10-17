@@ -57,8 +57,7 @@
 
             overflow: hidden;
 
-            padding:
-                clamp(18px, 4vw, 45px);
+            padding: 20px;
 
             transition:
                 opacity 1s ease,
@@ -114,7 +113,7 @@
             width: 2px;
             height: 2px;
 
-            background: rgba(255,255,255,0.65);
+            background: rgba(255, 255, 255, 0.65);
 
             border-radius: 50%;
 
@@ -183,7 +182,6 @@
         }
 
         @keyframes twinkle {
-
             0%,
             100% {
                 opacity: 0.2;
@@ -226,10 +224,10 @@
             text-transform: uppercase;
 
             color:
-                rgba(255,255,255,0.62);
+                rgba(255, 255, 255, 0.62);
 
             margin-bottom:
-                clamp(14px, 2vh, 24px);
+                clamp(12px, 2vh, 22px);
 
             opacity: 0;
 
@@ -240,12 +238,12 @@
         }
 
         /* =========================================
-           MAIN TITLE
+           TITLE
         ========================================= */
 
         h1 {
             font-size:
-                clamp(42px, 6.8vw, 88px);
+                clamp(40px, 6.4vw, 86px);
 
             line-height:
                 0.95;
@@ -253,16 +251,16 @@
             font-weight: 500;
 
             letter-spacing:
-                clamp(1px, 0.25vw, 4px);
+                clamp(1px, 0.2vw, 4px);
 
             text-transform: uppercase;
 
             margin-bottom:
-                clamp(18px, 3vh, 28px);
+                clamp(16px, 2.5vh, 25px);
 
             text-shadow:
-                0 0 15px rgba(255,150,220,0.25),
-                0 0 45px rgba(220,90,255,0.15);
+                0 0 15px rgba(255, 150, 220, 0.25),
+                0 0 45px rgba(220, 90, 255, 0.15);
 
             opacity: 0;
 
@@ -280,16 +278,16 @@
             width: min(620px, 100%);
 
             font-size:
-                clamp(15px, 1.55vw, 20px);
+                clamp(15px, 1.5vw, 20px);
 
             line-height:
-                1.65;
+                1.55;
 
             color:
-                rgba(255,255,255,0.72);
+                rgba(255, 255, 255, 0.72);
 
             margin-bottom:
-                clamp(18px, 3vh, 28px);
+                clamp(16px, 2.5vh, 25px);
 
             opacity: 0;
 
@@ -305,20 +303,20 @@
 
         .question {
             font-size:
-                clamp(18px, 2.2vw, 28px);
+                clamp(18px, 2.1vw, 28px);
 
             line-height:
-                1.4;
+                1.35;
 
             color: #ffffff;
 
             max-width: 650px;
 
             margin-bottom:
-                clamp(22px, 3vh, 32px);
+                clamp(18px, 2.5vh, 28px);
 
             text-shadow:
-                0 0 18px rgba(255,100,200,0.3);
+                0 0 18px rgba(255, 100, 200, 0.3);
 
             opacity: 0;
 
@@ -338,7 +336,7 @@
             width: 100%;
 
             height:
-                clamp(95px, 13vh, 125px);
+                clamp(90px, 12vh, 115px);
 
             opacity: 0;
 
@@ -369,7 +367,7 @@
             border-radius: 50px;
 
             border:
-                1px solid rgba(255,255,255,0.4);
+                1px solid rgba(255, 255, 255, 0.4);
 
             background:
                 linear-gradient(
@@ -389,20 +387,20 @@
             cursor: pointer;
 
             box-shadow:
-                0 8px 30px rgba(230,70,180,0.35);
+                0 8px 30px rgba(230, 70, 180, 0.35);
 
             z-index: 20;
 
             transition:
-                left 0.55s cubic-bezier(0.2, 1.4, 0.4, 1),
-                top 0.55s cubic-bezier(0.2, 1.4, 0.4, 1),
-                transform 0.2s ease,
+                left 0.45s cubic-bezier(0.2, 1.4, 0.4, 1),
+                top 0.45s cubic-bezier(0.2, 1.4, 0.4, 1),
+                transform 0.15s ease,
                 box-shadow 0.3s ease;
         }
 
         .ready-button:hover {
             box-shadow:
-                0 12px 45px rgba(230,70,180,0.55);
+                0 12px 45px rgba(230, 70, 180, 0.55);
         }
 
         .ready-button:active {
@@ -437,7 +435,7 @@
             line-height: 1.7;
 
             color:
-                rgba(255,255,255,0.72);
+                rgba(255, 255, 255, 0.72);
         }
 
         /* =========================================
@@ -445,7 +443,6 @@
         ========================================= */
 
         @keyframes fadeUp {
-
             from {
                 opacity: 0;
 
@@ -462,7 +459,6 @@
         }
 
         @keyframes titleReveal {
-
             from {
                 opacity: 0;
 
@@ -513,33 +509,34 @@
         }
 
         /* =========================================
-           SHORT HEIGHT SCREENS
+           SHORT SCREEN
         ========================================= */
 
         @media (max-height: 700px) {
 
             .eyebrow {
-                margin-bottom: 10px;
+                margin-bottom: 8px;
             }
 
             h1 {
-                margin-bottom: 14px;
+                margin-bottom: 12px;
             }
 
             .description {
-                margin-bottom: 14px;
+                margin-bottom: 12px;
             }
 
             .question {
-                margin-bottom: 14px;
+                margin-bottom: 12px;
             }
 
             .button-area {
-                height: 80px;
+                height: 75px;
             }
         }
     </style>
 </head>
+
 
 <body>
 
@@ -642,6 +639,10 @@
 
     <script>
 
+        /* =========================================
+           ELEMENTS
+        ========================================= */
+
         const button =
             document.getElementById("readyButton");
 
@@ -652,96 +653,96 @@
             document.getElementById("screen2");
 
 
-        /*
-        ============================================
-        SETTINGS
-        ============================================
-        */
-
-        let escapeCount = 0;
-
-        let buttonEscaping = false;
+        /* =========================================
+           SETTINGS
+        ========================================= */
 
         /*
-        Distance at which the button
-        notices the pointer.
+         * The cursor does NOT need to touch
+         * the button.
+         *
+         * When it comes within this distance,
+         * the button runs away.
+         */
 
-        Increase this number if you want
-        the button to escape earlier.
-        */
-
-        const detectionDistance = 125;
+        const detectionDistance = 220;
 
 
         /*
-        ============================================
-        GET BUTTON POSITION
-        ============================================
-        */
+         * Distance the button moves away
+         * from the cursor.
+         */
 
-        function getButtonRect() {
+        const escapeDistance = 220;
 
-            return button.getBoundingClientRect();
+
+        /*
+         * Prevents the button from being
+         * triggered repeatedly during one
+         * animation.
+         */
+
+        let moving = false;
+
+
+        /* =========================================
+           GET BUTTON POSITION
+        ========================================= */
+
+        function getButtonPosition() {
+
+            const rect =
+                button.getBoundingClientRect();
+
+            return {
+                x: rect.left + rect.width / 2,
+                y: rect.top + rect.height / 2,
+                width: rect.width,
+                height: rect.height
+            };
 
         }
 
 
-        /*
-        ============================================
-        MOVE BUTTON
-        ============================================
-        */
+        /* =========================================
+           CHECK POINTER DISTANCE
+        ========================================= */
 
-        function moveButtonAway(pointerX, pointerY) {
+        function checkPointer(pointerX, pointerY) {
 
-            if (buttonEscaping) {
-                return;
-            }
-
-            /*
-            After enough escapes,
-            stop running away.
-            */
-
-            if (escapeCount >= 2) {
+            if (moving) {
                 return;
             }
 
 
-            const rect =
-                getButtonRect();
+            const buttonPosition =
+                getButtonPosition();
 
 
-            const buttonCenterX =
-                rect.left + rect.width / 2;
+            const dx =
+                pointerX - buttonPosition.x;
 
-
-            const buttonCenterY =
-                rect.top + rect.height / 2;
-
-
-            const distanceX =
-                pointerX - buttonCenterX;
-
-
-            const distanceY =
-                pointerY - buttonCenterY;
+            const dy =
+                pointerY - buttonPosition.y;
 
 
             const distance =
                 Math.sqrt(
-                    distanceX * distanceX +
-                    distanceY * distanceY
+                    dx * dx +
+                    dy * dy
                 );
 
 
             /*
-            Pointer is close enough.
-            */
+             * Cursor is close.
+             * Make the button escape.
+             */
 
-            if (distance < detectionDistance) {
+            if (
+                distance < detectionDistance
+            ) {
 
-                escapeButton(
+                moveButtonAway(
                     pointerX,
                     pointerY
                 );
@@ -751,100 +752,89 @@
         }
 
 
-        /*
-        ============================================
-        ESCAPE BUTTON
-        ============================================
-        */
+        /* =========================================
+           MOVE BUTTON AWAY
+        ========================================= */
 
-        function escapeButton(pointerX, pointerY) {
+        function moveButtonAway(
+            pointerX,
+            pointerY
+        ) {
 
-            buttonEscaping = true;
-
-            escapeCount++;
-
-
-            /*
-            Current button position
-            */
-
-            const rect =
-                getButtonRect();
+            moving = true;
 
 
-            const currentX =
-                rect.left + rect.width / 2;
-
-
-            const currentY =
-                rect.top + rect.height / 2;
+            const buttonPosition =
+                getButtonPosition();
 
 
             /*
-            Direction from pointer
-            to button.
-            */
+             * Direction from cursor
+             * toward button.
+             */
 
             let dx =
-                currentX - pointerX;
-
+                buttonPosition.x -
+                pointerX;
 
             let dy =
-                currentY - pointerY;
+                buttonPosition.y -
+                pointerY;
 
 
-            const length =
-                Math.sqrt(dx * dx + dy * dy);
+            const distance =
+                Math.sqrt(
+                    dx * dx +
+                    dy * dy
+                );
 
 
             /*
-            Prevent division by zero.
-            */
+             * Normalize direction.
+             */
 
-            if (length === 0) {
+            if (distance < 1) {
 
                 dx = 0;
                 dy = -1;
 
             } else {
 
-                dx /= length;
-                dy /= length;
+                dx /= distance;
+                dy /= distance;
 
             }
 
 
             /*
-            How far the button escapes.
-            */
-
-            const escapeDistance =
-                150;
-
+             * Calculate new position.
+             *
+             * It moves AWAY from the
+             * pointer.
+             */
 
             let newX =
-                currentX +
+                buttonPosition.x +
                 dx * escapeDistance;
 
 
             let newY =
-                currentY +
+                buttonPosition.y +
                 dy * escapeDistance;
 
 
             /*
-            Keep button inside screen.
-            */
+             * Keep the button completely
+             * inside the screen.
+             */
 
             const margin = 35;
 
-
             const halfWidth =
-                rect.width / 2;
-
+                buttonPosition.width / 2;
 
             const halfHeight =
-                rect.height / 2;
+                buttonPosition.height / 2;
 
 
             newX =
@@ -872,51 +862,56 @@
 
 
             /*
-            Convert to percentage
-            position.
-            */
+             * Convert pixel position
+             * into percentage.
+             */
 
-            const xPercent =
-                (newX / window.innerWidth) * 100;
-
-
-            const yPercent =
-                (newY / window.innerHeight) * 100;
+            const left =
+                (newX /
+                    window.innerWidth) *
+                100;
 
 
-            button.style.left =
-                xPercent + "%";
-
-
-            button.style.top =
-                yPercent + "%";
+            const top =
+                (newY /
+                    window.innerHeight) *
+                100;
 
 
             /*
-            Allow another interaction
-            after movement finishes.
-            */
+             * Move the button.
+             */
+
+            button.style.left =
+                left + "%";
+
+            button.style.top =
+                top + "%";
+
+
+            /*
+             * Wait until movement finishes.
+             * Then it can escape again.
+             */
 
             setTimeout(() => {
 
-                buttonEscaping = false;
+                moving = false;
 
-            }, 650);
+            }, 470);
 
         }
 
 
-        /*
-        ============================================
-        DESKTOP / MOUSE
-        ============================================
-        */
+        /* =========================================
+           MOUSE / CURSOR
+        ========================================= */
 
         document.addEventListener(
             "mousemove",
             function(event) {
 
-                moveButtonAway(
+                checkPointer(
                     event.clientX,
                     event.clientY
                 );
@@ -925,11 +920,9 @@
         );
 
 
-        /*
-        ============================================
-        TOUCH / MOBILE
-        ============================================
-        */
+        /* =========================================
+           TOUCH
+        ========================================= */
 
         document.addEventListener(
             "touchmove",
@@ -939,7 +932,9 @@
                     !event.touches ||
                     event.touches.length === 0
                 ) {
+
                     return;
+
                 }
 
 
@@ -947,7 +942,7 @@
                     event.touches[0];
 
 
-                moveButtonAway(
+                checkPointer(
                     touch.clientX,
                     touch.clientY
                 );
@@ -959,11 +954,9 @@
         );
 
 
-        /*
-        ============================================
-        CLICK BEHAVIOR
-        ============================================
-        */
+        /* =========================================
+           CLICK
+        ========================================= */
 
         button.addEventListener(
             "click",
@@ -973,64 +966,107 @@
 
 
                 /*
-                If the button has escaped twice,
-                allow the third interaction
-                to open Screen 2.
-                */
+                 * If she actually manages to
+                 * catch the button, it returns
+                 * to the center.
+                 */
 
-                if (escapeCount >= 2) {
+                button.style.left = "50%";
 
-                    /*
-                    Put button back to center.
-                    */
-
-                    button.style.left = "50%";
-
-                    button.style.top = "50%";
+                button.style.top = "50%";
 
 
-                    /*
-                    Small pause so the user
-                    sees the button return.
-                    */
+                /*
+                 * Give the center movement
+                 * a moment to finish.
+                 */
 
-                    setTimeout(() => {
+                setTimeout(() => {
 
-                        screen1.classList.add(
-                            "hidden"
-                        );
+                    screen1.classList.add(
+                        "hidden"
+                    );
 
-                        screen2.classList.remove(
-                            "hidden"
-                        );
+                    screen2.classList.remove(
+                        "hidden"
+                    );
 
-                    }, 650);
-
-                }
+                }, 600);
 
             }
         );
 
 
-        /*
-        ============================================
-        RESET POSITION ON RESIZE
-        ============================================
-        */
+        /* =========================================
+           RESIZE
+        ========================================= */
 
         window.addEventListener(
             "resize",
             function() {
 
-                if (escapeCount < 2) {
+                /*
+                 * Keep the button visible
+                 * if the screen size changes.
+                 */
 
-                    button.style.left =
-                        "50%";
+                const rect =
+                    button.getBoundingClientRect();
 
-                    button.style.top =
-                        "50%";
 
-                }
+                const margin = 25;
+
+
+                let x =
+                    rect.left +
+                    rect.width / 2;
+
+                let y =
+                    rect.top +
+                    rect.height / 2;
+
+
+                const halfWidth =
+                    rect.width / 2;
+
+                const halfHeight =
+                    rect.height / 2;
+
+
+                x =
+                    Math.max(
+                        halfWidth + margin,
+                        Math.min(
+                            window.innerWidth -
+                            halfWidth -
+                            margin,
+                            x
+                        )
+                    );
+
+
+                y =
+                    Math.max(
+                        halfHeight + margin,
+                        Math.min(
+                            window.innerHeight -
+                            halfHeight -
+                            margin,
+                            y
+                        )
+                    );
+
+
+                button.style.left =
+                    (x /
+                        window.innerWidth *
+                        100) + "%";
+
+
+                button.style.top =
+                    (y /
+                        window.innerHeight *
+                        100) + "%";
 
             }
         );
