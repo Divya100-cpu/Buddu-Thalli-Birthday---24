@@ -40,9 +40,9 @@
         }
 
 
-        /* ================================
+        /* =========================================
            SCREEN
-        ================================= */
+        ========================================= */
 
         .screen {
             position: fixed;
@@ -76,9 +76,9 @@
         }
 
 
-        /* ================================
+        /* =========================================
            BACKGROUND
-        ================================= */
+        ========================================= */
 
         .background-glow {
             position: absolute;
@@ -104,9 +104,9 @@
         }
 
 
-        /* ================================
+        /* =========================================
            STARS
-        ================================= */
+        ========================================= */
 
         .stars {
             position: absolute;
@@ -208,9 +208,9 @@
         }
 
 
-        /* ================================
+        /* =========================================
            CONTENT
-        ================================= */
+        ========================================= */
 
         .content {
             position: relative;
@@ -229,9 +229,9 @@
         }
 
 
-        /* ================================
+        /* =========================================
            EYEBROW
-        ================================= */
+        ========================================= */
 
         .eyebrow {
             font-size:
@@ -257,9 +257,9 @@
         }
 
 
-        /* ================================
+        /* =========================================
            TITLE
-        ================================= */
+        ========================================= */
 
         h1 {
             font-size:
@@ -290,9 +290,9 @@
         }
 
 
-        /* ================================
+        /* =========================================
            DESCRIPTION
-        ================================= */
+        ========================================= */
 
         .description {
             width: min(620px, 100%);
@@ -317,9 +317,9 @@
         }
 
 
-        /* ================================
+        /* =========================================
            QUESTION
-        ================================= */
+        ========================================= */
 
         .question {
             font-size:
@@ -331,8 +331,7 @@
 
             max-width: 650px;
 
-            margin-bottom:
-                28px;
+            margin-bottom: 28px;
 
             text-shadow:
                 0 0 18px rgba(255, 100, 200, 0.3);
@@ -346,9 +345,9 @@
         }
 
 
-        /* ================================
+        /* =========================================
            BUTTON
-        ================================= */
+        ========================================= */
 
         .ready-button {
 
@@ -357,7 +356,7 @@
             left: 50%;
 
             /*
-             * NORMAL POSITION
+             * ORIGINAL POSITION
              */
 
             top: 78%;
@@ -398,8 +397,8 @@
                 0 8px 30px rgba(230, 70, 180, 0.35);
 
             transition:
-                left 0.3s ease,
-                top 0.3s ease,
+                left 0.45s ease,
+                top 0.45s ease,
                 box-shadow 0.25s ease;
         }
 
@@ -411,12 +410,11 @@
         }
 
 
-        /* ================================
+        /* =========================================
            SCREEN 2
-        ================================= */
+        ========================================= */
 
         .screen-two-content {
-
             max-width: 750px;
         }
 
@@ -446,9 +444,9 @@
         }
 
 
-        /* ================================
+        /* =========================================
            ANIMATIONS
-        ================================= */
+        ========================================= */
 
         @keyframes fadeUp {
 
@@ -492,9 +490,9 @@
         }
 
 
-        /* ================================
+        /* =========================================
            MOBILE
-        ================================= */
+        ========================================= */
 
         @media (max-width: 600px) {
 
@@ -511,6 +509,7 @@
             }
 
             .ready-button {
+
                 min-width: 160px;
 
                 padding:
@@ -528,9 +527,9 @@
 <body>
 
 
-    <!-- =====================================
+    <!-- =========================================
          SCREEN 1
-    ====================================== -->
+    ========================================= -->
 
     <section
         class="screen"
@@ -599,9 +598,9 @@
         </div>
 
 
-        <!-- =================================
+        <!-- =====================================
              BUTTON
-        ================================== -->
+        ====================================== -->
 
         <button
             id="readyButton"
@@ -618,9 +617,9 @@
 
 
 
-    <!-- =====================================
+    <!-- =========================================
          SCREEN 2
-    ====================================== -->
+    ========================================= -->
 
     <section
         class="screen hidden"
@@ -654,12 +653,12 @@
 
 
 
-    <!-- =====================================
-         JAVASCRIPT
-    ====================================== -->
-
     <script>
 
+
+        /* =========================================
+           ELEMENTS
+        ========================================= */
 
         const button =
             document.getElementById(
@@ -679,24 +678,22 @@
             );
 
 
-        /*
-         * HOW CLOSE THE CURSOR
-         * CAN GET.
-         */
 
-        const detectionDistance = 180;
+        /* =========================================
+           STATES
 
+           0 = ORIGINAL POSITION
+           1 = FIRST TOP VISIT
+           2 = BACK DOWN
+           3 = SECOND TOP VISIT
+           4 = FINISHED
+        ========================================= */
 
-        /*
-         * Prevents multiple triggers
-         * during the same movement.
-         */
-
-        let moving = false;
+        let state = 0;
 
 
         /*
-         * Current cursor/finger position.
+         * Cursor/finger position
          */
 
         let pointerX = null;
@@ -704,12 +701,43 @@
         let pointerY = null;
 
 
+        /*
+         * Prevent rapid triggering.
+         */
 
-        /* =====================================
-           GET BUTTON POSITION
-        ====================================== */
+        let moving = false;
 
-        function getButtonPosition() {
+
+
+        /* =========================================
+           POSITIONS
+        ========================================= */
+
+        const originalPosition = {
+            left: "50vw",
+            top: "78vh"
+        };
+
+
+        /*
+         * TOP POSITION
+         *
+         * 7vh keeps the button visible
+         * instead of cutting it off.
+         */
+
+        const topPosition = {
+            left: "50vw",
+            top: "7vh"
+        };
+
+
+
+        /* =========================================
+           GET BUTTON CENTER
+        ========================================= */
+
+        function getButtonCenter() {
 
             const rect =
                 button.getBoundingClientRect();
@@ -723,13 +751,7 @@
 
                 y:
                     rect.top +
-                    rect.height / 2,
-
-                width:
-                    rect.width,
-
-                height:
-                    rect.height
+                    rect.height / 2
 
             };
 
@@ -737,9 +759,9 @@
 
 
 
-        /* =====================================
-           CHECK DISTANCE
-        ====================================== */
+        /* =========================================
+           CHECK CURSOR DISTANCE
+        ========================================= */
 
         function checkDistance() {
 
@@ -755,17 +777,33 @@
             }
 
 
-            const buttonPosition =
-                getButtonPosition();
+            /*
+             * We only want the button
+             * to react when it is in
+             * ORIGINAL or DOWN state.
+             */
+
+            if (
+                state !== 0 &&
+                state !== 2
+            ) {
+
+                return;
+
+            }
+
+
+            const center =
+                getButtonCenter();
 
 
             const dx =
-                buttonPosition.x -
+                center.x -
                 pointerX;
 
 
             const dy =
-                buttonPosition.y -
+                center.y -
                 pointerY;
 
 
@@ -777,17 +815,14 @@
 
 
             /*
-             * CURSOR IS CLOSE.
-             *
-             * SEND BUTTON TO TOP.
+             * Cursor comes close.
              */
 
             if (
-                distance <
-                detectionDistance
+                distance < 180
             ) {
 
-                moveButtonToTop();
+                moveToTop();
 
             }
 
@@ -795,34 +830,56 @@
 
 
 
-        /* =====================================
-           MOVE BUTTON TO TOP
-        ====================================== */
+        /* =========================================
+           MOVE TO TOP
+        ========================================= */
 
-        function moveButtonToTop() {
+        function moveToTop() {
 
 
             moving = true;
 
 
             /*
-             * The button goes near the
-             * TOP EDGE of the website.
+             * FIRST TIME:
              *
-             * 8vh = 8% from top.
+             * ORIGINAL
+             *      ↓
+             * TOP
              */
 
-            button.style.left =
-                "50vw";
+            if (state === 0) {
 
+                state = 1;
 
-            button.style.top =
-                "8vh";
+            }
 
 
             /*
-             * After it reaches the top,
-             * allow detection again.
+             * SECOND TIME:
+             *
+             * DOWN
+             *      ↓
+             * TOP
+             */
+
+            else if (state === 2) {
+
+                state = 3;
+
+            }
+
+
+            button.style.left =
+                topPosition.left;
+
+
+            button.style.top =
+                topPosition.top;
+
+
+            /*
+             * Wait for animation.
              */
 
             setTimeout(
@@ -830,26 +887,18 @@
 
                     moving = false;
 
-
-                    /*
-                     * Check again because
-                     * cursor may still be nearby.
-                     */
-
-                    checkDistance();
-
                 },
 
-                320
+                500
             );
 
         }
 
 
 
-        /* =====================================
+        /* =========================================
            MOUSE
-        ====================================== */
+        ========================================= */
 
         document.addEventListener(
             "mousemove",
@@ -872,9 +921,9 @@
 
 
 
-        /* =====================================
-           TOUCH
-        ====================================== */
+        /* =========================================
+           TOUCH START
+        ========================================= */
 
         document.addEventListener(
             "touchstart",
@@ -911,6 +960,10 @@
 
 
 
+        /* =========================================
+           TOUCH MOVE
+        ========================================= */
+
         document.addEventListener(
             "touchmove",
 
@@ -946,9 +999,9 @@
 
 
 
-        /* =====================================
+        /* =========================================
            CLICK
-        ====================================== */
+        ========================================= */
 
         button.addEventListener(
             "click",
@@ -960,62 +1013,169 @@
 
 
                 /*
-                 * She finally caught it.
+                 * FIRST TOP VISIT:
                  *
-                 * Return to center.
+                 * TOP
+                 * ↓
+                 * DOWN
                  */
 
-                button.style.left =
-                    "50vw";
+                if (state === 1) {
 
 
-                button.style.top =
-                    "50vh";
+                    moving = true;
+
+
+                    state = 2;
+
+
+                    button.style.left =
+                        originalPosition.left;
+
+
+                    button.style.top =
+                        originalPosition.top;
+
+
+                    setTimeout(
+                        function() {
+
+                            moving = false;
+
+                        },
+
+                        500
+                    );
+
+
+                    return;
+
+                }
+
 
 
                 /*
-                 * Open next screen.
+                 * SECOND TOP VISIT:
+                 *
+                 * TOP
+                 * ↓
+                 * ORIGINAL
+                 * ↓
+                 * NEXT SCREEN
                  */
 
-                setTimeout(
-                    function() {
+                if (state === 3) {
 
 
-                        screen1.classList.add(
-                            "hidden"
-                        );
+                    moving = true;
 
 
-                        screen2.classList.remove(
-                            "hidden"
-                        );
+                    state = 4;
 
 
-                    },
+                    /*
+                     * First return to
+                     * original position.
+                     */
 
-                    700
-                );
+                    button.style.left =
+                        originalPosition.left;
+
+
+                    button.style.top =
+                        originalPosition.top;
+
+
+                    /*
+                     * Then open Screen 2.
+                     */
+
+                    setTimeout(
+                        function() {
+
+
+                            screen1.classList.add(
+                                "hidden"
+                            );
+
+
+                            screen2.classList.remove(
+                                "hidden"
+                            );
+
+
+                        },
+
+                        800
+                    );
+
+
+                    return;
+
+                }
 
             }
         );
 
 
 
-        /* =====================================
+        /* =========================================
            INITIAL POSITION
-        ====================================== */
+        ========================================= */
 
         window.addEventListener(
             "load",
 
             function() {
 
+
                 button.style.left =
-                    "50vw";
+                    originalPosition.left;
 
 
                 button.style.top =
-                    "78vh";
+                    originalPosition.top;
+
+            }
+        );
+
+
+
+        /* =========================================
+           RESIZE
+        ========================================= */
+
+        window.addEventListener(
+            "resize",
+
+            function() {
+
+
+                /*
+                 * Keep button in its
+                 * current state.
+                 */
+
+                if (state === 0 || state === 2) {
+
+                    button.style.left =
+                        originalPosition.left;
+
+                    button.style.top =
+                        originalPosition.top;
+
+                }
+
+
+                if (state === 1 || state === 3) {
+
+                    button.style.left =
+                        topPosition.left;
+
+                    button.style.top =
+                        topPosition.top;
+
+                }
 
             }
         );
