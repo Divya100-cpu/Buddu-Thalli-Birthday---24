@@ -12,7 +12,8 @@
     padding: 0;
 }
 
-html, body {
+html,
+body {
     width: 100%;
     height: 100%;
     overflow: hidden;
@@ -20,352 +21,290 @@ html, body {
 
 body {
     background:
-        radial-gradient(circle at 50% 45%, #21082d 0%, #12051a 45%, #07030c 100%);
+        radial-gradient(circle at 50% 45%, #2b0738 0%, #16031e 45%, #08030d 100%);
     color: white;
     font-family: Georgia, "Times New Roman", serif;
 }
 
-.screen {
+/* ---------- STARS ---------- */
+
+.stars {
     position: fixed;
     inset: 0;
-    width: 100%;
-    height: 100%;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    pointer-events: none;
     overflow: hidden;
+    z-index: 0;
 }
 
-.screen.active {
-    display: flex;
-}
-
-/* Small stars */
 .star {
     position: absolute;
     width: 2px;
     height: 2px;
-    background: white;
+    background: rgba(255,255,255,0.75);
     border-radius: 50%;
-    opacity: 0.55;
     animation: twinkle 3s infinite ease-in-out;
 }
 
 @keyframes twinkle {
     0%,100% {
-        opacity: .2;
+        opacity: .15;
         transform: scale(.7);
     }
     50% {
-        opacity: .9;
-        transform: scale(1.5);
+        opacity: 1;
+        transform: scale(1.4);
     }
 }
 
-/* =========================
-   SCREEN 1
-========================= */
+/* ---------- COMMON ---------- */
 
-.first-content {
-    width: min(900px, 92vw);
+.screen {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .8s ease;
+    z-index: 2;
+}
+
+.screen.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.content {
+    width: min(900px, 94vw);
+    text-align: center;
     position: relative;
-    z-index: 5;
+    z-index: 3;
 }
 
 .small-title {
     font-size: 14px;
-    letter-spacing: 5px;
-    margin-bottom: 20px;
-    opacity: .85;
+    letter-spacing: 6px;
+    margin-bottom: 18px;
+    opacity: .8;
 }
 
 .main-title {
-    font-size: clamp(52px, 7vw, 92px);
-    line-height: .95;
-    letter-spacing: 2px;
+    font-size: clamp(48px, 7vw, 94px);
+    line-height: .94;
     font-weight: bold;
+    letter-spacing: 2px;
     text-shadow:
-        0 0 10px rgba(255,255,255,.35),
-        0 0 30px rgba(214,89,255,.35);
+        0 0 8px rgba(255,255,255,.8),
+        0 0 25px rgba(255,90,230,.35);
 }
 
 .description {
-    margin: 35px auto 0;
-    max-width: 620px;
-    font-size: clamp(16px, 2vw, 20px);
-    line-height: 1.55;
-    opacity: .9;
+    margin: 30px auto 0;
+    max-width: 650px;
+    font-size: clamp(16px, 2vw, 21px);
+    line-height: 1.6;
+    color: rgba(255,255,255,.88);
 }
 
 .question {
     margin-top: 38px;
-    font-size: clamp(20px, 2.5vw, 27px);
+    font-size: clamp(19px, 2.4vw, 28px);
+    font-weight: bold;
+    line-height: 1.4;
+}
+
+/* ---------- BUTTON ---------- */
+
+.action-button {
+    margin-top: 26px;
+    border: 1px solid rgba(255,255,255,.55);
+    background: linear-gradient(135deg, #e85caf, #a63fe1);
+    color: white;
+    border-radius: 999px;
+    padding: 14px 34px;
+    min-width: 145px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow:
+        0 0 12px rgba(255,80,220,.5),
+        0 0 28px rgba(180,70,230,.35);
+    transition:
+        left .65s cubic-bezier(.2,.9,.25,1),
+        top .65s cubic-bezier(.2,.9,.25,1),
+        transform .25s ease,
+        box-shadow .25s ease;
+    position: relative;
+    z-index: 20;
+    touch-action: none;
+}
+
+.action-button:hover {
+    transform: scale(1.04);
+    box-shadow:
+        0 0 18px rgba(255,80,220,.7),
+        0 0 38px rgba(180,70,230,.45);
+}
+
+/*
+   FIRST SCREEN BUTTON
+
+   When jumping, the button becomes fixed.
+   This makes it actually travel to the top
+   of the website instead of moving only a few pixels.
+*/
+
+#readyButton.jumping {
+    position: fixed;
+    left: 50%;
+    top: 34px;
+    transform: translateX(-50%);
+    z-index: 9999;
+}
+
+#readyButton.returning {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+}
+
+/* ---------- SCREEN 2 ---------- */
+
+.surprise-title {
+    font-size: clamp(43px, 6vw, 76px);
+    line-height: 1.08;
+    font-weight: bold;
+    text-shadow:
+        0 0 10px rgba(255,255,255,.75),
+        0 0 25px rgba(255,80,220,.35);
+}
+
+.surprise-text {
+    margin-top: 25px;
+    font-size: clamp(20px, 2.5vw, 30px);
     line-height: 1.45;
     font-weight: bold;
 }
 
-.ready-area {
-    position: relative;
-    height: 150px;
-    width: 100%;
-    margin-top: 5px;
+.suspense {
+    margin-top: 18px;
+    font-size: clamp(16px, 2vw, 21px);
+    opacity: .9;
 }
 
-.ready-btn {
-    position: absolute;
-    left: 50%;
-    top: 30px;
-    transform: translateX(-50%);
-
-    border: 1px solid rgba(255,255,255,.45);
-    border-radius: 999px;
-
-    padding: 14px 30px;
-
-    color: white;
-    background: linear-gradient(135deg, #e84eae, #9c42e8);
-
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 14px;
-    font-weight: bold;
-    letter-spacing: .5px;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 0 12px rgba(255,87,210,.45),
-        0 0 28px rgba(171,64,255,.3);
-
-    transition:
-        left .65s cubic-bezier(.2,.8,.2,1),
-        top .65s cubic-bezier(.2,.8,.2,1),
-        transform .25s ease,
-        box-shadow .3s ease;
-
-    z-index: 20;
-    touch-action: none;
-    user-select: none;
-}
-
-.ready-btn:hover {
-    box-shadow:
-        0 0 18px rgba(255,87,210,.7),
-        0 0 38px rgba(171,64,255,.55);
-}
-
-/*
-    Button stages:
-
-    0 = original
-    1 = top
-    2 = top-right
-    3 = original
-    4 = open next screen
-*/
-
-.ready-btn.top-position {
-    left: 50%;
-    top: -10px;
-}
-
-.ready-btn.top-right-position {
-    left: auto;
-    right: 35px;
-    top: 25px;
-    transform: none;
-}
-
-.ready-btn.original-position {
-    left: 50%;
-    right: auto;
-    top: 30px;
-    transform: translateX(-50%);
-}
-
-/* =========================
-   SCREEN 2
-========================= */
-
-.second-content {
-    width: min(850px, 90vw);
-    position: relative;
-    z-index: 5;
-}
-
-.second-title {
-    font-size: clamp(45px, 6vw, 75px);
-    line-height: 1.05;
-    font-weight: bold;
-
-    text-shadow:
-        0 0 15px rgba(255,255,255,.3),
-        0 0 30px rgba(230,74,255,.3);
-}
-
-.second-text {
-    margin-top: 28px;
-    font-size: clamp(20px, 2.5vw, 28px);
-    line-height: 1.5;
-    font-weight: bold;
-}
-
-.lets-go {
-    margin-top: 35px;
-
-    border: 1px solid rgba(255,255,255,.45);
-    border-radius: 999px;
-
-    padding: 14px 32px;
-
-    color: white;
-    background: linear-gradient(135deg, #e84eae, #9c42e8);
-
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 15px;
-    font-weight: bold;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 0 15px rgba(255,87,210,.5),
-        0 0 30px rgba(171,64,255,.35);
-
-    transition: transform .25s ease;
-}
-
-.lets-go:hover {
-    transform: scale(1.05);
-}
-
-/* =========================
-   SCREEN 3 - PRAYER
-========================= */
-
-.prayer-screen {
-    overflow-y: auto;
-}
-
-.prayer-content {
-    width: min(850px, 90vw);
-    padding: 70px 0;
-    position: relative;
-    z-index: 5;
-}
+/* ---------- SCREEN 3 ---------- */
 
 .greeting {
-    font-size: clamp(27px, 4vw, 44px);
+    font-size: clamp(27px, 4vw, 45px);
     line-height: 1.3;
     font-weight: bold;
-
     text-shadow:
-        0 0 10px rgba(255,255,255,.3),
-        0 0 25px rgba(232,78,174,.35);
-}
-
-.birthday-wish {
-    margin-top: 32px;
-    font-size: clamp(28px, 4vw, 42px);
-    line-height: 1.3;
-    font-weight: bold;
+        0 0 10px rgba(255,255,255,.6),
+        0 0 25px rgba(255,80,220,.25);
 }
 
 .prayer {
-    margin: 35px auto 0;
-    max-width: 760px;
-    font-size: clamp(18px, 2.2vw, 24px);
-    line-height: 1.8;
-    opacity: .96;
+    margin: 32px auto 0;
+    width: min(820px, 94vw);
+    max-height: 62vh;
+    overflow-y: auto;
+    padding: 0 10px;
+    scrollbar-width: none;
 }
 
-.prayer-translation {
-    margin: 30px auto 0;
-    max-width: 760px;
-    font-size: clamp(16px, 2vw, 21px);
-    line-height: 1.8;
-    opacity: .88;
-}
-
-.celebrate-btn {
+.prayer::-webkit-scrollbar {
     display: none;
+}
 
-    margin-top: 40px;
-
-    border: 1px solid rgba(255,255,255,.5);
-    border-radius: 999px;
-
-    padding: 15px 35px;
-
-    color: white;
-    background: linear-gradient(135deg, #e84eae, #9c42e8);
-
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 16px;
+.prayer-english {
+    font-size: clamp(18px, 2vw, 25px);
+    line-height: 1.75;
     font-weight: bold;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 0 18px rgba(255,87,210,.55),
-        0 0 35px rgba(171,64,255,.4);
 }
 
-.celebrate-btn.show {
-    display: inline-block;
-    animation: appear .8s ease forwards;
+.prayer-telugu {
+    margin-top: 25px;
+    font-size: clamp(16px, 1.8vw, 21px);
+    line-height: 1.8;
+    opacity: .92;
 }
 
-@keyframes appear {
-    from {
-        opacity: 0;
-        transform: translateY(15px) scale(.9);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
+.ameen {
+    margin-top: 25px;
+    font-size: clamp(22px, 2.6vw, 32px);
+    font-weight: bold;
 }
 
-/* Mobile */
+/* ---------- FINAL ---------- */
+
+.final-title {
+    font-size: clamp(45px, 7vw, 90px);
+    line-height: 1;
+    text-shadow:
+        0 0 10px rgba(255,255,255,.8),
+        0 0 35px rgba(255,80,220,.4);
+}
+
+.final-text {
+    margin-top: 28px;
+    font-size: clamp(20px, 2.5vw, 30px);
+    line-height: 1.5;
+}
+
+/* ---------- MOBILE ---------- */
+
 @media (max-width: 600px) {
 
+    .screen {
+        padding: 18px;
+    }
+
+    .small-title {
+        font-size: 11px;
+        letter-spacing: 4px;
+    }
+
     .main-title {
-        font-size: 48px;
+        font-size: 45px;
     }
 
     .description {
         font-size: 15px;
-        padding: 0 10px;
+        line-height: 1.5;
+        margin-top: 23px;
     }
 
     .question {
         font-size: 20px;
-        padding: 0 10px;
+        margin-top: 27px;
     }
 
-    .ready-area {
-        height: 170px;
+    .action-button {
+        padding: 13px 28px;
+        min-width: 140px;
     }
 
-    .ready-btn.top-position {
-        top: -5px;
-    }
-
-    .ready-btn.top-right-position {
-        right: 15px;
-        top: 15px;
-    }
-
-    .prayer-content {
-        padding: 50px 0;
+    #readyButton.jumping {
+        top: 25px;
     }
 
     .prayer {
-        font-size: 17px;
-        line-height: 1.7;
+        max-height: 68vh;
     }
 
-    .prayer-translation {
+    .prayer-english {
+        font-size: 17px;
+        line-height: 1.65;
+    }
+
+    .prayer-telugu {
         font-size: 15px;
         line-height: 1.7;
     }
@@ -376,27 +315,30 @@ body {
 <body>
 
 <!-- STARS -->
-<div class="star" style="left:8%;top:20%;animation-delay:.2s"></div>
-<div class="star" style="left:17%;top:40%;animation-delay:1s"></div>
-<div class="star" style="left:29%;top:15%;animation-delay:1.5s"></div>
-<div class="star" style="left:42%;top:30%;animation-delay:.7s"></div>
-<div class="star" style="left:58%;top:18%;animation-delay:1.2s"></div>
-<div class="star" style="left:71%;top:36%;animation-delay:.5s"></div>
-<div class="star" style="left:82%;top:22%;animation-delay:1.8s"></div>
-<div class="star" style="left:92%;top:48%;animation-delay:.4s"></div>
-<div class="star" style="left:14%;top:75%;animation-delay:1.3s"></div>
-<div class="star" style="left:34%;top:82%;animation-delay:.8s"></div>
-<div class="star" style="left:67%;top:78%;animation-delay:1.6s"></div>
-<div class="star" style="left:88%;top:72%;animation-delay:.9s"></div>
+<div class="stars">
+    <span class="star" style="left:8%;top:16%;animation-delay:.2s"></span>
+    <span class="star" style="left:20%;top:36%;animation-delay:1s"></span>
+    <span class="star" style="left:31%;top:18%;animation-delay:1.7s"></span>
+    <span class="star" style="left:43%;top:44%;animation-delay:.7s"></span>
+    <span class="star" style="left:57%;top:13%;animation-delay:2s"></span>
+    <span class="star" style="left:68%;top:31%;animation-delay:1.3s"></span>
+    <span class="star" style="left:82%;top:17%;animation-delay:.4s"></span>
+    <span class="star" style="left:91%;top:38%;animation-delay:1.8s"></span>
+    <span class="star" style="left:14%;top:73%;animation-delay:2.1s"></span>
+    <span class="star" style="left:28%;top:82%;animation-delay:.9s"></span>
+    <span class="star" style="left:48%;top:75%;animation-delay:1.5s"></span>
+    <span class="star" style="left:73%;top:79%;animation-delay:.3s"></span>
+    <span class="star" style="left:88%;top:68%;animation-delay:2.2s"></span>
+</div>
 
 
-<!-- =========================
+<!-- =====================================================
      SCREEN 1
-========================= -->
+===================================================== -->
 
-<section class="screen active" id="screen1">
+<section id="screen1" class="screen active">
 
-    <div class="first-content">
+    <div class="content">
 
         <div class="small-title">
             30 DAYS · 30 WISHES
@@ -418,37 +360,44 @@ body {
             what surprise I planned for you? 👀 ❤️
         </div>
 
-        <div class="ready-area" id="readyArea">
-
-            <button class="ready-btn" id="readyBtn">
-                I'M READY ✨
-            </button>
-
-        </div>
+        <button
+            id="readyButton"
+            class="action-button"
+            type="button"
+        >
+            I'M READY ✨
+        </button>
 
     </div>
 
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      SCREEN 2
-========================= -->
+===================================================== -->
 
-<section class="screen" id="screen2">
+<section id="screen2" class="screen">
 
-    <div class="second-content">
+    <div class="content">
 
-        <h1 class="second-title">
+        <h2 class="surprise-title">
             Oh wowww! 😂
-        </h1>
+        </h2>
 
-        <div class="second-text">
-            I see that you're very excited! 👀<br>
-            But... there's still some suspense left. 😏
-        </div>
+        <p class="surprise-text">
+            I see that you're very excited! 👀
+        </p>
 
-        <button class="lets-go" id="letsGoBtn">
+        <p class="suspense">
+            But... there's still some suspense left. 😉
+        </p>
+
+        <button
+            id="letsGoButton"
+            class="action-button"
+            type="button"
+        >
             LET'S GO ✨
         </button>
 
@@ -457,97 +406,116 @@ body {
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      SCREEN 3
-========================= -->
+===================================================== -->
 
-<section class="screen prayer-screen" id="screen3">
+<section id="screen3" class="screen">
 
-    <div class="prayer-content">
+    <div class="content">
 
-        <div class="greeting">
+        <h2 class="greeting">
             Assalamu Alaikum Ji,<br>
             Wa Rahmatullahi Wa Barakatuh ❤️
-        </div>
-
-        <div class="birthday-wish">
-            जन्मदिन की दुआ 🤲
-        </div>
+        </h2>
 
         <div class="prayer">
 
-            <strong>
-                Bismillahir Rahmanir Raheem.
-            </strong><br><br>
+            <div class="prayer-english">
+                Bismillahir Rahmanir Raheem.<br>
+                Alhamdulillahi Rabbil Aalameen.<br><br>
 
-            Alhamdulillahi Rabbil Aalameen.<br><br>
+                Allahumma barik lahu fi umrihi,<br>
+                warzuqhu sehat, sa'adat aur barkat.<br>
 
-            Allahumma barik lahu fi umrihi,
-            warzuqhu sehat, sa'adat aur barkat.
-            Waj'al hayat-hu ma'mooratan bil-imaan
-            wal-khair wan-najah.
-            Wahfazhu min kulli sharr,
-            waqbal du'aa'ahu.
-            Aameen. 🤲
+                Waj'al hayat-hu ma'mooratan bil-imaan
+                wal-khair wan-najah.<br>
+
+                Wahfazhu min kulli sharr,
+                waqbal du'aa'ahu.
+            </div>
+
+            <div class="prayer-telugu">
+                Dayagala, karunamayudaina Allah perutho
+                prarambhistunnam.<br>
+
+                Prashamsalanni prapanchala Prabhuvaina
+                Allah ke chendutayi.<br>
+
+                Allah, athani vayassulo barkat ivvu,
+                manchi aarogyam, santosham mariyu
+                samruddhi ivvu.<br>
+
+                Athani jeevithanni imaan, manchi mariyu
+                vijayalatho nimpandi.<br>
+
+                Prathi chedu nunchi athanni kapadandi,
+                athani manchi prarthanalanu sweekarinchandi.
+            </div>
+
+            <div class="ameen">
+                Aameen 🤲❤️
+            </div>
 
         </div>
 
-        <div class="prayer-translation">
-
-            “Dayagala, karunamayudaina Allah perutho
-            prarambhistunnam. Prashamsalanni
-            prapanchala Prabhuvaina Allah ke chendutayi.
-            Allah, athani vayassulo barkat ivvu,
-            manchi aarogyam, santosham mariyu samruddhi ivvu.
-            Athani jeevithanni imaan, manchi mariyu
-            vijayalatho nimpandi.
-            Prathi chedu nunchi athanni kapadandi,
-            athani manchi prarthanalanu sweekarinchandi.
-            Aameen.” ❤️
-
-        </div>
-
-        <button class="celebrate-btn" id="celebrateBtn">
-            LET'S CELEBRATE NOW 🎉❤️
-        </button>
+        <!--
+            IMPORTANT:
+            This is intentionally hidden.
+            There is NO next button while the song is playing.
+        -->
 
     </div>
 
 </section>
 
 
-<!-- YOUR SONG -->
-<audio id="birthdaySong" preload="auto">
-    <source src="asubhu-badamin.mp3" type="audio/mpeg">
+<!-- =====================================================
+     SCREEN 4
+===================================================== -->
+
+<section id="screen4" class="screen">
+
+    <div class="content">
+
+        <h2 class="final-title">
+            LET'S CELEBRATE! 🎉
+        </h2>
+
+        <p class="final-text">
+            Now the real birthday surprise begins... ❤️
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     AUDIO
+===================================================== -->
+
+<audio
+    id="birthdaySong"
+    preload="auto"
+    src="asubhu-badamin.mp3">
 </audio>
 
 
 <script>
 
-/* =====================================
-   ELEMENTS
-===================================== */
+/* =====================================================
+   SCREEN CONTROL
+===================================================== */
 
 const screen1 = document.getElementById("screen1");
 const screen2 = document.getElementById("screen2");
 const screen3 = document.getElementById("screen3");
-
-const readyBtn = document.getElementById("readyBtn");
-const readyArea = document.getElementById("readyArea");
-
-const letsGoBtn = document.getElementById("letsGoBtn");
-const celebrateBtn = document.getElementById("celebrateBtn");
-
-const birthdaySong = document.getElementById("birthdaySong");
-
-
-/* =====================================
-   SCREEN SWITCH
-===================================== */
+const screen4 = document.getElementById("screen4");
 
 function showScreen(screen) {
 
-    document.querySelectorAll(".screen").forEach(s => {
+    [screen1, screen2, screen3, screen4].forEach(s => {
         s.classList.remove("active");
     });
 
@@ -555,304 +523,305 @@ function showScreen(screen) {
 }
 
 
-/* =====================================
-   I'M READY BUTTON MOVEMENT
+/* =====================================================
+   FIRST BUTTON
+   EXACT JUMP BEHAVIOUR
+===================================================== */
 
-   STAGE 0
-   Original position
+const readyButton = document.getElementById("readyButton");
 
-   STAGE 1
-   Goes to top
-
-   STAGE 2
-   Goes to top-right
-
-   STAGE 3
-   Returns to original
-
-   STAGE 4
-   Opens next screen
-===================================== */
-
-let buttonStage = 0;
-let lastPointerY = null;
-let moving = false;
+let readyState = "original";
+let touchTimer = null;
 
 
-/* Desktop:
-   Detect cursor BEFORE clicking.
+/*
+   Move button ALL THE WAY to the top.
 */
 
-document.addEventListener("mousemove", function(e) {
+function jumpButtonToTop() {
+
+    if (readyState !== "original") return;
+
+    readyState = "top";
+
+    readyButton.classList.remove("returning");
+    readyButton.classList.add("jumping");
+}
+
+
+/*
+   Bring button back to original position.
+*/
+
+function bringButtonDown() {
+
+    if (readyState !== "top") return;
+
+    readyState = "original";
+
+    readyButton.classList.remove("jumping");
+    readyButton.classList.add("returning");
+
+    setTimeout(() => {
+        readyButton.classList.remove("returning");
+    }, 700);
+}
+
+
+/*
+   DESKTOP POINTER DETECTION
+   We detect when pointer approaches the button.
+*/
+
+document.addEventListener("pointermove", function(e) {
 
     if (!screen1.classList.contains("active")) return;
 
-    if (moving) return;
-
-    const rect = readyBtn.getBoundingClientRect();
-
-    const buttonCenterX = rect.left + rect.width / 2;
-    const buttonCenterY = rect.top + rect.height / 2;
-
-    const distance = Math.sqrt(
-        Math.pow(e.clientX - buttonCenterX, 2) +
-        Math.pow(e.clientY - buttonCenterY, 2)
-    );
-
-    /* Cursor comes close to button */
-    if (distance < 110 && buttonStage === 0) {
-
-        buttonStage = 1;
-        moveButtonTop();
-
-    }
-
-});
-
-
-/* =====================================
-   MOBILE TOUCH
-
-   Mobile doesn't have a cursor.
-
-   So when the finger touches the
-   button, the same sequence starts.
-===================================== */
-
-readyBtn.addEventListener("pointerdown", function(e) {
-
-    e.preventDefault();
-
-    if (moving) return;
-
-    if (e.pointerType === "touch") {
-
-        if (buttonStage === 0) {
-
-            buttonStage = 1;
-            moveButtonTop();
-            return;
-
-        }
-
-        if (buttonStage === 1) {
-
-            buttonStage = 2;
-            moveButtonTopRight();
-            return;
-
-        }
-
-        if (buttonStage === 2) {
-
-            buttonStage = 3;
-            moveButtonOriginal();
-            return;
-
-        }
-
-        if (buttonStage === 3) {
-
-            buttonStage = 4;
-            openSecondScreen();
-            return;
-
-        }
-
-    }
-
-});
-
-
-/* =====================================
-   DESKTOP CLICK SEQUENCE
-===================================== */
-
-readyBtn.addEventListener("click", function(e) {
-
-    e.preventDefault();
-
-    /* If cursor sequence hasn't happened,
-       start it instead of opening screen.
+    /*
+       If button is already at top,
+       don't repeatedly move it.
     */
 
-    if (buttonStage === 0) {
+    if (readyState === "top") {
 
-        buttonStage = 1;
-        moveButtonTop();
+        /*
+           When pointer comes back down toward
+           the original button area, return it.
+        */
+
+        const originalX = window.innerWidth / 2;
+        const originalY = window.innerHeight * 0.80;
+
+        const distanceFromOriginal = Math.sqrt(
+            Math.pow(e.clientX - originalX, 2) +
+            Math.pow(e.clientY - originalY, 2)
+        );
+
+        if (distanceFromOriginal < 180) {
+            bringButtonDown();
+        }
+
         return;
-
     }
 
-    if (buttonStage === 1) {
 
-        buttonStage = 2;
-        moveButtonTopRight();
-        return;
+    /*
+       Original button is around the lower-middle.
+       If pointer gets close to it,
+       send it to the top.
+    */
 
-    }
+    const rect = readyButton.getBoundingClientRect();
 
-    if (buttonStage === 2) {
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
 
-        buttonStage = 3;
-        moveButtonOriginal();
-        return;
+    const distance = Math.sqrt(
+        Math.pow(e.clientX - centerX, 2) +
+        Math.pow(e.clientY - centerY, 2)
+    );
 
-    }
+    /*
+       Large detection radius so the jump
+       happens BEFORE the pointer reaches it.
+    */
 
-    if (buttonStage === 3) {
-
-        buttonStage = 4;
-        openSecondScreen();
-        return;
-
+    if (distance < 170) {
+        jumpButtonToTop();
     }
 
 });
 
 
-/* =====================================
-   MOVEMENT FUNCTIONS
-===================================== */
+/* =====================================================
+   MOBILE TOUCH SUPPORT
+===================================================== */
 
-function moveButtonTop() {
+document.addEventListener("touchstart", function(e) {
 
-    moving = true;
+    if (!screen1.classList.contains("active")) return;
 
-    readyBtn.classList.remove(
-        "original-position",
-        "top-right-position"
+    const touch = e.touches[0];
+
+    if (!touch) return;
+
+    const rect = readyButton.getBoundingClientRect();
+
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+
+    const distance = Math.sqrt(
+        Math.pow(touch.clientX - centerX, 2) +
+        Math.pow(touch.clientY - centerY, 2)
     );
 
-    readyBtn.classList.add("top-position");
+    /*
+       Finger gets close to button:
+       jump it to top.
+    */
 
-    setTimeout(() => {
-        moving = false;
-    }, 700);
-}
+    if (readyState === "original" && distance < 190) {
+
+        jumpButtonToTop();
+
+        /*
+           Small delay prevents accidental click.
+        */
+
+        e.preventDefault();
+    }
+
+}, { passive: false });
 
 
-function moveButtonTopRight() {
+/*
+   On mobile, touching lower-middle again
+   brings button down.
+*/
 
-    moving = true;
+document.addEventListener("touchmove", function(e) {
 
-    readyBtn.classList.remove(
-        "original-position",
-        "top-position"
+    if (!screen1.classList.contains("active")) return;
+
+    if (readyState !== "top") return;
+
+    const touch = e.touches[0];
+
+    if (!touch) return;
+
+    const originalX = window.innerWidth / 2;
+    const originalY = window.innerHeight * 0.80;
+
+    const distance = Math.sqrt(
+        Math.pow(touch.clientX - originalX, 2) +
+        Math.pow(touch.clientY - originalY, 2)
     );
 
-    readyBtn.classList.add("top-right-position");
+    if (distance < 200) {
+        bringButtonDown();
+    }
 
-    setTimeout(() => {
-        moving = false;
-    }, 700);
-}
-
-
-function moveButtonOriginal() {
-
-    moving = true;
-
-    readyBtn.classList.remove(
-        "top-position",
-        "top-right-position"
-    );
-
-    readyBtn.classList.add("original-position");
-
-    setTimeout(() => {
-        moving = false;
-    }, 700);
-}
+}, { passive: true });
 
 
-/* =====================================
-   NEXT SCREEN
-===================================== */
+/* =====================================================
+   READY BUTTON CLICK
+===================================================== */
 
-function openSecondScreen() {
+readyButton.addEventListener("click", function(e) {
+
+    /*
+       Only allow the real click when
+       button is back in its original place.
+    */
+
+    if (readyState !== "original") {
+        e.preventDefault();
+        return;
+    }
 
     showScreen(screen2);
 
-}
+});
 
 
-/* =====================================
-   LET'S GO
+/* =====================================================
+   SCREEN 2 -> SCREEN 3
+   SONG STARTS HERE
+===================================================== */
 
-   This is a REAL user click.
+const letsGoButton = document.getElementById("letsGoButton");
+const birthdaySong = document.getElementById("birthdaySong");
 
-   Therefore browser allows audio
-   to start here.
-===================================== */
+letsGoButton.addEventListener("click", async function() {
 
-letsGoBtn.addEventListener("click", async function() {
+    /*
+       Change screen immediately.
+    */
+
+    showScreen(screen3);
+
+    /*
+       Reset song.
+    */
+
+    birthdaySong.currentTime = 0;
+
+    /*
+       Because this play() happens directly
+       from a user click, browsers are much more
+       likely to allow it.
+    */
 
     try {
-
-        birthdaySong.currentTime = 0;
 
         await birthdaySong.play();
 
     } catch (error) {
 
-        console.log("Audio playback error:", error);
+        console.log("Audio could not start:", error);
 
+        /*
+           If browser blocks audio, try again
+           on the next touch/click.
+        */
+
+        const startAudio = () => {
+
+            birthdaySong.play().catch(err => {
+                console.log(err);
+            });
+
+            document.removeEventListener(
+                "pointerdown",
+                startAudio
+            );
+
+            document.removeEventListener(
+                "touchstart",
+                startAudio
+            );
+        };
+
+        document.addEventListener(
+            "pointerdown",
+            startAudio,
+            { once: true }
+        );
+
+        document.addEventListener(
+            "touchstart",
+            startAudio,
+            { once: true }
+        );
     }
-
-    showScreen(screen3);
 
 });
 
 
-/* =====================================
-   SONG FINISH
-
-   Only after the entire song finishes
-   should the celebration button appear.
-===================================== */
+/* =====================================================
+   SONG ENDS
+   ONLY THEN SHOW LET'S CELEBRATE
+===================================================== */
 
 birthdaySong.addEventListener("ended", function() {
 
-    celebrateBtn.classList.add("show");
+    showScreen(screen4);
 
 });
 
 
-/* =====================================
-   EXTRA MOBILE FALLBACK
+/* =====================================================
+   IF SONG FILE LOADS INCORRECTLY
+===================================================== */
 
-   If pointer events behave differently
-   on a particular mobile browser.
-===================================== */
+birthdaySong.addEventListener("error", function() {
 
-readyBtn.addEventListener("touchstart", function(e) {
+    console.log(
+        "Song could not be loaded. Check that the file is named exactly: asubhu-badamin.mp3"
+    );
 
-    e.preventDefault();
-
-    if (buttonStage === 0) {
-
-        buttonStage = 1;
-        moveButtonTop();
-
-    } else if (buttonStage === 1) {
-
-        buttonStage = 2;
-        moveButtonTopRight();
-
-    } else if (buttonStage === 2) {
-
-        buttonStage = 3;
-        moveButtonOriginal();
-
-    } else if (buttonStage === 3) {
-
-        buttonStage = 4;
-        openSecondScreen();
-
-    }
-
-}, { passive: false });
+});
 
 
 </script>
