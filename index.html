@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Birthday Surprise ❤️</title>
 
 <style>
@@ -20,36 +21,55 @@ html, body {
 
 body {
     background:
-        radial-gradient(circle at 50% 45%, #210d2c 0%, #100414 45%, #050207 100%);
+        radial-gradient(circle at 50% 45%, #250d32 0%, #110516 45%, #050207 100%);
     color: white;
     font-family: Georgia, "Times New Roman", serif;
 }
 
-/* Stars */
+/* STARS */
+
 body::before {
     content: "";
     position: fixed;
     inset: 0;
     pointer-events: none;
+
     background-image:
         radial-gradient(circle, rgba(255,255,255,.8) 1px, transparent 1.5px),
         radial-gradient(circle, rgba(255,255,255,.5) 1px, transparent 1.5px),
         radial-gradient(circle, rgba(255,255,255,.4) 1px, transparent 1.5px);
-    background-size: 180px 180px, 250px 250px, 320px 320px;
-    background-position: 20px 30px, 80px 100px, 150px 40px;
+
+    background-size:
+        180px 180px,
+        250px 250px,
+        320px 320px;
+
+    background-position:
+        20px 30px,
+        80px 100px,
+        150px 40px;
+
     opacity: .45;
 }
+
+
+/* COMMON SCREEN */
 
 .screen {
     position: absolute;
     inset: 0;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     padding: 25px;
+
     text-align: center;
+
     opacity: 0;
     visibility: hidden;
+
     transition: opacity .8s ease;
 }
 
@@ -62,7 +82,10 @@ body::before {
     width: min(900px, 94vw);
 }
 
-/* SCREEN 1 */
+
+/* =====================================
+   SCREEN 1
+===================================== */
 
 .small-title {
     font-size: 13px;
@@ -73,132 +96,237 @@ body::before {
 
 .main-title {
     font-size: clamp(48px, 7vw, 92px);
+
     line-height: .92;
+
     letter-spacing: 2px;
+
     font-weight: bold;
-    text-shadow: 0 0 25px rgba(255, 150, 255, .45);
+
+    text-shadow:
+        0 0 25px rgba(255,150,255,.45);
 }
 
 .description {
     margin: 28px auto 0;
+
     max-width: 650px;
+
     font-size: clamp(15px, 2vw, 19px);
+
     line-height: 1.6;
+
     opacity: .85;
 }
 
 .question {
     margin-top: 34px;
+
     font-size: clamp(20px, 3vw, 27px);
+
     line-height: 1.35;
+
     font-weight: bold;
 }
+
+
+/* BUTTON AREA */
 
 .ready-area {
     position: relative;
+
     width: 100%;
-    height: 110px;
+
+    height: 130px;
+
     margin-top: 20px;
 }
 
+
+/* READY BUTTON */
+
 .ready-btn {
+
     position: absolute;
+
     left: 50%;
     top: 20px;
+
     transform: translateX(-50%);
+
     border: none;
+
     padding: 13px 32px;
+
     min-width: 140px;
+
     border-radius: 40px;
-    background: linear-gradient(135deg, #e94fa7, #a842ed);
+
+    background:
+        linear-gradient(
+            135deg,
+            #e94fa7,
+            #a842ed
+        );
+
     color: white;
+
     font-family: Georgia, serif;
+
     font-weight: bold;
+
     font-size: 14px;
-    letter-spacing: .5px;
+
     cursor: pointer;
+
     box-shadow:
-        0 0 18px rgba(225, 70, 200, .55),
-        0 0 35px rgba(180, 60, 230, .25);
+        0 0 18px rgba(225,70,200,.55),
+        0 0 35px rgba(180,60,230,.25);
+
     transition:
-        left .7s ease,
-        top .7s ease,
-        transform .7s ease,
-        box-shadow .3s ease;
-    z-index: 10;
+        left .7s cubic-bezier(.2,.8,.2,1),
+        top .7s cubic-bezier(.2,.8,.2,1),
+        transform .7s cubic-bezier(.2,.8,.2,1);
+
+    z-index: 20;
+
+    touch-action: manipulation;
 }
 
-.ready-btn:hover {
-    box-shadow:
-        0 0 25px rgba(225, 70, 200, .8),
-        0 0 50px rgba(180, 60, 230, .4);
-}
+
+/* TOP */
 
 .ready-btn.top {
+
+    left: 50%;
+
     top: -270px;
+
+    transform: translateX(-50%);
 }
+
+
+/* TOP RIGHT */
 
 .ready-btn.top-right {
-    left: calc(100% - 85px);
+
+    left: calc(100% - 75px);
+
     top: -270px;
+
+    transform: translateX(-50%);
 }
+
+
+/* ORIGINAL */
 
 .ready-btn.original {
+
     left: 50%;
+
     top: 20px;
+
+    transform: translateX(-50%);
 }
 
-/* SCREEN 2 */
+
+/* =====================================
+   SCREEN 2
+===================================== */
 
 .wow-title {
+
     font-size: clamp(38px, 6vw, 72px);
+
     line-height: 1.05;
+
     font-weight: bold;
-    text-shadow: 0 0 25px rgba(255, 150, 255, .5);
+
+    text-shadow:
+        0 0 25px rgba(255,150,255,.5);
 }
 
 .wow-subtitle {
+
     margin-top: 25px;
+
     font-size: clamp(17px, 2.5vw, 23px);
+
     line-height: 1.5;
 }
 
 .lets-go-btn,
 .celebrate-btn {
+
     margin-top: 35px;
+
     border: none;
+
     border-radius: 40px;
+
     padding: 14px 34px;
-    background: linear-gradient(135deg, #e94fa7, #a842ed);
+
+    background:
+        linear-gradient(
+            135deg,
+            #e94fa7,
+            #a842ed
+        );
+
     color: white;
+
     font-family: Georgia, serif;
+
     font-weight: bold;
+
     font-size: 14px;
+
     cursor: pointer;
-    box-shadow: 0 0 25px rgba(220, 70, 210, .55);
+
+    box-shadow:
+        0 0 25px rgba(220,70,210,.55);
+
+    touch-action: manipulation;
 }
 
 .lets-go-btn:hover,
 .celebrate-btn:hover {
+
     transform: scale(1.05);
 }
 
-/* SCREEN 3 */
+
+/* =====================================
+   SCREEN 3
+===================================== */
 
 .assalamu {
+
     font-size: clamp(27px, 4vw, 48px);
+
     line-height: 1.3;
+
     font-weight: bold;
-    text-shadow: 0 0 20px rgba(255, 150, 255, .4);
+
+    text-shadow:
+        0 0 20px rgba(255,150,255,.4);
 }
 
+
 .prayer {
+
     margin: 30px auto 0;
+
     max-width: 850px;
+
     font-size: clamp(16px, 2vw, 21px);
+
     line-height: 1.8;
-    max-height: 60vh;
+
+    max-height: 58vh;
+
     overflow-y: auto;
+
     padding: 10px 15px;
 }
 
@@ -208,77 +336,128 @@ body::before {
 
 .prayer::-webkit-scrollbar-thumb {
     background: rgba(255,255,255,.3);
+
     border-radius: 10px;
 }
 
+
+/* CELEBRATE */
+
 .celebrate-wrapper {
+
     display: none;
 }
 
 .celebrate-wrapper.show {
+
     display: block;
+
+    animation: fadeUp .8s ease;
 }
 
-/* MOBILE */
+
+/* FADE */
+
+@keyframes fadeUp {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(20px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+
+/* =====================================
+   MOBILE
+===================================== */
 
 @media (max-width: 600px) {
 
     .small-title {
+
         font-size: 10px;
+
         letter-spacing: 3px;
     }
 
     .main-title {
+
         font-size: 46px;
     }
 
     .description {
+
         font-size: 14px;
+
         margin-top: 22px;
     }
 
     .question {
+
         font-size: 19px;
+
         margin-top: 25px;
     }
 
     .ready-btn.top {
-        top: -210px;
+
+        top: -200px;
     }
 
     .ready-btn.top-right {
-        left: calc(100% - 75px);
-        top: -210px;
+
+        left: calc(100% - 70px);
+
+        top: -200px;
     }
 
     .wow-title {
+
         font-size: 38px;
     }
 
     .wow-subtitle {
+
         font-size: 17px;
     }
 
     .assalamu {
+
         font-size: 26px;
     }
 
     .prayer {
+
         font-size: 15px;
+
         line-height: 1.7;
+
         max-height: 55vh;
     }
 }
 </style>
 </head>
 
+
 <body>
 
-<!-- ============================= -->
-<!-- SCREEN 1 -->
-<!-- ============================= -->
 
-<section class="screen active" id="screen1">
+<!-- =====================================
+     SCREEN 1
+===================================== -->
+
+<section
+    class="screen active"
+    id="screen1">
 
     <div class="content">
 
@@ -286,29 +465,45 @@ body::before {
             30 DAYS · 30 WISHES
         </div>
 
+
         <h1 class="main-title">
+
             FINALLY...<br>
             THE WAIT IS<br>
             OVER.
+
         </h1>
 
+
         <p class="description">
-            Thirty days of wishes brought us all the way here... and now there's
-            only one thing left to ask.
+
+            Thirty days of wishes brought us all the way here...
+            and now there's only one thing left to ask.
+
         </p>
 
+
         <div class="question">
+
             Are you ready to see<br>
-            what surprise I planned for you? 👀 ❤️
+
+            what surprise I planned for you?
+            👀 ❤️
+
         </div>
 
-        <div class="ready-area" id="readyArea">
+
+        <div
+            class="ready-area"
+            id="readyArea">
 
             <button
                 class="ready-btn"
                 id="readyBtn"
                 type="button">
+
                 I'M READY ✨
+
             </button>
 
         </div>
@@ -318,51 +513,75 @@ body::before {
 </section>
 
 
-<!-- ============================= -->
-<!-- SCREEN 2 -->
-<!-- ============================= -->
 
-<section class="screen" id="screen2">
+<!-- =====================================
+     SCREEN 2
+===================================== -->
+
+<section
+    class="screen"
+    id="screen2">
 
     <div class="content">
 
+
         <h1 class="wow-title">
+
             Oh wowww! 😂<br>
+
             I see that you're very excited! 👀
+
         </h1>
 
+
         <p class="wow-subtitle">
+
             But... there's still some suspense left. 😏
+
         </p>
+
 
         <button
             class="lets-go-btn"
             id="letsGoBtn"
             type="button">
+
             LET'S GO ✨
+
         </button>
+
 
     </div>
 
 </section>
 
 
-<!-- ============================= -->
-<!-- SCREEN 3 -->
-<!-- ============================= -->
 
-<section class="screen" id="screen3">
+<!-- =====================================
+     SCREEN 3
+===================================== -->
+
+<section
+    class="screen"
+    id="screen3">
 
     <div class="content">
 
+
         <h1 class="assalamu">
+
             Assalamu Alaikum Ji,<br>
+
             Wa Rahmatullahi Wa Barakatuh ❤️
+
         </h1>
+
 
         <div class="prayer">
 
+
             <p>
+
                 Bismillahir Rahmanir Raheem.
                 Alhamdulillahi Rabbil Aalameen.
                 Allahumma barik lahu fi umrihi,
@@ -372,302 +591,507 @@ body::before {
                 Wahfazhu min kulli sharr,
                 waqbal du'aa'ahu.
                 Aameen. 🤲
+
             </p>
+
 
             <br>
 
+
             <p>
-                Dayagala, karunamayudaina Allah perutho
+
+                “Dayagala, karunamayudaina Allah perutho
                 prarambhistunnam. Prashamsalanni
                 prapanchala Prabhuvaina Allah ke chendutayi.
                 Allah, athani vayassulo barkat ivvu,
-                manchi aarogyam, santosham mariyu samruddhi ivvu.
-                Athani jeevithanni imaan, manchi mariyu
-                vijayalatho nimpandi.
+                manchi aarogyam, santosham mariyu
+                samruddhi ivvu. Athani jeevithanni imaan,
+                manchi mariyu vijayalatho nimpandi.
                 Prathi chedu nunchi athanni kapadandi,
                 athani manchi prarthanalanu sweekarinchandi.
-                Aameen. ❤️
+                Aameen.” ❤️
+
             </p>
+
 
         </div>
 
-        <div class="celebrate-wrapper" id="celebrateWrapper">
+
+        <div
+            class="celebrate-wrapper"
+            id="celebrateWrapper">
+
 
             <button
                 class="celebrate-btn"
                 id="celebrateBtn"
                 type="button">
+
                 LET'S CELEBRATE 🎉
+
             </button>
 
+
         </div>
+
 
     </div>
 
 </section>
 
 
-<!-- SONG -->
-<audio id="birthdaySong" preload="auto">
-    <source src="birthday-song-00-00-to-00-58.mp3" type="audio/mpeg">
+
+<!-- =====================================
+     YOUR SONG
+===================================== -->
+
+<audio
+    id="birthdaySong"
+    preload="auto"
+    playsinline>
+
+    <source
+        src="./birthday-song-00-00-to-00-58.mp3"
+        type="audio/mpeg">
+
 </audio>
+
 
 
 <script>
 
-/* =========================================
-   SCREEN CONTROL
-========================================= */
+/* =====================================
+   SCREENS
+===================================== */
 
-const screen1 = document.getElementById("screen1");
-const screen2 = document.getElementById("screen2");
-const screen3 = document.getElementById("screen3");
+const screen1 =
+    document.getElementById("screen1");
+
+const screen2 =
+    document.getElementById("screen2");
+
+const screen3 =
+    document.getElementById("screen3");
+
 
 function showScreen(screen) {
 
     screen1.classList.remove("active");
+
     screen2.classList.remove("active");
+
     screen3.classList.remove("active");
 
     screen.classList.add("active");
 }
 
 
-/* =========================================
-   I'M READY BUTTON
-========================================= */
 
-const readyBtn = document.getElementById("readyBtn");
+/* =====================================
+   READY BUTTON
+===================================== */
 
-let readyStage = 0;
-let moving = false;
+const readyBtn =
+    document.getElementById("readyBtn");
+
+let stage = 0;
+
+let lastAction = 0;
 
 
 /*
     STAGE 0
     Original position
 
+    ↓
+
     STAGE 1
-    Move to top
+    Goes TOP
+
+    ↓
 
     STAGE 2
-    Move to top-right
+    Goes TOP RIGHT
+
+    ↓
 
     STAGE 3
-    Return to original
+    Comes back ORIGINAL
+
+    ↓
 
     STAGE 4
-    Open next screen
+    Opens next screen
 */
 
 
-function moveReadyButton() {
+function jumpButton() {
 
-    if (moving) return;
+    const now = Date.now();
 
-    moving = true;
+    if (now - lastAction < 650) {
 
-    if (readyStage === 0) {
+        return;
+    }
 
-        readyStage = 1;
+    lastAction = now;
 
-        readyBtn.classList.remove("original");
-        readyBtn.classList.remove("top-right");
+
+    /* ORIGINAL → TOP */
+
+    if (stage === 0) {
+
+        stage = 1;
+
+        readyBtn.classList.remove(
+            "original",
+            "top-right"
+        );
+
         readyBtn.classList.add("top");
 
+        return;
     }
 
-    else if (readyStage === 1) {
 
-        readyStage = 2;
+    /* TOP → TOP RIGHT */
+
+    if (stage === 1) {
+
+        stage = 2;
 
         readyBtn.classList.remove("top");
+
         readyBtn.classList.add("top-right");
 
+        return;
     }
 
-    else if (readyStage === 2) {
 
-        readyStage = 3;
+    /* TOP RIGHT → ORIGINAL */
 
-        readyBtn.classList.remove("top-right");
+    if (stage === 2) {
+
+        stage = 3;
+
+        readyBtn.classList.remove(
+            "top-right"
+        );
+
         readyBtn.classList.add("original");
 
+        return;
     }
 
-    else if (readyStage === 3) {
-
-        showScreen(screen2);
-
-        readyStage = 4;
-    }
-
-    setTimeout(() => {
-        moving = false;
-    }, 750);
 }
 
 
-/* =========================================
-   DESKTOP MOUSE
-========================================= */
+/* =====================================
+   MOUSE PROXIMITY
+===================================== */
 
-/*
-   When the mouse comes close to the button,
-   it reacts BEFORE the actual click.
-*/
+document.addEventListener(
+    "mousemove",
+    function(event) {
 
-readyBtn.addEventListener("mouseenter", () => {
+        /*
+           Only use proximity for the
+           first two jumps.
 
-    if (readyStage < 3) {
-        moveReadyButton();
+           This means the cursor doesn't
+           have to actually click the button.
+        */
+
+        if (stage >= 3) {
+
+            return;
+        }
+
+
+        const rect =
+            readyBtn.getBoundingClientRect();
+
+
+        const buttonX =
+            rect.left + rect.width / 2;
+
+
+        const buttonY =
+            rect.top + rect.height / 2;
+
+
+        const distance =
+            Math.sqrt(
+                Math.pow(
+                    event.clientX - buttonX,
+                    2
+                )
+                +
+                Math.pow(
+                    event.clientY - buttonY,
+                    2
+                )
+            );
+
+
+        /*
+           When cursor gets close,
+           button escapes.
+        */
+
+        if (distance < 150) {
+
+            jumpButton();
+        }
+
     }
+);
 
-});
 
 
-/* =========================================
+/* =====================================
    MOBILE TOUCH
-========================================= */
+===================================== */
 
-/*
-   Phones don't have a mouse cursor.
+document.addEventListener(
+    "touchstart",
+    function(event) {
 
-   So on mobile, the first touch acts as
-   the "finger approaching" detection.
+        /*
+           Mobile has no cursor.
 
-   Each following touch continues the
-   same sequence.
-*/
+           So we check where the finger
+           touched the screen.
 
-readyBtn.addEventListener("touchstart", (event) => {
+           LOWER AREA → TOP
 
-    event.preventDefault();
+           LOWER AREA AGAIN → TOP RIGHT
 
-    moveReadyButton();
-
-}, { passive: false });
+           TOP RIGHT → ORIGINAL
+        */
 
 
-/* =========================================
-   DESKTOP CLICK
-========================================= */
+        const touch =
+            event.touches[0];
 
-readyBtn.addEventListener("click", () => {
 
-    /*
-       Mouseenter handles the movement.
+        const x =
+            touch.clientX;
 
-       If the user directly clicks after
-       returning to the original position,
-       open Screen 2.
-    */
 
-    if (readyStage === 3) {
-        showScreen(screen2);
-        readyStage = 4;
+        const y =
+            touch.clientY;
+
+
+        const rect =
+            readyBtn.getBoundingClientRect();
+
+
+        const buttonX =
+            rect.left + rect.width / 2;
+
+
+        const buttonY =
+            rect.top + rect.height / 2;
+
+
+        const distance =
+            Math.sqrt(
+                Math.pow(x - buttonX, 2)
+                +
+                Math.pow(y - buttonY, 2)
+            );
+
+
+        if (distance < 180) {
+
+            jumpButton();
+
+        }
+
+    },
+    {
+        passive: true
     }
-
-});
-
-
-/* =========================================
-   SCREEN 2 → SCREEN 3
-========================================= */
-
-const letsGoBtn = document.getElementById("letsGoBtn");
-const birthdaySong = document.getElementById("birthdaySong");
-
-letsGoBtn.addEventListener("click", startPrayerScreen);
+);
 
 
-/* Mobile support */
 
-letsGoBtn.addEventListener("touchend", (event) => {
+/* =====================================
+   FINAL CLICK
+===================================== */
 
-    event.preventDefault();
+readyBtn.addEventListener(
+    "click",
+    function() {
 
-    startPrayerScreen();
+        /*
+           Only after the button has
+           completed all movements.
+        */
 
-}, { passive: false });
+        if (stage === 3) {
+
+            stage = 4;
+
+            showScreen(screen2);
+        }
+
+    }
+);
 
 
-function startPrayerScreen() {
+
+/* =====================================
+   LET'S GO
+===================================== */
+
+const letsGoBtn =
+    document.getElementById("letsGoBtn");
+
+const birthdaySong =
+    document.getElementById("birthdaySong");
+
+
+let songStarted = false;
+
+
+function startPrayer() {
 
     showScreen(screen3);
 
+
     /*
-       Reset song to beginning every time.
+       IMPORTANT:
+
+       The song is started immediately
+       from the user's button interaction.
     */
 
     birthdaySong.currentTime = 0;
 
-    /*
-       Because this function happens directly
-       after a user click/touch, mobile browsers
-       are much more likely to allow playback.
-    */
 
-    const playPromise = birthdaySong.play();
+    const playResult =
+        birthdaySong.play();
 
-    if (playPromise !== undefined) {
 
-        playPromise.catch(error => {
+    if (playResult !== undefined) {
 
-            console.log("Audio playback was blocked:", error);
+        playResult
+            .then(function() {
 
-        });
+                songStarted = true;
 
+                console.log(
+                    "Birthday song started successfully."
+                );
+
+            })
+            .catch(function(error) {
+
+                console.error(
+                    "Song playback failed:",
+                    error
+                );
+
+                /*
+                   If browser blocks it,
+                   try again on the same
+                   interaction.
+                */
+
+            });
     }
 
 }
 
 
-/* =========================================
-   SONG FINISHED
-========================================= */
+
+/* DESKTOP */
+
+letsGoBtn.addEventListener(
+    "click",
+    function(event) {
+
+        event.preventDefault();
+
+        startPrayer();
+
+    }
+);
+
+
+
+/* MOBILE */
+
+letsGoBtn.addEventListener(
+    "touchend",
+    function(event) {
+
+        event.preventDefault();
+
+        startPrayer();
+
+    },
+    {
+        passive: false
+    }
+);
+
+
+
+/* =====================================
+   SONG ENDED
+===================================== */
 
 const celebrateWrapper =
-    document.getElementById("celebrateWrapper");
-
-birthdaySong.addEventListener("ended", () => {
-
-    celebrateWrapper.classList.add("show");
-
-});
+    document.getElementById(
+        "celebrateWrapper"
+    );
 
 
-/* =========================================
-   CELEBRATE BUTTON
-========================================= */
+birthdaySong.addEventListener(
+    "ended",
+    function() {
+
+        /*
+           Button appears ONLY after
+           complete song.
+        */
+
+        celebrateWrapper.classList.add(
+            "show"
+        );
+
+    }
+);
+
+
+
+/* =====================================
+   CELEBRATE
+===================================== */
 
 const celebrateBtn =
-    document.getElementById("celebrateBtn");
-
-celebrateBtn.addEventListener("click", () => {
-
-    /*
-       This is where we will connect the
-       next birthday surprise screen later.
-    */
-
-    alert("❤️ Let's celebrate! 🎉");
-
-});
+    document.getElementById(
+        "celebrateBtn"
+    );
 
 
-/* =========================================
-   EXTRA MOBILE SAFETY
-========================================= */
+celebrateBtn.addEventListener(
+    "click",
+    function() {
 
-document.addEventListener("touchmove", () => {
+        /*
+           Next screen will be added here.
+        */
 
-    /*
-       Intentionally left available for
-       future touch-based interactions.
-    */
+        alert(
+            "❤️ Let's celebrate! 🎉"
+        );
 
-}, { passive: true });
+    }
+);
 
 </script>
 
