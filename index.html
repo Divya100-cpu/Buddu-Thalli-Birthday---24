@@ -2,18 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Divya 30</title>
+    <title>Finally... The Wait Is Over ❤️</title>
 
     <style>
-
-        /* =========================================
-           RESET
-        ========================================= */
 
         * {
             margin: 0;
@@ -21,13 +14,11 @@
             box-sizing: border-box;
         }
 
-
         html,
         body {
             width: 100%;
             height: 100%;
         }
-
 
         body {
             overflow: hidden;
@@ -40,14 +31,13 @@
                     #09030d 100%
                 );
 
-            color: #ffffff;
+            color: white;
 
             font-family:
                 Georgia,
                 "Times New Roman",
                 serif;
         }
-
 
 
         /* =========================================
@@ -86,9 +76,8 @@
         }
 
 
-
         /* =========================================
-           BACKGROUND GLOW
+           BACKGROUND
         ========================================= */
 
         .background-glow {
@@ -113,7 +102,6 @@
 
             pointer-events: none;
         }
-
 
 
         /* =========================================
@@ -150,75 +138,57 @@
             top: 20%;
         }
 
-
         .star:nth-child(2) {
             left: 18%;
             top: 65%;
-
             animation-delay: 1s;
         }
-
 
         .star:nth-child(3) {
             left: 30%;
             top: 35%;
-
             animation-delay: 2s;
         }
-
 
         .star:nth-child(4) {
             left: 45%;
             top: 15%;
-
             animation-delay: 0.5s;
         }
-
 
         .star:nth-child(5) {
             left: 63%;
             top: 27%;
-
             animation-delay: 1.5s;
         }
-
 
         .star:nth-child(6) {
             left: 77%;
             top: 62%;
-
             animation-delay: 2.5s;
         }
-
 
         .star:nth-child(7) {
             left: 90%;
             top: 25%;
-
             animation-delay: 1s;
         }
-
 
         .star:nth-child(8) {
             left: 73%;
             top: 82%;
-
             animation-delay: 2s;
         }
-
 
         .star:nth-child(9) {
             left: 42%;
             top: 78%;
-
             animation-delay: 0.8s;
         }
-
 
         .star:nth-child(10) {
             left: 94%;
             top: 53%;
-
             animation-delay: 1.8s;
         }
 
@@ -228,24 +198,18 @@
             0%,
             100% {
                 opacity: 0.2;
-
-                transform:
-                    scale(0.8);
+                transform: scale(0.8);
             }
-
 
             50% {
                 opacity: 1;
-
-                transform:
-                    scale(1.5);
+                transform: scale(1.5);
             }
         }
 
 
-
         /* =========================================
-           MAIN CONTENT
+           CONTENT
         ========================================= */
 
         .content {
@@ -253,8 +217,7 @@
 
             z-index: 5;
 
-            width:
-                min(900px, 100%);
+            width: min(900px, 100%);
 
             display: flex;
 
@@ -266,15 +229,13 @@
         }
 
 
-
         /* =========================================
-           SMALL TITLE
+           EYEBROW
         ========================================= */
 
         .eyebrow {
-
             font-size:
-                clamp(13px, 1.4vw, 18px);
+                clamp(12px, 1.2vw, 17px);
 
             letter-spacing:
                 clamp(3px, 0.5vw, 6px);
@@ -282,9 +243,10 @@
             text-transform: uppercase;
 
             color:
-                rgba(255, 255, 255, 0.65);
+                rgba(255, 255, 255, 0.62);
 
-            margin-bottom: 20px;
+            margin-bottom:
+                clamp(12px, 2vh, 22px);
 
             opacity: 0;
 
@@ -295,15 +257,13 @@
         }
 
 
-
         /* =========================================
-           MAIN TITLE
+           TITLE
         ========================================= */
 
         h1 {
-
             font-size:
-                clamp(42px, 6.5vw, 88px);
+                clamp(40px, 6.4vw, 86px);
 
             line-height: 0.95;
 
@@ -314,14 +274,12 @@
 
             text-transform: uppercase;
 
-            margin-bottom: 25px;
+            margin-bottom:
+                clamp(16px, 2.5vh, 25px);
 
             text-shadow:
-                0 0 15px
-                rgba(255, 150, 220, 0.25),
-
-                0 0 45px
-                rgba(220, 90, 255, 0.15);
+                0 0 15px rgba(255, 150, 220, 0.25),
+                0 0 45px rgba(220, 90, 255, 0.15);
 
             opacity: 0;
 
@@ -332,15 +290,12 @@
         }
 
 
-
         /* =========================================
            DESCRIPTION
         ========================================= */
 
         .description {
-
-            width:
-                min(620px, 100%);
+            width: min(620px, 100%);
 
             font-size:
                 clamp(15px, 1.5vw, 20px);
@@ -350,7 +305,8 @@
             color:
                 rgba(255, 255, 255, 0.72);
 
-            margin-bottom: 25px;
+            margin-bottom:
+                clamp(16px, 2.5vh, 25px);
 
             opacity: 0;
 
@@ -361,27 +317,24 @@
         }
 
 
-
         /* =========================================
            QUESTION
         ========================================= */
 
         .question {
-
             font-size:
                 clamp(18px, 2.1vw, 28px);
 
             line-height: 1.35;
 
+            color: white;
+
             max-width: 650px;
 
             margin-bottom: 28px;
 
-            color: #ffffff;
-
             text-shadow:
-                0 0 18px
-                rgba(255, 100, 200, 0.3);
+                0 0 18px rgba(255, 100, 200, 0.3);
 
             opacity: 0;
 
@@ -392,18 +345,13 @@
         }
 
 
-
         /* =========================================
-           READY BUTTON
+           BUTTON
         ========================================= */
 
         .ready-button {
 
             position: fixed;
-
-            /*
-             * ORIGINAL POSITION
-             */
 
             left: 50%;
 
@@ -420,8 +368,7 @@
             border-radius: 50px;
 
             border:
-                1px solid
-                rgba(255, 255, 255, 0.4);
+                1px solid rgba(255, 255, 255, 0.4);
 
             background:
                 linear-gradient(
@@ -430,7 +377,7 @@
                     #ad4be4
                 );
 
-            color: #ffffff;
+            color: white;
 
             font-family: inherit;
 
@@ -443,8 +390,7 @@
             z-index: 100;
 
             box-shadow:
-                0 8px 30px
-                rgba(230, 70, 180, 0.35);
+                0 8px 30px rgba(230, 70, 180, 0.35);
 
             transition:
                 left 0.45s ease,
@@ -456,18 +402,15 @@
         .ready-button:hover {
 
             box-shadow:
-                0 12px 45px
-                rgba(230, 70, 180, 0.6);
+                0 12px 45px rgba(230, 70, 180, 0.6);
         }
 
 
-
         /* =========================================
-           SECOND SCREEN
+           SCREEN 2
         ========================================= */
 
         .screen-two-content {
-
             max-width: 750px;
         }
 
@@ -497,7 +440,6 @@
         }
 
 
-
         /* =========================================
            ANIMATIONS
         ========================================= */
@@ -505,16 +447,13 @@
         @keyframes fadeUp {
 
             from {
-
                 opacity: 0;
 
                 transform:
                     translateY(22px);
             }
 
-
             to {
-
                 opacity: 1;
 
                 transform:
@@ -526,7 +465,6 @@
         @keyframes titleReveal {
 
             from {
-
                 opacity: 0;
 
                 transform:
@@ -536,9 +474,7 @@
                     blur(10px);
             }
 
-
             to {
-
                 opacity: 1;
 
                 transform:
@@ -550,7 +486,6 @@
         }
 
 
-
         /* =========================================
            MOBILE
         ========================================= */
@@ -558,22 +493,16 @@
         @media (max-width: 600px) {
 
             .screen {
-
                 padding: 18px;
             }
 
-
             .description {
-
                 max-width: 340px;
             }
-
 
             .question {
-
                 max-width: 340px;
             }
-
 
             .ready-button {
 
@@ -603,31 +532,20 @@
         id="screen1"
     >
 
-        <div
-            class="background-glow"
-        ></div>
+        <div class="background-glow"></div>
 
 
         <div class="stars">
 
             <span class="star"></span>
-
             <span class="star"></span>
-
             <span class="star"></span>
-
             <span class="star"></span>
-
             <span class="star"></span>
-
             <span class="star"></span>
-
             <span class="star"></span>
-
             <span class="star"></span>
-
             <span class="star"></span>
-
             <span class="star"></span>
 
         </div>
@@ -636,52 +554,31 @@
         <div class="content">
 
 
-            <!--
-                NAME
-            -->
-
             <div class="eyebrow">
 
-                DIVYA 30
+                30 Days • 30 Wishes
 
             </div>
 
 
-            <!--
-                BIRTHDAY TITLE
-            -->
-
             <h1>
 
-                BUDDU THALLI
+                Finally...
 
                 <br>
 
-                BIRTHDAY
+                The Wait Is Over.
 
             </h1>
 
 
-            <!--
-                DESCRIPTION
-            -->
-
             <p class="description">
 
-                Thirty days of wishes brought us
-                all the way here...
-
-                <br>
-
-                and now there's only one thing
-                left to ask.
+                Thirty days of wishes brought us all the way here...
+                and now there's only one thing left to ask.
 
             </p>
 
-
-            <!--
-                QUESTION
-            -->
 
             <p class="question">
 
@@ -697,10 +594,7 @@
         </div>
 
 
-
-        <!-- =====================================
-             READY BUTTON
-        ====================================== -->
+        <!-- BUTTON -->
 
         <button
             id="readyButton"
@@ -753,10 +647,6 @@
 
 
 
-    <!-- =========================================
-         JAVASCRIPT
-    ========================================= -->
-
     <script>
 
 
@@ -784,41 +674,28 @@
 
 
         /* =========================================
-           BUTTON STATES
+           STATES
 
            0 = ORIGINAL
-
-           1 = FIRST TOP
-
-           2 = DOWN AGAIN
-
-           3 = SECOND TOP
-
-           4 = FINISHED
+           1 = TOP
+           2 = DOWN
+           3 = TOP RIGHT
+           4 = ORIGINAL / READY
+           5 = NEXT SCREEN
         ========================================= */
 
         let state = 0;
 
-
-        /*
-         * Current mouse/finger position
-         */
-
         let pointerX = null;
 
         let pointerY = null;
-
-
-        /*
-         * Prevent duplicate movement
-         */
 
         let moving = false;
 
 
 
         /* =========================================
-           BUTTON POSITIONS
+           POSITIONS
         ========================================= */
 
         const originalPosition = {
@@ -833,6 +710,15 @@
         const topPosition = {
 
             left: "50vw",
+
+            top: "7vh"
+
+        };
+
+
+        const topRightPosition = {
+
+            left: "88vw",
 
             top: "7vh"
 
@@ -867,15 +753,11 @@
 
 
         /* =========================================
-           CHECK DISTANCE
+           CHECK POINTER DISTANCE
         ========================================= */
 
         function checkDistance() {
 
-
-            /*
-             * Don't react while moving
-             */
 
             if (
                 moving ||
@@ -889,13 +771,20 @@
 
 
             /*
-             * Only detect approach
-             * when button is DOWN.
+             * State 0:
+             * Original → TOP
+             *
+             * State 2:
+             * Down → TOP RIGHT
+             *
+             * State 3:
+             * Top Right → ORIGINAL
              */
 
             if (
                 state !== 0 &&
-                state !== 2
+                state !== 2 &&
+                state !== 3
             ) {
 
                 return;
@@ -925,14 +814,14 @@
 
 
             /*
-             * Finger/cursor is close
+             * Pointer/finger is approaching.
              */
 
             if (
                 distance < 180
             ) {
 
-                moveToTop();
+                moveButton();
 
             }
 
@@ -941,61 +830,77 @@
 
 
         /* =========================================
-           MOVE BUTTON TO TOP
+           MOVE BUTTON
         ========================================= */
 
-        function moveToTop() {
+        function moveButton() {
 
 
             moving = true;
 
 
             /*
-             * FIRST TIME
+             * 1st movement:
              *
-             * Original → Top
+             * ORIGINAL → TOP
              */
 
-            if (
-                state === 0
-            ) {
+            if (state === 0) {
 
                 state = 1;
 
+
+                button.style.left =
+                    topPosition.left;
+
+
+                button.style.top =
+                    topPosition.top;
+
             }
 
 
             /*
-             * SECOND TIME
+             * 2nd movement:
              *
-             * Down → Top
+             * DOWN → TOP RIGHT
              */
 
-            else if (
-                state === 2
-            ) {
+            else if (state === 2) {
 
                 state = 3;
 
+
+                button.style.left =
+                    topRightPosition.left;
+
+
+                button.style.top =
+                    topRightPosition.top;
+
             }
 
 
             /*
-             * Move to top
+             * 3rd movement:
+             *
+             * TOP RIGHT → ORIGINAL
              */
 
-            button.style.left =
-                topPosition.left;
+            else if (state === 3) {
+
+                state = 4;
 
 
-            button.style.top =
-                topPosition.top;
+                button.style.left =
+                    originalPosition.left;
 
 
-            /*
-             * Allow next action
-             * after animation.
-             */
+                button.style.top =
+                    originalPosition.top;
+
+            }
+
 
             setTimeout(
                 function() {
@@ -1023,6 +928,7 @@
                 pointerX =
                     event.clientX;
 
+
                 pointerY =
                     event.clientY;
 
@@ -1035,7 +941,7 @@
 
 
         /* =========================================
-           MOBILE TOUCH START
+           MOBILE TOUCH SUPPORT
         ========================================= */
 
         document.addEventListener(
@@ -1057,6 +963,7 @@
                 pointerX =
                     event.touches[0].clientX;
 
+
                 pointerY =
                     event.touches[0].clientY;
 
@@ -1071,10 +978,6 @@
         );
 
 
-
-        /* =========================================
-           MOBILE TOUCH MOVE
-        ========================================= */
 
         document.addEventListener(
             "touchmove",
@@ -1094,6 +997,7 @@
 
                 pointerX =
                     event.touches[0].clientX;
+
 
                 pointerY =
                     event.touches[0].clientY;
@@ -1119,23 +1023,16 @@
 
             function(event) {
 
-
                 event.preventDefault();
 
 
                 /*
-                 * =================================
-                 *
-                 * FIRST TOP CLICK
+                 * FIRST CLICK
                  *
                  * TOP → DOWN
-                 *
-                 * =================================
                  */
 
-                if (
-                    state === 1
-                ) {
+                if (state === 1) {
 
                     moving = true;
 
@@ -1167,61 +1064,32 @@
                 }
 
 
-
                 /*
-                 * =================================
+                 * FINAL CLICK
                  *
-                 * SECOND TOP CLICK
-                 *
-                 * TOP → ORIGINAL → NEXT SCREEN
-                 *
-                 * =================================
+                 * ORIGINAL → NEXT SCREEN
                  */
 
-                if (
-                    state === 3
-                ) {
+                if (state === 4) {
 
-                    moving = true;
+                    state = 5;
 
 
-                    state = 4;
+                    screen1.classList.add(
+                        "hidden"
+                    );
 
-
-                    /*
-                     * First return to
-                     * original position.
-                     */
-
-                    button.style.left =
-                        originalPosition.left;
-
-
-                    button.style.top =
-                        originalPosition.top;
-
-
-                    /*
-                     * Then open next screen.
-                     */
 
                     setTimeout(
                         function() {
-
-
-                            screen1.classList.add(
-                                "hidden"
-                            );
-
 
                             screen2.classList.remove(
                                 "hidden"
                             );
 
-
                         },
 
-                        800
+                        200
                     );
 
 
@@ -1243,7 +1111,6 @@
 
             function() {
 
-
                 button.style.left =
                     originalPosition.left;
 
@@ -1257,7 +1124,7 @@
 
 
         /* =========================================
-           WINDOW RESIZE
+           RESIZE
         ========================================= */
 
         window.addEventListener(
@@ -1266,18 +1133,10 @@
             function() {
 
 
-                /*
-                 * Keep DOWN position
-                 */
-
-                if (
-                    state === 0 ||
-                    state === 2
-                ) {
+                if (state === 0) {
 
                     button.style.left =
                         originalPosition.left;
-
 
                     button.style.top =
                         originalPosition.top;
@@ -1285,26 +1144,52 @@
                 }
 
 
-                /*
-                 * Keep TOP position
-                 */
-
-                if (
-                    state === 1 ||
-                    state === 3
-                ) {
+                if (state === 1) {
 
                     button.style.left =
                         topPosition.left;
-
 
                     button.style.top =
                         topPosition.top;
 
                 }
 
+
+                if (state === 2) {
+
+                    button.style.left =
+                        originalPosition.left;
+
+                    button.style.top =
+                        originalPosition.top;
+
+                }
+
+
+                if (state === 3) {
+
+                    button.style.left =
+                        topRightPosition.left;
+
+                    button.style.top =
+                        topRightPosition.top;
+
+                }
+
+
+                if (state === 4) {
+
+                    button.style.left =
+                        originalPosition.left;
+
+                    button.style.top =
+                        originalPosition.top;
+
+                }
+
             }
         );
+
 
     </script>
 
