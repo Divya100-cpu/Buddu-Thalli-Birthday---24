@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The Wait Is Over ❤️</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            overflow: hidden;
+            font-family: Georgia, "Times New Roman", serif;
+            background:
+                radial-gradient(circle at center, #32103f 0%, #17091f 45%, #08030c 100%);
+            color: white;
+        }
+
+        /* =========================
+           MAIN SCREEN
+        ========================= */
+
+        .screen {
+            position: fixed;
+            inset: 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 30px;
+
+            transition:
+                opacity 1s ease,
+                transform 1s ease;
+        }
+
+        .screen.hidden {
+            opacity: 0;
+            pointer-events: none;
+            transform: scale(1.05);
+        }
+
+        /* =========================
+           BACKGROUND PARTICLES
+        ========================= */
+
+        .particles {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+
+            width: 3px;
+            height: 3px;
+
+            background: rgba(255, 255, 255, 0.7);
+
+            border-radius: 50%;
+
+            animation: floatParticle linear infinite;
+        }
+
+        .particle:nth-child(1) {
+            left: 10%;
+            top: 80%;
+            animation-duration: 8s;
+        }
+
+        .particle:nth-child(2) {
+            left: 20%;
+            top: 60%;
+            animation-duration: 10s;
+        }
+
+        .particle:nth-child(3) {
+            left: 35%;
+            top: 90%;
+            animation-duration: 7s;
+        }
+
+        .particle:nth-child(4) {
+            left: 50%;
+            top: 70%;
+            animation-duration: 11s;
+        }
+
+        .particle:nth-child(5) {
+            left: 65%;
+            top: 85%;
+            animation-duration: 9s;
+        }
+
+        .particle:nth-child(6) {
+            left: 80%;
+            top: 65%;
+            animation-duration: 12s;
+        }
+
+        .particle:nth-child(7) {
+            left: 90%;
+            top: 90%;
+            animation-duration: 8s;
+        }
+
+        .particle:nth-child(8) {
+            left: 45%;
+            top: 50%;
+            animation-duration: 13s;
+        }
+
+        @keyframes floatParticle {
+
+            0% {
+                transform: translateY(0) scale(0.5);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 1;
+            }
+
+            80% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100vh) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        /* =========================
+           CONTENT
+        ========================= */
+
+        .content {
+            position: relative;
+            z-index: 5;
+
+            width: 100%;
+            max-width: 850px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .small-text {
+            font-size: 18px;
+
+            letter-spacing: 5px;
+
+            text-transform: uppercase;
+
+            color: rgba(255, 255, 255, 0.65);
+
+            margin-bottom: 22px;
+
+            opacity: 0;
+
+            animation: fadeUp 1.2s ease forwards;
+            animation-delay: 0.5s;
+        }
+
+        h1 {
+            font-size: clamp(55px, 9vw, 105px);
+
+            line-height: 0.95;
+
+            font-weight: 500;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 30px;
+
+            text-shadow:
+                0 0 20px rgba(255, 130, 190, 0.25),
+                0 0 60px rgba(255, 100, 180, 0.12);
+
+            opacity: 0;
+
+            animation: revealTitle 1.5s ease forwards;
+            animation-delay: 1s;
+        }
+
+        .subtitle {
+            font-size: clamp(17px, 2vw, 22px);
+
+            line-height: 1.8;
+
+            color: rgba(255, 255, 255, 0.78);
+
+            max-width: 650px;
+
+            margin-bottom: 45px;
+
+            opacity: 0;
+
+            animation: fadeUp 1.2s ease forwards;
+            animation-delay: 2s;
+        }
+
+        .question {
+            font-size: clamp(20px, 3vw, 30px);
+
+            line-height: 1.5;
+
+            color: #ffffff;
+
+            margin-bottom: 42px;
+
+            text-shadow:
+                0 0 15px rgba(255, 105, 180, 0.45);
+
+            opacity: 0;
+
+            animation: fadeUp 1.2s ease forwards;
+            animation-delay: 2.7s;
+        }
+
+        /* =========================
+           BUTTON AREA
+        ========================= */
+
+        .button-area {
+            position: relative;
+
+            width: 100%;
+            height: 130px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            opacity: 0;
+
+            animation: fadeUp 1.2s ease forwards;
+            animation-delay: 3.4s;
+        }
+
+        .ready-button {
+            position: absolute;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            padding: 17px 42px;
+
+            border: 1px solid rgba(255, 255, 255, 0.4);
+
+            border-radius: 50px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255, 105, 180, 0.9),
+                    rgba(181, 74, 255, 0.9)
+                );
+
+            color: white;
+
+            font-family: inherit;
+
+            font-size: 17px;
+
+            letter-spacing: 2px;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 10px 40px rgba(255, 70, 170, 0.3);
+
+            transition:
+                top 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.25s ease,
+                box-shadow 0.3s ease;
+
+            top: 50%;
+
+            z-index: 10;
+        }
+
+        .ready-button:hover {
+            transform: translateX(-50%) scale(1.06);
+
+            box-shadow:
+                0 15px 50px rgba(255, 70, 170, 0.5);
+        }
+
+        .ready-button:active {
+            transform: translateX(-50%) scale(0.96);
+        }
+
+        /* =========================
+           BUTTON MOVEMENTS
+        ========================= */
+
+        /*
+            State 0:
+            Original position
+        */
+
+        .ready-button.up {
+            top: -20px;
+        }
+
+        /*
+            State 1:
+            Comes back down
+        */
+
+        .ready-button.down {
+            top: 85px;
+        }
+
+        /*
+            State 2:
+            Goes back to center
+        */
+
+        .ready-button.center {
+            top: 50%;
+        }
+
+        /* =========================
+           SCREEN 2
+        ========================= */
+
+        #screen2 {
+            background:
+                radial-gradient(circle at center, #220b35, #09030d);
+        }
+
+        .screen2-content {
+            max-width: 750px;
+        }
+
+        .screen2-content h2 {
+            font-size: clamp(40px, 7vw, 75px);
+
+            font-weight: 400;
+
+            margin-bottom: 25px;
+
+            letter-spacing: 3px;
+        }
+
+        .screen2-content p {
+            font-size: 20px;
+
+            line-height: 1.8;
+
+            color: rgba(255,255,255,0.75);
+        }
+
+        /* =========================
+           ANIMATIONS
+        ========================= */
+
+        @keyframes fadeUp {
+
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes revealTitle {
+
+            from {
+                opacity: 0;
+                transform: scale(0.92);
+                filter: blur(8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+                filter: blur(0);
+            }
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            .screen {
+                padding: 22px;
+            }
+
+            .small-text {
+                font-size: 13px;
+                letter-spacing: 3px;
+            }
+
+            h1 {
+                letter-spacing: 2px;
+            }
+
+            .subtitle {
+                line-height: 1.7;
+            }
+
+            .question {
+                margin-bottom: 30px;
+            }
+
+            .button-area {
+                height: 120px;
+            }
+
+            .ready-button {
+                padding: 15px 34px;
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         SCREEN 1
+    ========================= -->
+
+    <section class="screen" id="screen1">
+
+        <!-- Background particles -->
+
+        <div class="particles">
+
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+
+        </div>
+
+        <div class="content">
+
+            <div class="small-text">
+                30 Days • 30 Wishes
+            </div>
+
+            <h1>
+                Finally...
+                <br>
+                The Wait Is Over.
+            </h1>
+
+            <p class="subtitle">
+                Thirty days of wishes brought us all the way here...
+                and now there's only one thing left to ask.
+            </p>
+
+            <p class="question">
+                Are you ready to see
+                <br>
+                what surprise I planned for you? 👀❤️
+            </p>
+
+            <div class="button-area">
+
+                <button
+                    class="ready-button"
+                    id="readyButton"
+                    onclick="handleReadyClick()"
+                >
+                    I'M READY ✨
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SCREEN 2
+    ========================= -->
+
+    <section class="screen hidden" id="screen2">
+
+        <div class="content screen2-content">
+
+            <h2>
+                Oh...
+                <br>
+                You Actually Clicked. 👀
+            </h2>
+
+            <p>
+                And that was only the beginning...
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <script>
+
+        /*
+         ==========================================
+         BUTTON INTERACTION
+         ==========================================
+
+         Click 1 → Button jumps UP
+
+         Click 2 → Button moves DOWN
+
+         Click 3 → Button returns to CENTER
+                   then Screen 2 opens
+        */
+
+        let clickCount = 0;
+
+        const readyButton =
+            document.getElementById("readyButton");
+
+        const screen1 =
+            document.getElementById("screen1");
+
+        const screen2 =
+            document.getElementById("screen2");
+
+
+        function handleReadyClick() {
+
+            clickCount++;
+
+
+            /* =========================
+               FIRST CLICK
+               Button jumps upward
+            ========================= */
+
+            if (clickCount === 1) {
+
+                readyButton.classList.remove("down");
+                readyButton.classList.remove("center");
+
+                readyButton.classList.add("up");
+
+            }
+
+
+            /* =========================
+               SECOND CLICK
+               Button comes back down
+            ========================= */
+
+            else if (clickCount === 2) {
+
+                readyButton.classList.remove("up");
+                readyButton.classList.remove("center");
+
+                readyButton.classList.add("down");
+
+            }
+
+
+            /* =========================
+               THIRD CLICK
+               Button returns to center
+               Then next screen opens
+            ========================= */
+
+            else if (clickCount === 3) {
+
+                readyButton.classList.remove("up");
+                readyButton.classList.remove("down");
+
+                readyButton.classList.add("center");
+
+
+                /*
+                    Wait for the button movement
+                    to finish before opening Screen 2.
+                */
+
+                setTimeout(() => {
+
+                    screen1.classList.add("hidden");
+
+                    screen2.classList.remove("hidden");
+
+                }, 900);
+
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>
