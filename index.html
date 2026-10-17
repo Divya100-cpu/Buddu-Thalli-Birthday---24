@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 
@@ -12,9 +13,9 @@
 
 <style>
 
-/* =====================================================
+/* ==============================
    RESET
-===================================================== */
+============================== */
 
 * {
     margin: 0;
@@ -48,18 +49,20 @@ body {
 }
 
 
-/* =====================================================
-   COMMON SCREEN
-===================================================== */
+/* ==============================
+   SCREENS
+============================== */
 
 .screen {
     position: fixed;
+
     inset: 0;
 
     width: 100%;
     height: 100dvh;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
@@ -69,21 +72,36 @@ body {
 
     opacity: 1;
 
+    visibility: visible;
+
+    pointer-events: auto;
+
     transition:
-        opacity 0.8s ease,
-        transform 0.8s ease;
+        opacity 0.7s ease,
+        visibility 0.7s ease;
 }
+
+
+/*
+   IMPORTANT:
+   Hidden screens are completely removed
+   from interaction and visibility.
+*/
 
 .screen.hidden {
-    opacity: 0;
-    pointer-events: none;
-    transform: scale(1.04);
+    opacity: 0 !important;
+
+    visibility: hidden !important;
+
+    pointer-events: none !important;
+
+    z-index: -10 !important;
 }
 
 
-/* =====================================================
+/* ==============================
    BACKGROUND
-===================================================== */
+============================== */
 
 .background-glow {
     position: absolute;
@@ -109,13 +127,15 @@ body {
 }
 
 
-/* =====================================================
+/* ==============================
    STARS
-===================================================== */
+============================== */
 
 .stars {
     position: absolute;
+
     inset: 0;
+
     pointer-events: none;
 }
 
@@ -129,7 +149,8 @@ body {
 
     background: rgba(255,255,255,0.75);
 
-    animation: twinkle 3s ease-in-out infinite;
+    animation:
+        twinkle 3s ease-in-out infinite;
 }
 
 .star:nth-child(1) {
@@ -205,9 +226,9 @@ body {
 }
 
 
-/* =====================================================
-   CONTENT
-===================================================== */
+/* ==============================
+   COMMON CONTENT
+============================== */
 
 .content {
     position: relative;
@@ -226,12 +247,14 @@ body {
 }
 
 
-/* =====================================================
+/* ==============================
    SCREEN 1
-===================================================== */
+============================== */
 
 .eyebrow {
-    font-size: clamp(12px, 1.3vw, 17px);
+
+    font-size:
+        clamp(12px, 1.3vw, 17px);
 
     letter-spacing:
         clamp(3px, 0.5vw, 6px);
@@ -253,6 +276,7 @@ body {
 
 
 h1 {
+
     font-size:
         clamp(42px, 6.5vw, 88px);
 
@@ -281,7 +305,9 @@ h1 {
 
 
 .description {
-    width: min(620px, 100%);
+
+    width:
+        min(620px, 100%);
 
     font-size:
         clamp(15px, 1.5vw, 20px);
@@ -303,6 +329,7 @@ h1 {
 
 
 .question {
+
     font-size:
         clamp(18px, 2.1vw, 28px);
 
@@ -324,9 +351,9 @@ h1 {
 }
 
 
-/* =====================================================
+/* ==============================
    I'M READY BUTTON
-===================================================== */
+============================== */
 
 .ready-button {
 
@@ -377,20 +404,18 @@ h1 {
         box-shadow 0.25s ease;
 }
 
-.ready-button:hover {
 
-    box-shadow:
-        0 12px 45px
-        rgba(230,70,180,0.6);
-}
-
-
-/* =====================================================
+/* ==============================
    SCREEN 2
-===================================================== */
+============================== */
 
 .screen-two-content {
-    width: min(850px, 100%);
+
+    width:
+        min(850px, 100%);
+
+    padding:
+        20px;
 }
 
 
@@ -413,23 +438,17 @@ h1 {
 }
 
 
-/* =====================================================
-   LET'S GO BUTTON
-===================================================== */
+/* ==============================
+   LET'S GO
+============================== */
 
 .next-button {
 
     display: inline-block;
 
-    visibility: visible;
-
-    opacity: 1;
-
-    pointer-events: auto;
-
     position: relative;
 
-    z-index: 50;
+    z-index: 100;
 
     padding:
         15px 36px;
@@ -459,37 +478,44 @@ h1 {
         0 8px 30px
         rgba(230,70,180,0.35);
 
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-}
+    opacity: 1;
 
-.next-button:hover {
+    visibility: visible;
 
-    transform:
-        translateY(-3px);
-
-    box-shadow:
-        0 12px 45px
-        rgba(230,70,180,0.6);
+    pointer-events: auto;
 }
 
 
-/* =====================================================
+/* ==============================
    SCREEN 3
-===================================================== */
+============================== */
+
+#screen3 {
+
+    align-items: flex-start;
+
+    padding:
+        35px 20px 30px;
+}
+
 
 .dua-content {
 
     width:
-        min(850px,100%);
+        min(900px, 100%);
 
-    max-height: 90vh;
+    height:
+        100%;
+
+    max-height:
+        100%;
 
     overflow-y: auto;
 
+    overflow-x: hidden;
+
     padding:
-        25px 20px;
+        15px 20px 40px;
 
     scrollbar-width: none;
 }
@@ -499,48 +525,62 @@ h1 {
 }
 
 
+/* ==============================
+   SALAM
+============================== */
+
 .salam {
 
+    width: 100%;
+
     font-size:
-        clamp(23px,3.2vw,42px);
+        clamp(23px, 3.2vw, 42px);
 
-    line-height: 1.3;
+    line-height: 1.25;
 
-    margin-bottom: 28px;
+    margin-bottom: 18px;
 
     color: white;
+
+    text-align: center;
 
     text-shadow:
         0 0 25px
         rgba(255,170,220,0.4);
-
-    opacity: 0;
-
-    animation:
-        fadeUp 1.2s ease forwards;
 }
 
+
+/* ==============================
+   DUA TITLE
+============================== */
 
 .dua-title {
 
     font-size:
-        clamp(21px,2.8vw,34px);
+        clamp(21px, 2.8vw, 34px);
 
-    margin-bottom: 24px;
+    line-height: 1.3;
+
+    margin-bottom: 20px;
 
     color:
         #f3c4ff;
 
-    opacity: 0;
-
-    animation:
-        fadeUp 1s ease forwards;
-
-    animation-delay: 0.5s;
+    text-align: center;
 }
 
 
+/* ==============================
+   DUA TEXT
+============================== */
+
 .dua-text {
+
+    width:
+        min(780px, 100%);
+
+    margin:
+        0 auto;
 
     font-family:
         Arial,
@@ -548,57 +588,51 @@ h1 {
         sans-serif;
 
     font-size:
-        clamp(16px,1.6vw,21px);
+        clamp(15px, 1.45vw, 20px);
 
-    line-height: 1.9;
+    line-height: 1.65;
 
     color:
-        rgba(255,255,255,0.87);
+        rgba(255,255,255,0.9);
 
-    max-width: 780px;
-
-    margin: auto;
-
-    opacity: 0;
-
-    animation:
-        fadeUp 1.2s ease forwards;
-
-    animation-delay: 1s;
+    text-align: center;
 }
 
 
 .dua-text p {
-    margin-bottom: 18px;
+
+    margin-bottom:
+        13px;
 }
 
+
+/* ==============================
+   AMEEN
+============================== */
 
 .ameen {
 
     font-size:
-        clamp(20px,2.5vw,30px);
+        clamp(20px, 2.5vw, 30px);
 
-    margin-top: 20px;
+    margin-top: 16px;
 
     color: white;
 
-    opacity: 0;
-
-    animation:
-        fadeUp 1s ease forwards;
-
-    animation-delay: 1.5s;
+    text-align: center;
 }
 
 
-/* =====================================================
+/* ==============================
    CELEBRATE BUTTON
-   HIDDEN UNTIL AUDIO ENDS
-===================================================== */
+============================== */
 
 .celebrate-button {
 
-    margin-top: 30px;
+    display: block;
+
+    margin:
+        25px auto 10px;
 
     padding:
         15px 34px;
@@ -639,8 +673,7 @@ h1 {
 
     transition:
         opacity 0.8s ease,
-        transform 0.8s ease,
-        box-shadow 0.3s ease;
+        transform 0.8s ease;
 }
 
 
@@ -657,26 +690,20 @@ h1 {
 }
 
 
-.celebrate-button:hover {
-
-    box-shadow:
-        0 12px 45px
-        rgba(230,70,180,0.6);
-}
-
-
-/* =====================================================
+/* ==============================
    SCREEN 4
-===================================================== */
+============================== */
 
 .final-title {
 
     font-size:
-        clamp(40px,7vw,90px);
+        clamp(40px, 7vw, 90px);
 
     line-height: 1;
 
     text-transform: uppercase;
+
+    text-align: center;
 
     text-shadow:
         0 0 25px
@@ -689,27 +716,31 @@ h1 {
     margin-top: 25px;
 
     font-size:
-        clamp(18px,2vw,28px);
+        clamp(18px, 2vw, 28px);
 
     color:
         rgba(255,255,255,0.8);
 }
 
 
-/* =====================================================
+/* ==============================
    ANIMATIONS
-===================================================== */
+============================== */
 
 @keyframes fadeUp {
 
     from {
+
         opacity: 0;
+
         transform:
             translateY(22px);
     }
 
     to {
+
         opacity: 1;
+
         transform:
             translateY(0);
     }
@@ -719,7 +750,9 @@ h1 {
 @keyframes titleReveal {
 
     from {
+
         opacity: 0;
+
         transform:
             scale(0.9);
 
@@ -728,7 +761,9 @@ h1 {
     }
 
     to {
+
         opacity: 1;
+
         transform:
             scale(1);
 
@@ -738,58 +773,94 @@ h1 {
 }
 
 
-/* =====================================================
+/* ==============================
    MOBILE
-===================================================== */
+============================== */
 
 @media (max-width: 600px) {
 
     .screen {
-        padding: 18px;
-    }
 
-
-    .description {
-        max-width: 340px;
-    }
-
-
-    .question {
-        max-width: 340px;
+        padding:
+            18px;
     }
 
 
     .ready-button {
 
-        min-width: 160px;
+        min-width:
+            160px;
 
         padding:
             14px 28px;
 
-        font-size: 14px;
+        font-size:
+            14px;
     }
 
 
     .screen-two-content h2 {
 
-        max-width: 350px;
+        max-width:
+            350px;
+    }
+
+
+    #screen3 {
+
+        padding:
+            20px 12px 20px;
     }
 
 
     .dua-content {
 
-        max-height: 88vh;
-
         padding:
-            20px 12px;
+            10px 8px 35px;
+    }
+
+
+    .salam {
+
+        font-size:
+            clamp(21px, 6vw, 30px);
+
+        margin-bottom:
+            16px;
+    }
+
+
+    .dua-title {
+
+        font-size:
+            21px;
+
+        margin-bottom:
+            15px;
     }
 
 
     .dua-text {
 
-        font-size: 16px;
+        font-size:
+            15px;
 
-        line-height: 1.8;
+        line-height:
+            1.65;
+    }
+
+
+    .dua-text p {
+
+        margin-bottom:
+            11px;
+    }
+
+
+    .ameen {
+
+        font-size:
+            21px;
     }
 
 }
@@ -950,7 +1021,6 @@ h1 {
 
         <div class="dua-text">
 
-
             <p>
                 अल्लाह तुम्हारी ज़िंदगी को हमेशा
                 खुशियों, सुकून, बरकत और रहमत से भर दे।
@@ -995,7 +1065,6 @@ h1 {
                 मोहब्बत और हिफ़ाज़त में हमेशा रखे।
             </p>
 
-
         </div>
 
 
@@ -1020,8 +1089,8 @@ h1 {
 
 
     <!--
-        KEEP THIS FILE IN THE SAME FOLDER
-        AS index.html
+        PUT YOUR AUDIO FILE IN THE SAME
+        GITHUB FOLDER AS index.html.
 
         FILE NAME:
         asbahna.mp3
@@ -1079,7 +1148,7 @@ h1 {
    ELEMENTS
 ===================================================== */
 
-const button =
+const readyButton =
     document.getElementById("readyButton");
 
 const screen1 =
@@ -1105,57 +1174,72 @@ const duaAudio =
 
 
 /* =====================================================
-   READY BUTTON MOVEMENT
-
-   0 = ORIGINAL
-
-   1 = TOP CENTER
-
-   2 = ORIGINAL DOWN
-
-   3 = TOP RIGHT
-
-   4 = ORIGINAL FINAL
-
-   5 = SCREEN 2
+   READY BUTTON STATES
 ===================================================== */
+
+/*
+
+0 = original
+
+1 = top center
+
+2 = original
+
+3 = top right
+
+4 = original / clickable
+
+*/
 
 let state = 0;
 
 let pointerX = null;
+
 let pointerY = null;
 
 let moving = false;
 
 
-/* =====================================================
+/* ==============================
    POSITIONS
-===================================================== */
+============================== */
 
 const originalPosition = {
+
     left: "50vw",
+
     top: "78vh"
+
 };
+
 
 const topCenterPosition = {
+
     left: "50vw",
+
     top: "7vh"
+
 };
+
 
 const topRightPosition = {
+
     left: "88vw",
+
     top: "7vh"
+
 };
 
 
-/* =====================================================
-   BUTTON CENTER
-===================================================== */
+/* ==============================
+   GET BUTTON CENTER
+============================== */
 
 function getButtonCenter() {
 
     const rect =
-        button.getBoundingClientRect();
+        readyButton.getBoundingClientRect();
+
 
     return {
 
@@ -1166,17 +1250,15 @@ function getButtonCenter() {
         y:
             rect.top +
             rect.height / 2
+
     };
+
 }
 
 
-/* =====================================================
-   CHECK DISTANCE
-
-   Works with:
-   - mouse
-   - mobile touch
-===================================================== */
+/* ==============================
+   CHECK POINTER DISTANCE
+============================== */
 
 function checkDistance() {
 
@@ -1185,18 +1267,21 @@ function checkDistance() {
         pointerX === null ||
         pointerY === null
     ) {
+
         return;
+
     }
 
 
     /*
-        After final movement,
-        button stays at original place
-        and can be clicked.
+        Once all movement is completed,
+        the button becomes clickable.
     */
 
     if (state === 4) {
+
         return;
+
     }
 
 
@@ -1206,6 +1291,7 @@ function checkDistance() {
 
     const dx =
         center.x - pointerX;
+
 
     const dy =
         center.y - pointerY;
@@ -1219,7 +1305,7 @@ function checkDistance() {
 
 
     /*
-        Finger / cursor comes close.
+        Finger/cursor comes near button.
     */
 
     if (distance < 180) {
@@ -1227,96 +1313,94 @@ function checkDistance() {
         moveButton();
 
     }
+
 }
 
 
-/* =====================================================
-   BUTTON MOVEMENT
-===================================================== */
+/* ==============================
+   MOVE BUTTON
+============================== */
 
 function moveButton() {
 
     moving = true;
 
 
-    /* -----------------------------------------------
-       1. ORIGINAL → TOP CENTER
-    ----------------------------------------------- */
+    /* 1. ORIGINAL → TOP */
 
     if (state === 0) {
 
         state = 1;
 
-        button.style.left =
+        readyButton.style.left =
             topCenterPosition.left;
 
-        button.style.top =
+        readyButton.style.top =
             topCenterPosition.top;
+
     }
 
 
-    /* -----------------------------------------------
-       2. TOP CENTER → ORIGINAL
-    ----------------------------------------------- */
+    /* 2. TOP → ORIGINAL */
 
     else if (state === 1) {
 
         state = 2;
 
-        button.style.left =
+        readyButton.style.left =
             originalPosition.left;
 
-        button.style.top =
+        readyButton.style.top =
             originalPosition.top;
+
     }
 
 
-    /* -----------------------------------------------
-       3. ORIGINAL → TOP RIGHT
-    ----------------------------------------------- */
+    /* 3. ORIGINAL → TOP RIGHT */
 
     else if (state === 2) {
 
         state = 3;
 
-        button.style.left =
+        readyButton.style.left =
             topRightPosition.left;
 
-        button.style.top =
+        readyButton.style.top =
             topRightPosition.top;
+
     }
 
 
-    /* -----------------------------------------------
-       4. TOP RIGHT → ORIGINAL
-
-       NOW USER CAN CLICK
-    ----------------------------------------------- */
+    /* 4. TOP RIGHT → ORIGINAL */
 
     else if (state === 3) {
 
         state = 4;
 
-        button.style.left =
+        readyButton.style.left =
             originalPosition.left;
 
-        button.style.top =
+        readyButton.style.top =
             originalPosition.top;
+
     }
 
 
     setTimeout(
         function() {
+
             moving = false;
+
         },
         500
     );
+
 }
 
 
-/* =====================================================
-   DESKTOP MOUSE
-===================================================== */
+/* ==============================
+   DESKTOP
+============================== */
 
 document.addEventListener(
     "mousemove",
@@ -1329,16 +1413,14 @@ document.addEventListener(
             event.clientY;
 
         checkDistance();
+
     }
 );
 
 
-/* =====================================================
+/* ==============================
    MOBILE TOUCH
-
-   Mobile has no cursor, so finger position
-   is used instead.
-===================================================== */
+============================== */
 
 document.addEventListener(
     "touchstart",
@@ -1348,7 +1430,9 @@ document.addEventListener(
             !event.touches ||
             event.touches.length === 0
         ) {
+
             return;
+
         }
 
 
@@ -1375,7 +1459,9 @@ document.addEventListener(
             !event.touches ||
             event.touches.length === 0
         ) {
+
             return;
+
         }
 
 
@@ -1394,11 +1480,11 @@ document.addEventListener(
 );
 
 
-/* =====================================================
+/* ==============================
    I'M READY CLICK
-===================================================== */
+============================== */
 
-button.addEventListener(
+readyButton.addEventListener(
     "click",
     function(event) {
 
@@ -1406,77 +1492,62 @@ button.addEventListener(
 
 
         /*
-            Do NOT open next screen
-            until all movements are completed.
+            Don't continue until the complete
+            movement sequence is finished.
         */
 
         if (state !== 4) {
+
             return;
+
         }
 
 
-        state = 5;
-
-
-        screen1.classList.add(
-            "hidden"
-        );
+        screen1.classList.add("hidden");
 
 
         setTimeout(
             function() {
 
-                screen2.classList.remove(
-                    "hidden"
-                );
+                screen2.classList.remove("hidden");
 
             },
-            400
+            500
         );
 
     }
 );
 
 
-/* =====================================================
-   SCREEN 2 → SCREEN 3
-===================================================== */
+/* ==============================
+   LET'S GO
+============================== */
 
 continueButton.addEventListener(
     "click",
     function() {
 
-        screen2.classList.add(
-            "hidden"
-        );
+        screen2.classList.add("hidden");
 
 
         setTimeout(
             function() {
 
-                screen3.classList.remove(
-                    "hidden"
-                );
-
-
-                /*
-                    Audio starts because this action
-                    came directly from user's tap/click.
-                */
+                screen3.classList.remove("hidden");
 
                 startDuaAudio();
 
             },
-            400
+            500
         );
 
     }
 );
 
 
-/* =====================================================
+/* ==============================
    START AUDIO
-===================================================== */
+============================== */
 
 function startDuaAudio() {
 
@@ -1501,21 +1572,17 @@ function startDuaAudio() {
         );
 
     }
+
 }
 
 
-/* =====================================================
-   AUDIO FINISHED
-===================================================== */
+/* ==============================
+   AUDIO ENDS
+============================== */
 
 duaAudio.addEventListener(
     "ended",
     function() {
-
-        /*
-            Button appears ONLY after
-            the complete song/audio finishes.
-        */
 
         celebrateButton.classList.add(
             "show"
@@ -1525,88 +1592,43 @@ duaAudio.addEventListener(
 );
 
 
-/* =====================================================
-   LET'S CELEBRATE NOW
-===================================================== */
+/* ==============================
+   LET'S CELEBRATE
+============================== */
 
 celebrateButton.addEventListener(
     "click",
     function() {
 
-        screen3.classList.add(
-            "hidden"
-        );
+        screen3.classList.add("hidden");
 
 
         setTimeout(
             function() {
 
-                screen4.classList.remove(
-                    "hidden"
-                );
+                screen4.classList.remove("hidden");
 
             },
-            400
+            500
         );
 
     }
 );
 
 
-/* =====================================================
-   INITIAL POSITION
-===================================================== */
+/* ==============================
+   INITIAL BUTTON POSITION
+============================== */
 
 window.addEventListener(
     "load",
     function() {
 
-        button.style.left =
+        readyButton.style.left =
             originalPosition.left;
 
-        button.style.top =
+        readyButton.style.top =
             originalPosition.top;
-
-    }
-);
-
-
-/* =====================================================
-   RESIZE
-===================================================== */
-
-window.addEventListener(
-    "resize",
-    function() {
-
-        if (state === 0 || state === 2 || state === 4) {
-
-            button.style.left =
-                originalPosition.left;
-
-            button.style.top =
-                originalPosition.top;
-        }
-
-
-        if (state === 1) {
-
-            button.style.left =
-                topCenterPosition.left;
-
-            button.style.top =
-                topCenterPosition.top;
-        }
-
-
-        if (state === 3) {
-
-            button.style.left =
-                topRightPosition.left;
-
-            button.style.top =
-                topRightPosition.top;
-        }
 
     }
 );
