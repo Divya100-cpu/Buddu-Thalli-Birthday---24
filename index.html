@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Finally... The Wait Is Over</title>
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Finally... The Wait Is Over ❤️</title>
+
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
 
         html,
         body {
@@ -19,7 +28,9 @@
             height: 100%;
         }
 
+
         body {
+
             overflow: hidden;
 
             background:
@@ -38,7 +49,13 @@
                 serif;
         }
 
+
+        /* =========================================
+           COMMON SCREEN
+        ========================================= */
+
         .screen {
+
             position: fixed;
 
             inset: 0;
@@ -55,12 +72,16 @@
 
             padding: 20px;
 
+            opacity: 1;
+
             transition:
                 opacity 0.9s ease,
                 transform 0.9s ease;
         }
 
+
         .screen.hidden {
+
             opacity: 0;
 
             pointer-events: none;
@@ -68,9 +89,13 @@
             transform: scale(1.05);
         }
 
-        /* BACKGROUND GLOW */
+
+        /* =========================================
+           BACKGROUND GLOW
+        ========================================= */
 
         .background-glow {
+
             position: absolute;
 
             width: 45vw;
@@ -93,9 +118,13 @@
             pointer-events: none;
         }
 
-        /* STARS */
+
+        /* =========================================
+           STARS
+        ========================================= */
 
         .stars {
+
             position: absolute;
 
             inset: 0;
@@ -103,7 +132,9 @@
             pointer-events: none;
         }
 
+
         .star {
+
             position: absolute;
 
             width: 2px;
@@ -118,10 +149,12 @@
                 twinkle 3s ease-in-out infinite;
         }
 
+
         .star:nth-child(1) {
             left: 8%;
             top: 20%;
         }
+
 
         .star:nth-child(2) {
             left: 18%;
@@ -129,11 +162,13 @@
             animation-delay: 1s;
         }
 
+
         .star:nth-child(3) {
             left: 30%;
             top: 35%;
             animation-delay: 2s;
         }
+
 
         .star:nth-child(4) {
             left: 45%;
@@ -141,11 +176,13 @@
             animation-delay: 0.5s;
         }
 
+
         .star:nth-child(5) {
             left: 63%;
             top: 27%;
             animation-delay: 1.5s;
         }
+
 
         .star:nth-child(6) {
             left: 77%;
@@ -153,11 +190,13 @@
             animation-delay: 2.5s;
         }
 
+
         .star:nth-child(7) {
             left: 90%;
             top: 25%;
             animation-delay: 1s;
         }
+
 
         .star:nth-child(8) {
             left: 73%;
@@ -165,11 +204,13 @@
             animation-delay: 2s;
         }
 
+
         .star:nth-child(9) {
             left: 42%;
             top: 78%;
             animation-delay: 0.8s;
         }
+
 
         .star:nth-child(10) {
             left: 94%;
@@ -177,28 +218,39 @@
             animation-delay: 1.8s;
         }
 
+
         @keyframes twinkle {
 
             0%,
             100% {
+
                 opacity: 0.2;
+
                 transform: scale(0.8);
             }
 
+
             50% {
+
                 opacity: 1;
+
                 transform: scale(1.5);
             }
         }
 
-        /* CONTENT */
+
+        /* =========================================
+           COMMON CONTENT
+        ========================================= */
 
         .content {
+
             position: relative;
 
             z-index: 5;
 
-            width: min(900px, 100%);
+            width:
+                min(900px, 100%);
 
             display: flex;
 
@@ -209,9 +261,13 @@
             text-align: center;
         }
 
-        /* TOP TEXT */
+
+        /* =========================================
+           SCREEN 1
+        ========================================= */
 
         .eyebrow {
+
             font-size:
                 clamp(12px, 1.3vw, 17px);
 
@@ -234,9 +290,9 @@
             animation-delay: 0.3s;
         }
 
-        /* MAIN TITLE */
 
         h1 {
+
             font-size:
                 clamp(42px, 6.5vw, 88px);
 
@@ -267,9 +323,9 @@
             animation-delay: 0.8s;
         }
 
-        /* DESCRIPTION */
 
         .description {
+
             width:
                 min(620px, 100%);
 
@@ -292,9 +348,9 @@
             animation-delay: 1.8s;
         }
 
-        /* QUESTION */
 
         .question {
+
             font-size:
                 clamp(18px, 2.1vw, 28px);
 
@@ -318,9 +374,13 @@
             animation-delay: 2.5s;
         }
 
-        /* BUTTON */
+
+        /* =========================================
+           READY BUTTON
+        ========================================= */
 
         .ready-button {
+
             position: fixed;
 
             left: 50%;
@@ -370,55 +430,344 @@
                 box-shadow 0.25s ease;
         }
 
+
         .ready-button:hover {
+
             box-shadow:
                 0 12px 45px
                 rgba(230, 70, 180, 0.6);
         }
 
-        /* SECOND SCREEN */
+
+        /* =========================================
+           SCREEN 2
+        ========================================= */
 
         .screen-two-content {
-            max-width: 750px;
+
+            max-width: 800px;
         }
 
-        .screen-two-content h2 {
-            font-size:
-                clamp(36px, 5.5vw, 72px);
 
-            line-height: 1.1;
+        .screen-two-content h2 {
+
+            font-size:
+                clamp(30px, 5vw, 68px);
+
+            line-height: 1.15;
 
             font-weight: 500;
 
-            margin-bottom: 25px;
+            margin-bottom: 20px;
 
             text-shadow:
                 0 0 20px
                 rgba(255, 150, 220, 0.25);
+
+            max-width: 800px;
         }
 
+
         .screen-two-content p {
+
             font-size:
-                clamp(17px, 2vw, 24px);
+                clamp(17px, 2vw, 25px);
 
             line-height: 1.7;
 
             color:
-                rgba(255, 255, 255, 0.75);
+                rgba(255, 255, 255, 0.78);
+
+            margin-bottom: 25px;
         }
 
-        /* ANIMATIONS */
+
+        /* =========================================
+           COMMON NEXT BUTTON
+        ========================================= */
+
+        .next-button {
+
+            padding:
+                15px 34px;
+
+            border: none;
+
+            border-radius: 50px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #e15aaa,
+                    #ad4be4
+                );
+
+            color: white;
+
+            font-family: inherit;
+
+            font-size: 16px;
+
+            letter-spacing: 1px;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 8px 30px
+                rgba(230, 70, 180, 0.35);
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+
+        .next-button:hover {
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 12px 45px
+                rgba(230, 70, 180, 0.6);
+        }
+
+
+        /* =========================================
+           SCREEN 3 - DUA
+        ========================================= */
+
+        .dua-content {
+
+            width:
+                min(850px, 100%);
+
+            max-height: 90vh;
+
+            overflow-y: auto;
+
+            padding:
+                25px 20px;
+
+            scrollbar-width: none;
+        }
+
+
+        .dua-content::-webkit-scrollbar {
+            display: none;
+        }
+
+
+        .salam {
+
+            font-size:
+                clamp(23px, 3.2vw, 42px);
+
+            line-height: 1.3;
+
+            margin-bottom: 28px;
+
+            color: white;
+
+            text-shadow:
+                0 0 25px
+                rgba(255, 170, 220, 0.4);
+
+            opacity: 0;
+
+            animation:
+                fadeUp 1.2s ease forwards;
+        }
+
+
+        .dua-title {
+
+            font-size:
+                clamp(21px, 2.8vw, 34px);
+
+            margin-bottom: 24px;
+
+            color:
+                #f3c4ff;
+
+            opacity: 0;
+
+            animation:
+                fadeUp 1s ease forwards;
+
+            animation-delay: 0.5s;
+        }
+
+
+        .dua-text {
+
+            font-family:
+                Arial,
+                "Noto Sans",
+                sans-serif;
+
+            font-size:
+                clamp(16px, 1.6vw, 21px);
+
+            line-height: 1.9;
+
+            color:
+                rgba(255, 255, 255, 0.87);
+
+            max-width: 780px;
+
+            margin: auto;
+
+            opacity: 0;
+
+            animation:
+                fadeUp 1.2s ease forwards;
+
+            animation-delay: 1s;
+        }
+
+
+        .dua-text p {
+
+            margin-bottom: 18px;
+        }
+
+
+        .ameen {
+
+            font-size:
+                clamp(20px, 2.5vw, 30px);
+
+            margin-top: 20px;
+
+            color: white;
+
+            opacity: 0;
+
+            animation:
+                fadeUp 1s ease forwards;
+
+            animation-delay: 1.5s;
+        }
+
+
+        /* =========================================
+           CELEBRATE BUTTON
+        ========================================= */
+
+        .celebrate-button {
+
+            margin-top: 30px;
+
+            padding:
+                15px 34px;
+
+            border: none;
+
+            border-radius: 50px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #e15aaa,
+                    #ad4be4
+                );
+
+            color: white;
+
+            font-family: inherit;
+
+            font-size: 16px;
+
+            letter-spacing: 1px;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 8px 30px
+                rgba(230, 70, 180, 0.35);
+
+            opacity: 0;
+
+            pointer-events: none;
+
+            transform:
+                translateY(15px);
+
+            transition:
+                opacity 0.8s ease,
+                transform 0.8s ease,
+                box-shadow 0.3s ease;
+        }
+
+
+        .celebrate-button.show {
+
+            opacity: 1;
+
+            pointer-events: auto;
+
+            transform:
+                translateY(0);
+        }
+
+
+        .celebrate-button:hover {
+
+            box-shadow:
+                0 12px 45px
+                rgba(230, 70, 180, 0.6);
+        }
+
+
+        /* =========================================
+           SCREEN 4
+        ========================================= */
+
+        .final-title {
+
+            font-size:
+                clamp(40px, 7vw, 90px);
+
+            line-height: 1;
+
+            text-transform: uppercase;
+
+            text-shadow:
+                0 0 25px
+                rgba(255, 150, 220, 0.4);
+        }
+
+
+        .final-text {
+
+            margin-top: 25px;
+
+            font-size:
+                clamp(18px, 2vw, 28px);
+
+            color:
+                rgba(255, 255, 255, 0.8);
+        }
+
+
+        /* =========================================
+           ANIMATIONS
+        ========================================= */
 
         @keyframes fadeUp {
 
             from {
+
                 opacity: 0;
 
                 transform:
                     translateY(22px);
             }
 
+
             to {
+
                 opacity: 1;
 
                 transform:
@@ -426,9 +775,11 @@
             }
         }
 
+
         @keyframes titleReveal {
 
             from {
+
                 opacity: 0;
 
                 transform:
@@ -438,7 +789,9 @@
                     blur(10px);
             }
 
+
             to {
+
                 opacity: 1;
 
                 transform:
@@ -449,21 +802,30 @@
             }
         }
 
-        /* MOBILE */
+
+        /* =========================================
+           MOBILE
+        ========================================= */
 
         @media (max-width: 600px) {
 
             .screen {
+
                 padding: 18px;
             }
 
+
             .description {
+
                 max-width: 340px;
             }
 
+
             .question {
+
                 max-width: 340px;
             }
+
 
             .ready-button {
 
@@ -475,16 +837,39 @@
                 font-size: 14px;
             }
 
+
             .screen-two-content h2 {
+
                 max-width: 350px;
             }
 
+
             .screen-two-content p {
+
                 max-width: 340px;
             }
+
+
+            .dua-content {
+
+                max-height: 88vh;
+
+                padding:
+                    20px 12px;
+            }
+
+
+            .dua-text {
+
+                font-size: 16px;
+
+                line-height: 1.8;
+            }
+
         }
 
     </style>
+
 </head>
 
 
@@ -492,7 +877,7 @@
 
 
     <!-- =========================================
-         FIRST SCREEN
+         SCREEN 1
     ========================================= -->
 
     <section
@@ -572,13 +957,12 @@
 
         </button>
 
-
     </section>
 
 
 
     <!-- =========================================
-         SECOND SCREEN
+         SCREEN 2
     ========================================= -->
 
     <section
@@ -592,20 +976,203 @@
 
             <h2>
 
-                Oh wowww! 😂
+                Oh wowww! I see that you're very excited 😂
 
                 <br>
 
-                I see that you're very excited! 👀
+                But... there's still some suspense left. 👀
 
             </h2>
 
 
-            <p>
+            <button
+                id="continueButton"
+                class="next-button"
+                type="button"
+            >
 
-                But... there's still some suspense left. 🤭
+                LET'S GO ✨
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         SCREEN 3
+         ISLAMIC GREETING + HINDI DUA
+    ========================================= -->
+
+    <section
+        class="screen hidden"
+        id="screen3"
+    >
+
+        <div
+            class="content dua-content"
+        >
+
+
+            <div class="salam">
+
+                Assalamu Alaikum wa Rahmatullahi wa Barakatuh ❤️
+
+            </div>
+
+
+            <div class="dua-title">
+
+                🤲 जन्मदिन की दुआ 🤲
+
+            </div>
+
+
+            <div class="dua-text">
+
+
+                <p>
+
+                    अल्लाह तुम्हारी ज़िंदगी को हमेशा
+                    खुशियों, सुकून, बरकत और रहमत से भर दे।
+
+                </p>
+
+
+                <p>
+
+                    अल्लाह तुम्हें हर कदम पर सही रास्ता
+                    दिखाए और तुम्हारे ईमान को हमेशा मज़बूत रखे।
+
+                </p>
+
+
+                <p>
+
+                    अल्लाह तुम्हें अच्छी सेहत,
+                    लंबी और बरकत वाली ज़िंदगी,
+                    हलाल रिज़्क और दिल का सुकून अता करे।
+
+                </p>
+
+
+                <p>
+
+                    तुम्हारी हर जायज़ दुआ को कबूल करे,
+                    तुम्हारी हर परेशानी को आसान करे,
+                    और तुम्हें हर बुरी चीज़ से महफ़ूज़ रखे।
+
+                </p>
+
+
+                <p>
+
+                    अल्लाह तुम्हारे आने वाले हर साल को
+                    पिछले साल से भी ज़्यादा खूबसूरत बनाए।
+
+                </p>
+
+
+                <p>
+
+                    तुम्हें दुनिया में भी खुशियाँ दे
+                    और आख़िरत में भी कामयाबी अता करे।
+
+                </p>
+
+
+                <p>
+
+                    और सबसे बढ़कर,
+                    अल्लाह तुम्हें अपनी रहमत,
+                    मोहब्बत और हिफ़ाज़त में हमेशा रखे।
+
+                </p>
+
+
+            </div>
+
+
+            <div class="ameen">
+
+                आमीन या रब्बुल आलमीन 🤲❤️
+
+            </div>
+
+
+            <!--
+                THIS BUTTON STAYS HIDDEN
+                UNTIL AUDIO COMPLETELY FINISHES
+            -->
+
+            <button
+                id="celebrateButton"
+                class="celebrate-button"
+                type="button"
+            >
+
+                LET'S CELEBRATE NOW 🎉❤️
+
+            </button>
+
+
+        </div>
+
+
+        <!--
+            IMPORTANT:
+
+            Put your audio file in the same
+            GitHub repository as index.html.
+
+            File name:
+
+            asbahna.mp3
+        -->
+
+        <audio
+            id="duaAudio"
+            preload="auto"
+        >
+
+            <source
+                src="asbahna.mp3"
+                type="audio/mpeg"
+            >
+
+        </audio>
+
+    </section>
+
+
+
+    <!-- =========================================
+         SCREEN 4
+    ========================================= -->
+
+    <section
+        class="screen hidden"
+        id="screen4"
+    >
+
+        <div class="content">
+
+
+            <h1 class="final-title">
+
+                LET'S CELEBRATE! 🎉❤️
+
+            </h1>
+
+
+            <p class="final-text">
+
+                Today is all about you. ❤️
 
             </p>
+
 
         </div>
 
@@ -614,6 +1181,11 @@
 
 
     <script>
+
+
+        /* =========================================
+           GET ELEMENTS
+        ========================================= */
 
         const button =
             document.getElementById(
@@ -633,32 +1205,69 @@
             );
 
 
-        /*
-            BUTTON STATES
+        const screen3 =
+            document.getElementById(
+                "screen3"
+            );
 
-            0 = ORIGINAL
 
-            1 = TOP CENTER
+        const screen4 =
+            document.getElementById(
+                "screen4"
+            );
 
-            2 = ORIGINAL / DOWN
 
-            3 = TOP RIGHT
+        const continueButton =
+            document.getElementById(
+                "continueButton"
+            );
 
-            4 = ORIGINAL / FINAL CLICK
 
-            5 = NEXT SCREEN
-        */
+        const celebrateButton =
+            document.getElementById(
+                "celebrateButton"
+            );
+
+
+        const duaAudio =
+            document.getElementById(
+                "duaAudio"
+            );
+
+
+
+        /* =========================================
+           BUTTON MOVEMENT STATES
+
+           0 = ORIGINAL
+
+           1 = TOP CENTER
+
+           2 = ORIGINAL / DOWN
+
+           3 = TOP RIGHT
+
+           4 = ORIGINAL / FINAL
+
+           5 = SCREEN 2
+        ========================================= */
 
         let state = 0;
 
+
         let pointerX = null;
 
+
         let pointerY = null;
+
 
         let moving = false;
 
 
-        /* POSITIONS */
+
+        /* =========================================
+           POSITIONS
+        ========================================= */
 
         const originalPosition = {
 
@@ -687,7 +1296,10 @@
         };
 
 
-        /* GET BUTTON CENTER */
+
+        /* =========================================
+           GET BUTTON CENTER
+        ========================================= */
 
         function getButtonCenter() {
 
@@ -710,14 +1322,21 @@
         }
 
 
-        /* CHECK DISTANCE */
+
+        /* =========================================
+           CHECK POINTER / TOUCH DISTANCE
+        ========================================= */
 
         function checkDistance() {
 
             if (
+
                 moving ||
+
                 pointerX === null ||
+
                 pointerY === null
+
             ) {
 
                 return;
@@ -726,9 +1345,9 @@
 
 
             /*
-                After the button has returned
+                When the button has returned
                 to its original position for
-                the final time, stop movement.
+                the final time, stop moving.
             */
 
             if (state === 4) {
@@ -760,12 +1379,11 @@
 
 
             /*
-                Cursor/finger gets close.
+                Pointer/finger comes close
+                to the button.
             */
 
-            if (
-                distance < 180
-            ) {
+            if (distance < 180) {
 
                 moveButton();
 
@@ -774,7 +1392,10 @@
         }
 
 
-        /* MOVE BUTTON */
+
+        /* =========================================
+           MOVE BUTTON
+        ========================================= */
 
         function moveButton() {
 
@@ -805,7 +1426,7 @@
             /*
                 TOP CENTER
                 →
-                DOWN
+                ORIGINAL DOWN
             */
 
             else if (state === 1) {
@@ -824,7 +1445,7 @@
 
 
             /*
-                DOWN
+                ORIGINAL DOWN
                 →
                 TOP RIGHT
             */
@@ -866,6 +1487,7 @@
 
 
             setTimeout(
+
                 function() {
 
                     moving = false;
@@ -873,14 +1495,19 @@
                 },
 
                 500
+
             );
 
         }
 
 
-        /* DESKTOP */
+
+        /* =========================================
+           DESKTOP MOUSE
+        ========================================= */
 
         document.addEventListener(
+
             "mousemove",
 
             function(event) {
@@ -896,19 +1523,27 @@
                 checkDistance();
 
             }
+
         );
 
 
-        /* MOBILE */
+
+        /* =========================================
+           MOBILE TOUCH START
+        ========================================= */
 
         document.addEventListener(
+
             "touchstart",
 
             function(event) {
 
                 if (
+
                     !event.touches ||
+
                     event.touches.length === 0
+
                 ) {
 
                     return;
@@ -931,17 +1566,27 @@
             {
                 passive: true
             }
+
         );
 
 
+
+        /* =========================================
+           MOBILE TOUCH MOVE
+        ========================================= */
+
         document.addEventListener(
+
             "touchmove",
 
             function(event) {
 
                 if (
+
                     !event.touches ||
+
                     event.touches.length === 0
+
                 ) {
 
                     return;
@@ -964,12 +1609,17 @@
             {
                 passive: true
             }
+
         );
 
 
-        /* FINAL CLICK */
+
+        /* =========================================
+           FINAL I'M READY CLICK
+        ========================================= */
 
         button.addEventListener(
+
             "click",
 
             function(event) {
@@ -978,42 +1628,186 @@
 
 
                 /*
-                    Only after completing
-                    all movements can the
-                    button open Screen 2.
+                    Only the final position
+                    allows the click.
                 */
 
-                if (state === 4) {
+                if (state !== 4) {
 
-                    state = 5;
-
-
-                    screen1.classList.add(
-                        "hidden"
-                    );
-
-
-                    setTimeout(
-                        function() {
-
-                            screen2.classList.remove(
-                                "hidden"
-                            );
-
-                        },
-
-                        300
-                    );
+                    return;
 
                 }
 
+
+                state = 5;
+
+
+                screen1.classList.add(
+                    "hidden"
+                );
+
+
+                setTimeout(
+
+                    function() {
+
+                        screen2.classList.remove(
+                            "hidden"
+                        );
+
+                    },
+
+                    300
+
+                );
+
             }
+
         );
 
 
-        /* INITIAL POSITION */
+
+        /* =========================================
+           SCREEN 2 → SCREEN 3
+        ========================================= */
+
+        continueButton.addEventListener(
+
+            "click",
+
+            function() {
+
+                screen2.classList.add(
+                    "hidden"
+                );
+
+
+                setTimeout(
+
+                    function() {
+
+                        screen3.classList.remove(
+                            "hidden"
+                        );
+
+
+                        /*
+                            Start the audio from the
+                            user's button click.
+
+                            This is important for
+                            mobile browsers because
+                            they restrict autoplay.
+                        */
+
+                        startDuaAudio();
+
+                    },
+
+                    300
+
+                );
+
+            }
+
+        );
+
+
+
+        /* =========================================
+           START ASBAHNA AUDIO
+        ========================================= */
+
+        function startDuaAudio() {
+
+            duaAudio.currentTime = 0;
+
+
+            duaAudio
+                .play()
+                .catch(
+
+                    function(error) {
+
+                        console.log(
+                            "Audio playback was blocked:",
+                            error
+                        );
+
+                    }
+
+                );
+
+        }
+
+
+
+        /* =========================================
+           AUDIO COMPLETELY FINISHED
+        ========================================= */
+
+        duaAudio.addEventListener(
+
+            "ended",
+
+            function() {
+
+                /*
+                    Only now show the
+                    celebration button.
+                */
+
+                celebrateButton.classList.add(
+                    "show"
+                );
+
+            }
+
+        );
+
+
+
+        /* =========================================
+           LET'S CELEBRATE NOW
+        ========================================= */
+
+        celebrateButton.addEventListener(
+
+            "click",
+
+            function() {
+
+                screen3.classList.add(
+                    "hidden"
+                );
+
+
+                setTimeout(
+
+                    function() {
+
+                        screen4.classList.remove(
+                            "hidden"
+                        );
+
+                    },
+
+                    400
+
+                );
+
+            }
+
+        );
+
+
+
+        /* =========================================
+           INITIAL BUTTON POSITION
+        ========================================= */
 
         window.addEventListener(
+
             "load",
 
             function() {
@@ -1026,12 +1820,17 @@
                     originalPosition.top;
 
             }
+
         );
 
 
-        /* RESIZE */
+
+        /* =========================================
+           KEEP POSITION CORRECT AFTER RESIZE
+        ========================================= */
 
         window.addEventListener(
+
             "resize",
 
             function() {
@@ -1091,9 +1890,11 @@
                 }
 
             }
+
         );
 
     </script>
 
 </body>
+
 </html>
