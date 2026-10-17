@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>The Wait Is Over ❤️</title>
+    <title>Finally... The Wait Is Over ❤️</title>
 
     <style>
         * {
@@ -21,27 +21,44 @@
 
         body {
             overflow: hidden;
-            font-family: Georgia, "Times New Roman", serif;
+
             background:
-                radial-gradient(circle at center, #32103f 0%, #17091f 45%, #08030c 100%);
-            color: white;
+                radial-gradient(
+                    circle at 50% 45%,
+                    #351044 0%,
+                    #1d0826 42%,
+                    #09030d 100%
+                );
+
+            color: #ffffff;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
         }
 
-        /* =========================
-           MAIN SCREEN
-        ========================= */
+        /* =========================================
+           SCREEN
+        ========================================= */
 
         .screen {
             position: fixed;
+
             inset: 0;
 
+            width: 100%;
+            height: 100dvh;
+
             display: flex;
+
             align-items: center;
             justify-content: center;
 
-            text-align: center;
+            overflow: hidden;
 
-            padding: 30px;
+            padding:
+                clamp(18px, 4vw, 45px);
 
             transition:
                 opacity 1s ease,
@@ -50,396 +67,475 @@
 
         .screen.hidden {
             opacity: 0;
+
             pointer-events: none;
-            transform: scale(1.05);
+
+            transform: scale(1.04);
         }
 
-        /* =========================
-           BACKGROUND PARTICLES
-        ========================= */
+        /* =========================================
+           BACKGROUND
+        ========================================= */
 
-        .particles {
-            position: absolute;
-            inset: 0;
-            overflow: hidden;
-            pointer-events: none;
-        }
-
-        .particle {
+        .background-glow {
             position: absolute;
 
-            width: 3px;
-            height: 3px;
+            width: 45vw;
+            height: 45vw;
 
-            background: rgba(255, 255, 255, 0.7);
+            max-width: 600px;
+            max-height: 600px;
 
             border-radius: 50%;
 
-            animation: floatParticle linear infinite;
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(206, 77, 255, 0.14),
+                    transparent 70%
+                );
+
+            filter: blur(20px);
+
+            pointer-events: none;
         }
 
-        .particle:nth-child(1) {
+        .stars {
+            position: absolute;
+
+            inset: 0;
+
+            pointer-events: none;
+        }
+
+        .star {
+            position: absolute;
+
+            width: 2px;
+            height: 2px;
+
+            background: rgba(255,255,255,0.65);
+
+            border-radius: 50%;
+
+            animation:
+                twinkle 3s ease-in-out infinite;
+        }
+
+        .star:nth-child(1) {
             left: 10%;
-            top: 80%;
-            animation-duration: 8s;
+            top: 22%;
+            animation-delay: 0s;
         }
 
-        .particle:nth-child(2) {
+        .star:nth-child(2) {
             left: 20%;
-            top: 60%;
-            animation-duration: 10s;
-        }
-
-        .particle:nth-child(3) {
-            left: 35%;
-            top: 90%;
-            animation-duration: 7s;
-        }
-
-        .particle:nth-child(4) {
-            left: 50%;
-            top: 70%;
-            animation-duration: 11s;
-        }
-
-        .particle:nth-child(5) {
-            left: 65%;
-            top: 85%;
-            animation-duration: 9s;
-        }
-
-        .particle:nth-child(6) {
-            left: 80%;
             top: 65%;
-            animation-duration: 12s;
-        }
-
-        .particle:nth-child(7) {
-            left: 90%;
-            top: 90%;
-            animation-duration: 8s;
-        }
-
-        .particle:nth-child(8) {
-            left: 45%;
-            top: 50%;
-            animation-duration: 13s;
-        }
-
-        @keyframes floatParticle {
-
-            0% {
-                transform: translateY(0) scale(0.5);
-                opacity: 0;
-            }
-
-            20% {
-                opacity: 1;
-            }
-
-            80% {
-                opacity: 1;
-            }
-
-            100% {
-                transform: translateY(-100vh) scale(1.2);
-                opacity: 0;
-            }
-        }
-
-        /* =========================
-           CONTENT
-        ========================= */
-
-        .content {
-            position: relative;
-            z-index: 5;
-
-            width: 100%;
-            max-width: 850px;
-
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .small-text {
-            font-size: 18px;
-
-            letter-spacing: 5px;
-
-            text-transform: uppercase;
-
-            color: rgba(255, 255, 255, 0.65);
-
-            margin-bottom: 22px;
-
-            opacity: 0;
-
-            animation: fadeUp 1.2s ease forwards;
-            animation-delay: 0.5s;
-        }
-
-        h1 {
-            font-size: clamp(55px, 9vw, 105px);
-
-            line-height: 0.95;
-
-            font-weight: 500;
-
-            letter-spacing: 4px;
-
-            text-transform: uppercase;
-
-            margin-bottom: 30px;
-
-            text-shadow:
-                0 0 20px rgba(255, 130, 190, 0.25),
-                0 0 60px rgba(255, 100, 180, 0.12);
-
-            opacity: 0;
-
-            animation: revealTitle 1.5s ease forwards;
             animation-delay: 1s;
         }
 
-        .subtitle {
-            font-size: clamp(17px, 2vw, 22px);
-
-            line-height: 1.8;
-
-            color: rgba(255, 255, 255, 0.78);
-
-            max-width: 650px;
-
-            margin-bottom: 45px;
-
-            opacity: 0;
-
-            animation: fadeUp 1.2s ease forwards;
+        .star:nth-child(3) {
+            left: 31%;
+            top: 35%;
             animation-delay: 2s;
         }
 
-        .question {
-            font-size: clamp(20px, 3vw, 30px);
+        .star:nth-child(4) {
+            left: 47%;
+            top: 15%;
+            animation-delay: 0.5s;
+        }
 
-            line-height: 1.5;
+        .star:nth-child(5) {
+            left: 64%;
+            top: 30%;
+            animation-delay: 1.5s;
+        }
 
-            color: #ffffff;
+        .star:nth-child(6) {
+            left: 77%;
+            top: 63%;
+            animation-delay: 2.5s;
+        }
 
-            margin-bottom: 42px;
+        .star:nth-child(7) {
+            left: 89%;
+            top: 27%;
+            animation-delay: 1s;
+        }
 
-            text-shadow:
-                0 0 15px rgba(255, 105, 180, 0.45);
+        .star:nth-child(8) {
+            left: 73%;
+            top: 83%;
+            animation-delay: 2s;
+        }
+
+        .star:nth-child(9) {
+            left: 42%;
+            top: 78%;
+            animation-delay: 0.8s;
+        }
+
+        .star:nth-child(10) {
+            left: 93%;
+            top: 52%;
+            animation-delay: 1.8s;
+        }
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                opacity: 0.2;
+                transform: scale(0.8);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.5);
+            }
+        }
+
+        /* =========================================
+           CONTENT
+        ========================================= */
+
+        .content {
+            position: relative;
+
+            z-index: 5;
+
+            width: min(900px, 100%);
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            text-align: center;
+        }
+
+        .eyebrow {
+            font-size:
+                clamp(12px, 1.2vw, 17px);
+
+            letter-spacing:
+                clamp(3px, 0.5vw, 6px);
+
+            text-transform: uppercase;
+
+            color:
+                rgba(255,255,255,0.62);
+
+            margin-bottom:
+                clamp(14px, 2vh, 24px);
 
             opacity: 0;
 
-            animation: fadeUp 1.2s ease forwards;
-            animation-delay: 2.7s;
+            animation:
+                fadeUp 1s ease forwards;
+
+            animation-delay: 0.3s;
         }
 
-        /* =========================
+        /* =========================================
+           MAIN TITLE
+        ========================================= */
+
+        h1 {
+            font-size:
+                clamp(42px, 6.8vw, 88px);
+
+            line-height:
+                0.95;
+
+            font-weight: 500;
+
+            letter-spacing:
+                clamp(1px, 0.25vw, 4px);
+
+            text-transform: uppercase;
+
+            margin-bottom:
+                clamp(18px, 3vh, 28px);
+
+            text-shadow:
+                0 0 15px rgba(255,150,220,0.25),
+                0 0 45px rgba(220,90,255,0.15);
+
+            opacity: 0;
+
+            animation:
+                titleReveal 1.3s ease forwards;
+
+            animation-delay: 0.8s;
+        }
+
+        /* =========================================
+           DESCRIPTION
+        ========================================= */
+
+        .description {
+            width: min(620px, 100%);
+
+            font-size:
+                clamp(15px, 1.55vw, 20px);
+
+            line-height:
+                1.65;
+
+            color:
+                rgba(255,255,255,0.72);
+
+            margin-bottom:
+                clamp(18px, 3vh, 28px);
+
+            opacity: 0;
+
+            animation:
+                fadeUp 1s ease forwards;
+
+            animation-delay: 1.8s;
+        }
+
+        /* =========================================
+           QUESTION
+        ========================================= */
+
+        .question {
+            font-size:
+                clamp(18px, 2.2vw, 28px);
+
+            line-height:
+                1.4;
+
+            color: #ffffff;
+
+            max-width: 650px;
+
+            margin-bottom:
+                clamp(22px, 3vh, 32px);
+
+            text-shadow:
+                0 0 18px rgba(255,100,200,0.3);
+
+            opacity: 0;
+
+            animation:
+                fadeUp 1s ease forwards;
+
+            animation-delay: 2.5s;
+        }
+
+        /* =========================================
            BUTTON AREA
-        ========================= */
+        ========================================= */
 
         .button-area {
             position: relative;
 
             width: 100%;
-            height: 130px;
 
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            height:
+                clamp(95px, 13vh, 125px);
 
             opacity: 0;
 
-            animation: fadeUp 1.2s ease forwards;
-            animation-delay: 3.4s;
+            animation:
+                fadeUp 1s ease forwards;
+
+            animation-delay: 3.1s;
         }
+
+        /* =========================================
+           BUTTON
+        ========================================= */
 
         .ready-button {
             position: absolute;
 
             left: 50%;
+            top: 50%;
 
-            transform: translateX(-50%);
+            transform:
+                translate(-50%, -50%);
 
-            padding: 17px 42px;
+            min-width: 175px;
 
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            padding:
+                15px 35px;
 
             border-radius: 50px;
+
+            border:
+                1px solid rgba(255,255,255,0.4);
 
             background:
                 linear-gradient(
                     135deg,
-                    rgba(255, 105, 180, 0.9),
-                    rgba(181, 74, 255, 0.9)
+                    #e15aaa,
+                    #ad4be4
                 );
 
             color: white;
 
             font-family: inherit;
 
-            font-size: 17px;
+            font-size: 16px;
 
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
 
             cursor: pointer;
 
             box-shadow:
-                0 10px 40px rgba(255, 70, 170, 0.3);
+                0 8px 30px rgba(230,70,180,0.35);
+
+            z-index: 20;
 
             transition:
-                top 0.8s cubic-bezier(0.22, 1, 0.36, 1),
-                transform 0.25s ease,
+                left 0.55s cubic-bezier(0.2, 1.4, 0.4, 1),
+                top 0.55s cubic-bezier(0.2, 1.4, 0.4, 1),
+                transform 0.2s ease,
                 box-shadow 0.3s ease;
-
-            top: 50%;
-
-            z-index: 10;
         }
 
         .ready-button:hover {
-            transform: translateX(-50%) scale(1.06);
-
             box-shadow:
-                0 15px 50px rgba(255, 70, 170, 0.5);
+                0 12px 45px rgba(230,70,180,0.55);
         }
 
         .ready-button:active {
-            transform: translateX(-50%) scale(0.96);
+            transform:
+                translate(-50%, -50%)
+                scale(0.94);
         }
 
-        /* =========================
-           BUTTON MOVEMENTS
-        ========================= */
-
-        /*
-            State 0:
-            Original position
-        */
-
-        .ready-button.up {
-            top: -20px;
-        }
-
-        /*
-            State 1:
-            Comes back down
-        */
-
-        .ready-button.down {
-            top: 85px;
-        }
-
-        /*
-            State 2:
-            Goes back to center
-        */
-
-        .ready-button.center {
-            top: 50%;
-        }
-
-        /* =========================
+        /* =========================================
            SCREEN 2
-        ========================= */
+        ========================================= */
 
-        #screen2 {
-            background:
-                radial-gradient(circle at center, #220b35, #09030d);
-        }
-
-        .screen2-content {
+        .screen-two-content {
             max-width: 750px;
         }
 
-        .screen2-content h2 {
-            font-size: clamp(40px, 7vw, 75px);
+        .screen-two-content h2 {
+            font-size:
+                clamp(38px, 6vw, 75px);
 
-            font-weight: 400;
+            line-height: 1;
+
+            font-weight: 500;
 
             margin-bottom: 25px;
-
-            letter-spacing: 3px;
         }
 
-        .screen2-content p {
-            font-size: 20px;
+        .screen-two-content p {
+            font-size:
+                clamp(16px, 2vw, 22px);
 
-            line-height: 1.8;
+            line-height: 1.7;
 
-            color: rgba(255,255,255,0.75);
+            color:
+                rgba(255,255,255,0.72);
         }
 
-        /* =========================
+        /* =========================================
            ANIMATIONS
-        ========================= */
+        ========================================= */
 
         @keyframes fadeUp {
 
             from {
                 opacity: 0;
-                transform: translateY(25px);
+
+                transform:
+                    translateY(22px);
             }
 
             to {
                 opacity: 1;
-                transform: translateY(0);
+
+                transform:
+                    translateY(0);
             }
         }
 
-        @keyframes revealTitle {
+        @keyframes titleReveal {
 
             from {
                 opacity: 0;
-                transform: scale(0.92);
-                filter: blur(8px);
+
+                transform:
+                    scale(0.9);
+
+                filter:
+                    blur(10px);
             }
 
             to {
                 opacity: 1;
-                transform: scale(1);
-                filter: blur(0);
+
+                transform:
+                    scale(1);
+
+                filter:
+                    blur(0);
             }
         }
 
-        /* =========================
+        /* =========================================
            MOBILE
-        ========================= */
+        ========================================= */
 
         @media (max-width: 600px) {
 
             .screen {
-                padding: 22px;
+                padding: 18px;
             }
 
-            .small-text {
-                font-size: 13px;
-                letter-spacing: 3px;
-            }
-
-            h1 {
-                letter-spacing: 2px;
-            }
-
-            .subtitle {
-                line-height: 1.7;
+            .description {
+                max-width: 340px;
             }
 
             .question {
-                margin-bottom: 30px;
-            }
-
-            .button-area {
-                height: 120px;
+                max-width: 340px;
             }
 
             .ready-button {
-                padding: 15px 34px;
-                font-size: 15px;
+                min-width: 160px;
+
+                padding:
+                    14px 28px;
+
+                font-size: 14px;
+            }
+        }
+
+        /* =========================================
+           SHORT HEIGHT SCREENS
+        ========================================= */
+
+        @media (max-height: 700px) {
+
+            .eyebrow {
+                margin-bottom: 10px;
+            }
+
+            h1 {
+                margin-bottom: 14px;
+            }
+
+            .description {
+                margin-bottom: 14px;
+            }
+
+            .question {
+                margin-bottom: 14px;
+            }
+
+            .button-area {
+                height: 80px;
             }
         }
     </style>
@@ -447,32 +543,39 @@
 
 <body>
 
-    <!-- =========================
+    <!-- =========================================
          SCREEN 1
-    ========================= -->
+    ========================================= -->
 
-    <section class="screen" id="screen1">
+    <section
+        class="screen"
+        id="screen1"
+    >
 
-        <!-- Background particles -->
+        <div class="background-glow"></div>
 
-        <div class="particles">
+        <div class="stars">
 
-            <span class="particle"></span>
-            <span class="particle"></span>
-            <span class="particle"></span>
-            <span class="particle"></span>
-            <span class="particle"></span>
-            <span class="particle"></span>
-            <span class="particle"></span>
-            <span class="particle"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
 
         </div>
 
+
         <div class="content">
 
-            <div class="small-text">
+            <div class="eyebrow">
                 30 Days • 30 Wishes
             </div>
+
 
             <h1>
                 Finally...
@@ -480,10 +583,12 @@
                 The Wait Is Over.
             </h1>
 
-            <p class="subtitle">
+
+            <p class="description">
                 Thirty days of wishes brought us all the way here...
                 and now there's only one thing left to ask.
             </p>
+
 
             <p class="question">
                 Are you ready to see
@@ -491,12 +596,13 @@
                 what surprise I planned for you? 👀❤️
             </p>
 
+
             <div class="button-area">
 
                 <button
-                    class="ready-button"
                     id="readyButton"
-                    onclick="handleReadyClick()"
+                    class="ready-button"
+                    type="button"
                 >
                     I'M READY ✨
                 </button>
@@ -508,22 +614,25 @@
     </section>
 
 
-    <!-- =========================
+    <!-- =========================================
          SCREEN 2
-    ========================= -->
+    ========================================= -->
 
-    <section class="screen hidden" id="screen2">
+    <section
+        class="screen hidden"
+        id="screen2"
+    >
 
-        <div class="content screen2-content">
+        <div class="content screen-two-content">
 
             <h2>
                 Oh...
                 <br>
-                You Actually Clicked. 👀
+                You Actually Made It. 👀
             </h2>
 
             <p>
-                And that was only the beginning...
+                And this is only the beginning...
             </p>
 
         </div>
@@ -533,22 +642,7 @@
 
     <script>
 
-        /*
-         ==========================================
-         BUTTON INTERACTION
-         ==========================================
-
-         Click 1 → Button jumps UP
-
-         Click 2 → Button moves DOWN
-
-         Click 3 → Button returns to CENTER
-                   then Screen 2 opens
-        */
-
-        let clickCount = 0;
-
-        const readyButton =
+        const button =
             document.getElementById("readyButton");
 
         const screen1 =
@@ -558,71 +652,388 @@
             document.getElementById("screen2");
 
 
-        function handleReadyClick() {
+        /*
+        ============================================
+        SETTINGS
+        ============================================
+        */
 
-            clickCount++;
+        let escapeCount = 0;
+
+        let buttonEscaping = false;
+
+        /*
+        Distance at which the button
+        notices the pointer.
+
+        Increase this number if you want
+        the button to escape earlier.
+        */
+
+        const detectionDistance = 125;
 
 
-            /* =========================
-               FIRST CLICK
-               Button jumps upward
-            ========================= */
+        /*
+        ============================================
+        GET BUTTON POSITION
+        ============================================
+        */
 
-            if (clickCount === 1) {
+        function getButtonRect() {
 
-                readyButton.classList.remove("down");
-                readyButton.classList.remove("center");
+            return button.getBoundingClientRect();
 
-                readyButton.classList.add("up");
+        }
 
+
+        /*
+        ============================================
+        MOVE BUTTON
+        ============================================
+        */
+
+        function moveButtonAway(pointerX, pointerY) {
+
+            if (buttonEscaping) {
+                return;
+            }
+
+            /*
+            After enough escapes,
+            stop running away.
+            */
+
+            if (escapeCount >= 2) {
+                return;
             }
 
 
-            /* =========================
-               SECOND CLICK
-               Button comes back down
-            ========================= */
-
-            else if (clickCount === 2) {
-
-                readyButton.classList.remove("up");
-                readyButton.classList.remove("center");
-
-                readyButton.classList.add("down");
-
-            }
+            const rect =
+                getButtonRect();
 
 
-            /* =========================
-               THIRD CLICK
-               Button returns to center
-               Then next screen opens
-            ========================= */
-
-            else if (clickCount === 3) {
-
-                readyButton.classList.remove("up");
-                readyButton.classList.remove("down");
-
-                readyButton.classList.add("center");
+            const buttonCenterX =
+                rect.left + rect.width / 2;
 
 
-                /*
-                    Wait for the button movement
-                    to finish before opening Screen 2.
-                */
+            const buttonCenterY =
+                rect.top + rect.height / 2;
 
-                setTimeout(() => {
 
-                    screen1.classList.add("hidden");
+            const distanceX =
+                pointerX - buttonCenterX;
 
-                    screen2.classList.remove("hidden");
 
-                }, 900);
+            const distanceY =
+                pointerY - buttonCenterY;
+
+
+            const distance =
+                Math.sqrt(
+                    distanceX * distanceX +
+                    distanceY * distanceY
+                );
+
+
+            /*
+            Pointer is close enough.
+            */
+
+            if (distance < detectionDistance) {
+
+                escapeButton(
+                    pointerX,
+                    pointerY
+                );
 
             }
 
         }
+
+
+        /*
+        ============================================
+        ESCAPE BUTTON
+        ============================================
+        */
+
+        function escapeButton(pointerX, pointerY) {
+
+            buttonEscaping = true;
+
+            escapeCount++;
+
+
+            /*
+            Current button position
+            */
+
+            const rect =
+                getButtonRect();
+
+
+            const currentX =
+                rect.left + rect.width / 2;
+
+
+            const currentY =
+                rect.top + rect.height / 2;
+
+
+            /*
+            Direction from pointer
+            to button.
+            */
+
+            let dx =
+                currentX - pointerX;
+
+
+            let dy =
+                currentY - pointerY;
+
+
+            const length =
+                Math.sqrt(dx * dx + dy * dy);
+
+
+            /*
+            Prevent division by zero.
+            */
+
+            if (length === 0) {
+
+                dx = 0;
+                dy = -1;
+
+            } else {
+
+                dx /= length;
+                dy /= length;
+
+            }
+
+
+            /*
+            How far the button escapes.
+            */
+
+            const escapeDistance =
+                150;
+
+
+            let newX =
+                currentX +
+                dx * escapeDistance;
+
+
+            let newY =
+                currentY +
+                dy * escapeDistance;
+
+
+            /*
+            Keep button inside screen.
+            */
+
+            const margin = 35;
+
+
+            const halfWidth =
+                rect.width / 2;
+
+
+            const halfHeight =
+                rect.height / 2;
+
+
+            newX =
+                Math.max(
+                    halfWidth + margin,
+                    Math.min(
+                        window.innerWidth -
+                        halfWidth -
+                        margin,
+                        newX
+                    )
+                );
+
+
+            newY =
+                Math.max(
+                    halfHeight + margin,
+                    Math.min(
+                        window.innerHeight -
+                        halfHeight -
+                        margin,
+                        newY
+                    )
+                );
+
+
+            /*
+            Convert to percentage
+            position.
+            */
+
+            const xPercent =
+                (newX / window.innerWidth) * 100;
+
+
+            const yPercent =
+                (newY / window.innerHeight) * 100;
+
+
+            button.style.left =
+                xPercent + "%";
+
+
+            button.style.top =
+                yPercent + "%";
+
+
+            /*
+            Allow another interaction
+            after movement finishes.
+            */
+
+            setTimeout(() => {
+
+                buttonEscaping = false;
+
+            }, 650);
+
+        }
+
+
+        /*
+        ============================================
+        DESKTOP / MOUSE
+        ============================================
+        */
+
+        document.addEventListener(
+            "mousemove",
+            function(event) {
+
+                moveButtonAway(
+                    event.clientX,
+                    event.clientY
+                );
+
+            }
+        );
+
+
+        /*
+        ============================================
+        TOUCH / MOBILE
+        ============================================
+        */
+
+        document.addEventListener(
+            "touchmove",
+            function(event) {
+
+                if (
+                    !event.touches ||
+                    event.touches.length === 0
+                ) {
+                    return;
+                }
+
+
+                const touch =
+                    event.touches[0];
+
+
+                moveButtonAway(
+                    touch.clientX,
+                    touch.clientY
+                );
+
+            },
+            {
+                passive: true
+            }
+        );
+
+
+        /*
+        ============================================
+        CLICK BEHAVIOR
+        ============================================
+        */
+
+        button.addEventListener(
+            "click",
+            function(event) {
+
+                event.preventDefault();
+
+
+                /*
+                If the button has escaped twice,
+                allow the third interaction
+                to open Screen 2.
+                */
+
+                if (escapeCount >= 2) {
+
+                    /*
+                    Put button back to center.
+                    */
+
+                    button.style.left = "50%";
+
+                    button.style.top = "50%";
+
+
+                    /*
+                    Small pause so the user
+                    sees the button return.
+                    */
+
+                    setTimeout(() => {
+
+                        screen1.classList.add(
+                            "hidden"
+                        );
+
+                        screen2.classList.remove(
+                            "hidden"
+                        );
+
+                    }, 650);
+
+                }
+
+            }
+        );
+
+
+        /*
+        ============================================
+        RESET POSITION ON RESIZE
+        ============================================
+        */
+
+        window.addEventListener(
+            "resize",
+            function() {
+
+                if (escapeCount < 2) {
+
+                    button.style.left =
+                        "50%";
+
+                    button.style.top =
+                        "50%";
+
+                }
+
+            }
+        );
 
     </script>
 
