@@ -1599,3 +1599,1644 @@ body {
     40% { transform: scale(1.08); filter: drop-shadow(0 0 25px rgba(250,100,255,.9)); }
     100% { transform: scale(1); }
 }
+   .gift-hint-overlay {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1200;
+    pointer-events: none;
+    padding: 20px;
+}
+
+.gift-hint-overlay.show {
+    display: flex;
+    animation: giftHintFade .28s ease forwards;
+}
+
+@keyframes giftHintFade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.gift-hint-card {
+    width: min(430px, 88vw);
+    padding: 30px 25px;
+    text-align: center;
+    border: 1px solid rgba(255,215,255,.45);
+    border-radius: 18px;
+    background: linear-gradient(145deg,rgba(73,25,82,.97),rgba(27,6,35,.99));
+    box-shadow: 0 0 42px rgba(220,70,240,.4), inset 0 0 24px rgba(255,100,240,.06);
+    animation: giftHintIn .38s cubic-bezier(.2,.8,.2,1);
+}
+
+@keyframes giftHintIn {
+    from { opacity: 0; transform: scale(.78) translateY(18px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.gift-hint-card p {
+    font-size: 20px;
+    line-height: 1.5;
+    text-shadow: 0 0 10px rgba(255,200,255,.58);
+}
+
+/* Invitation after all gifts */
+
+.final-invitation-screen {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1100;
+    padding: 20px;
+    background:
+        radial-gradient(circle at 50% 40%,rgba(133,35,154,.3),transparent 32%),
+        #100014;
+}
+
+.final-invitation-screen.active {
+    display: flex;
+    animation: giftScreenIn .75s ease forwards;
+}
+
+.final-invitation-card {
+    width: min(500px, 90vw);
+    padding: 43px 34px;
+    text-align: center;
+    border: 1px solid rgba(255,215,255,.43);
+    border-radius: 22px;
+    background: linear-gradient(145deg,rgba(70,27,78,.97),rgba(32,8,40,.99));
+    box-shadow: 0 0 48px rgba(210,70,240,.32), inset 0 0 35px rgba(255,120,240,.05);
+    animation: invitationIn .85s ease;
+}
+
+@keyframes invitationIn {
+    from { opacity: 0; transform: translateY(35px) scale(.91); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.final-invitation-card .eyebrow {
+    font-size: 10px;
+    letter-spacing: 6px;
+    opacity: .65;
+    margin-bottom: 23px;
+}
+
+.final-invitation-card h1 {
+    font-size: clamp(40px,6vw,65px);
+    line-height: .98;
+    text-shadow: 0 0 8px #fff,0 0 22px rgba(255,160,255,.85);
+}
+
+.final-invitation-card .date {
+    margin-top: 27px;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.final-invitation-card .time {
+    margin-top: 10px;
+    font-size: 15px;
+    letter-spacing: 5px;
+    opacity: .88;
+}
+
+.final-invitation-card .line {
+    width: 70px;
+    height: 1px;
+    margin: 27px auto;
+    background: rgba(255,205,255,.62);
+}
+
+.final-invitation-card .details {
+    font-size: 17px;
+    line-height: 1.8;
+    letter-spacing: 1px;
+}
+
+.final-invitation-card .sealed {
+    margin-top: 19px;
+    font-size: 10px;
+    letter-spacing: 4px;
+    opacity: .56;
+}
+
+@media (max-width: 700px) {
+    .gift-grid-new { gap: 8px; }
+    .gift-heading-wrap { margin-bottom: 17px; }
+}
+
+@media (max-width: 430px) {
+    .gift-grid-new {
+        grid-template-columns: repeat(4,1fr);
+        width: 92vw;
+        gap: 8px;
+    }
+    .gift-heading-wrap h1 { font-size: 38px; }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     BACKGROUND DECORATIONS
+===================================================== -->
+
+<div class="balloon balloon1"></div>
+<div class="balloon balloon2"></div>
+<div class="balloon balloon3"></div>
+<div class="balloon balloon4"></div>
+<div class="balloon balloon5"></div>
+<div class="balloon balloon6"></div>
+
+<div class="heart heart1">❤️</div>
+<div class="heart heart2">💜</div>
+<div class="heart heart3">💗</div>
+<div class="heart heart4">❤️</div>
+
+
+<!-- =====================================================
+     EXISTING SCREEN 1
+===================================================== -->
+
+<section
+    id="screen1"
+    class="screen active">
+
+    <div class="first-content">
+
+        <div class="small-heading">
+            30 DAYS · 30 WISHES
+        </div>
+
+        <h1 class="main-title">
+            FINALLY...<br>
+            THE WAIT IS<br>
+            OVER.
+        </h1>
+
+        <p class="subtitle">
+
+            Thirty days of wishes brought us
+            all the way here...
+            and now there's only one thing
+            left to ask.
+
+        </p>
+
+        <div class="question">
+
+            Are you ready to see<br>
+
+            what surprise I planned
+            for you? 👀 ❤️
+
+        </div>
+
+        <div class="ready-area">
+
+            <button
+                id="readyButton"
+                type="button">
+
+                I'M READY ✨
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     EXISTING SCREEN 2
+===================================================== -->
+
+<section
+    id="screen2"
+    class="screen">
+
+    <div class="second-content">
+
+        <h1 class="second-title">
+            Oh wow! 😍
+        </h1>
+
+        <p class="second-text">
+
+            Ohhh wow, you are so excited! 👀❤️<br>
+
+            I knew you wouldn't be able
+            to wait anymore. 😂
+
+        </p>
+
+        <button
+            id="goButton"
+            class="go-button"
+            type="button">
+
+            LET'S GO ✨
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     EXISTING PRAYER SCREEN
+===================================================== -->
+
+<section
+    id="screen3"
+    class="screen">
+
+    <div class="prayer-container">
+
+        <h1 class="assalam">
+
+            Assalamu Alaikum Ji,<br>
+
+            Wa Rahmatullahi Wa Barakatuh ❤️
+
+        </h1>
+
+        <div class="prayer">
+
+            <div class="roman-prayer">
+
+                <p>
+                    <strong>
+                        Bismillahir Rahmanir Raheem. ❤️
+                    </strong>
+                </p>
+
+                <p>
+                    Alhamdulillahi Rabbil Aalameen.
+                </p>
+
+                <p>
+                    Allahumma barik lahu fi umrihi,
+                    warzuqhu sehat, sa'adat aur barkat.
+                </p>
+
+                <p>
+                    Waj'al hayat-hu ma'mooratan
+                    bil-imaan wal-khair wan-najah.
+                </p>
+
+                <p>
+                    Wahfazhu min kulli sharr,
+                    waqbal du'aa'ahu.
+                </p>
+
+            </div>
+
+            <div class="prayer-divider">
+                ❤️
+            </div>
+
+            <div class="telugu-meaning">
+
+                <p>
+                    <strong>
+                        బిస్మిల్లాహిర్ రహ్మానిర్ రహీమ్. ❤️
+                    </strong>
+                </p>
+
+                <p>
+                    అనుగ్రహించే కరుణామయుడైన అల్లాహ్
+                    పేరుతో ఈ ప్రార్థనను ప్రారంభిస్తున్నాము.
+                </p>
+
+                <p>
+                    సర్వలోకాల ప్రభువైన అల్లాహ్‌కే
+                    అన్ని ప్రశంసలు చెందుతాయి.
+                </p>
+
+                <p>
+                    అల్లాహ్ అతని వయస్సులో బరకత్ ప్రసాదించి,
+                    మంచి ఆరోగ్యం, సంతోషం, శ్రేయస్సు
+                    మరియు సమృద్ధిని అనుగ్రహించాలి.
+                </p>
+
+                <p>
+                    అతని జీవితం ఇమాన్‌తో,
+                    మంచి పనులతో మరియు విజయాలతో నిండిపోవాలి.
+                </p>
+
+                <p>
+                    అల్లాహ్ అతన్ని ప్రతి చెడు నుండి కాపాడి,
+                    అతని మంచి దువాలను స్వీకరించాలి.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="ameen">
+            Aameen 🤲❤️
+        </div>
+
+        <button
+            id="celebrateButton"
+            class="celebrate-button"
+            type="button">
+
+            LET'S START CELEBRATING 🎉❤️
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PHONE RINGING VIDEO
+===================================================== -->
+
+<section
+    id="phoneVideoScreen"
+    class="new-screen">
+
+    <video
+        id="phoneVideo"
+        class="phone-video"
+        playsinline
+        preload="auto">
+
+        <source
+            src="bubu calling.mp4"
+            type="video/mp4">
+
+    </video>
+
+    <div id="phoneSwipeOverlay" class="phone-swipe-overlay">
+        <div class="phone-swipe-text">📞 SWIPE TO ANSWER &amp; OPEN YOUR SURPRISE ❤️</div>
+        <div id="swipeTrack" class="swipe-track" aria-label="Swipe to answer">
+            <div id="swipeThumb" class="swipe-thumb">➜</div>
+            <span>SWIPE TO ANSWER ❤️</span>
+        </div>
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     HAPPY BIRTHDAY SCREEN
+     
+     SONG STARTS ONLY WHEN THIS SCREEN OPENS
+===================================================== -->
+
+<section
+    id="newBirthdayScreen"
+    class="new-screen">
+
+    <div class="new-birthday-content">
+
+        <div class="new-small-heading">
+            TODAY IS ALL ABOUT YOU ❤️
+        </div>
+
+        <h1 class="new-birthday-title">
+
+            HAPPY<br>
+            BIRTHDAY!
+
+        </h1>
+
+        <div class="new-birthday-name">
+
+            BUDDU ❤️
+
+        </div>
+
+        <p class="new-birthday-message">
+
+            May Allah bless you with endless happiness,
+            good health, peace and success. 🤍
+
+            <br><br>
+
+            May Allah protect you, guide you,
+            accept all your duas and fill your life
+            with beautiful moments, endless smiles
+            and everything your heart wishes for. ✨
+
+            <br><br>
+
+            May this new year of your life be filled
+            with love, happiness and barakah. ❤️
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     NEW DOOR SCREEN
+===================================================== -->
+
+<section
+    id="doorScreen"
+    class="door-screen">
+
+    <h1 class="door-title">
+
+        OPEN THE DOOR... 🚪❤️<br>
+
+        BUBU IS WAITING FOR YOU 🥹
+
+    </h1>
+
+
+    <p class="door-subtitle">
+
+        Touch the door... something is waiting
+        on the other side 👀❤️
+
+    </p>
+
+
+    <div
+        id="doorFrame"
+        class="door-frame">
+
+
+        <!-- INSIDE OF DOOR -->
+
+        <div class="door-inside">
+
+            <div class="door-heart">
+                ❤️
+            </div>
+
+        </div>
+
+
+        <!-- LEFT DOOR -->
+
+        <div class="door-left">
+
+            <div class="door-panel"></div>
+
+            <div class="door-handle"></div>
+
+        </div>
+
+
+        <!-- RIGHT DOOR -->
+
+        <div class="door-right">
+
+            <div class="door-panel"></div>
+
+            <div class="door-handle"></div>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="touch-door">
+
+        👆 TOUCH THE DOOR TO OPEN
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     BUBU FLYING VIDEO
+===================================================== -->
+
+<section
+    id="bubuVideoScreen"
+    class="bubu-video-screen">
+
+    <video
+        id="bubuVideo"
+        class="bubu-video"
+        playsinline
+        preload="auto">
+
+        <source
+            src="happy bday.mp4"
+            type="video/mp4">
+
+    </video>
+
+</section>
+
+
+
+
+<!-- =====================================================
+     24 GIFT SURPRISE SCREEN
+===================================================== -->
+
+<section id="giftSurpriseScreen" class="gift-surprise-screen">
+    <div class="gift-heading-wrap">
+        <div class="gift-eyebrow">something is waiting</div>
+        <h1>OPEN CAREFULLY.</h1>
+        <div class="gift-subtle">just tap a box</div>
+    </div>
+
+    <div id="giftGridNew" class="gift-grid-new"></div>
+</section>
+
+<!-- Gift hint: no close button; it disappears automatically -->
+<div id="giftHintOverlay" class="gift-hint-overlay">
+    <div class="gift-hint-card">
+        <p id="giftHintText"></p>
+    </div>
+</div>
+
+<!-- =====================================================
+     FINAL INVITATION
+===================================================== -->
+
+<section id="finalInvitationScreen" class="final-invitation-screen">
+    <div class="final-invitation-card">
+        <div class="eyebrow">A LITTLE SOMETHING</div>
+        <h1>SAVE<br>THE DATE</h1>
+        <div class="date">30 OCTOBER</div>
+        <div class="time">10:00 PM</div>
+        <div class="line"></div>
+        <div class="details">
+            ONE EVENING.<br>
+            ONE PLAN.<br>
+            ONE PLACE.
+        </div>
+        <div class="sealed">PRIVATE THEATRE · LOCATION SEALED</div>
+    </div>
+</section>
+
+
+<!-- =====================================================
+     EXISTING PRAYER MUSIC
+===================================================== -->
+
+<audio
+    id="birthdaySong"
+    preload="auto">
+
+    <source
+        src="birthday-song-00-00-to-00-58.mp3"
+        type="audio/mpeg">
+
+</audio>
+
+
+<!-- =====================================================
+     HAPPY BIRTHDAY SINGING SONG
+===================================================== -->
+
+<audio
+    id="birthdayWishMusic"
+    preload="auto">
+
+    <source
+        src="bubu-wish-audio.mp3"
+        type="audio/mpeg">
+
+</audio>
+
+
+
+<!-- =====================================================
+     HEY RANGULE - GIFT / INVITATION MUSIC
+===================================================== -->
+
+<audio id="heyRanguleMusic" preload="auto">
+    <source src="Hey Rangule - NaaSongsHD.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+
+/* =========================================================
+   SCREEN REFERENCES
+========================================================= */
+
+const screen1 =
+    document.getElementById("screen1");
+
+const screen2 =
+    document.getElementById("screen2");
+
+const screen3 =
+    document.getElementById("screen3");
+
+const phoneVideoScreen =
+    document.getElementById(
+        "phoneVideoScreen"
+    );
+
+const newBirthdayScreen =
+    document.getElementById(
+        "newBirthdayScreen"
+    );
+
+const doorScreen =
+    document.getElementById(
+        "doorScreen"
+    );
+
+const bubuVideoScreen =
+    document.getElementById(
+        "bubuVideoScreen"
+    );
+
+
+/* =========================================================
+   BUTTON REFERENCES
+========================================================= */
+
+const readyButton =
+    document.getElementById(
+        "readyButton"
+    );
+
+const goButton =
+    document.getElementById(
+        "goButton"
+    );
+
+const celebrateButton =
+    document.getElementById(
+        "celebrateButton"
+    );
+
+
+/* =========================================================
+   VIDEO / AUDIO REFERENCES
+========================================================= */
+
+const birthdaySong =
+    document.getElementById(
+        "birthdaySong"
+    );
+
+const phoneVideo =
+    document.getElementById(
+        "phoneVideo"
+    );
+
+const phoneSwipeOverlay =
+    document.getElementById(
+        "phoneSwipeOverlay"
+    );
+
+const swipeTrack =
+    document.getElementById(
+        "swipeTrack"
+    );
+
+const swipeThumb =
+    document.getElementById(
+        "swipeThumb"
+    );
+
+const birthdayWishMusic =
+    document.getElementById(
+        "birthdayWishMusic"
+    );
+
+const bubuVideo =
+    document.getElementById(
+        "bubuVideo"
+    );
+
+const giftSurpriseScreen =
+    document.getElementById(
+        "giftSurpriseScreen"
+    );
+
+const giftGridNew =
+    document.getElementById(
+        "giftGridNew"
+    );
+
+const giftHintOverlay =
+    document.getElementById(
+        "giftHintOverlay"
+    );
+
+const giftHintText =
+    document.getElementById(
+        "giftHintText"
+    );
+
+const finalInvitationScreen =
+    document.getElementById(
+        "finalInvitationScreen"
+    );
+
+const heyRanguleMusic =
+    document.getElementById(
+        "heyRanguleMusic"
+    );
+
+const doorFrame =
+    document.getElementById(
+        "doorFrame"
+    );
+
+
+/* =========================================================
+   READY BUTTON
+   MOVES 3 RANDOM TIMES
+========================================================= */
+
+let readyMoves = 0;
+
+const MAX_READY_MOVES = 3;
+
+let lastX = null;
+let lastY = null;
+
+
+function moveReadyButton() {
+
+    const rect =
+        readyButton.getBoundingClientRect();
+
+
+    const margin = 25;
+
+
+    const maxX =
+        Math.max(
+            margin,
+            window.innerWidth -
+            rect.width -
+            margin
+        );
+
+
+    const maxY =
+        Math.max(
+            margin,
+            window.innerHeight -
+            rect.height -
+            margin
+        );
+
+
+    let randomX;
+    let randomY;
+
+
+    do {
+
+        randomX =
+            Math.floor(
+                Math.random() *
+                (maxX - margin + 1)
+            ) + margin;
+
+
+        randomY =
+            Math.floor(
+                Math.random() *
+                (maxY - margin + 1)
+            ) + margin;
+
+
+    } while (
+
+        lastX !== null &&
+
+        Math.abs(
+            randomX - lastX
+        ) < 100 &&
+
+        Math.abs(
+            randomY - lastY
+        ) < 100
+
+    );
+
+
+    lastX = randomX;
+
+    lastY = randomY;
+
+
+    readyButton.classList.add(
+        "random-position"
+    );
+
+
+    readyButton.style.left =
+        randomX + "px";
+
+
+    readyButton.style.top =
+        randomY + "px";
+
+
+    readyButton.style.transform =
+        "scale(1.05)";
+
+
+    setTimeout(
+        function () {
+
+            readyButton.style.transform =
+                "scale(1)";
+
+        },
+        250
+    );
+}
+
+
+/* =========================================================
+   READY BUTTON CLICK
+========================================================= */
+
+readyButton.addEventListener(
+    "click",
+    function () {
+
+        if (
+            readyMoves <
+            MAX_READY_MOVES
+        ) {
+
+            readyMoves++;
+
+            moveReadyButton();
+
+            return;
+        }
+
+
+        readyButton.classList.remove(
+            "random-position"
+        );
+
+
+        readyButton.style.left = "";
+
+        readyButton.style.top = "";
+
+        readyButton.style.transform = "";
+
+
+        screen1.classList.remove(
+            "active"
+        );
+
+
+        screen2.classList.add(
+            "active"
+        );
+
+    }
+);
+
+
+/* =========================================================
+   LET'S GO
+========================================================= */
+
+goButton.addEventListener(
+    "click",
+    function () {
+
+        screen2.classList.remove(
+            "active"
+        );
+
+
+        screen3.classList.add(
+            "active"
+        );
+
+
+        celebrateButton.classList.remove(
+            "show"
+        );
+
+
+        birthdaySong.pause();
+
+        birthdaySong.currentTime = 0;
+
+
+        birthdaySong.play().catch(
+            function(error) {
+
+                console.log(
+                    "Prayer music error:",
+                    error
+                );
+
+            }
+        );
+
+    }
+);
+
+
+/* =========================================================
+   PRAYER SONG FINISHED
+========================================================= */
+
+birthdaySong.addEventListener(
+    "ended",
+    function () {
+
+        celebrateButton.classList.add(
+            "show"
+        );
+
+    }
+);
+
+
+/* =========================================================
+   CELEBRATE BUTTON
+     
+   VERY IMPORTANT:
+     
+   Birthday singing song DOES NOT start here.
+   
+   ONLY phone video starts here.
+========================================================= */
+
+celebrateButton.addEventListener(
+    "click",
+    async function () {
+
+        birthdaySong.pause();
+        birthdaySong.currentTime = 0;
+
+        screen3.classList.remove("active");
+        phoneVideoScreen.classList.add("active");
+
+        phoneSwipeOverlay.classList.remove("show");
+        resetSwipe();
+
+        /* IMPORTANT: the Bubu calling video's OWN ringtone/audio. */
+        phoneVideo.pause();
+        phoneVideo.currentTime = 0;
+        phoneVideo.muted = false;
+        phoneVideo.defaultMuted = false;
+        phoneVideo.volume = 1;
+        phoneVideo.removeAttribute("muted");
+
+        try {
+            await phoneVideo.play();
+        } catch (error) {
+            console.error("Bubu calling video error:", error);
+        }
+    }
+);
+
+/* =========================================================
+   PHONE VIDEO FINISHED
+     
+   THIS IS THE IMPORTANT FIX.
+     
+   Birthday screen opens FIRST.
+     
+   THEN the singing song starts.
+========================================================= */
+
+phoneVideo.addEventListener(
+    "ended",
+    function () {
+        /* Do not open the birthday screen automatically.
+           Let the user swipe to answer/open the surprise. */
+        phoneVideo.pause();
+        phoneSwipeOverlay.classList.add("show");
+        resetSwipe();
+    }
+);
+
+
+/* =========================================================
+   SWIPE TO ANSWER / OPEN SURPRISE
+========================================================= */
+
+let draggingSwipe = false;
+
+function resetSwipe() {
+    draggingSwipe = false;
+    swipeThumb.style.left = "4px";
+}
+
+function getSwipePosition(clientX) {
+    const trackRect = swipeTrack.getBoundingClientRect();
+    const thumbWidth = swipeThumb.offsetWidth;
+    const minX = 4;
+    const maxX = trackRect.width - thumbWidth - 4;
+    return Math.max(minX, Math.min(maxX, clientX - trackRect.left - thumbWidth / 2));
+}
+
+function finishSwipe() {
+    const trackRect = swipeTrack.getBoundingClientRect();
+    const thumbWidth = swipeThumb.offsetWidth;
+    const maxX = trackRect.width - thumbWidth - 4;
+    const currentLeft = parseFloat(swipeThumb.style.left || "4");
+
+    if (currentLeft >= maxX * 0.72) {
+        swipeThumb.style.left = maxX + "px";
+        openBirthdayAfterSwipe();
+    } else {
+        swipeThumb.style.left = "4px";
+    }
+
+    draggingSwipe = false;
+}
+
+function openBirthdayAfterSwipe() {
+    phoneSwipeOverlay.classList.remove("show");
+    phoneVideo.pause();
+    phoneVideoScreen.classList.remove("active");
+    newBirthdayScreen.classList.add("active");
+
+    /* The Bubu birthday-wish voice starts ONLY after the swipe. */
+    birthdayWishMusic.pause();
+    birthdayWishMusic.currentTime = 0;
+    birthdayWishMusic.muted = false;
+    birthdayWishMusic.volume = 1;
+
+    birthdayWishMusic.play().catch(function(error) {
+        console.error("Bubu birthday wish audio error:", error);
+        showMusicFallback();
+    });
+}
+
+swipeThumb.addEventListener("pointerdown", function(event) {
+    draggingSwipe = true;
+    swipeThumb.setPointerCapture(event.pointerId);
+});
+
+swipeThumb.addEventListener("pointermove", function(event) {
+    if (!draggingSwipe) return;
+    swipeThumb.style.left = getSwipePosition(event.clientX) + "px";
+});
+
+swipeThumb.addEventListener("pointerup", function() {
+    finishSwipe();
+});
+
+swipeThumb.addEventListener("pointercancel", function() {
+    finishSwipe();
+});
+
+swipeTrack.addEventListener("click", function(event) {
+    if (event.target === swipeThumb) return;
+    const rect = swipeTrack.getBoundingClientRect();
+    if (event.clientX - rect.left > rect.width * 0.68) {
+        const maxX = rect.width - swipeThumb.offsetWidth - 4;
+        swipeThumb.style.left = maxX + "px";
+        openBirthdayAfterSwipe();
+    }
+});
+
+/* =========================================================
+   MUSIC FALLBACK
+========================================================= */
+
+function showMusicFallback() {
+
+    const existing =
+        document.getElementById(
+            "musicFallback"
+        );
+
+
+    if(existing) {
+        return;
+    }
+
+
+    const button =
+        document.createElement(
+            "button"
+        );
+
+
+    button.id =
+        "musicFallback";
+
+
+    button.textContent =
+        "🎵 PLAY HAPPY BIRTHDAY SONG";
+
+
+    button.style.position =
+        "fixed";
+
+
+    button.style.bottom =
+        "30px";
+
+
+    button.style.left =
+        "50%";
+
+
+    button.style.transform =
+        "translateX(-50%)";
+
+
+    button.style.zIndex =
+        "99999";
+
+
+    button.style.padding =
+        "15px 25px";
+
+
+    button.style.borderRadius =
+        "999px";
+
+
+    button.style.border =
+        "1px solid white";
+
+
+    button.style.background =
+        "linear-gradient(135deg,#e85caf,#9f3edb)";
+
+
+    button.style.color =
+        "white";
+
+
+    button.style.fontFamily =
+        "Georgia,serif";
+
+
+    button.style.fontWeight =
+        "bold";
+
+
+    button.style.cursor =
+        "pointer";
+
+
+    document.body.appendChild(
+        button
+    );
+
+
+    button.addEventListener(
+        "click",
+        async function() {
+
+            try {
+
+                birthdayWishMusic.muted = false;
+                birthdayWishMusic.volume = 1;
+                await birthdayWishMusic.play();
+
+                button.remove();
+
+            }
+
+            catch(error) {
+
+                console.error(
+                    error
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   HAPPY BIRTHDAY SONG FINISHED
+     
+   AFTER COMPLETE SONG:
+   OPEN DOOR SCREEN
+========================================================= */
+
+birthdayWishMusic.addEventListener(
+    "ended",
+    function () {
+
+
+        /*
+         * Stop song completely.
+         */
+
+        birthdayWishMusic.pause();
+
+        birthdayWishMusic.currentTime = 0;
+
+
+        /*
+         * Remove fallback if present.
+         */
+
+        const fallback =
+            document.getElementById(
+                "musicFallback"
+            );
+
+
+        if(fallback) {
+
+            fallback.remove();
+
+        }
+
+
+        /*
+         * Hide birthday message.
+         */
+
+        newBirthdayScreen.classList.remove(
+            "active"
+        );
+
+
+        /*
+         * Show door.
+         */
+
+        doorScreen.classList.add(
+            "active"
+        );
+
+
+        /*
+         * Reset door state.
+         */
+
+        doorScreen.classList.remove(
+            "opening"
+        );
+
+    }
+);
+
+
+/* =========================================================
+   DOOR CLICK / TOUCH
+========================================================= */
+
+let doorOpening = false;
+
+
+function openDoor() {
+
+    if(doorOpening) {
+
+        return;
+
+    }
+
+
+    doorOpening = true;
+
+
+    /*
+     * Animate doors open.
+     */
+
+    doorScreen.classList.add(
+        "opening"
+    );
+
+
+    /*
+     * Wait until the doors visibly open.
+     */
+
+    setTimeout(
+        function() {
+
+
+            /*
+             * Hide door screen.
+             */
+
+            doorScreen.classList.remove(
+                "active"
+            );
+
+
+            /*
+             * Show Bubu video.
+             */
+
+            bubuVideoScreen.classList.add(
+                "active"
+            );
+
+
+            /*
+             * Restart Bubu video.
+             */
+
+            bubuVideo.pause();
+
+            bubuVideo.currentTime = 0;
+
+
+            /*
+             * Play Bubu flying video.
+             */
+
+            bubuVideo.play().catch(
+                function(error) {
+
+                    console.error(
+                        "Bubu video error:",
+                        error
+                    );
+
+                }
+            );
+
+
+        },
+        1100
+    );
+
+}
+
+
+/*
+ * Mouse click
+ */
+
+doorFrame.addEventListener(
+    "click",
+    openDoor
+);
+
+
+/*
+ * Mobile touch
+ */
+
+doorFrame.addEventListener(
+    "touchstart",
+    function(event) {
+
+        event.preventDefault();
+
+        openDoor();
+
+    },
+    {
+        passive: false
+    }
+);
+
+
+/* =========================================================
+   BUBU VIDEO FINISHED
+========================================================= */
+
+/* =========================================================
+   BUBU VIDEO FINISHED -> 24 GIFTS
+
+   Existing video flow is preserved. After the video ends,
+   the new surprise section opens and Hey Rangule starts
+   from exactly 0:00.
+========================================================= */
+
+bubuVideo.addEventListener(
+    "ended",
+    function () {
+
+        bubuVideo.pause();
+
+        /* Hide the existing video screen. */
+        bubuVideoScreen.classList.remove("active");
+
+        /* Open the new gift section. */
+        giftSurpriseScreen.classList.add("active");
+
+        /* Start Hey Rangule from the beginning. */
+        heyRanguleMusic.pause();
+        heyRanguleMusic.currentTime = 0;
+        heyRanguleMusic.volume = 1;
+
+        heyRanguleMusic.play().catch(function(error) {
+            console.log("Hey Rangule autoplay error:", error);
+        });
+
+    }
+);
+
+
+/* =========================================================
+   24 GIFT BOXES
+
+   Nothing is revealed directly. Every box only gives
+   an indirect hint. The hint disappears automatically.
+========================================================= */
+
+const giftHints = [
+    "Something you'll probably wear more than once. 👀",
+    "A little change to your usual look.",
+    "Something made for a very specific place. ✨",
+    "Something that belongs where you pray.",
+    "A little something with a fragrance attached.",
+    "Something you'll reach for before stepping out.",
+    "For the days when the sun has opinions. 😌",
+    "Something that quietly completes the look.",
+    "Small. Useful. Probably going everywhere with you.",
+    "Something you'll carry more often than you realize.",
+    "Something with a meaning only you'll fully understand. 🤍",
+    "A tiny companion for your keys.",
+    "Something worth keeping around for a long time.",
+    "Something that changes the room after dark. ✨",
+    "A little protection for everyday life.",
+    "Another little layer of protection.",
+    "Something sweet is hiding here. 🍫",
+    "Because one sweet thing clearly wasn't enough.",
+    "This one isn't really meant to stay in a box. 👀",
+    "Something that makes a celebration feel complete.",
+    "Apparently, one more sweet thing was necessary. 🍫",
+    "For your hands when you need a little extra comfort.",
+    "For a different kind of ride. 🏍️",
+    "The biggest surprise is never the easiest one to wrap. 👀"
+];
+
+const openedGiftIndexes = new Set();
+let giftHintTimer = null;
+let giftsFinished = false;
+
+/* Create exactly 24 wrapped gift boxes. */
+for (let i = 0; i < 24; i++) {
+
+    const box = document.createElement("div");
+
+    box.className = "gift-box-new";
+    box.setAttribute("role", "button");
+    box.setAttribute("aria-label", "Open gift");
+    box.innerHTML = `
+        <div class="gift-box-lid-new"></div>
+        <div class="gift-box-body-new"></div>
+        <div class="gift-bow-new"></div>
+        <div class="gift-knot-new"></div>
+    `;
+
+    box.addEventListener("click", function() {
+        openNewGift(box, i);
+    });
+
+    giftGridNew.appendChild(box);
+}
+
+function openNewGift(box, index) {
+
+    /* Keep the box open after it has been touched. */
+    box.classList.remove("opening");
+    void box.offsetWidth;
+    box.classList.add("opening");
+
+    openedGiftIndexes.add(index);
+
+    /* Show only an indirect hint. */
+    giftHintText.textContent = giftHints[index];
+
+    giftHintOverlay.classList.remove("show");
+    void giftHintOverlay.offsetWidth;
+    giftHintOverlay.classList.add("show");
+
+    clearTimeout(giftHintTimer);
+
+    /* No Close button. It disappears by itself. */
+    giftHintTimer = setTimeout(function() {
+
+        giftHintOverlay.classList.remove("show");
+
+        if (openedGiftIndexes.size === 24 && !giftsFinished) {
+            giftsFinished = true;
+
+            setTimeout(function() {
+                showFinalInvitation();
+            }, 500);
+        }
+
+    }, 1700);
+}
+
+function showFinalInvitation() {
+
+    giftHintOverlay.classList.remove("show");
+    giftSurpriseScreen.classList.remove("active");
+    finalInvitationScreen.classList.add("active");
+
+    /* Keep Hey Rangule playing through the invitation. */
+    if (heyRanguleMusic.paused) {
+        heyRanguleMusic.play().catch(function(error) {
+            console.log("Hey Rangule resume error:", error);
+        });
+    }
+}
+
+/* =========================================================
+   WINDOW RESIZE
+========================================================= */
+
+window.addEventListener(
+    "resize",
+    function () {
+
+        if (
+            !readyButton.classList.contains(
+                "random-position"
+            )
+        ) {
+
+            return;
+
+        }
+
+
+        const rect =
+            readyButton.getBoundingClientRect();
+
+
+        const margin = 20;
+
+
+        const maxX =
+            Math.max(
+                margin,
+                window.innerWidth -
+                rect.width -
+                margin
+            );
+
+
+        const maxY =
+            Math.max(
+                margin,
+                window.innerHeight -
+                rect.height -
+                margin
+            );
+
+
+        const safeX =
+            Math.max(
+                margin,
+                Math.min(
+                    rect.left,
+                    maxX
+                )
+            );
+
+
+        const safeY =
+            Math.max(
+                margin,
+                Math.min(
+                    rect.top,
+                    maxY
+                )
+            );
+
+
+        readyButton.style.left =
+            safeX + "px";
+
+
+        readyButton.style.top =
+            safeY + "px";
+
+    }
+);
+
+
+</script>
+
+</body>
+</html>
