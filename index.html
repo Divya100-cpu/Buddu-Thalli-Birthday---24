@@ -59,7 +59,7 @@ body{
 
 
 /* =========================================================
-   BACKGROUND DECORATION
+   FLOATING DECORATIONS
 ========================================================= */
 
 .balloon{
@@ -143,7 +143,6 @@ body{
     }
 }
 
-
 .heart{
     position:fixed;
 
@@ -198,6 +197,7 @@ body{
 ========================================================= */
 
 #screen1{
+
     background:
         radial-gradient(
             circle at center,
@@ -208,21 +208,31 @@ body{
 }
 
 .first-content{
+
     width:min(900px,92%);
+
     position:relative;
+
     z-index:5;
 }
 
 .small-heading{
+
     font-size:14px;
+
     letter-spacing:5px;
+
     opacity:.8;
+
     margin-bottom:20px;
 }
 
 .main-title{
+
     font-size:clamp(55px,8vw,105px);
+
     line-height:.94;
+
     font-weight:bold;
 
     text-shadow:
@@ -231,6 +241,7 @@ body{
 }
 
 .subtitle{
+
     width:min(700px,95%);
 
     margin:30px auto 0;
@@ -243,6 +254,7 @@ body{
 }
 
 .question{
+
     margin-top:35px;
 
     font-size:clamp(19px,2.5vw,29px);
@@ -253,7 +265,9 @@ body{
 }
 
 .ready-area{
+
     margin-top:30px;
+
     min-height:70px;
 }
 
@@ -287,19 +301,6 @@ body{
     box-shadow:
         0 0 15px rgba(255,80,220,.45),
         0 0 30px rgba(180,70,230,.25);
-
-    transition:
-        left .55s ease,
-        top .55s ease,
-        transform .25s ease;
-}
-
-#readyButton:hover{
-    transform:scale(1.05);
-}
-
-#readyButton.random-position{
-    position:fixed;
 }
 
 
@@ -308,6 +309,7 @@ body{
 ========================================================= */
 
 #screen2{
+
     background:
         radial-gradient(
             circle at center,
@@ -318,12 +320,16 @@ body{
 }
 
 .second-content{
+
     width:min(850px,92%);
+
     position:relative;
+
     z-index:5;
 }
 
 .second-title{
+
     font-size:clamp(55px,8vw,100px);
 
     text-shadow:
@@ -332,6 +338,7 @@ body{
 }
 
 .second-text{
+
     margin-top:25px;
 
     font-size:clamp(18px,2.4vw,27px);
@@ -374,11 +381,13 @@ body{
 }
 
 .go-button{
+
     margin-top:32px;
 }
 
 .go-button:hover,
 .celebrate-button:hover{
+
     transform:scale(1.05);
 }
 
@@ -446,7 +455,9 @@ body{
 }
 
 .prayer-divider{
+
     margin:25px 0;
+
     font-size:25px;
 }
 
@@ -477,255 +488,9 @@ body{
 
 
 /* =========================================================
-   ONLY ONE CALL SCREEN
-   NO "SOMEONE IS CALLING" SCREEN EXISTS
-========================================================= */
-
-#callScreen{
-
-    position:fixed;
-
-    inset:0;
-
-    width:100%;
-    height:100vh;
-
-    display:none;
-
-    align-items:center;
-    justify-content:center;
-
-    text-align:center;
-
-    overflow:hidden;
-
-    z-index:3000;
-
-    background:
-        linear-gradient(
-            135deg,
-            #f5b8aa 0%,
-            #f7d4a4 25%,
-            #b9ddd1 55%,
-            #8fd2e0 75%,
-            #f4c8d7 100%
-        );
-}
-
-#callScreen.active{
-    display:flex;
-}
-
-.call-content{
-
-    width:min(520px,92%);
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    position:relative;
-
-    z-index:5;
-}
-
-
-/* =========================================================
-   CALL DETAILS
-========================================================= */
-
-.call-name{
-
-    font-family:Arial,Helvetica,sans-serif;
-
-    font-size:clamp(30px,5vw,45px);
-
-    font-weight:700;
-
-    color:#17120f;
-
-    margin-bottom:20px;
-}
-
-.calling-text{
-
-    font-family:Arial,Helvetica,sans-serif;
-
-    font-size:clamp(23px,4vw,34px);
-
-    color:#211a16;
-
-    margin-bottom:5px;
-}
-
-
-/* =========================================================
-   BUBU
-========================================================= */
-
-.bubu-character{
-
-    width:clamp(170px,28vw,230px);
-
-    height:clamp(170px,28vw,230px);
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    font-size:clamp(120px,20vw,175px);
-
-    animation:bubuFloat 1.8s ease-in-out infinite;
-}
-
-@keyframes bubuFloat{
-
-    0%,100%{
-        transform:translateY(0);
-    }
-
-    50%{
-        transform:translateY(-8px);
-    }
-}
-
-
-/* =========================================================
-   DECLINE / ACCEPT
-========================================================= */
-
-.call-actions{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:80px;
-
-    margin-top:0;
-}
-
-
-/* Normal call item */
-
-.call-action{
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    gap:8px;
-
-    font-family:Arial,Helvetica,sans-serif;
-
-    color:#211a16;
-}
-
-
-/* Circle */
-
-.call-action-circle{
-
-    width:82px;
-    height:82px;
-
-    border-radius:50%;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    font-size:38px;
-
-    box-shadow:
-        0 7px 18px rgba(0,0,0,.16);
-}
-
-
-/* Red decline */
-
-.decline-circle{
-    background:#ef382d;
-}
-
-
-/* =========================================================
-   GREEN ACCEPT
-   THIS EXACT GREEN BUTTON IS DRAGGABLE
-========================================================= */
-
-#acceptSwipe{
-
-    cursor:grab;
-
-    user-select:none;
-
-    touch-action:none;
-
-    -webkit-user-select:none;
-
-    -webkit-touch-callout:none;
-
-    position:relative;
-
-    z-index:20;
-}
-
-#acceptSwipe.dragging{
-
-    cursor:grabbing;
-}
-
-
-/* Green circle */
-
-#acceptSwipe .accept-circle{
-
-    background:#22b84b;
-
-    transition:
-        transform .12s ease,
-        box-shadow .12s ease;
-}
-
-#acceptSwipe.dragging .accept-circle{
-
-    transform:scale(1.08);
-
-    box-shadow:
-        0 10px 25px rgba(0,0,0,.3);
-}
-
-
-/*
-   Small swipe instruction.
-   This is NOT another button.
-*/
-
-.swipe-note{
-
-    margin-top:25px;
-
-    font-family:Arial,Helvetica,sans-serif;
-
-    font-size:13px;
-
-    color:rgba(33,26,22,.65);
-}
-
-
-/* =========================================================
-   CALLING VIDEO
+   BUBU CALLING VIDEO SCREEN
+   IMPORTANT:
+   THERE IS NO SEPARATE CALL SCREEN.
 ========================================================= */
 
 #callingVideoScreen{
@@ -735,11 +500,13 @@ body{
     inset:0;
 
     width:100%;
+
     height:100vh;
 
     display:none;
 
     align-items:center;
+
     justify-content:center;
 
     overflow:hidden;
@@ -750,8 +517,14 @@ body{
 }
 
 #callingVideoScreen.active{
+
     display:flex;
 }
+
+
+/* =========================================================
+   CALLING VIDEO
+========================================================= */
 
 #callingVideo{
 
@@ -768,6 +541,114 @@ body{
 
 
 /* =========================================================
+   SWIPE BUTTON OVER VIDEO
+========================================================= */
+
+#videoSwipeControl{
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:45px;
+
+    transform:translateX(-50%);
+
+    width:310px;
+
+    height:60px;
+
+    border-radius:999px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:rgba(255,255,255,.25);
+
+    border:1px solid rgba(255,255,255,.7);
+
+    backdrop-filter:blur(10px);
+
+    -webkit-backdrop-filter:blur(10px);
+
+    color:white;
+
+    font-family:Arial,Helvetica,sans-serif;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    letter-spacing:1px;
+
+    user-select:none;
+
+    -webkit-user-select:none;
+
+    touch-action:none;
+
+}
+
+
+/* Green draggable circle */
+
+#videoSwipeButton{
+
+    position:absolute;
+
+    left:5px;
+
+    top:5px;
+
+    width:50px;
+
+    height:50px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#22b84b;
+
+    color:white;
+
+    font-size:23px;
+
+    cursor:grab;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,.35);
+
+    touch-action:none;
+
+    z-index:5;
+
+    transition:transform .12s ease;
+}
+
+#videoSwipeButton.dragging{
+
+    cursor:grabbing;
+
+    transform:scale(1.08);
+}
+
+#videoSwipeControl span{
+
+    margin-left:45px;
+
+    pointer-events:none;
+}
+
+
+/* =========================================================
    HAPPY BIRTHDAY SCREEN
 ========================================================= */
 
@@ -778,11 +659,13 @@ body{
     inset:0;
 
     width:100%;
+
     height:100vh;
 
     display:none;
 
     align-items:center;
+
     justify-content:center;
 
     text-align:center;
@@ -801,6 +684,7 @@ body{
 }
 
 #birthdayScreen.active{
+
     display:flex;
 }
 
@@ -877,11 +761,13 @@ body{
     inset:0;
 
     width:100%;
+
     height:100vh;
 
     display:none;
 
     align-items:center;
+
     justify-content:center;
 
     flex-direction:column;
@@ -902,6 +788,7 @@ body{
 }
 
 #doorScreen.active{
+
     display:flex;
 }
 
@@ -991,6 +878,7 @@ body{
     position:absolute;
 
     left:50%;
+
     top:43%;
 
     transform:translate(-50%,-50%);
@@ -1026,6 +914,7 @@ body{
     top:0;
 
     width:50%;
+
     height:100%;
 
     background:
@@ -1068,9 +957,11 @@ body{
     position:absolute;
 
     left:14%;
+
     right:14%;
 
     top:12%;
+
     bottom:12%;
 
     border:2px solid rgba(255,200,250,.35);
@@ -1085,6 +976,7 @@ body{
     top:50%;
 
     width:13px;
+
     height:13px;
 
     border-radius:50%;
@@ -1109,15 +1001,18 @@ body{
 /* Door opening */
 
 #doorScreen.opening .door-left{
+
     transform:rotateY(-105deg);
 }
 
 #doorScreen.opening .door-right{
+
     transform:rotateY(105deg);
 }
 
 #doorScreen.opening .door-title,
 #doorScreen.opening .door-subtitle{
+
     opacity:0;
 
     transition:opacity .4s ease;
@@ -1163,11 +1058,13 @@ body{
     inset:0;
 
     width:100%;
+
     height:100vh;
 
     display:none;
 
     align-items:center;
+
     justify-content:center;
 
     overflow:hidden;
@@ -1178,6 +1075,7 @@ body{
 }
 
 #bubuVideoScreen.active{
+
     display:flex;
 }
 
@@ -1255,29 +1153,9 @@ body{
         height:360px;
     }
 
-    .call-name{
-        font-size:32px;
-        margin-bottom:15px;
-    }
-
-    .calling-text{
-        font-size:25px;
-    }
-
-    .bubu-character{
-        width:165px;
-        height:165px;
-        font-size:115px;
-    }
-
-    .call-actions{
-        gap:60px;
-    }
-
-    .call-action-circle{
-        width:72px;
-        height:72px;
-        font-size:32px;
+    #videoSwipeControl{
+        width:280px;
+        bottom:30px;
     }
 
 }
@@ -1290,7 +1168,7 @@ body{
 
 
 <!-- =========================================================
-     BACKGROUND
+     BACKGROUND DECORATIONS
 ========================================================= -->
 
 <div class="balloon balloon1"></div>
@@ -1332,9 +1210,11 @@ body{
         </p>
 
         <div class="question">
+
             Are you ready to see<br>
             what surprise I planned
             for you? 👀 ❤️
+
         </div>
 
         <div class="ready-area">
@@ -1390,7 +1270,7 @@ body{
 
 
 <!-- =========================================================
-     PRAYER
+     PRAYER SCREEN
 ========================================================= -->
 
 <section id="screen3" class="screen">
@@ -1502,92 +1382,12 @@ body{
 
 
 <!-- =========================================================
-     ONLY CALL SCREEN
+     BUBU CALLING VIDEO SCREEN
      
      IMPORTANT:
-     THERE IS NO "SOMEONE IS CALLING" SCREEN.
-========================================================= -->
-
-<section id="callScreen">
-
-    <div class="call-content">
-
-
-        <div class="call-name">
-            Bubu ♥
-        </div>
-
-
-        <div class="calling-text">
-            Calling...
-        </div>
-
-
-        <div class="bubu-character">
-            🐼
-        </div>
-
-
-        <!-- ===============================================
-             DECLINE + ACCEPT
-             
-             THE GREEN ACCEPT BUTTON ITSELF IS DRAGGABLE.
-        ================================================ -->
-
-        <div class="call-actions">
-
-
-            <!-- DECLINE -->
-
-            <div class="call-action">
-
-                <div class="call-action-circle decline-circle">
-                    ☎
-                </div>
-
-                <span>
-                    Decline
-                </span>
-
-            </div>
-
-
-            <!-- ACCEPT / SWIPE -->
-
-            <div
-                id="acceptSwipe"
-                class="call-action"
-                role="button"
-                aria-label="Swipe to answer">
-
-                <div class="call-action-circle accept-circle">
-                    ☎
-                </div>
-
-                <span>
-                    Accept
-                </span>
-
-            </div>
-
-
-        </div>
-
-
-        <div class="swipe-note">
-
-            ← Swipe the green button to answer ❤️
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     BUBU CALLING VIDEO
+     THERE IS NO OLD CALLING SCREEN HERE.
+     
+     The video itself is the next screen.
 ========================================================= -->
 
 <section id="callingVideoScreen">
@@ -1603,6 +1403,23 @@ body{
 
     </video>
 
+
+    <!-- Swipe control -->
+
+    <div
+        id="videoSwipeControl"
+        aria-label="Swipe to answer">
+
+        <div id="videoSwipeButton">
+            ☎
+        </div>
+
+        <span>
+            SWIPE TO ANSWER →
+        </span>
+
+    </div>
+
 </section>
 
 
@@ -1614,13 +1431,9 @@ body{
 
     <div class="birthday-content">
 
-
         <div class="birthday-small">
-
             TODAY IS ALL ABOUT YOU ❤️
-
         </div>
-
 
         <h1 class="birthday-title">
 
@@ -1629,13 +1442,11 @@ body{
 
         </h1>
 
-
         <div class="birthday-name">
 
             BUDDU ❤️
 
         </div>
-
 
         <p class="birthday-message">
 
@@ -1656,18 +1467,16 @@ body{
 
         </p>
 
-
     </div>
 
 </section>
 
 
 <!-- =========================================================
-     DOOR
+     DOOR SCREEN
 ========================================================= -->
 
 <section id="doorScreen">
-
 
     <h1 class="door-title">
 
@@ -1676,7 +1485,6 @@ body{
         BUBU IS WAITING FOR YOU 🥹
 
     </h1>
-
 
     <p class="door-subtitle">
 
@@ -1726,7 +1534,6 @@ body{
         👆 TOUCH THE DOOR TO OPEN
 
     </div>
-
 
 </section>
 
@@ -1780,7 +1587,7 @@ body{
 <script>
 
 /* =========================================================
-   SCREEN REFERENCES
+   GET SCREENS
 ========================================================= */
 
 const screen1 =
@@ -1791,9 +1598,6 @@ const screen2 =
 
 const screen3 =
     document.getElementById("screen3");
-
-const callScreen =
-    document.getElementById("callScreen");
 
 const callingVideoScreen =
     document.getElementById("callingVideoScreen");
@@ -1848,6 +1652,7 @@ let readyMoves = 0;
 const MAX_READY_MOVES = 3;
 
 let lastX = null;
+
 let lastY = null;
 
 
@@ -1856,7 +1661,9 @@ function moveReadyButton(){
     const rect =
         readyButton.getBoundingClientRect();
 
+
     const margin = 25;
+
 
     const maxX =
         Math.max(
@@ -1866,6 +1673,7 @@ function moveReadyButton(){
             margin
         );
 
+
     const maxY =
         Math.max(
             margin,
@@ -1874,7 +1682,9 @@ function moveReadyButton(){
             margin
         );
 
+
     let randomX;
+
     let randomY;
 
 
@@ -1886,6 +1696,7 @@ function moveReadyButton(){
                 (maxX - margin + 1)
             ) + margin;
 
+
         randomY =
             Math.floor(
                 Math.random() *
@@ -1893,6 +1704,7 @@ function moveReadyButton(){
             ) + margin;
 
     }
+
     while(
         lastX !== null &&
         Math.abs(randomX-lastX) < 100 &&
@@ -1901,18 +1713,19 @@ function moveReadyButton(){
 
 
     lastX = randomX;
+
     lastY = randomY;
 
 
-    readyButton.classList.add(
-        "random-position"
-    );
+    readyButton.style.position =
+        "fixed";
 
     readyButton.style.left =
         randomX + "px";
 
     readyButton.style.top =
         randomY + "px";
+
 }
 
 
@@ -1920,22 +1733,28 @@ readyButton.addEventListener(
     "click",
     function(){
 
-        if(readyMoves < MAX_READY_MOVES){
+        if(
+            readyMoves <
+            MAX_READY_MOVES
+        ){
 
             readyMoves++;
 
             moveReadyButton();
 
             return;
+
         }
 
 
-        readyButton.classList.remove(
-            "random-position"
-        );
+        readyButton.style.position =
+            "";
 
-        readyButton.style.left = "";
-        readyButton.style.top = "";
+        readyButton.style.left =
+            "";
+
+        readyButton.style.top =
+            "";
 
 
         screen1.classList.remove(
@@ -1981,7 +1800,7 @@ goButton.addEventListener(
             function(error){
 
                 console.log(
-                    "Birthday song could not autoplay:",
+                    "Birthday song autoplay:",
                     error
                 );
 
@@ -1993,7 +1812,7 @@ goButton.addEventListener(
 
 
 /* =========================================================
-   3. PRAYER SONG ENDS
+   3. BIRTHDAY SONG ENDS
 ========================================================= */
 
 birthdaySong.addEventListener(
@@ -2011,9 +1830,10 @@ birthdaySong.addEventListener(
 /* =========================================================
    4. LET'S START CELEBRATING
      
-   DIRECTLY OPENS THE ONLY CALL SCREEN.
+   IMPORTANT:
+   DIRECTLY OPENS bubu calling.mp4 SCREEN.
    
-   THERE IS NO EXTRA CALL SCREEN.
+   NO EXTRA CALLING SCREEN.
 ========================================================= */
 
 celebrateButton.addEventListener(
@@ -2036,64 +1856,86 @@ celebrateButton.addEventListener(
 
 
         /*
-         * ONLY CALL SCREEN
+         * Show the actual calling video.
          */
 
-        callScreen.classList.add(
+        callingVideoScreen.classList.add(
             "active"
         );
 
 
         /*
-         * Reset green Accept button.
+         * Reset video.
          */
 
-        acceptSwipe.style.transform =
+        callingVideo.pause();
+
+        callingVideo.currentTime = 0;
+
+
+        /*
+         * Reset swipe button.
+         */
+
+        videoSwipeButton.style.transform =
             "translateX(0)";
+
+
+        videoSwipeControl.style.opacity =
+            "1";
+
+        videoSwipeControl.style.pointerEvents =
+            "auto";
+
+
+        videoAnswered = false;
 
     }
 );
 
 
 /* =========================================================
-   5. GREEN ACCEPT BUTTON SWIPE
+   5. SWIPE BUTTON
 ========================================================= */
 
-const acceptSwipe =
-    document.getElementById("acceptSwipe");
+const videoSwipeControl =
+    document.getElementById(
+        "videoSwipeControl"
+    );
+
+const videoSwipeButton =
+    document.getElementById(
+        "videoSwipeButton"
+    );
 
 
-let isDragging = false;
+let videoDragging = false;
 
-let startX = 0;
+let videoStartX = 0;
 
-let currentX = 0;
+let videoCurrentX = 0;
 
-let answered = false;
+let videoAnswered = false;
 
 
-/*
- * How far the green button must move
- * before the call is answered.
- */
-
-const SWIPE_DISTANCE = 100;
+const VIDEO_SWIPE_DISTANCE = 190;
 
 
 /* =========================================================
-   START DRAG
+   START SWIPE
 ========================================================= */
 
-function startAcceptSwipe(event){
+function startVideoSwipe(event){
 
-    if(answered){
+    if(videoAnswered){
         return;
     }
 
 
-    isDragging = true;
+    videoDragging = true;
 
-    acceptSwipe.classList.add(
+
+    videoSwipeButton.classList.add(
         "dragging"
     );
 
@@ -2104,25 +1946,29 @@ function startAcceptSwipe(event){
         : event;
 
 
-    startX = point.clientX;
+    videoStartX =
+        point.clientX;
 
-    currentX = 0;
+
+    videoCurrentX = 0;
 
 
     if(event.cancelable){
+
         event.preventDefault();
+
     }
 
 }
 
 
 /* =========================================================
-   MOVE GREEN ACCEPT BUTTON
+   MOVE SWIPE
 ========================================================= */
 
-function moveAcceptSwipe(event){
+function moveVideoSwipe(event){
 
-    if(!isDragging){
+    if(!videoDragging){
         return;
     }
 
@@ -2133,114 +1979,172 @@ function moveAcceptSwipe(event){
         : event;
 
 
-    currentX =
-        point.clientX - startX;
+    videoCurrentX =
+        point.clientX -
+        videoStartX;
 
 
     /*
-     * Only allow RIGHT swipe.
+     * Do not allow left movement.
      */
 
-    if(currentX < 0){
-        currentX = 0;
+    if(videoCurrentX < 0){
+
+        videoCurrentX = 0;
+
     }
 
 
     /*
-     * Move the actual green Accept button.
+     * Maximum movement inside the bar.
      */
 
-    acceptSwipe.style.transform =
-        `translateX(${currentX}px)`;
+    const maxDistance =
+        videoSwipeControl.offsetWidth -
+        videoSwipeButton.offsetWidth -
+        10;
+
+
+    if(
+        videoCurrentX >
+        maxDistance
+    ){
+
+        videoCurrentX =
+            maxDistance;
+
+    }
+
+
+    videoSwipeButton.style.transform =
+        `translateX(${videoCurrentX}px)`;
 
 
     if(event.cancelable){
+
         event.preventDefault();
+
     }
 
 }
 
 
 /* =========================================================
-   END DRAG
+   END SWIPE
 ========================================================= */
 
-function endAcceptSwipe(){
+function endVideoSwipe(){
 
-    if(!isDragging){
+    if(!videoDragging){
+
         return;
+
     }
 
 
-    isDragging = false;
+    videoDragging = false;
 
-    acceptSwipe.classList.remove(
+
+    videoSwipeButton.classList.remove(
         "dragging"
     );
 
 
     /*
-     * User completed the swipe.
+     * SUCCESS
      */
 
-    if(currentX >= SWIPE_DISTANCE){
+    if(
+        videoCurrentX >=
+        VIDEO_SWIPE_DISTANCE
+    ){
 
-        answered = true;
-
-        acceptSwipe.style.transform =
-            `translateX(${SWIPE_DISTANCE}px)`;
+        videoAnswered = true;
 
 
-        answerCall();
+        const maxDistance =
+            videoSwipeControl.offsetWidth -
+            videoSwipeButton.offsetWidth -
+            10;
+
+
+        videoSwipeButton.style.transform =
+            `translateX(${maxDistance}px)`;
+
+
+        /*
+         * Hide swipe control.
+         */
+
+        videoSwipeControl.style.opacity =
+            "0";
+
+        videoSwipeControl.style.pointerEvents =
+            "none";
+
+
+        /*
+         * Start the calling video.
+         */
+
+        callingVideo.play().catch(
+            function(error){
+
+                console.error(
+                    "bubu calling.mp4:",
+                    error
+                );
+
+            }
+        );
 
     }
-
-
-    /*
-     * Swipe was not far enough.
-     * Return button to original position.
-     */
 
     else{
 
-        acceptSwipe.style.transform =
+        /*
+         * Swipe wasn't far enough.
+         * Return button.
+         */
+
+        videoSwipeButton.style.transform =
             "translateX(0)";
 
     }
 
 
-    currentX = 0;
+    videoCurrentX = 0;
 
 }
 
 
 /* =========================================================
-   MOUSE
+   MOUSE EVENTS
 ========================================================= */
 
-acceptSwipe.addEventListener(
+videoSwipeButton.addEventListener(
     "mousedown",
-    startAcceptSwipe
+    startVideoSwipe
 );
 
 document.addEventListener(
     "mousemove",
-    moveAcceptSwipe
+    moveVideoSwipe
 );
 
 document.addEventListener(
     "mouseup",
-    endAcceptSwipe
+    endVideoSwipe
 );
 
 
 /* =========================================================
-   TOUCH
+   TOUCH EVENTS
 ========================================================= */
 
-acceptSwipe.addEventListener(
+videoSwipeButton.addEventListener(
     "touchstart",
-    startAcceptSwipe,
+    startVideoSwipe,
     {
         passive:false
     }
@@ -2248,7 +2152,7 @@ acceptSwipe.addEventListener(
 
 document.addEventListener(
     "touchmove",
-    moveAcceptSwipe,
+    moveVideoSwipe,
     {
         passive:false
     }
@@ -2256,65 +2160,15 @@ document.addEventListener(
 
 document.addEventListener(
     "touchend",
-    endAcceptSwipe
+    endVideoSwipe
 );
 
 
 /* =========================================================
-   6. ANSWER CALL
-     
-   CALL SCREEN DISAPPEARS
-   ↓
-   bubu calling.mp4
-========================================================= */
-
-function answerCall(){
-
-    /*
-     * Remove ONLY the call screen.
-     */
-
-    callScreen.classList.remove(
-        "active"
-    );
-
-
-    /*
-     * Show calling video.
-     */
-
-    callingVideoScreen.classList.add(
-        "active"
-    );
-
-
-    callingVideo.pause();
-
-    callingVideo.currentTime = 0;
-
-
-    callingVideo.play().catch(
-        function(error){
-
-            console.error(
-                "bubu calling.mp4 error:",
-                error
-            );
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   7. CALLING VIDEO ENDS
+   6. CALLING VIDEO FINISHES
      
    ↓
    HAPPY BIRTHDAY SCREEN
-     
-   ↓
-   bubu-wish-audio.mp3
 ========================================================= */
 
 callingVideo.addEventListener(
@@ -2330,8 +2184,7 @@ callingVideo.addEventListener(
 
 
         /*
-         * Happy Birthday screen appears
-         * immediately.
+         * Show birthday message.
          */
 
         birthdayScreen.classList.add(
@@ -2340,8 +2193,8 @@ callingVideo.addEventListener(
 
 
         /*
-         * The NEW birthday audio starts
-         * exactly when this screen appears.
+         * Start the new birthday audio
+         * exactly with the birthday screen.
          */
 
         bubuWishAudio.pause();
@@ -2353,7 +2206,7 @@ callingVideo.addEventListener(
             function(error){
 
                 console.error(
-                    "bubu-wish-audio.mp3 error:",
+                    "bubu-wish-audio.mp3:",
                     error
                 );
 
@@ -2365,7 +2218,7 @@ callingVideo.addEventListener(
 
 
 /* =========================================================
-   8. BIRTHDAY AUDIO ENDS
+   7. BIRTHDAY AUDIO FINISHES
      
    ↓
    DOOR SCREEN
@@ -2394,11 +2247,14 @@ bubuWishAudio.addEventListener(
 
 
 /* =========================================================
-   9. DOOR
+   8. DOOR
 ========================================================= */
 
 const doorFrame =
-    document.getElementById("doorFrame");
+    document.getElementById(
+        "doorFrame"
+    );
+
 
 let doorOpening = false;
 
@@ -2406,7 +2262,9 @@ let doorOpening = false;
 function openDoor(){
 
     if(doorOpening){
+
         return;
+
     }
 
 
@@ -2440,7 +2298,7 @@ function openDoor(){
                 function(error){
 
                     console.error(
-                        "happy bday.mp4 error:",
+                        "happy bday.mp4:",
                         error
                     );
 
@@ -2455,7 +2313,7 @@ function openDoor(){
 }
 
 
-/* Mouse */
+/* Click door */
 
 doorFrame.addEventListener(
     "click",
@@ -2463,7 +2321,7 @@ doorFrame.addEventListener(
 );
 
 
-/* Touch */
+/* Touch door */
 
 doorFrame.addEventListener(
     "touchstart",
@@ -2481,7 +2339,7 @@ doorFrame.addEventListener(
 
 
 /* =========================================================
-   10. FINAL VIDEO
+   9. FINAL VIDEO
 ========================================================= */
 
 bubuVideo.addEventListener(
