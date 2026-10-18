@@ -3,40 +3,65 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Birthday Surprise ❤️</title>
 
 <style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-html, body {
+html,
+body {
     width: 100%;
     min-height: 100%;
 }
 
 body {
     overflow-x: hidden;
+
     background:
-        radial-gradient(circle at 50% 42%, #351044 0%, #19051f 38%, #08030d 100%);
-    color: #fff;
-    font-family: Georgia, "Times New Roman", serif;
+        radial-gradient(
+            circle at 50% 35%,
+            #42104f 0%,
+            #210725 35%,
+            #100315 65%,
+            #060208 100%
+        );
+
+    color: white;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 }
 
-/* ==============================
+
+/* =========================================================
    COMMON SCREEN
-============================== */
+========================================================= */
 
 .screen {
     position: relative;
+
     width: 100%;
     min-height: 100vh;
+
     display: none;
+
     align-items: center;
     justify-content: center;
+
     text-align: center;
+
     overflow: hidden;
 }
 
@@ -44,24 +69,249 @@ body {
     display: flex;
 }
 
+
+/* =========================================================
+   STAR BACKGROUND
+========================================================= */
+
 .screen::before {
     content: "";
+
     position: absolute;
     inset: 0;
+
     pointer-events: none;
 
     background-image:
-        radial-gradient(circle, rgba(255,255,255,.8) 1px, transparent 1.5px),
-        radial-gradient(circle, rgba(255,255,255,.5) 1px, transparent 1.5px);
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.85) 1px,
+            transparent 1.5px
+        ),
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.55) 1px,
+            transparent 1.5px
+        );
 
-    background-size: 180px 180px, 260px 260px;
-    background-position: 20px 30px, 90px 100px;
+    background-size:
+        180px 180px,
+        270px 270px;
+
+    background-position:
+        20px 30px,
+        100px 120px;
+
     opacity: .45;
+
+    animation: starsMove 15s linear infinite;
 }
 
-/* ==============================
+@keyframes starsMove {
+
+    from {
+        background-position:
+            20px 30px,
+            100px 120px;
+    }
+
+    to {
+        background-position:
+            80px 100px,
+            30px 50px;
+    }
+}
+
+
+/* =========================================================
+   FLOATING BALLOONS
+========================================================= */
+
+.balloon {
+    position: absolute;
+
+    width: 55px;
+    height: 68px;
+
+    border-radius: 50% 50% 45% 45%;
+
+    opacity: .88;
+
+    z-index: 1;
+
+    animation:
+        balloonFloat 5s ease-in-out infinite;
+}
+
+.balloon::before {
+    content: "";
+
+    position: absolute;
+
+    width: 2px;
+    height: 95px;
+
+    background: rgba(255,255,255,.45);
+
+    left: 50%;
+    top: 65px;
+
+    transform: translateX(-50%);
+}
+
+.balloon::after {
+    content: "";
+
+    position: absolute;
+
+    bottom: -5px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 10px solid currentColor;
+}
+
+.balloon1 {
+    left: 5%;
+    top: 14%;
+
+    background: #ff4f91;
+    color: #ff4f91;
+
+    animation-delay: 0s;
+}
+
+.balloon2 {
+    right: 7%;
+    top: 20%;
+
+    background: #8f5cff;
+    color: #8f5cff;
+
+    animation-delay: 1s;
+}
+
+.balloon3 {
+    left: 10%;
+    bottom: 12%;
+
+    background: #ffbd4a;
+    color: #ffbd4a;
+
+    animation-delay: 2s;
+}
+
+.balloon4 {
+    right: 10%;
+    bottom: 10%;
+
+    background: #54d8ff;
+    color: #54d8ff;
+
+    animation-delay: 1.5s;
+}
+
+.balloon5 {
+    left: 25%;
+    top: 5%;
+
+    width: 40px;
+    height: 50px;
+
+    background: #ff6b6b;
+    color: #ff6b6b;
+
+    animation-delay: 2.5s;
+}
+
+.balloon6 {
+    right: 25%;
+    top: 8%;
+
+    width: 42px;
+    height: 52px;
+
+    background: #a66cff;
+    color: #a66cff;
+
+    animation-delay: .8s;
+}
+
+@keyframes balloonFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(-3deg);
+    }
+
+    50% {
+        transform: translateY(-18px) rotate(4deg);
+    }
+}
+
+
+/* =========================================================
+   FLOATING HEARTS
+========================================================= */
+
+.heart {
+    position: absolute;
+
+    z-index: 1;
+
+    font-size: 22px;
+
+    opacity: .65;
+
+    animation:
+        heartFloat 6s ease-in-out infinite;
+}
+
+.heart1 {
+    left: 17%;
+    top: 32%;
+}
+
+.heart2 {
+    right: 18%;
+    top: 38%;
+
+    animation-delay: 1.5s;
+}
+
+.heart3 {
+    left: 8%;
+    bottom: 30%;
+
+    animation-delay: 2s;
+}
+
+.heart4 {
+    right: 9%;
+    bottom: 28%;
+
+    animation-delay: 3s;
+}
+
+@keyframes heartFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-14px) scale(1.12);
+    }
+}
+
+
+/* =========================================================
    SCREEN 1
-============================== */
+========================================================= */
 
 #screen1 {
     padding: 40px 20px;
@@ -69,372 +319,962 @@ body {
 
 .first-content {
     position: relative;
-    z-index: 2;
+
+    z-index: 10;
+
     width: min(900px, 92%);
+
     display: flex;
+
     flex-direction: column;
+
     align-items: center;
 }
 
+
+/* =========================================================
+   SMALL HEADING
+========================================================= */
+
 .small-heading {
+
     font-size: 13px;
+
     letter-spacing: 5px;
+
     margin-bottom: 18px;
+
     opacity: .9;
 }
 
+
+/* =========================================================
+   MAIN TITLE
+========================================================= */
+
 .main-title {
-    font-size: clamp(55px, 8vw, 105px);
+
+    font-size:
+        clamp(52px, 8vw, 105px);
+
     line-height: .88;
+
     font-weight: bold;
+
     text-shadow:
-        0 0 8px rgba(255,255,255,.8),
-        0 0 22px rgba(213,105,255,.8),
-        0 0 40px rgba(213,105,255,.45);
+        0 0 8px rgba(255,255,255,.9),
+        0 0 22px rgba(213,105,255,.9),
+        0 0 45px rgba(213,105,255,.55);
+
+    animation:
+        titleGlow 3s ease-in-out infinite;
 }
 
+@keyframes titleGlow {
+
+    0%,
+    100% {
+        text-shadow:
+            0 0 8px rgba(255,255,255,.9),
+            0 0 22px rgba(213,105,255,.9),
+            0 0 45px rgba(213,105,255,.55);
+    }
+
+    50% {
+        text-shadow:
+            0 0 12px white,
+            0 0 30px #ff6fe5,
+            0 0 60px #c14dff;
+    }
+}
+
+
+/* =========================================================
+   SUBTITLE
+========================================================= */
+
 .subtitle {
+
     margin-top: 30px;
-    max-width: 650px;
+
+    max-width: 680px;
+
     font-size: 17px;
+
     line-height: 1.55;
 }
 
+
+/* =========================================================
+   QUESTION
+========================================================= */
+
 .question {
-    margin-top: 34px;
+
+    margin-top: 32px;
+
     font-size: 23px;
+
     font-weight: bold;
-    line-height: 1.4;
+
+    line-height: 1.45;
 }
 
-/* ==============================
+
+/* =========================================================
    READY BUTTON AREA
-============================== */
+========================================================= */
 
 .ready-area {
+
     position: relative;
-    width: 100%;
-    height: 90px;
-    margin-top: 20px;
-    z-index: 50;
+
+    width: min(600px, 100%);
+
+    height: 110px;
+
+    margin-top: 18px;
+
+    z-index: 100;
 }
 
+
+/* =========================================================
+   READY BUTTON
+========================================================= */
+
 #readyButton {
+
     position: absolute;
 
     left: 50%;
     top: 50%;
 
-    transform: translate(-50%, -50%);
+    transform:
+        translate(-50%, -50%);
 
-    min-width: 130px;
+    min-width: 135px;
 
-    padding: 13px 25px;
+    padding:
+        14px 27px;
 
-    border: 1px solid rgba(255,255,255,.65);
-    border-radius: 40px;
+    border:
+        1px solid rgba(255,255,255,.7);
 
-    background: linear-gradient(135deg, #df4fa8, #9f42e7);
+    border-radius: 50px;
 
-    color: #fff;
+    background:
+        linear-gradient(
+            135deg,
+            #e34fa9,
+            #a53fe7
+        );
 
-    font-family: Georgia, "Times New Roman", serif;
+    color: white;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
     font-size: 13px;
+
     font-weight: bold;
 
     cursor: pointer;
 
     box-shadow:
-        0 0 12px rgba(226,80,255,.8),
-        0 0 25px rgba(226,80,255,.45);
+        0 0 12px rgba(226,80,255,.9),
+        0 0 28px rgba(226,80,255,.5);
 
     z-index: 100;
 
     transition:
-        left .55s cubic-bezier(.2,.8,.2,1),
-        right .55s cubic-bezier(.2,.8,.2,1),
-        top .55s cubic-bezier(.2,.8,.2,1),
-        transform .55s cubic-bezier(.2,.8,.2,1);
+        left .45s cubic-bezier(.2,.8,.2,1),
+        right .45s cubic-bezier(.2,.8,.2,1),
+        top .45s cubic-bezier(.2,.8,.2,1),
+        transform .45s cubic-bezier(.2,.8,.2,1);
+
+    touch-action: manipulation;
 
     -webkit-tap-highlight-color: transparent;
-    touch-action: manipulation;
 }
 
 #readyButton:hover {
+
     box-shadow:
         0 0 18px rgba(226,80,255,1),
-        0 0 35px rgba(226,80,255,.65);
+        0 0 40px rgba(226,80,255,.7);
 }
 
-/* First escape position */
+
+/* =========================================================
+   READY BUTTON - TOP CENTER
+========================================================= */
 
 #readyButton.top-center {
+
     position: fixed;
+
     left: 50%;
+    top: 28px;
+
     right: auto;
-    top: 25px;
-    transform: translateX(-50%);
+
+    transform:
+        translateX(-50%);
 }
 
-/* Second escape position */
+
+/* =========================================================
+   READY BUTTON - TOP RIGHT
+========================================================= */
 
 #readyButton.top-right {
+
     position: fixed;
+
     left: auto;
-    right: 25px;
-    top: 25px;
+
+    right: 28px;
+
+    top: 28px;
+
     transform: none;
 }
 
-/* ==============================
+
+/* =========================================================
    SCREEN 2
-============================== */
+========================================================= */
 
 #screen2 {
-    padding: 30px 20px;
+
+    padding: 35px 20px;
 }
 
 .second-content {
+
     position: relative;
-    z-index: 2;
-    width: min(900px, 92%);
+
+    z-index: 10;
+
+    width:
+        min(850px, 92%);
 }
 
 .second-title {
-    font-size: clamp(40px, 6vw, 70px);
-    line-height: 1.1;
+
+    font-size:
+        clamp(48px, 7vw, 80px);
+
+    line-height: 1.05;
+
     font-weight: bold;
 
     text-shadow:
-        0 0 10px rgba(255,255,255,.8),
-        0 0 25px rgba(213,105,255,.7);
+        0 0 10px white,
+        0 0 25px #dc70ff,
+        0 0 45px rgba(213,105,255,.65);
+
+    animation:
+        titleGlow 3s ease-in-out infinite;
 }
 
 .second-text {
-    margin-top: 22px;
+
+    margin-top: 25px;
+
     font-size: 22px;
-    line-height: 1.5;
+
+    line-height: 1.6;
 }
 
-.go-button {
+
+/* =========================================================
+   GO BUTTON
+========================================================= */
+
+.go-button,
+.celebrate-button {
+
     margin-top: 35px;
 
-    padding: 14px 28px;
+    padding:
+        15px 32px;
 
-    border: 1px solid rgba(255,255,255,.6);
-    border-radius: 40px;
+    border:
+        1px solid rgba(255,255,255,.7);
 
-    background: linear-gradient(135deg, #df4fa8, #9f42e7);
+    border-radius: 50px;
 
-    color: #fff;
+    background:
+        linear-gradient(
+            135deg,
+            #df4fa8,
+            #9f42e7
+        );
 
-    font-family: Georgia, "Times New Roman", serif;
-    font-weight: bold;
+    color: white;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
     font-size: 14px;
+
+    font-weight: bold;
 
     cursor: pointer;
 
     box-shadow:
-        0 0 15px rgba(226,80,255,.8),
-        0 0 30px rgba(226,80,255,.4);
+        0 0 15px rgba(226,80,255,.85),
+        0 0 30px rgba(226,80,255,.45);
 
-    -webkit-tap-highlight-color: transparent;
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+
     touch-action: manipulation;
 }
 
-.go-button:hover {
+.go-button:hover,
+.celebrate-button:hover {
+
+    transform:
+        translateY(-3px)
+        scale(1.04);
+
     box-shadow:
-        0 0 18px rgba(226,80,255,1),
-        0 0 35px rgba(226,80,255,.65);
+        0 0 20px rgba(226,80,255,1),
+        0 0 42px rgba(226,80,255,.7);
 }
 
-/* ==============================
+
+/* =========================================================
    SCREEN 3 - PRAYER
-============================== */
+========================================================= */
 
 #screen3 {
-    padding: 50px 20px;
-    align-items: flex-start;
-    overflow-y: auto;
+
+    padding:
+        50px 20px;
+
+    align-items:
+        flex-start;
+
+    overflow-y:
+        auto;
 }
 
 .prayer-container {
+
     position: relative;
-    z-index: 2;
 
-    width: min(950px, 92%);
+    z-index: 10;
 
-    padding-top: 5vh;
-    padding-bottom: 100px;
+    width:
+        min(950px, 92%);
+
+    padding-top: 4vh;
+
+    padding-bottom: 90px;
 }
+
+
+/* =========================================================
+   ASSALAM
+========================================================= */
 
 .assalam {
-    font-size: clamp(30px, 4vw, 50px);
-    line-height: 1.25;
-    font-weight: bold;
+
+    font-size:
+        clamp(30px, 4vw, 50px);
+
+    line-height:
+        1.3;
+
+    font-weight:
+        bold;
 
     text-shadow:
-        0 0 10px rgba(255,255,255,.8),
-        0 0 25px rgba(213,105,255,.7);
+        0 0 10px rgba(255,255,255,.9),
+        0 0 25px rgba(213,105,255,.75);
 }
 
+
+/* =========================================================
+   PRAYER
+========================================================= */
+
 .prayer {
+
     margin-top: 35px;
-    font-size: clamp(17px, 2vw, 22px);
-    line-height: 1.85;
+
+    font-size:
+        clamp(17px, 2vw, 22px);
+
+    line-height:
+        1.85;
 }
 
 .prayer p {
-    margin-bottom: 20px;
+
+    margin-bottom:
+        20px;
 }
+
+
+/* =========================================================
+   ROMAN PRAYER
+========================================================= */
 
 .roman-prayer {
-    font-size: clamp(17px, 2vw, 22px);
-    line-height: 1.85;
+
+    font-size:
+        clamp(17px, 2vw, 22px);
+
+    line-height:
+        1.85;
 }
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
 
 .prayer-divider {
-    margin: 30px 0;
-    font-size: 18px;
-    opacity: .9;
+
+    margin:
+        28px 0;
+
+    font-size:
+        19px;
+
+    letter-spacing:
+        5px;
+
+    opacity:
+        .9;
 }
 
+
+/* =========================================================
+   TELUGU MEANING
+========================================================= */
+
 .telugu-meaning {
-    margin-top: 5px;
 
-    padding: 25px 25px 5px;
+    margin-top:
+        5px;
 
-    border-top: 1px solid rgba(255,255,255,.18);
+    padding:
+        25px 25px 5px;
 
-    font-size: clamp(17px, 2vw, 21px);
+    border-top:
+        1px solid rgba(255,255,255,.2);
 
-    line-height: 1.95;
+    font-size:
+        clamp(17px, 2vw, 21px);
 
-    color: rgba(255,255,255,.97);
+    line-height:
+        1.95;
+
+    color:
+        rgba(255,255,255,.97);
 }
 
 .telugu-meaning p {
-    margin-bottom: 20px;
+
+    margin-bottom:
+        20px;
 }
+
+
+/* =========================================================
+   AAMEEN
+========================================================= */
 
 .ameen {
-    margin-top: 35px;
-    font-size: 28px;
-    font-weight: bold;
+
+    margin-top:
+        30px;
+
+    font-size:
+        28px;
+
+    font-weight:
+        bold;
+
+    text-shadow:
+        0 0 12px rgba(255,255,255,.8);
 }
 
-/* ==============================
+
+/* =========================================================
+   CELEBRATE BUTTON
+========================================================= */
+
+.celebrate-button {
+
+    margin-top:
+        38px;
+
+    font-size:
+        15px;
+
+    padding:
+        16px 34px;
+
+    animation:
+        celebrateGlow 2s ease-in-out infinite;
+}
+
+@keyframes celebrateGlow {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 15px rgba(226,80,255,.8),
+            0 0 30px rgba(226,80,255,.4);
+    }
+
+    50% {
+        box-shadow:
+            0 0 25px rgba(255,105,220,1),
+            0 0 50px rgba(190,70,255,.7);
+    }
+}
+
+
+/* =========================================================
+   FINAL CELEBRATION SCREEN
+========================================================= */
+
+#screen4 {
+
+    padding:
+        40px 20px;
+}
+
+.final-content {
+
+    position:
+        relative;
+
+    z-index:
+        20;
+
+    width:
+        min(900px, 92%);
+}
+
+.final-small {
+
+    font-size:
+        14px;
+
+    letter-spacing:
+        5px;
+
+    margin-bottom:
+        20px;
+}
+
+.final-title {
+
+    font-size:
+        clamp(48px, 8vw, 100px);
+
+    line-height:
+        .95;
+
+    font-weight:
+        bold;
+
+    text-shadow:
+        0 0 10px white,
+        0 0 25px #ff70d5,
+        0 0 50px #a850ff;
+
+    animation:
+        finalGlow 2.5s ease-in-out infinite;
+}
+
+@keyframes finalGlow {
+
+    0%,
+    100% {
+        transform:
+            scale(1);
+    }
+
+    50% {
+        transform:
+            scale(1.025);
+    }
+}
+
+.final-message {
+
+    margin-top:
+        30px;
+
+    font-size:
+        clamp(19px, 3vw, 28px);
+
+    line-height:
+        1.7;
+}
+
+
+/* =========================================================
+   CONFETTI
+========================================================= */
+
+.confetti {
+
+    position:
+        absolute;
+
+    width:
+        9px;
+
+    height:
+        16px;
+
+    top:
+        -30px;
+
+    opacity:
+        .9;
+
+    animation:
+        confettiFall linear infinite;
+}
+
+@keyframes confettiFall {
+
+    from {
+        transform:
+            translateY(-40px)
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+    }
+}
+
+.confetti:nth-child(1) {
+    left: 5%;
+    animation-duration: 5s;
+}
+
+.confetti:nth-child(2) {
+    left: 15%;
+    animation-duration: 6s;
+    animation-delay: 1s;
+}
+
+.confetti:nth-child(3) {
+    left: 25%;
+    animation-duration: 4.5s;
+    animation-delay: .5s;
+}
+
+.confetti:nth-child(4) {
+    left: 35%;
+    animation-duration: 7s;
+    animation-delay: 1.8s;
+}
+
+.confetti:nth-child(5) {
+    left: 45%;
+    animation-duration: 5.5s;
+    animation-delay: .7s;
+}
+
+.confetti:nth-child(6) {
+    left: 55%;
+    animation-duration: 6.5s;
+    animation-delay: 1.2s;
+}
+
+.confetti:nth-child(7) {
+    left: 65%;
+    animation-duration: 5s;
+    animation-delay: .3s;
+}
+
+.confetti:nth-child(8) {
+    left: 75%;
+    animation-duration: 7s;
+    animation-delay: 2s;
+}
+
+.confetti:nth-child(9) {
+    left: 85%;
+    animation-duration: 5.5s;
+    animation-delay: 1s;
+}
+
+.confetti:nth-child(10) {
+    left: 95%;
+    animation-duration: 6s;
+    animation-delay: 2.5s;
+}
+
+
+/* =========================================================
    MOBILE
-============================== */
+========================================================= */
 
 @media (max-width: 600px) {
 
     #screen1 {
-        padding: 35px 18px;
+        padding:
+            30px 16px;
+    }
+
+    .balloon {
+        width:
+            38px;
+
+        height:
+            50px;
+    }
+
+    .balloon::before {
+        height:
+            70px;
+    }
+
+    .balloon5,
+    .balloon6 {
+        display:
+            none;
     }
 
     .small-heading {
-        font-size: 10px;
-        letter-spacing: 3px;
+
+        font-size:
+            10px;
+
+        letter-spacing:
+            3px;
     }
 
     .main-title {
-        font-size: clamp(48px, 14vw, 75px);
+
+        font-size:
+            clamp(45px, 14vw, 72px);
     }
 
     .subtitle {
-        margin-top: 25px;
-        font-size: 15px;
-        line-height: 1.5;
+
+        margin-top:
+            24px;
+
+        font-size:
+            15px;
     }
 
     .question {
-        margin-top: 28px;
-        font-size: 19px;
-        line-height: 1.45;
+
+        margin-top:
+            25px;
+
+        font-size:
+            19px;
     }
 
     .ready-area {
-        height: 75px;
-        margin-top: 18px;
+
+        height:
+            95px;
+
+        margin-top:
+            15px;
     }
 
     #readyButton {
-        min-width: 125px;
-        padding: 12px 22px;
-        font-size: 12px;
+
+        min-width:
+            125px;
+
+        padding:
+            12px 21px;
+
+        font-size:
+            12px;
     }
 
     #readyButton.top-center {
-        top: 15px;
+
+        top:
+            15px;
     }
 
     #readyButton.top-right {
-        right: 15px;
-        top: 15px;
+
+        right:
+            15px;
+
+        top:
+            15px;
+    }
+
+    #screen2 {
+
+        padding:
+            30px 16px;
     }
 
     .second-title {
-        font-size: 42px;
+
+        font-size:
+            43px;
     }
 
     .second-text {
-        font-size: 19px;
-        line-height: 1.5;
+
+        font-size:
+            19px;
+
+        line-height:
+            1.55;
     }
 
     #screen3 {
-        padding: 35px 17px;
+
+        padding:
+            30px 16px;
     }
 
     .prayer-container {
-        width: 100%;
-        padding-top: 20px;
-        padding-bottom: 80px;
+
+        width:
+            100%;
+
+        padding-top:
+            15px;
+
+        padding-bottom:
+            70px;
     }
 
     .assalam {
-        font-size: 29px;
-        line-height: 1.3;
+
+        font-size:
+            28px;
     }
 
     .prayer {
-        font-size: 17px;
-        line-height: 1.8;
+
+        font-size:
+            17px;
+
+        line-height:
+            1.8;
     }
 
     .roman-prayer {
-        font-size: 17px;
-        line-height: 1.8;
+
+        font-size:
+            17px;
+
+        line-height:
+            1.8;
     }
 
     .telugu-meaning {
+
         padding:
             22px 5px 0;
 
-        font-size: 17px;
+        font-size:
+            17px;
 
-        line-height: 1.9;
+        line-height:
+            1.9;
     }
 
     .prayer-divider {
-        margin: 22px 0;
+
+        margin:
+            22px 0;
     }
 
     .ameen {
-        font-size: 25px;
+
+        font-size:
+            25px;
+    }
+
+    .celebrate-button {
+
+        width:
+            90%;
+
+        max-width:
+            330px;
+
+        font-size:
+            14px;
+
+        padding:
+            15px 20px;
+    }
+
+    .final-title {
+
+        font-size:
+            52px;
+    }
+
+    .final-message {
+
+        font-size:
+            19px;
     }
 }
+
 </style>
 </head>
 
+
 <body>
 
-<!-- =====================================================
-     SCREEN 1
-===================================================== -->
 
-<section id="screen1" class="screen active">
+<!-- =========================================================
+     DECORATION
+========================================================= -->
+
+<div class="balloon balloon1"></div>
+<div class="balloon balloon2"></div>
+<div class="balloon balloon3"></div>
+<div class="balloon balloon4"></div>
+<div class="balloon balloon5"></div>
+<div class="balloon balloon6"></div>
+
+<div class="heart heart1">❤️</div>
+<div class="heart heart2">💜</div>
+<div class="heart heart3">💗</div>
+<div class="heart heart4">❤️</div>
+
+
+<!-- =========================================================
+     SCREEN 1
+========================================================= -->
+
+<section
+    id="screen1"
+    class="screen active"
+>
 
     <div class="first-content">
 
@@ -442,26 +1282,42 @@ body {
             30 DAYS · 30 WISHES
         </div>
 
+
         <h1 class="main-title">
+
             FINALLY...<br>
             THE WAIT IS<br>
             OVER.
+
         </h1>
 
+
         <p class="subtitle">
+
             Thirty days of wishes brought us all the way here...
             and now there's only one thing left to ask.
+
         </p>
 
+
         <div class="question">
+
             Are you ready to see<br>
+
             what surprise I planned for you? 👀 ❤️
+
         </div>
+
 
         <div class="ready-area">
 
-            <button id="readyButton" type="button">
+            <button
+                id="readyButton"
+                type="button"
+            >
+
                 I'M READY ✨
+
             </button>
 
         </div>
@@ -471,25 +1327,41 @@ body {
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      SCREEN 2
-===================================================== -->
+========================================================= -->
 
-<section id="screen2" class="screen">
+<section
+    id="screen2"
+    class="screen"
+>
 
     <div class="second-content">
 
         <h1 class="second-title">
+
             Oh wow! 😍
+
         </h1>
 
+
         <p class="second-text">
+
             Ohhh wow, you are so excited! 👀❤️<br>
+
             I knew you wouldn't be able to wait anymore. 😂
+
         </p>
 
-        <button id="goButton" class="go-button" type="button">
+
+        <button
+            id="goButton"
+            class="go-button"
+            type="button"
+        >
+
             LET'S GO ✨
+
         </button>
 
     </div>
@@ -497,58 +1369,81 @@ body {
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      SCREEN 3 - PRAYER
-===================================================== -->
+========================================================= -->
 
-<section id="screen3" class="screen">
+<section
+    id="screen3"
+    class="screen"
+>
 
     <div class="prayer-container">
 
         <h1 class="assalam">
+
             Assalamu Alaikum Ji,<br>
+
             Wa Rahmatullahi Wa Barakatuh ❤️
+
         </h1>
 
 
         <div class="prayer">
+
 
             <!-- ROMAN PRAYER -->
 
             <div class="roman-prayer">
 
                 <p>
+
                     <strong>
                         Bismillahir Rahmanir Raheem. ❤️
                     </strong>
+
                 </p>
 
+
                 <p>
+
                     Alhamdulillahi Rabbil Aalameen.
+
                 </p>
 
+
                 <p>
+
                     Allahumma barik lahu fi umrihi,
                     warzuqhu sehat, sa'adat aur barkat.
+
                 </p>
 
+
                 <p>
+
                     Waj'al hayat-hu ma'mooratan bil-imaan
                     wal-khair wan-najah.
+
                 </p>
 
+
                 <p>
+
                     Wahfazhu min kulli sharr,
                     waqbal du'aa'ahu.
+
                 </p>
 
             </div>
 
 
-            <!-- SEPARATOR -->
+            <!-- DIVIDER -->
 
             <div class="prayer-divider">
+
                 ❤️
+
             </div>
 
 
@@ -557,35 +1452,52 @@ body {
             <div class="telugu-meaning">
 
                 <p>
+
                     <strong>
                         బిస్మిల్లాహిర్ రహ్మానిర్ రహీమ్. ❤️
                     </strong>
+
                 </p>
 
+
                 <p>
+
                     అనుగ్రహించే కరుణామయుడైన అల్లాహ్ పేరుతో
                     ఈ ప్రార్థనను ప్రారంభిస్తున్నాము.
+
                 </p>
 
+
                 <p>
+
                     సర్వలోకాల ప్రభువైన అల్లాహ్‌కే
                     అన్ని ప్రశంసలు చెందుతాయి.
+
                 </p>
 
+
                 <p>
+
                     అల్లాహ్ అతని వయస్సులో బరకత్ ప్రసాదించి,
                     మంచి ఆరోగ్యం, సంతోషం, శ్రేయస్సు
                     మరియు సమృద్ధిని అనుగ్రహించాలి.
+
                 </p>
 
+
                 <p>
+
                     అతని జీవితం ఇమాన్‌తో,
                     మంచి పనులతో మరియు విజయాలతో నిండిపోవాలి.
+
                 </p>
 
+
                 <p>
+
                     అల్లాహ్ అతన్ని ప్రతి చెడు నుండి కాపాడి,
                     అతని మంచి దువాలను స్వీకరించాలి.
+
                 </p>
 
             </div>
@@ -593,36 +1505,116 @@ body {
         </div>
 
 
+        <!-- AAMEEN -->
+
         <div class="ameen">
+
             Aameen 🤲❤️
+
         </div>
+
+
+        <!-- CELEBRATION BUTTON -->
+
+        <button
+            id="celebrateButton"
+            class="celebrate-button"
+            type="button"
+        >
+
+            LET'S START CELEBRATING 🎉❤️
+
+        </button>
+
 
     </div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
+     FINAL CELEBRATION
+========================================================= -->
+
+<section
+    id="screen4"
+    class="screen"
+>
+
+
+    <!-- CONFETTI -->
+
+    <div class="confetti">🎉</div>
+    <div class="confetti">✨</div>
+    <div class="confetti">💜</div>
+    <div class="confetti">🎊</div>
+    <div class="confetti">❤️</div>
+    <div class="confetti">✨</div>
+    <div class="confetti">🎉</div>
+    <div class="confetti">💗</div>
+    <div class="confetti">🎊</div>
+    <div class="confetti">✨</div>
+
+
+    <div class="final-content">
+
+        <div class="final-small">
+
+            TODAY IS ALL ABOUT YOU ❤️
+
+        </div>
+
+
+        <h1 class="final-title">
+
+            HAPPY<br>
+            BIRTHDAY! 🎂
+
+        </h1>
+
+
+        <p class="final-message">
+
+            May your day be filled with
+            happiness, love, laughter,
+            beautiful memories and
+            everything your heart wishes for. ❤️
+
+            <br><br>
+
+            You deserve all the happiness
+            in the world. 🎉✨
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
      SONG
-===================================================== -->
+========================================================= -->
 
 <audio
     id="birthdaySong"
     preload="auto"
     playsinline
 >
+
     <source
         src="birthday-song-00-00-to-00-58.mp3"
         type="audio/mpeg"
     >
+
 </audio>
 
 
 <script>
 
-/* =====================================================
+/* =========================================================
    ELEMENTS
-===================================================== */
+========================================================= */
 
 const screen1 =
     document.getElementById("screen1");
@@ -633,51 +1625,87 @@ const screen2 =
 const screen3 =
     document.getElementById("screen3");
 
+const screen4 =
+    document.getElementById("screen4");
+
 const readyButton =
     document.getElementById("readyButton");
 
 const goButton =
     document.getElementById("goButton");
 
+const celebrateButton =
+    document.getElementById("celebrateButton");
+
 const birthdaySong =
     document.getElementById("birthdaySong");
 
 
-/* =====================================================
-   READY BUTTON STATE
+/* =========================================================
+   READY BUTTON STATES
 
-   0 = Original
-   1 = Top Center
-   2 = Original
-   3 = Top Right
-   4 = Original
-   5 = Next Screen
-===================================================== */
+   0 = Original position
+   1 = Top center
+   2 = Original position
+   3 = Top right
+   4 = Original position
+   5 = Finished
+========================================================= */
 
 let readyStage = 0;
 
 
-/* =====================================================
-   MOVE TOP CENTER
-===================================================== */
+/* =========================================================
+   PREVENT RAPID MULTIPLE MOVES
+========================================================= */
 
-function moveToTopCenter() {
+let moveLocked = false;
 
-    if (readyStage !== 0) {
-        return;
-    }
+function lockMovement() {
 
-    readyStage = 1;
+    moveLocked = true;
 
-    readyButton.classList.remove("top-right");
+    setTimeout(
+        function() {
 
-    readyButton.classList.add("top-center");
+            moveLocked = false;
+
+        },
+        500
+    );
 }
 
 
-/* =====================================================
+/* =========================================================
+   MOVE TO TOP CENTER
+========================================================= */
+
+function moveToTopCenter() {
+
+    if (
+        readyStage !== 0 ||
+        moveLocked
+    ) {
+        return;
+    }
+
+    lockMovement();
+
+    readyStage = 1;
+
+    readyButton.classList.remove(
+        "top-right"
+    );
+
+    readyButton.classList.add(
+        "top-center"
+    );
+}
+
+
+/* =========================================================
    RETURN FROM TOP CENTER
-===================================================== */
+========================================================= */
 
 function returnFromTopCenter() {
 
@@ -687,31 +1715,42 @@ function returnFromTopCenter() {
 
     readyStage = 2;
 
-    readyButton.classList.remove("top-center");
+    readyButton.classList.remove(
+        "top-center"
+    );
 }
 
 
-/* =====================================================
-   MOVE TOP RIGHT
-===================================================== */
+/* =========================================================
+   MOVE TO TOP RIGHT
+========================================================= */
 
 function moveToTopRight() {
 
-    if (readyStage !== 2) {
+    if (
+        readyStage !== 2 ||
+        moveLocked
+    ) {
         return;
     }
 
+    lockMovement();
+
     readyStage = 3;
 
-    readyButton.classList.remove("top-center");
+    readyButton.classList.remove(
+        "top-center"
+    );
 
-    readyButton.classList.add("top-right");
+    readyButton.classList.add(
+        "top-right"
+    );
 }
 
 
-/* =====================================================
+/* =========================================================
    RETURN FROM TOP RIGHT
-===================================================== */
+========================================================= */
 
 function returnFromTopRight() {
 
@@ -721,13 +1760,15 @@ function returnFromTopRight() {
 
     readyStage = 4;
 
-    readyButton.classList.remove("top-right");
+    readyButton.classList.remove(
+        "top-right"
+    );
 }
 
 
-/* =====================================================
-   GET BUTTON CENTER
-===================================================== */
+/* =========================================================
+   BUTTON CENTER
+========================================================= */
 
 function getButtonCenter() {
 
@@ -735,21 +1776,35 @@ function getButtonCenter() {
         readyButton.getBoundingClientRect();
 
     return {
-        x: rect.left + rect.width / 2,
-        y: rect.top + rect.height / 2
+
+        x:
+            rect.left +
+            rect.width / 2,
+
+        y:
+            rect.top +
+            rect.height / 2
     };
 }
 
 
-/* =====================================================
-   CURSOR APPROACH
-===================================================== */
+/* =========================================================
+   DETECT POINTER NEAR BUTTON
+========================================================= */
 
-function checkCursorApproach(x, y) {
+function checkPointerNearButton(
+    x,
+    y
+) {
 
-    if (!screen1.classList.contains("active")) {
+    if (
+        !screen1.classList.contains(
+            "active"
+        )
+    ) {
         return;
     }
+
 
     if (
         readyStage !== 0 &&
@@ -758,52 +1813,68 @@ function checkCursorApproach(x, y) {
         return;
     }
 
+
     const center =
         getButtonCenter();
 
+
     const distance =
-        Math.hypot(
-            x - center.x,
-            y - center.y
+        Math.sqrt(
+
+            Math.pow(
+                x - center.x,
+                2
+            )
+
+            +
+
+            Math.pow(
+                y - center.y,
+                2
+            )
+
         );
 
 
-    /* First approach */
+    /*
+       The button moves BEFORE the pointer
+       reaches it.
+    */
 
     if (
-        readyStage === 0 &&
-        distance < 145
+        distance < 125
     ) {
 
-        moveToTopCenter();
+        if (
+            readyStage === 0
+        ) {
 
-        return;
+            moveToTopCenter();
+
+        }
+
+        else if (
+            readyStage === 2
+        ) {
+
+            moveToTopRight();
+
+        }
+
     }
 
-
-    /* Second approach */
-
-    if (
-        readyStage === 2 &&
-        distance < 145
-    ) {
-
-        moveToTopRight();
-
-        return;
-    }
 }
 
 
-/* =====================================================
-   MOUSE
-===================================================== */
+/* =========================================================
+   LAPTOP / DESKTOP POINTER
+========================================================= */
 
 document.addEventListener(
     "mousemove",
     function(event) {
 
-        checkCursorApproach(
+        checkPointerNearButton(
             event.clientX,
             event.clientY
         );
@@ -812,12 +1883,16 @@ document.addEventListener(
 );
 
 
-/* =====================================================
-   TOUCH
-===================================================== */
+/* =========================================================
+   MOBILE TOUCH
+
+   A phone doesn't have a cursor.
+   So when the finger approaches/touches
+   the button area, the same jump logic works.
+========================================================= */
 
 document.addEventListener(
-    "touchmove",
+    "touchstart",
     function(event) {
 
         if (
@@ -830,7 +1905,7 @@ document.addEventListener(
         const touch =
             event.touches[0];
 
-        checkCursorApproach(
+        checkPointerNearButton(
             touch.clientX,
             touch.clientY
         );
@@ -842,19 +1917,24 @@ document.addEventListener(
 );
 
 
-/* =====================================================
-   READY BUTTON
-===================================================== */
+/* =========================================================
+   READY BUTTON CLICK
+
+   Clicking the jumped button brings it back.
+========================================================= */
 
 readyButton.addEventListener(
     "click",
     function(event) {
 
-        /* Top center → original */
+        event.preventDefault();
 
-        if (readyStage === 1) {
 
-            event.preventDefault();
+        /* TOP CENTER → ORIGINAL */
+
+        if (
+            readyStage === 1
+        ) {
 
             returnFromTopCenter();
 
@@ -862,11 +1942,11 @@ readyButton.addEventListener(
         }
 
 
-        /* Original → top right */
+        /* ORIGINAL → TOP RIGHT */
 
-        if (readyStage === 2) {
-
-            event.preventDefault();
+        if (
+            readyStage === 2
+        ) {
 
             moveToTopRight();
 
@@ -874,11 +1954,11 @@ readyButton.addEventListener(
         }
 
 
-        /* Top right → original */
+        /* TOP RIGHT → ORIGINAL */
 
-        if (readyStage === 3) {
-
-            event.preventDefault();
+        if (
+            readyStage === 3
+        ) {
 
             returnFromTopRight();
 
@@ -886,36 +1966,48 @@ readyButton.addEventListener(
         }
 
 
-        /* Final click → next screen */
+        /* FINAL CLICK */
 
-        if (readyStage === 4) {
+        if (
+            readyStage === 4
+        ) {
 
             readyStage = 5;
 
-            screen1.classList.remove("active");
 
-            screen2.classList.add("active");
+            screen1.classList.remove(
+                "active"
+            );
 
-            return;
+
+            screen2.classList.add(
+                "active"
+            );
+
         }
-
-        event.preventDefault();
 
     }
 );
 
 
-/* =====================================================
+/* =========================================================
    LET'S GO
-===================================================== */
+
+   Moves to prayer and starts song.
+========================================================= */
 
 goButton.addEventListener(
     "click",
     function() {
 
-        screen2.classList.remove("active");
+        screen2.classList.remove(
+            "active"
+        );
 
-        screen3.classList.add("active");
+
+        screen3.classList.add(
+            "active"
+        );
 
 
         /*
@@ -926,22 +2018,72 @@ goButton.addEventListener(
 
         birthdaySong.currentTime = 0;
 
+
         const playPromise =
             birthdaySong.play();
 
-        if (playPromise !== undefined) {
+
+        if (
+            playPromise !== undefined
+        ) {
 
             playPromise.catch(
                 function(error) {
 
                     console.log(
-                        "Audio playback error:",
+                        "Audio playback:",
                         error
                     );
 
                 }
             );
+
         }
+
+    }
+);
+
+
+/* =========================================================
+   LET'S START CELEBRATING
+
+   Goes to final birthday screen.
+========================================================= */
+
+celebrateButton.addEventListener(
+    "click",
+    function() {
+
+        screen3.classList.remove(
+            "active"
+        );
+
+
+        screen4.classList.add(
+            "active"
+        );
+
+
+        /*
+           Stop song after the prayer
+           when celebration begins.
+        */
+
+        birthdaySong.pause();
+
+    }
+);
+
+
+/* =========================================================
+   PREVENT ACCIDENTAL DRAGGING
+========================================================= */
+
+readyButton.addEventListener(
+    "dragstart",
+    function(event) {
+
+        event.preventDefault();
 
     }
 );
