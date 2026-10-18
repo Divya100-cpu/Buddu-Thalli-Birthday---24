@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Birthday Surprise ❤️</title>
 
 <style>
@@ -17,555 +16,223 @@ html,
 body {
     width: 100%;
     min-height: 100%;
-}
-
-body {
-    overflow-x: hidden;
-    background:
-        radial-gradient(circle at 50% 35%, #42104f 0%, #210725 35%, #100315 65%, #060208 100%);
-    color: white;
-    font-family: Georgia, "Times New Roman", serif;
-}
-
-.screen {
-    position: relative;
-    width: 100%;
-    min-height: 100vh;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
     overflow: hidden;
 }
 
-.screen.active {
-    display: flex;
+body {
+    background:
+        radial-gradient(circle at 50% 45%, #2b0738 0%, #16031e 45%, #08030d 100%);
+    color: white;
+    font-family: Georgia, "Times New Roman", serif;
 }
 
-/* STARS */
-.screen::before {
-    content: "";
-    position: absolute;
+/* =========================
+   BACKGROUND STARS
+========================= */
+
+.stars {
+    position: fixed;
     inset: 0;
     pointer-events: none;
-
-    background-image:
-        radial-gradient(circle, rgba(255,255,255,.85) 1px, transparent 1.5px),
-        radial-gradient(circle, rgba(255,255,255,.55) 1px, transparent 1.5px);
-
-    background-size: 180px 180px, 270px 270px;
-    background-position: 20px 30px, 100px 120px;
-    opacity: .45;
-
-    animation: starsMove 15s linear infinite;
+    overflow: hidden;
+    z-index: 0;
 }
 
-@keyframes starsMove {
-    from {
-        background-position: 20px 30px, 100px 120px;
-    }
-
-    to {
-        background-position: 80px 100px, 30px 50px;
-    }
-}
-
-/* BALLOONS */
-.balloon {
-    position: absolute;
-    width: 55px;
-    height: 68px;
-    border-radius: 50% 50% 45% 45%;
-    opacity: .88;
-    z-index: 1;
-    animation: balloonFloat 5s ease-in-out infinite;
-}
-
-.balloon::before {
-    content: "";
+.star {
     position: absolute;
     width: 2px;
-    height: 95px;
-    background: rgba(255,255,255,.45);
-    left: 50%;
-    top: 65px;
-    transform: translateX(-50%);
+    height: 2px;
+    background: rgba(255,255,255,.75);
+    border-radius: 50%;
+    animation: twinkle 3s infinite ease-in-out;
 }
 
-.balloon::after {
-    content: "";
-    position: absolute;
-    bottom: -5px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    border-top: 10px solid currentColor;
-}
-
-.balloon1 {
-    left: 5%;
-    top: 14%;
-    background: #ff4f91;
-    color: #ff4f91;
-}
-
-.balloon2 {
-    right: 7%;
-    top: 20%;
-    background: #8f5cff;
-    color: #8f5cff;
-    animation-delay: 1s;
-}
-
-.balloon3 {
-    left: 10%;
-    bottom: 12%;
-    background: #ffbd4a;
-    color: #ffbd4a;
-    animation-delay: 2s;
-}
-
-.balloon4 {
-    right: 10%;
-    bottom: 10%;
-    background: #54d8ff;
-    color: #54d8ff;
-    animation-delay: 1.5s;
-}
-
-.balloon5 {
-    left: 25%;
-    top: 5%;
-    width: 40px;
-    height: 50px;
-    background: #ff6b6b;
-    color: #ff6b6b;
-    animation-delay: 2.5s;
-}
-
-.balloon6 {
-    right: 25%;
-    top: 8%;
-    width: 42px;
-    height: 52px;
-    background: #a66cff;
-    color: #a66cff;
-    animation-delay: .8s;
-}
-
-@keyframes balloonFloat {
-    0%, 100% {
-        transform: translateY(0) rotate(-3deg);
+@keyframes twinkle {
+    0%,100% {
+        opacity: .15;
+        transform: scale(.7);
     }
 
     50% {
-        transform: translateY(-18px) rotate(4deg);
+        opacity: .9;
+        transform: scale(1.3);
     }
 }
 
-/* HEARTS */
-.heart {
-    position: absolute;
-    z-index: 1;
-    font-size: 22px;
-    opacity: .65;
-    animation: heartFloat 6s ease-in-out infinite;
+/* =========================
+   COMMON SCREEN
+========================= */
+
+.screen {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity .55s ease,
+        visibility .55s ease;
+
+    z-index: 2;
 }
 
-.heart1 {
-    left: 17%;
-    top: 32%;
+.screen.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
 }
 
-.heart2 {
-    right: 18%;
-    top: 38%;
-    animation-delay: 1.5s;
-}
-
-.heart3 {
-    left: 8%;
-    bottom: 30%;
-    animation-delay: 2s;
-}
-
-.heart4 {
-    right: 9%;
-    bottom: 28%;
-    animation-delay: 3s;
-}
-
-@keyframes heartFloat {
-    0%, 100% {
-        transform: translateY(0) scale(1);
-    }
-
-    50% {
-        transform: translateY(-14px) scale(1.12);
-    }
-}
-
-/* SCREEN 1 */
-#screen1 {
-    padding: 40px 20px;
-}
-
-.first-content {
+.content {
+    width: min(900px, 94vw);
+    text-align: center;
     position: relative;
-    z-index: 10;
-    width: min(900px, 92%);
+    z-index: 3;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.action-button {
+    margin-top: 28px;
+
+    border: 1px solid rgba(255,255,255,.55);
+
+    background:
+        linear-gradient(
+            135deg,
+            #e85caf,
+            #a63fe1
+        );
+
+    color: white;
+
+    border-radius: 999px;
+
+    padding: 14px 34px;
+
+    min-width: 160px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 12px rgba(255,80,220,.5),
+        0 0 28px rgba(180,70,230,.35);
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        left .55s ease,
+        top .55s ease;
+
+    position: relative;
+    z-index: 20;
+
+    touch-action: manipulation;
+}
+
+.action-button:hover {
+    transform: scale(1.04);
+
+    box-shadow:
+        0 0 18px rgba(255,80,220,.7),
+        0 0 38px rgba(180,70,230,.45);
+}
+
+.action-button:active {
+    transform: scale(.97);
+}
+
+/* =========================
+   PHONE SCREEN
+========================= */
+
+.phone-screen {
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(93, 22, 115, .45),
+            rgba(8,3,13,.96)
+        );
+}
+
+.phone-wrap {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+
+    width: min(440px, 90vw);
+
+    text-align: center;
 }
 
-.small-heading {
-    font-size: 13px;
-    letter-spacing: 5px;
-    margin-bottom: 18px;
+.phone-video-box {
+    width: min(320px, 78vw);
+    aspect-ratio: 9 / 16;
+
+    border-radius: 34px;
+
+    overflow: hidden;
+
+    border: 3px solid rgba(255,255,255,.75);
+
+    background: #09040d;
+
+    box-shadow:
+        0 0 20px rgba(255,100,220,.45),
+        0 0 55px rgba(170,50,220,.25);
+
+    animation: phoneFloat 2.5s ease-in-out infinite;
 }
 
-.main-title {
-    font-size: clamp(52px, 8vw, 105px);
-    line-height: .88;
-    font-weight: bold;
+.phone-video {
+    width: 100%;
+    height: 100%;
 
-    text-shadow:
-        0 0 8px rgba(255,255,255,.9),
-        0 0 22px rgba(213,105,255,.9),
-        0 0 45px rgba(213,105,255,.55);
+    object-fit: cover;
 
-    animation: titleGlow 3s ease-in-out infinite;
+    display: block;
 }
 
-@keyframes titleGlow {
-    0%, 100% {
-        text-shadow:
-            0 0 8px rgba(255,255,255,.9),
-            0 0 22px rgba(213,105,255,.9),
-            0 0 45px rgba(213,105,255,.55);
+@keyframes phoneFloat {
+    0%,100% {
+        transform: translateY(0);
     }
 
     50% {
-        text-shadow:
-            0 0 12px white,
-            0 0 30px #ff6fe5,
-            0 0 60px #c14dff;
+        transform: translateY(-8px);
     }
 }
 
-.subtitle {
-    margin-top: 30px;
-    max-width: 680px;
-    font-size: 17px;
-    line-height: 1.55;
-}
+.ringing-title {
+    margin-top: 22px;
 
-.question {
-    margin-top: 32px;
-    font-size: 23px;
-    font-weight: bold;
-    line-height: 1.45;
-}
+    font-size: clamp(25px, 5vw, 42px);
 
-/* READY BUTTON */
-.ready-area {
-    position: relative;
-    width: min(600px, 100%);
-    height: 110px;
-    margin-top: 18px;
-    z-index: 100;
-}
-
-#readyButton {
-    position: absolute;
-
-    left: 50%;
-    top: 50%;
-
-    transform: translate(-50%, -50%);
-
-    min-width: 135px;
-
-    padding: 14px 27px;
-
-    border: 1px solid rgba(255,255,255,.7);
-    border-radius: 50px;
-
-    background: linear-gradient(135deg, #e34fa9, #a53fe7);
-
-    color: white;
-
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 13px;
-    font-weight: bold;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 0 12px rgba(226,80,255,.9),
-        0 0 28px rgba(226,80,255,.5);
-
-    z-index: 100;
-
-    transition:
-        left .45s cubic-bezier(.2,.8,.2,1),
-        top .45s cubic-bezier(.2,.8,.2,1),
-        right .45s cubic-bezier(.2,.8,.2,1),
-        transform .45s cubic-bezier(.2,.8,.2,1);
-
-    touch-action: manipulation;
-    -webkit-tap-highlight-color: transparent;
-}
-
-#readyButton.top-center {
-    position: fixed;
-    left: 50%;
-    top: 28px;
-    right: auto;
-    transform: translateX(-50%);
-}
-
-#readyButton.top-right {
-    position: fixed;
-    left: auto;
-    right: 28px;
-    top: 28px;
-    transform: none;
-}
-
-/* SCREEN 2 */
-#screen2 {
-    padding: 35px 20px;
-}
-
-.second-content {
-    position: relative;
-    z-index: 10;
-    width: min(850px, 92%);
-}
-
-.second-title {
-    font-size: clamp(48px, 7vw, 80px);
-    line-height: 1.05;
     font-weight: bold;
 
     text-shadow:
-        0 0 10px white,
-        0 0 25px #dc70ff,
-        0 0 45px rgba(213,105,255,.65);
+        0 0 10px rgba(255,255,255,.75),
+        0 0 25px rgba(255,80,220,.4);
+
+    animation: ringText 1.2s ease-in-out infinite;
 }
 
-.second-text {
-    margin-top: 25px;
-    font-size: 22px;
-    line-height: 1.6;
-}
-
-/* COMMON BUTTON */
-.go-button,
-.celebrate-button {
-    margin-top: 35px;
-
-    padding: 15px 32px;
-
-    border: 1px solid rgba(255,255,255,.7);
-    border-radius: 50px;
-
-    background: linear-gradient(135deg, #df4fa8, #9f42e7);
-
-    color: white;
-
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 14px;
-    font-weight: bold;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 0 15px rgba(226,80,255,.85),
-        0 0 30px rgba(226,80,255,.45);
-
-    transition:
-        transform .25s ease,
-        box-shadow .25s ease;
-
-    touch-action: manipulation;
-}
-
-.go-button:hover,
-.celebrate-button:hover {
-    transform: translateY(-3px) scale(1.04);
-
-    box-shadow:
-        0 0 20px rgba(226,80,255,1),
-        0 0 42px rgba(226,80,255,.7);
-}
-
-/* SCREEN 3 */
-#screen3 {
-    padding: 50px 20px;
-    align-items: flex-start;
-    overflow-y: auto;
-}
-
-.prayer-container {
-    position: relative;
-    z-index: 10;
-
-    width: min(950px, 92%);
-
-    padding-top: 4vh;
-    padding-bottom: 90px;
-}
-
-.assalam {
-    font-size: clamp(30px, 4vw, 50px);
-    line-height: 1.3;
-    font-weight: bold;
-
-    text-shadow:
-        0 0 10px rgba(255,255,255,.9),
-        0 0 25px rgba(213,105,255,.75);
-}
-
-.prayer {
-    margin-top: 35px;
-    font-size: clamp(17px, 2vw, 22px);
-    line-height: 1.85;
-}
-
-.prayer p {
-    margin-bottom: 20px;
-}
-
-.roman-prayer {
-    font-size: clamp(17px, 2vw, 22px);
-    line-height: 1.85;
-}
-
-.prayer-divider {
-    margin: 28px 0;
-    font-size: 19px;
-    letter-spacing: 5px;
-    opacity: .9;
-}
-
-.telugu-meaning {
-    margin-top: 5px;
-
-    padding: 25px 25px 5px;
-
-    border-top: 1px solid rgba(255,255,255,.2);
-
-    font-size: clamp(17px, 2vw, 21px);
-
-    line-height: 1.95;
-
-    color: rgba(255,255,255,.97);
-}
-
-.telugu-meaning p {
-    margin-bottom: 20px;
-}
-
-.ameen {
-    margin-top: 30px;
-    font-size: 28px;
-    font-weight: bold;
-
-    text-shadow:
-        0 0 12px rgba(255,255,255,.8);
-}
-
-/* =========================================================
-   CELEBRATE BUTTON
-   HIDDEN UNTIL SONG ENDS
-========================================================= */
-
-.celebrate-button {
-    display: none;
-
-    opacity: 0;
-
-    transform: translateY(20px);
-
-    margin-top: 38px;
-
-    font-size: 15px;
-
-    padding: 16px 34px;
-
-    animation: none;
-}
-
-.celebrate-button.show {
-    display: inline-block;
-
-    animation:
-        buttonAppear .8s ease forwards,
-        celebrateGlow 2s ease-in-out infinite 1s;
-}
-
-@keyframes buttonAppear {
-    from {
-        opacity: 0;
-        transform: translateY(20px) scale(.9);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-
-@keyframes celebrateGlow {
-    0%, 100% {
-        box-shadow:
-            0 0 15px rgba(226,80,255,.8),
-            0 0 30px rgba(226,80,255,.4);
-    }
-
-    50% {
-        box-shadow:
-            0 0 25px rgba(255,105,220,1),
-            0 0 50px rgba(190,70,255,.7);
-    }
-}
-
-/* FINAL SCREEN */
-#screen4 {
-    padding: 40px 20px;
-}
-
-.final-content {
-    position: relative;
-    z-index: 20;
-    width: min(900px, 92%);
-}
-
-.final-small {
-    font-size: 14px;
-    letter-spacing: 5px;
-    margin-bottom: 20px;
-}
-
-.final-title {
-    font-size: clamp(48px, 8vw, 100px);
-    line-height: .95;
-    font-weight: bold;
-
-    text-shadow:
-        0 0 10px white,
-        0 0 25px #ff70d5,
-        0 0 50px #a850ff;
-
-    animation: finalGlow 2.5s ease-in-out infinite;
-}
-
-@keyframes finalGlow {
-    0%, 100% {
+@keyframes ringText {
+    0%,100% {
         transform: scale(1);
     }
 
@@ -574,221 +241,487 @@ body {
     }
 }
 
-.final-message {
-    margin-top: 30px;
+.ringing-subtitle {
+    margin-top: 10px;
 
-    font-size: clamp(19px, 3vw, 28px);
+    font-size: 17px;
 
-    line-height: 1.7;
+    opacity: .85;
 }
 
-/* CONFETTI */
-.confetti {
-    position: absolute;
+/* =========================
+   SCREEN 1
+========================= */
 
-    width: 9px;
-    height: 16px;
+.small-title {
+    font-size: 14px;
+    letter-spacing: 6px;
+    margin-bottom: 18px;
+    opacity: .8;
+}
 
-    top: -30px;
+.main-title {
+    font-size: clamp(48px, 7vw, 94px);
+    line-height: .94;
+    font-weight: bold;
+    letter-spacing: 2px;
+
+    text-shadow:
+        0 0 8px rgba(255,255,255,.8),
+        0 0 25px rgba(255,90,230,.35);
+}
+
+.description {
+    margin: 30px auto 0;
+
+    max-width: 650px;
+
+    font-size: clamp(16px, 2vw, 21px);
+
+    line-height: 1.6;
+
+    color: rgba(255,255,255,.88);
+}
+
+.question {
+    margin-top: 38px;
+
+    font-size: clamp(19px, 2.4vw, 28px);
+
+    font-weight: bold;
+
+    line-height: 1.4;
+}
+
+/* =========================
+   RANDOM READY BUTTON
+========================= */
+
+#readyButton.random-moving {
+    position: fixed;
+
+    margin: 0;
+
+    z-index: 9999;
+}
+
+/* =========================
+   SCREEN 2
+========================= */
+
+.surprise-title {
+    font-size: clamp(43px, 6vw, 76px);
+
+    line-height: 1.08;
+
+    font-weight: bold;
+
+    text-shadow:
+        0 0 10px rgba(255,255,255,.75),
+        0 0 25px rgba(255,80,220,.35);
+}
+
+.surprise-text {
+    margin-top: 25px;
+
+    font-size: clamp(20px, 2.5vw, 30px);
+
+    line-height: 1.45;
+
+    font-weight: bold;
+}
+
+.suspense {
+    margin-top: 18px;
+
+    font-size: clamp(16px, 2vw, 21px);
 
     opacity: .9;
-
-    animation: confettiFall linear infinite;
 }
 
-@keyframes confettiFall {
-    from {
-        transform: translateY(-40px) rotate(0deg);
+/* =========================
+   PRAYER
+========================= */
+
+.greeting {
+    font-size: clamp(27px, 4vw, 45px);
+
+    line-height: 1.3;
+
+    font-weight: bold;
+
+    text-shadow:
+        0 0 10px rgba(255,255,255,.6),
+        0 0 25px rgba(255,80,220,.25);
+}
+
+.prayer {
+    margin: 32px auto 0;
+
+    width: min(820px, 94vw);
+
+    max-height: 62vh;
+
+    overflow-y: auto;
+
+    padding: 0 10px;
+
+    scrollbar-width: none;
+}
+
+.prayer::-webkit-scrollbar {
+    display: none;
+}
+
+.prayer-english {
+    font-size: clamp(18px, 2vw, 25px);
+
+    line-height: 1.75;
+
+    font-weight: bold;
+}
+
+.prayer-telugu {
+    margin-top: 25px;
+
+    font-size: clamp(16px, 1.8vw, 21px);
+
+    line-height: 1.8;
+
+    opacity: .92;
+}
+
+.ameen {
+    margin-top: 25px;
+
+    font-size: clamp(22px, 2.6vw, 32px);
+
+    font-weight: bold;
+}
+
+/* =========================
+   NEW BIRTHDAY SCREEN
+========================= */
+
+.birthday-title {
+    font-size: clamp(48px, 8vw, 96px);
+
+    line-height: 1;
+
+    font-weight: bold;
+
+    background:
+        linear-gradient(
+            90deg,
+            #fff,
+            #ffd4f6,
+            #fff
+        );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    text-shadow:
+        0 0 15px rgba(255,100,220,.35);
+}
+
+.birthday-name {
+    margin-top: 18px;
+
+    font-size: clamp(27px, 5vw, 52px);
+
+    font-weight: bold;
+
+    color: #ffd3f4;
+
+    text-shadow:
+        0 0 15px rgba(255,100,220,.55);
+}
+
+.birthday-message {
+    width: min(720px, 92vw);
+
+    margin: 26px auto 0;
+
+    font-size: clamp(17px, 2.2vw, 23px);
+
+    line-height: 1.7;
+
+    color: rgba(255,255,255,.92);
+}
+
+.bubu-button {
+    margin-top: 35px;
+
+    font-size: 15px;
+
+    padding: 16px 30px;
+}
+
+/* =========================
+   BUBU SCREEN
+========================= */
+
+.bubu-screen {
+    overflow: hidden;
+}
+
+.bubu-title {
+    font-size: clamp(25px, 4vw, 43px);
+
+    font-weight: bold;
+
+    margin-bottom: 25px;
+
+    text-shadow:
+        0 0 12px rgba(255,255,255,.75),
+        0 0 25px rgba(255,80,220,.35);
+}
+
+.bubu-container {
+    position: relative;
+
+    width: 100%;
+    height: min(65vh, 560px);
+
+    overflow: hidden;
+}
+
+.bubu {
+    position: absolute;
+
+    left: 50%;
+
+    top: -220px;
+
+    transform:
+        translateX(-50%)
+        rotate(-8deg);
+
+    font-size: clamp(100px, 20vw, 190px);
+
+    opacity: 0;
+
+    filter:
+        drop-shadow(0 15px 20px rgba(0,0,0,.25));
+
+    z-index: 5;
+}
+
+.bubu.fly {
+    animation: bubuFly 2.8s cubic-bezier(.2,.8,.25,1) forwards;
+}
+
+@keyframes bubuFly {
+
+    0% {
+        top: -230px;
+        opacity: 0;
+        transform:
+            translateX(-50%)
+            rotate(-18deg)
+            scale(.65);
     }
 
-    to {
-        transform: translateY(110vh) rotate(720deg);
+    20% {
+        opacity: 1;
+    }
+
+    50% {
+        transform:
+            translateX(-50%)
+            rotate(12deg)
+            scale(1.05);
+    }
+
+    75% {
+        transform:
+            translateX(-50%)
+            rotate(-6deg)
+            scale(.96);
+    }
+
+    100% {
+        top: 52%;
+        opacity: 1;
+        transform:
+            translate(-50%, -50%)
+            rotate(0deg)
+            scale(1);
     }
 }
 
-.confetti:nth-child(1) {
-    left: 5%;
-    animation-duration: 5s;
+.bubu-message {
+    position: absolute;
+
+    left: 50%;
+    bottom: 20px;
+
+    transform: translateX(-50%);
+
+    width: 90%;
+
+    font-size: clamp(18px, 3vw, 28px);
+
+    font-weight: bold;
+
+    opacity: 0;
 }
 
-.confetti:nth-child(2) {
-    left: 15%;
-    animation-duration: 6s;
-    animation-delay: 1s;
-}
-
-.confetti:nth-child(3) {
-    left: 25%;
-    animation-duration: 4.5s;
-    animation-delay: .5s;
-}
-
-.confetti:nth-child(4) {
-    left: 35%;
-    animation-duration: 7s;
-    animation-delay: 1.8s;
-}
-
-.confetti:nth-child(5) {
-    left: 45%;
-    animation-duration: 5.5s;
-    animation-delay: .7s;
-}
-
-.confetti:nth-child(6) {
-    left: 55%;
-    animation-duration: 6.5s;
-    animation-delay: 1.2s;
-}
-
-.confetti:nth-child(7) {
-    left: 65%;
-    animation-duration: 5s;
+.bubu-message.show {
+    animation: messageAppear .8s ease forwards;
     animation-delay: .3s;
 }
 
-.confetti:nth-child(8) {
-    left: 75%;
-    animation-duration: 7s;
-    animation-delay: 2s;
+@keyframes messageAppear {
+    from {
+        opacity: 0;
+        transform:
+            translateX(-50%)
+            translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateX(-50%)
+            translateY(0);
+    }
 }
 
-.confetti:nth-child(9) {
-    left: 85%;
-    animation-duration: 5.5s;
-    animation-delay: 1s;
+/* =========================
+   CELEBRATION
+========================= */
+
+.celebrate-title {
+    font-size: clamp(45px, 7vw, 90px);
+
+    line-height: 1;
+
+    text-shadow:
+        0 0 10px rgba(255,255,255,.8),
+        0 0 35px rgba(255,80,220,.4);
 }
 
-.confetti:nth-child(10) {
-    left: 95%;
-    animation-duration: 6s;
-    animation-delay: 2.5s;
+.celebrate-text {
+    margin-top: 28px;
+
+    font-size: clamp(20px, 2.5vw, 30px);
+
+    line-height: 1.5;
 }
 
-/* MOBILE */
+/* =========================
+   VIDEO SCREEN
+========================= */
+
+.video-screen {
+    background: #050208;
+    padding: 0;
+}
+
+.final-video {
+    width: 100vw;
+    height: 100vh;
+
+    object-fit: contain;
+
+    background: #050208;
+
+    display: block;
+}
+
+.video-overlay {
+    position: absolute;
+
+    top: 25px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    z-index: 10;
+
+    padding: 10px 18px;
+
+    border-radius: 999px;
+
+    background: rgba(0,0,0,.45);
+
+    backdrop-filter: blur(5px);
+
+    font-size: 14px;
+
+    opacity: .8;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
 @media (max-width: 600px) {
 
-    #screen1 {
-        padding: 30px 16px;
+    .screen {
+        padding: 18px;
     }
 
-    .balloon {
-        width: 38px;
-        height: 50px;
-    }
-
-    .balloon::before {
-        height: 70px;
-    }
-
-    .balloon5,
-    .balloon6 {
-        display: none;
-    }
-
-    .small-heading {
-        font-size: 10px;
-        letter-spacing: 3px;
+    .small-title {
+        font-size: 11px;
+        letter-spacing: 4px;
     }
 
     .main-title {
-        font-size: clamp(45px, 14vw, 72px);
+        font-size: 45px;
     }
 
-    .subtitle {
-        margin-top: 24px;
+    .description {
         font-size: 15px;
+        line-height: 1.5;
+        margin-top: 23px;
     }
 
     .question {
-        margin-top: 25px;
-        font-size: 19px;
+        font-size: 20px;
+        margin-top: 27px;
     }
 
-    .ready-area {
-        height: 95px;
-        margin-top: 15px;
+    .action-button {
+        padding: 13px 28px;
+        min-width: 140px;
     }
 
-    #readyButton {
-        min-width: 125px;
-        padding: 12px 21px;
-        font-size: 12px;
+    .phone-video-box {
+        width: min(280px, 76vw);
     }
 
-    #readyButton.top-center {
-        top: 15px;
-    }
-
-    #readyButton.top-right {
-        right: 15px;
-        top: 15px;
-    }
-
-    #screen2 {
-        padding: 30px 16px;
-    }
-
-    .second-title {
-        font-size: 43px;
-    }
-
-    .second-text {
-        font-size: 19px;
-        line-height: 1.55;
-    }
-
-    #screen3 {
-        padding: 30px 16px;
-    }
-
-    .prayer-container {
-        width: 100%;
-        padding-top: 15px;
-        padding-bottom: 70px;
-    }
-
-    .assalam {
-        font-size: 28px;
+    .phone-video-box {
+        border-radius: 28px;
     }
 
     .prayer {
+        max-height: 66vh;
+    }
+
+    .prayer-english {
         font-size: 17px;
-        line-height: 1.8;
+        line-height: 1.65;
     }
 
-    .roman-prayer {
-        font-size: 17px;
-        line-height: 1.8;
+    .prayer-telugu {
+        font-size: 15px;
+        line-height: 1.7;
     }
 
-    .telugu-meaning {
-        padding: 22px 5px 0;
-        font-size: 17px;
-        line-height: 1.9;
+    .birthday-message {
+        font-size: 16px;
+        line-height: 1.65;
     }
 
-    .prayer-divider {
-        margin: 22px 0;
+    .bubu-container {
+        height: 60vh;
     }
 
-    .ameen {
-        font-size: 25px;
-    }
-
-    .celebrate-button {
-        width: 90%;
-        max-width: 330px;
-        font-size: 14px;
-        padding: 15px 20px;
-    }
-
-    .final-title {
-        font-size: 52px;
-    }
-
-    .final-message {
-        font-size: 19px;
+    .bubu {
+        font-size: 120px;
     }
 }
 </style>
@@ -796,30 +729,80 @@ body {
 
 <body>
 
-<!-- BALLOONS -->
-<div class="balloon balloon1"></div>
-<div class="balloon balloon2"></div>
-<div class="balloon balloon3"></div>
-<div class="balloon balloon4"></div>
-<div class="balloon balloon5"></div>
-<div class="balloon balloon6"></div>
+<!-- =========================
+     BACKGROUND
+========================= -->
 
-<!-- HEARTS -->
-<div class="heart heart1">❤️</div>
-<div class="heart heart2">💜</div>
-<div class="heart heart3">💗</div>
-<div class="heart heart4">❤️</div>
+<div class="stars">
+    <span class="star" style="left:8%;top:16%;animation-delay:.2s"></span>
+    <span class="star" style="left:20%;top:36%;animation-delay:1s"></span>
+    <span class="star" style="left:31%;top:18%;animation-delay:1.7s"></span>
+    <span class="star" style="left:43%;top:44%;animation-delay:.7s"></span>
+    <span class="star" style="left:57%;top:13%;animation-delay:2s"></span>
+    <span class="star" style="left:68%;top:31%;animation-delay:1.3s"></span>
+    <span class="star" style="left:82%;top:17%;animation-delay:.4s"></span>
+    <span class="star" style="left:91%;top:38%;animation-delay:1.8s"></span>
+    <span class="star" style="left:14%;top:73%;animation-delay:2.1s"></span>
+    <span class="star" style="left:28%;top:82%;animation-delay:.9s"></span>
+    <span class="star" style="left:48%;top:75%;animation-delay:1.5s"></span>
+    <span class="star" style="left:73%;top:79%;animation-delay:.3s"></span>
+    <span class="star" style="left:88%;top:68%;animation-delay:2.2s"></span>
+</div>
 
 
-<!-- =========================================================
+<!-- =====================================================
+     SCREEN 0
+     PHONE RINGING
+===================================================== -->
+
+<section id="phoneScreen" class="screen active phone-screen">
+
+    <div class="phone-wrap">
+
+        <div class="phone-video-box">
+
+            <video
+                id="ringVideo"
+                class="phone-video"
+                src="happy bday.mp4"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="auto">
+            </video>
+
+        </div>
+
+        <h1 class="ringing-title">
+            📞 Someone is calling...
+        </h1>
+
+        <p class="ringing-subtitle">
+            Pick up the phone ❤️
+        </p>
+
+        <button
+            id="answerButton"
+            class="action-button"
+            type="button">
+            LIFT THE PHONE 📱
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
      SCREEN 1
-========================================================= -->
+===================================================== -->
 
-<section id="screen1" class="screen active">
+<section id="screen1" class="screen">
 
-    <div class="first-content">
+    <div class="content">
 
-        <div class="small-heading">
+        <div class="small-title">
             30 DAYS · 30 WISHES
         </div>
 
@@ -829,7 +812,7 @@ body {
             OVER.
         </h1>
 
-        <p class="subtitle">
+        <p class="description">
             Thirty days of wishes brought us all the way here...
             and now there's only one thing left to ask.
         </p>
@@ -839,40 +822,42 @@ body {
             what surprise I planned for you? 👀 ❤️
         </div>
 
-        <div class="ready-area">
-
-            <button id="readyButton" type="button">
-                I'M READY ✨
-            </button>
-
-        </div>
+        <button
+            id="readyButton"
+            class="action-button"
+            type="button">
+            I'M READY ✨
+        </button>
 
     </div>
 
 </section>
 
 
-<!-- =========================================================
+<!-- =====================================================
      SCREEN 2
-========================================================= -->
+===================================================== -->
 
 <section id="screen2" class="screen">
 
-    <div class="second-content">
+    <div class="content">
 
-        <h1 class="second-title">
-            Oh wow! 😍
-        </h1>
+        <h2 class="surprise-title">
+            Oh wowww! 😂
+        </h2>
 
-        <p class="second-text">
-
-            Ohhh wow, you are so excited! 👀❤️<br>
-
-            I knew you wouldn't be able to wait anymore. 😂
-
+        <p class="surprise-text">
+            I see that you're very excited! 👀❤️
         </p>
 
-        <button id="goButton" class="go-button" type="button">
+        <p class="suspense">
+            But... there's still some suspense left. 😉
+        </p>
+
+        <button
+            id="letsGoButton"
+            class="action-button"
+            type="button">
             LET'S GO ✨
         </button>
 
@@ -881,119 +866,107 @@ body {
 </section>
 
 
-<!-- =========================================================
-     SCREEN 3 - PRAYER
-========================================================= -->
+<!-- =====================================================
+     SCREEN 3
+     PRAYER
+===================================================== -->
 
 <section id="screen3" class="screen">
 
-    <div class="prayer-container">
+    <div class="content">
 
-        <h1 class="assalam">
-
+        <h2 class="greeting">
             Assalamu Alaikum Ji,<br>
             Wa Rahmatullahi Wa Barakatuh ❤️
-
-        </h1>
-
+        </h2>
 
         <div class="prayer">
 
-            <!-- ROMAN PRAYER -->
+            <div class="prayer-english">
 
-            <div class="roman-prayer">
+                Bismillahir Rahmanir Raheem.<br>
+                Alhamdulillahi Rabbil Aalameen.<br><br>
 
-                <p>
-                    <strong>
-                        Bismillahir Rahmanir Raheem. ❤️
-                    </strong>
-                </p>
+                Allahumma barik lahu fi umrihi,<br>
+                warzuqhu sehat, sa'adat aur barkat.<br>
 
-                <p>
-                    Alhamdulillahi Rabbil Aalameen.
-                </p>
+                Waj'al hayat-hu ma'mooratan bil-imaan
+                wal-khair wan-najah.<br>
 
-                <p>
-                    Allahumma barik lahu fi umrihi,
-                    warzuqhu sehat, sa'adat aur barkat.
-                </p>
-
-                <p>
-                    Waj'al hayat-hu ma'mooratan bil-imaan
-                    wal-khair wan-najah.
-                </p>
-
-                <p>
-                    Wahfazhu min kulli sharr,
-                    waqbal du'aa'ahu.
-                </p>
+                Wahfazhu min kulli sharr,
+                waqbal du'aa'ahu.
 
             </div>
 
+            <div class="prayer-telugu">
 
-            <div class="prayer-divider">
-                ❤️
+                Dayagala, karunamayudaina Allah perutho
+                prarambhistunnam.<br>
+
+                Prashamsalanni prapanchala Prabhuvaina
+                Allah ke chendutayi.<br>
+
+                Allah, athani vayassulo barkat ivvu,
+                manchi aarogyam, santosham mariyu
+                samruddhi ivvu.<br>
+
+                Athani jeevithanni imaan, manchi mariyu
+                vijayalatho nimpandi.<br>
+
+                Prathi chedu nunchi athanni kapadandi,
+                athani manchi prarthanalanu sweekarinchandi.
+
             </div>
 
-
-            <!-- TELUGU MEANING -->
-
-            <div class="telugu-meaning">
-
-                <p>
-                    <strong>
-                        బిస్మిల్లాహిర్ రహ్మానిర్ రహీమ్. ❤️
-                    </strong>
-                </p>
-
-                <p>
-                    అనుగ్రహించే కరుణామయుడైన అల్లాహ్ పేరుతో
-                    ఈ ప్రార్థనను ప్రారంభిస్తున్నాము.
-                </p>
-
-                <p>
-                    సర్వలోకాల ప్రభువైన అల్లాహ్‌కే
-                    అన్ని ప్రశంసలు చెందుతాయి.
-                </p>
-
-                <p>
-                    అల్లాహ్ అతని వయస్సులో బరకత్ ప్రసాదించి,
-                    మంచి ఆరోగ్యం, సంతోషం, శ్రేయస్సు
-                    మరియు సమృద్ధిని అనుగ్రహించాలి.
-                </p>
-
-                <p>
-                    అతని జీవితం ఇమాన్‌తో,
-                    మంచి పనులతో మరియు విజయాలతో నిండిపోవాలి.
-                </p>
-
-                <p>
-                    అల్లాహ్ అతన్ని ప్రతి చెడు నుండి కాపాడి,
-                    అతని మంచి దువాలను స్వీకరించాలి.
-                </p>
-
+            <div class="ameen">
+                Aameen 🤲❤️
             </div>
 
         </div>
 
+    </div>
 
-        <div class="ameen">
-            Aameen 🤲❤️
+</section>
+
+
+<!-- =====================================================
+     SCREEN 4
+     HAPPY BIRTHDAY
+===================================================== -->
+
+<section id="birthdayScreen" class="screen">
+
+    <div class="content">
+
+        <h1 class="birthday-title">
+            HAPPY BIRTHDAY 🎂
+        </h1>
+
+        <div class="birthday-name">
+            BUDDU ❤️
         </div>
 
+        <p class="birthday-message">
 
-        <!--
-            IMPORTANT:
-            This button is HIDDEN initially.
-            JavaScript shows it ONLY when the song ends.
-        -->
+            May Allah bless you with endless happiness,
+            good health, peace and beautiful moments.
+            May He protect you, guide you and bless every
+            step you take. 🤍<br><br>
+
+            May all your duas come true,
+            and may this new year of your life be filled
+            with love, success, laughter and countless
+            beautiful memories. ✨
+
+        </p>
 
         <button
-            id="celebrateButton"
-            class="celebrate-button"
-            type="button"
-        >
-            LET'S START CELEBRATING 🎉❤️
+            id="bubuButton"
+            class="action-button bubu-button"
+            type="button">
+
+            BUBU IS COMING TO WISH YOU 🥹❤️
+
         </button>
 
     </div>
@@ -1001,77 +974,116 @@ body {
 </section>
 
 
-<!-- =========================================================
-     FINAL CELEBRATION
-========================================================= -->
+<!-- =====================================================
+     SCREEN 5
+     BUBU FLYING
+===================================================== -->
 
-<section id="screen4" class="screen">
+<section id="bubuScreen" class="screen bubu-screen">
 
-    <div class="confetti">🎉</div>
-    <div class="confetti">✨</div>
-    <div class="confetti">💜</div>
-    <div class="confetti">🎊</div>
-    <div class="confetti">❤️</div>
-    <div class="confetti">✨</div>
-    <div class="confetti">🎉</div>
-    <div class="confetti">💗</div>
-    <div class="confetti">🎊</div>
-    <div class="confetti">✨</div>
+    <div class="content">
 
+        <h2 class="bubu-title">
+            Waittt... 👀❤️
+        </h2>
 
-    <div class="final-content">
+        <div class="bubu-container">
 
-        <div class="final-small">
-            TODAY IS ALL ABOUT YOU ❤️
+            <div
+                id="bubu"
+                class="bubu">
+                🧸
+            </div>
+
+            <div
+                id="bubuMessage"
+                class="bubu-message">
+
+                Bubu came all the way to wish you
+                Happy Birthday! 🥹❤️
+
+            </div>
+
         </div>
-
-        <h1 class="final-title">
-            HAPPY<br>
-            BIRTHDAY! 🎂
-        </h1>
-
-        <p class="final-message">
-
-            May your day be filled with
-            happiness, love, laughter,
-            beautiful memories and
-            everything your heart wishes for. ❤️
-
-            <br><br>
-
-            You deserve all the happiness
-            in the world. 🎉✨
-
-        </p>
 
     </div>
 
 </section>
 
 
-<!-- =========================================================
-     BIRTHDAY SONG
-========================================================= -->
+<!-- =====================================================
+     SCREEN 6
+     CELEBRATION
+===================================================== -->
+
+<section id="celebrateScreen" class="screen">
+
+    <div class="content">
+
+        <h2 class="celebrate-title">
+            LET'S CELEBRATE! 🎉
+        </h2>
+
+        <p class="celebrate-text">
+            Now the real birthday surprise begins... ❤️
+        </p>
+
+        <button
+            id="celebrateButton"
+            class="action-button"
+            type="button">
+
+            LET'S START CELEBRATING 🎉❤️
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SCREEN 7
+     FINAL VIDEO
+===================================================== -->
+
+<section id="videoScreen" class="screen video-screen">
+
+    <video
+        id="finalVideo"
+        class="final-video"
+        src="happy birthday.mp4"
+        playsinline
+        preload="auto">
+
+    </video>
+
+    <div class="video-overlay">
+        ❤️ Happy Birthday, Buddu ❤️
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     AUDIO
+===================================================== -->
 
 <audio
     id="birthdaySong"
     preload="auto"
-    playsinline
->
-
-    <source
-        src="birthday-song-00-00-to-00-58.mp3"
-        type="audio/mpeg"
-    >
-
+    src="birthday-song-00-00-to-00-58.mp3">
 </audio>
 
 
 <script>
 
-/* =========================================================
-   ELEMENTS
-========================================================= */
+/* =====================================================
+   SCREEN ELEMENTS
+===================================================== */
+
+const phoneScreen =
+    document.getElementById("phoneScreen");
 
 const screen1 =
     document.getElementById("screen1");
@@ -1082,335 +1094,216 @@ const screen2 =
 const screen3 =
     document.getElementById("screen3");
 
-const screen4 =
-    document.getElementById("screen4");
+const birthdayScreen =
+    document.getElementById("birthdayScreen");
+
+const bubuScreen =
+    document.getElementById("bubuScreen");
+
+const celebrateScreen =
+    document.getElementById("celebrateScreen");
+
+const videoScreen =
+    document.getElementById("videoScreen");
+
+
+function showScreen(screen) {
+
+    [
+        phoneScreen,
+        screen1,
+        screen2,
+        screen3,
+        birthdayScreen,
+        bubuScreen,
+        celebrateScreen,
+        videoScreen
+    ].forEach(s => {
+
+        s.classList.remove("active");
+
+    });
+
+    screen.classList.add("active");
+}
+
+
+/* =====================================================
+   PHONE RINGING
+===================================================== */
+
+const answerButton =
+    document.getElementById("answerButton");
+
+const ringVideo =
+    document.getElementById("ringVideo");
+
+
+answerButton.addEventListener("click", function() {
+
+    /*
+       Stop the ringing video
+       immediately after lifting.
+    */
+
+    ringVideo.pause();
+
+    showScreen(screen1);
+
+});
+
+
+/* =====================================================
+   I'M READY BUTTON
+   THREE RANDOM MOVES
+===================================================== */
 
 const readyButton =
     document.getElementById("readyButton");
 
-const goButton =
-    document.getElementById("goButton");
+let readyMoves = 0;
 
-const celebrateButton =
-    document.getElementById("celebrateButton");
+const MAX_READY_MOVES = 3;
+
+
+function moveReadyButtonRandomly() {
+
+    const buttonWidth =
+        readyButton.offsetWidth;
+
+    const buttonHeight =
+        readyButton.offsetHeight;
+
+
+    /*
+       Safe area around the screen.
+       This prevents the button from
+       disappearing outside the screen.
+    */
+
+    const margin = 25;
+
+    const maxX =
+        window.innerWidth -
+        buttonWidth -
+        margin;
+
+    const maxY =
+        window.innerHeight -
+        buttonHeight -
+        margin;
+
+
+    const minX = margin;
+    const minY = margin;
+
+
+    const randomX =
+        Math.floor(
+            Math.random() *
+            (maxX - minX + 1)
+        ) + minX;
+
+
+    const randomY =
+        Math.floor(
+            Math.random() *
+            (maxY - minY + 1)
+        ) + minY;
+
+
+    readyButton.classList.add("random-moving");
+
+    readyButton.style.left =
+        randomX + "px";
+
+    readyButton.style.top =
+        randomY + "px";
+
+    readyButton.style.transform =
+        "scale(1.03)";
+
+
+    setTimeout(() => {
+
+        readyButton.style.transform =
+            "scale(1)";
+
+    }, 220);
+
+}
+
+
+/*
+   Every attempt moves the button.
+   After exactly 3 movements,
+   the next click is accepted.
+*/
+
+readyButton.addEventListener(
+    "click",
+    function(e) {
+
+        if (readyMoves < MAX_READY_MOVES) {
+
+            e.preventDefault();
+
+            readyMoves++;
+
+            moveReadyButtonRandomly();
+
+            return;
+        }
+
+
+        /*
+           After 3 random moves,
+           allow the click.
+        */
+
+        readyButton.classList.remove(
+            "random-moving"
+        );
+
+        readyButton.style.left = "";
+        readyButton.style.top = "";
+        readyButton.style.transform = "";
+
+
+        showScreen(screen2);
+
+    }
+);
+
+
+/* =====================================================
+   SCREEN 2 -> PRAYER
+===================================================== */
+
+const letsGoButton =
+    document.getElementById("letsGoButton");
 
 const birthdaySong =
     document.getElementById("birthdaySong");
 
 
-/* =========================================================
-   READY BUTTON
-========================================================= */
-
-let readyStage = 0;
-let moveLocked = false;
-
-
-/* =========================================================
-   LOCK MOVEMENT
-========================================================= */
-
-function lockMovement() {
-
-    moveLocked = true;
-
-    setTimeout(function() {
-
-        moveLocked = false;
-
-    }, 500);
-}
-
-
-/* =========================================================
-   TOP CENTER
-========================================================= */
-
-function moveToTopCenter() {
-
-    if (
-        readyStage !== 0 ||
-        moveLocked
-    ) {
-        return;
-    }
-
-    lockMovement();
-
-    readyStage = 1;
-
-    readyButton.classList.remove("top-right");
-
-    readyButton.classList.add("top-center");
-}
-
-
-/* =========================================================
-   RETURN TO ORIGINAL
-========================================================= */
-
-function returnFromTopCenter() {
-
-    if (readyStage !== 1) {
-        return;
-    }
-
-    readyStage = 2;
-
-    readyButton.classList.remove("top-center");
-}
-
-
-/* =========================================================
-   TOP RIGHT
-========================================================= */
-
-function moveToTopRight() {
-
-    if (
-        readyStage !== 2 ||
-        moveLocked
-    ) {
-        return;
-    }
-
-    lockMovement();
-
-    readyStage = 3;
-
-    readyButton.classList.add("top-right");
-}
-
-
-/* =========================================================
-   RETURN FROM TOP RIGHT
-========================================================= */
-
-function returnFromTopRight() {
-
-    if (readyStage !== 3) {
-        return;
-    }
-
-    readyStage = 4;
-
-    readyButton.classList.remove("top-right");
-}
-
-
-/* =========================================================
-   BUTTON CENTER
-========================================================= */
-
-function getButtonCenter() {
-
-    const rect =
-        readyButton.getBoundingClientRect();
-
-    return {
-        x: rect.left + rect.width / 2,
-        y: rect.top + rect.height / 2
-    };
-}
-
-
-/* =========================================================
-   POINTER / TOUCH DETECTION
-========================================================= */
-
-function checkPointerNearButton(x, y) {
-
-    if (
-        !screen1.classList.contains("active")
-    ) {
-        return;
-    }
-
-    if (
-        readyStage !== 0 &&
-        readyStage !== 2
-    ) {
-        return;
-    }
-
-    const center =
-        getButtonCenter();
-
-    const distance =
-        Math.sqrt(
-            Math.pow(x - center.x, 2) +
-            Math.pow(y - center.y, 2)
-        );
-
-    if (distance < 125) {
-
-        if (readyStage === 0) {
-
-            moveToTopCenter();
-
-        } else if (readyStage === 2) {
-
-            moveToTopRight();
-
-        }
-    }
-}
-
-
-/* =========================================================
-   LAPTOP MOUSE
-========================================================= */
-
-document.addEventListener(
-    "mousemove",
-    function(event) {
-
-        checkPointerNearButton(
-            event.clientX,
-            event.clientY
-        );
-
-    }
-);
-
-
-/* =========================================================
-   MOBILE TOUCH
-========================================================= */
-
-document.addEventListener(
-    "touchstart",
-    function(event) {
-
-        if (
-            !event.touches ||
-            !event.touches[0]
-        ) {
-            return;
-        }
-
-        const touch =
-            event.touches[0];
-
-        checkPointerNearButton(
-            touch.clientX,
-            touch.clientY
-        );
-
-    },
-    {
-        passive: true
-    }
-);
-
-
-/* =========================================================
-   READY BUTTON CLICK
-========================================================= */
-
-readyButton.addEventListener(
+letsGoButton.addEventListener(
     "click",
-    function(event) {
+    async function() {
 
-        event.preventDefault();
-
-
-        /* TOP CENTER → ORIGINAL */
-
-        if (readyStage === 1) {
-
-            returnFromTopCenter();
-
-            return;
-        }
-
-
-        /* ORIGINAL → TOP RIGHT */
-
-        if (readyStage === 2) {
-
-            moveToTopRight();
-
-            return;
-        }
-
-
-        /* TOP RIGHT → ORIGINAL */
-
-        if (readyStage === 3) {
-
-            returnFromTopRight();
-
-            return;
-        }
-
-
-        /* FINAL CLICK → NEXT SCREEN */
-
-        if (readyStage === 4) {
-
-            readyStage = 5;
-
-            screen1.classList.remove(
-                "active"
-            );
-
-            screen2.classList.add(
-                "active"
-            );
-        }
-
-    }
-);
-
-
-/* =========================================================
-   LET'S GO → PRAYER
-========================================================= */
-
-goButton.addEventListener(
-    "click",
-    function() {
-
-        screen2.classList.remove(
-            "active"
-        );
-
-        screen3.classList.add(
-            "active"
-        );
-
-
-        /* RESET CELEBRATION BUTTON */
-
-        celebrateButton.classList.remove(
-            "show"
-        );
-
-
-        /* START SONG */
-
-        birthdaySong.pause();
+        showScreen(screen3);
 
         birthdaySong.currentTime = 0;
 
-        const playPromise =
-            birthdaySong.play();
+        try {
 
+            await birthdaySong.play();
 
-        if (
-            playPromise !== undefined
-        ) {
+        } catch(error) {
 
-            playPromise.catch(
-                function(error) {
-
-                    console.log(
-                        "Audio playback:",
-                        error
-                    );
-
-                }
+            console.log(
+                "Audio could not start:",
+                error
             );
 
         }
@@ -1419,53 +1312,196 @@ goButton.addEventListener(
 );
 
 
-/* =========================================================
-   MOST IMPORTANT PART
-   SHOW CELEBRATION BUTTON ONLY
-   AFTER SONG COMPLETELY ENDS
-========================================================= */
+/* =====================================================
+   PRAYER AUDIO ENDS
+   -> HAPPY BIRTHDAY SCREEN
+===================================================== */
 
 birthdaySong.addEventListener(
     "ended",
     function() {
 
-        celebrateButton.classList.add(
-            "show"
-        );
+        showScreen(birthdayScreen);
 
     }
 );
 
 
-/* =========================================================
-   CELEBRATE BUTTON
-========================================================= */
+/* =====================================================
+   BUBU BUTTON
+===================================================== */
 
-celebrateButton.addEventListener(
+const bubuButton =
+    document.getElementById("bubuButton");
+
+const bubu =
+    document.getElementById("bubu");
+
+const bubuMessage =
+    document.getElementById("bubuMessage");
+
+
+bubuButton.addEventListener(
     "click",
     function() {
 
-        screen3.classList.remove(
-            "active"
-        );
+        showScreen(bubuScreen);
 
-        screen4.classList.add(
-            "active"
-        );
+
+        /*
+           Reset animation first.
+           This allows the animation to
+           play again if the page is revisited.
+        */
+
+        bubu.classList.remove("fly");
+
+        bubuMessage.classList.remove("show");
+
+
+        void bubu.offsetWidth;
+
+
+        /*
+           Bubu flies from the top.
+        */
+
+        bubu.classList.add("fly");
+
+
+        /*
+           Message appears after Bubu arrives.
+        */
+
+        setTimeout(function() {
+
+            bubuMessage.classList.add("show");
+
+        }, 2500);
+
+
+        /*
+           After the flying animation,
+           automatically move to celebration.
+        */
+
+        setTimeout(function() {
+
+            showScreen(celebrateScreen);
+
+        }, 5200);
 
     }
 );
 
 
-/* =========================================================
-   PREVENT BUTTON DRAGGING
-========================================================= */
+/* =====================================================
+   CELEBRATE -> FINAL VIDEO
+===================================================== */
 
-readyButton.addEventListener(
-    "dragstart",
-    function(event) {
+const celebrateButton =
+    document.getElementById("celebrateButton");
 
-        event.preventDefault();
+const finalVideo =
+    document.getElementById("finalVideo");
+
+
+celebrateButton.addEventListener(
+    "click",
+    async function() {
+
+        showScreen(videoScreen);
+
+        finalVideo.currentTime = 0;
+
+        try {
+
+            await finalVideo.play();
+
+        } catch(error) {
+
+            console.log(
+                "Video could not start:",
+                error
+            );
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   VIDEO ENDS
+===================================================== */
+
+finalVideo.addEventListener(
+    "ended",
+    function() {
+
+        /*
+           Keep the final video screen open
+           after the video ends.
+        */
+
+        finalVideo.currentTime = 0;
+
+    }
+);
+
+
+/* =====================================================
+   RESIZE SAFETY
+===================================================== */
+
+window.addEventListener(
+    "resize",
+    function() {
+
+        if (
+            readyButton.classList.contains(
+                "random-moving"
+            )
+        ) {
+
+            const rect =
+                readyButton.getBoundingClientRect();
+
+
+            const maxX =
+                window.innerWidth -
+                rect.width -
+                20;
+
+
+            const maxY =
+                window.innerHeight -
+                rect.height -
+                20;
+
+
+            let newX =
+                Math.min(
+                    Math.max(20, rect.left),
+                    maxX
+                );
+
+
+            let newY =
+                Math.min(
+                    Math.max(20, rect.top),
+                    maxY
+                );
+
+
+            readyButton.style.left =
+                newX + "px";
+
+
+            readyButton.style.top =
+                newY + "px";
+
+        }
 
     }
 );
