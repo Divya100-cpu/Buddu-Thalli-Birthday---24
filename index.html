@@ -386,8 +386,7 @@ body {
     line-height: 1.6;
 }
 
-.go-button,
-.celebrate-button {
+.go-button {
     margin-top: 32px;
 
     border:
@@ -429,8 +428,7 @@ body {
         transform .25s ease;
 }
 
-.go-button:hover,
-.celebrate-button:hover {
+.go-button:hover {
     transform:
         scale(1.05);
 }
@@ -509,6 +507,45 @@ body {
     opacity: 0;
 
     pointer-events: none;
+
+    border:
+        1px solid
+        rgba(255,255,255,.6);
+
+    background:
+        linear-gradient(
+            135deg,
+            #e85caf,
+            #9f3edb
+        );
+
+    color: white;
+
+    border-radius: 999px;
+
+    padding:
+        16px 32px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 15px
+        rgba(255,80,220,.45);
+
+    transition:
+        opacity .6s ease,
+        transform .25s ease;
 }
 
 .celebrate-button.show {
@@ -516,9 +553,53 @@ body {
     pointer-events: auto;
 }
 
+.celebrate-button:hover {
+    transform:
+        scale(1.05);
+}
+
 
 /* =========================================================
-   CALL SWIPE SCREEN
+   FULL SCREEN SCREENS
+========================================================= */
+
+.new-screen {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    z-index: 1000;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #42104f,
+            #18051e 55%,
+            #060208
+        );
+}
+
+.new-screen.active {
+    display: flex;
+}
+
+
+/* =========================================================
+   CALL SCREEN
+   THIS REPLACES THE UNWANTED
+   "SOMEONE IS CALLING..." SCREEN
 ========================================================= */
 
 .call-screen {
@@ -540,14 +621,16 @@ body {
 
     overflow: hidden;
 
-    z-index: 5000;
+    z-index: 2500;
 
     background:
-        radial-gradient(
-            circle at center,
-            #35103f 0%,
-            #14051a 55%,
-            #050207 100%
+        linear-gradient(
+            135deg,
+            #f5b8aa 0%,
+            #f7d4a4 25%,
+            #b9ddd1 55%,
+            #8fd2e0 75%,
+            #f4c8d7 100%
         );
 }
 
@@ -555,67 +638,177 @@ body {
     display: flex;
 }
 
-.call-small {
-    font-size: 15px;
 
-    letter-spacing: 4px;
+/* Soft bokeh */
 
-    opacity: .75;
+.call-screen::before {
+    content: "";
+
+    position: absolute;
+
+    inset: -20%;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(255,255,255,.38) 0 18px,
+            transparent 19px
+        ),
+
+        radial-gradient(
+            circle at 30% 70%,
+            rgba(255,255,255,.28) 0 40px,
+            transparent 41px
+        ),
+
+        radial-gradient(
+            circle at 72% 20%,
+            rgba(255,255,255,.35) 0 50px,
+            transparent 51px
+        ),
+
+        radial-gradient(
+            circle at 88% 70%,
+            rgba(255,255,255,.3) 0 35px,
+            transparent 36px
+        );
+
+    filter: blur(2px);
+
+    pointer-events: none;
+}
+
+
+.call-content {
+    position: relative;
+
+    z-index: 5;
+
+    width:
+        min(520px, 92%);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+}
+
+
+/* Bubu name */
+
+.call-name {
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size:
+        clamp(30px, 5vw, 45px);
+
+    font-weight: 700;
+
+    color: #17120f;
+
+    margin-bottom: 28px;
+}
+
+.call-name span {
+    color: #21140f;
+}
+
+
+/* Calling text */
+
+.calling-text {
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size:
+        clamp(23px, 4vw, 34px);
+
+    color: #211a16;
 
     margin-bottom: 18px;
 }
 
-.call-title {
-    font-size:
-        clamp(32px, 6vw, 65px);
 
-    line-height: 1.1;
+/* Bubu visual */
 
-    text-shadow:
-        0 0 10px white,
-        0 0 30px rgba(255,80,220,.55);
-}
-
-.call-name {
-    margin-top: 15px;
-
-    font-size:
-        clamp(28px, 5vw, 48px);
-
-    color: #ffd1f1;
-
-    font-weight: bold;
-}
-
-.phone-card {
-    margin-top: 35px;
-
+.bubu-character {
     width:
-        min(380px, 90%);
+        clamp(170px, 28vw, 250px);
 
-    padding: 35px 25px;
+    height:
+        clamp(170px, 28vw, 250px);
 
-    border-radius: 30px;
+    display: flex;
 
-    background:
-        rgba(255,255,255,.07);
+    align-items: center;
+    justify-content: center;
 
-    border:
-        1px solid
-        rgba(255,255,255,.18);
+    font-size:
+        clamp(115px, 20vw, 185px);
 
-    box-shadow:
-        0 0 40px
-        rgba(190,70,230,.25);
+    margin-bottom: 28px;
 
-    backdrop-filter: blur(10px);
+    animation:
+        bubuFloat 1.8s ease-in-out infinite;
 }
 
-.phone-icon {
-    width: 85px;
-    height: 85px;
+@keyframes bubuFloat {
 
-    margin: 0 auto 20px;
+    0%,100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-8px);
+    }
+}
+
+
+/* Call buttons */
+
+.call-actions {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap:
+        clamp(55px, 12vw, 100px);
+
+    margin-bottom: 22px;
+}
+
+.call-action {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 8px;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: #211a16;
+}
+
+.call-action-circle {
+    width:
+        clamp(68px, 12vw, 92px);
+
+    height:
+        clamp(68px, 12vw, 92px);
 
     border-radius: 50%;
 
@@ -624,60 +817,56 @@ body {
     align-items: center;
     justify-content: center;
 
-    font-size: 42px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #e85caf,
-            #9f3edb
-        );
+    font-size:
+        clamp(30px, 6vw, 45px);
 
     box-shadow:
-        0 0 30px
-        rgba(255,80,220,.55);
-
-    animation:
-        phonePulse 1.2s ease-in-out infinite;
+        0 8px 20px
+        rgba(0,0,0,.15);
 }
 
-@keyframes phonePulse {
-
-    0%,100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.08);
-    }
+.decline-circle {
+    background: #ef382d;
 }
 
-.calling-text {
-    font-size: 21px;
-
-    margin-bottom: 25px;
+.accept-circle {
+    background: #22b84b;
 }
 
-.swipe-area {
-    width: 100%;
 
-    height: 65px;
+/* =========================================================
+   SWIPE TO ANSWER
+========================================================= */
+
+.swipe-answer-area {
+    width:
+        min(390px, 90vw);
+
+    height: 62px;
 
     position: relative;
 
     border-radius: 999px;
 
     background:
-        rgba(255,255,255,.12);
+        rgba(255,255,255,.38);
 
     border:
         1px solid
-        rgba(255,255,255,.2);
+        rgba(255,255,255,.65);
+
+    box-shadow:
+        0 5px 20px
+        rgba(0,0,0,.12);
 
     overflow: hidden;
+
+    touch-action: none;
+
+    user-select: none;
 }
 
-.swipe-text {
+.swipe-answer-text {
     position: absolute;
 
     inset: 0;
@@ -687,24 +876,31 @@ body {
     align-items: center;
     justify-content: center;
 
-    font-size: 14px;
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 700;
 
     letter-spacing: 1px;
 
     color:
-        rgba(255,255,255,.75);
+        rgba(33,26,22,.7);
 
     pointer-events: none;
 }
 
-.swipe-handle {
+.swipe-answer-handle {
     position: absolute;
 
     left: 4px;
     top: 4px;
 
-    width: 57px;
-    height: 57px;
+    width: 54px;
+    height: 54px;
 
     border-radius: 50%;
 
@@ -714,37 +910,39 @@ body {
     justify-content: center;
 
     background:
-        linear-gradient(
-            135deg,
-            #ff75bd,
-            #9f3edb
-        );
+        #22b84b;
+
+    color: white;
+
+    font-size: 24px;
 
     box-shadow:
-        0 0 20px
-        rgba(255,80,220,.65);
+        0 4px 12px
+        rgba(0,0,0,.2);
 
     cursor: grab;
 
     touch-action: none;
 
-    user-select: none;
-
     z-index: 5;
-
-    font-size: 22px;
 }
 
-.swipe-handle:active {
+.swipe-answer-handle:active {
     cursor: grabbing;
 }
 
-.call-hint {
-    margin-top: 20px;
+.swipe-note {
+    margin-top: 12px;
 
-    font-size: 13px;
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
 
-    opacity: .65;
+    font-size: 12px;
+
+    color:
+        rgba(33,26,22,.65);
 }
 
 
@@ -752,7 +950,7 @@ body {
    CALLING VIDEO
 ========================================================= */
 
-.video-screen {
+.calling-video-screen {
     position: fixed;
 
     inset: 0;
@@ -767,12 +965,12 @@ body {
 
     overflow: hidden;
 
-    z-index: 6000;
+    z-index: 3000;
 
     background: #060208;
 }
 
-.video-screen.active {
+.calling-video-screen.active {
     display: flex;
 }
 
@@ -791,38 +989,6 @@ body {
 /* =========================================================
    HAPPY BIRTHDAY SCREEN
 ========================================================= */
-
-.new-screen {
-    position: fixed;
-
-    inset: 0;
-
-    width: 100%;
-    height: 100vh;
-
-    display: none;
-
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-
-    overflow: hidden;
-
-    z-index: 7000;
-
-    background:
-        radial-gradient(
-            circle at center,
-            #42104f,
-            #18051e 55%,
-            #060208
-        );
-}
-
-.new-screen.active {
-    display: flex;
-}
 
 .new-birthday-content {
     width:
@@ -917,7 +1083,7 @@ body {
 
     overflow: hidden;
 
-    z-index: 8000;
+    z-index: 4000;
 
     background:
         radial-gradient(
@@ -1247,7 +1413,7 @@ body {
 
 
 /* =========================================================
-   BUBU FLYING VIDEO
+   FINAL BUBU VIDEO
 ========================================================= */
 
 .bubu-video-screen {
@@ -1265,7 +1431,7 @@ body {
 
     overflow: hidden;
 
-    z-index: 9000;
+    z-index: 5000;
 
     background: #060208;
 }
@@ -1372,17 +1538,31 @@ body {
         letter-spacing: 1.5px;
     }
 
-    .phone-card {
-        width: 90%;
-        padding: 28px 18px;
-    }
-
-    .call-title {
-        font-size: 34px;
-    }
-
     .call-name {
-        font-size: 30px;
+        font-size: 32px;
+        margin-bottom: 18px;
+    }
+
+    .calling-text {
+        font-size: 25px;
+    }
+
+    .bubu-character {
+        font-size: 120px;
+
+        width: 170px;
+        height: 170px;
+
+        margin-bottom: 18px;
+    }
+
+    .call-actions {
+        gap: 65px;
+    }
+
+    .swipe-answer-area {
+        width: 88vw;
+        max-width: 350px;
     }
 }
 
@@ -1617,58 +1797,107 @@ body {
 
 
 <!-- =====================================================
-     NEW CALL SCREEN
+     BUBU CALL SCREEN
+     NO EXTRA "SOMEONE IS CALLING" SCREEN
 ===================================================== -->
 
 <section
     id="callScreen"
     class="call-screen">
 
-    <div class="call-small">
-        INCOMING CALL ❤️
-    </div>
+    <div class="call-content">
 
-    <h1 class="call-title">
-        Someone is calling...
-    </h1>
-
-    <div class="call-name">
-        BUBU 📱❤️
-    </div>
-
-
-    <div class="phone-card">
-
-        <div class="phone-icon">
-            📞
+        <div class="call-name">
+            Bubu <span>♥</span>
         </div>
 
         <div class="calling-text">
-            Bubu is calling you...
+            Calling...
         </div>
 
+
+        <!--
+             This is the Bubu visual area.
+
+             If you later upload the exact Bubu image
+             to GitHub, it can be placed here.
+        -->
 
         <div
-            id="swipeArea"
-            class="swipe-area">
+            class="bubu-character"
+            aria-label="Bubu">
 
-            <div class="swipe-text">
-                SWIPE TO ANSWER →
+            🐼
+
+        </div>
+
+
+        <!-- DECLINE / ACCEPT -->
+
+        <div class="call-actions">
+
+            <div class="call-action">
+
+                <div
+                    class="call-action-circle decline-circle">
+
+                    ☎
+
+                </div>
+
+                <span>
+                    Decline
+                </span>
+
             </div>
 
-            <div
-                id="swipeHandle"
-                class="swipe-handle">
 
-                📞
+            <div class="call-action">
+
+                <div
+                    class="call-action-circle accept-circle">
+
+                    ☎
+
+                </div>
+
+                <span>
+                    Accept
+                </span>
 
             </div>
 
         </div>
 
 
-        <div class="call-hint">
-            Swipe the call to answer ❤️
+        <!-- SWIPE TO ANSWER -->
+
+        <div
+            id="swipeAnswerArea"
+            class="swipe-answer-area">
+
+            <div class="swipe-answer-text">
+
+                SWIPE TO ANSWER →
+
+            </div>
+
+
+            <div
+                id="swipeAnswerHandle"
+                class="swipe-answer-handle">
+
+                ☎
+
+            </div>
+
+        </div>
+
+
+        <div class="swipe-note">
+
+            Swipe to lift the call ❤️
+
         </div>
 
     </div>
@@ -1682,7 +1911,7 @@ body {
 
 <section
     id="callingVideoScreen"
-    class="video-screen">
+    class="calling-video-screen">
 
     <video
         id="callingVideo"
@@ -1822,7 +2051,7 @@ body {
 
 
 <!-- =====================================================
-     FINAL BUBU FLYING VIDEO
+     FINAL BUBU VIDEO
 ===================================================== -->
 
 <section
@@ -1845,7 +2074,7 @@ body {
 
 
 <!-- =====================================================
-     PRAYER MUSIC
+     PRAYER AUDIO
 ===================================================== -->
 
 <audio
@@ -1860,7 +2089,7 @@ body {
 
 
 <!-- =====================================================
-     NEW BUBU WISH AUDIO
+     NEW HAPPY BIRTHDAY AUDIO
 ===================================================== -->
 
 <audio
@@ -1875,7 +2104,6 @@ body {
 
 
 <script>
-
 
 /* =========================================================
    SCREEN REFERENCES
@@ -1935,7 +2163,7 @@ const celebrateButton =
 
 
 /* =========================================================
-   AUDIO / VIDEO REFERENCES
+   AUDIO / VIDEO
 ========================================================= */
 
 const birthdaySong =
@@ -1970,23 +2198,8 @@ const doorFrame =
 
 
 /* =========================================================
-   SWIPE REFERENCES
-========================================================= */
-
-const swipeArea =
-    document.getElementById(
-        "swipeArea"
-    );
-
-const swipeHandle =
-    document.getElementById(
-        "swipeHandle"
-    );
-
-
-/* =========================================================
    READY BUTTON
-   MOVES 3 RANDOM TIMES
+   MOVES 3 TIMES
 ========================================================= */
 
 let readyMoves = 0;
@@ -2004,6 +2217,7 @@ function moveReadyButton() {
 
     const margin = 25;
 
+
     const maxX =
         Math.max(
             margin,
@@ -2012,6 +2226,7 @@ function moveReadyButton() {
             margin
         );
 
+
     const maxY =
         Math.max(
             margin,
@@ -2019,6 +2234,7 @@ function moveReadyButton() {
             rect.height -
             margin
         );
+
 
     let randomX;
     let randomY;
@@ -2090,7 +2306,7 @@ function moveReadyButton() {
 
 
 /* =========================================================
-   READY BUTTON CLICK
+   READY BUTTON
 ========================================================= */
 
 readyButton.addEventListener(
@@ -2177,7 +2393,7 @@ goButton.addEventListener(
 
 
 /* =========================================================
-   PRAYER SONG FINISHED
+   PRAYER AUDIO FINISHED
 ========================================================= */
 
 birthdaySong.addEventListener(
@@ -2193,43 +2409,44 @@ birthdaySong.addEventListener(
 
 
 /* =========================================================
-   START CELEBRATING
-   OPENS CALL SCREEN
+   LET'S START CELEBRATING
+   → CALL SCREEN
 ========================================================= */
 
 celebrateButton.addEventListener(
     "click",
     function () {
 
-        /* Stop prayer music */
-
         birthdaySong.pause();
 
         birthdaySong.currentTime = 0;
 
-
-        /* Stop any old birthday audio */
 
         bubuWishAudio.pause();
 
         bubuWishAudio.currentTime = 0;
 
 
-        /* Hide prayer */
-
         screen3.classList.remove(
             "active"
         );
 
 
-        /* Show incoming call */
+        /*
+         * IMPORTANT:
+         *
+         * We do NOT play the calling video here.
+         *
+         * First the Bubu call screen appears.
+         *
+         * The calling video starts only AFTER
+         * the user swipes to answer.
+         */
 
         callScreen.classList.add(
             "active"
         );
 
-
-        /* Reset swipe */
 
         resetSwipe();
 
@@ -2241,20 +2458,31 @@ celebrateButton.addEventListener(
    SWIPE TO ANSWER
 ========================================================= */
 
-let isDragging = false;
+const swipeAnswerArea =
+    document.getElementById(
+        "swipeAnswerArea"
+    );
 
-let startX = 0;
+const swipeAnswerHandle =
+    document.getElementById(
+        "swipeAnswerHandle"
+    );
 
-let currentX = 0;
 
-let swipeCompleted = false;
+let isSwiping = false;
+
+let swipeStartX = 0;
+
+let swipeStartLeft = 4;
+
+let callAnswered = false;
 
 
-function getMaxSwipe() {
+function getSwipeMaximum() {
 
     return (
-        swipeArea.clientWidth -
-        swipeHandle.offsetWidth -
+        swipeAnswerArea.clientWidth -
+        swipeAnswerHandle.offsetWidth -
         8
     );
 
@@ -2263,23 +2491,24 @@ function getMaxSwipe() {
 
 function resetSwipe() {
 
-    isDragging = false;
+    isSwiping = false;
 
-    swipeCompleted = false;
+    callAnswered = false;
 
-    swipeHandle.style.left = "4px";
+    swipeAnswerHandle.style.left =
+        "4px";
 
 }
 
 
 function startSwipe(event) {
 
-    if (swipeCompleted) {
+    if (callAnswered) {
         return;
     }
 
 
-    isDragging = true;
+    isSwiping = true;
 
 
     const point =
@@ -2288,11 +2517,13 @@ function startSwipe(event) {
         : event;
 
 
-    startX = point.clientX;
+    swipeStartX =
+        point.clientX;
 
-    currentX =
+
+    swipeStartLeft =
         parseFloat(
-            swipeHandle.style.left
+            swipeAnswerHandle.style.left
         ) || 4;
 
 
@@ -2305,7 +2536,7 @@ function startSwipe(event) {
 
 function moveSwipe(event) {
 
-    if (!isDragging) {
+    if (!isSwiping) {
         return;
     }
 
@@ -2316,16 +2547,18 @@ function moveSwipe(event) {
         : event;
 
 
-    const difference =
-        point.clientX - startX;
+    const distance =
+        point.clientX -
+        swipeStartX;
 
 
     let newLeft =
-        currentX + difference;
+        swipeStartLeft +
+        distance;
 
 
-    const max =
-        getMaxSwipe();
+    const maximum =
+        getSwipeMaximum();
 
 
     newLeft =
@@ -2333,21 +2566,21 @@ function moveSwipe(event) {
             4,
             Math.min(
                 newLeft,
-                max
+                maximum
             )
         );
 
 
-    swipeHandle.style.left =
+    swipeAnswerHandle.style.left =
         newLeft + "px";
 
 
     if (
         newLeft >=
-        max * 0.88
+        maximum * .88
     ) {
 
-        completeSwipe();
+        answerCall();
 
     }
 
@@ -2361,39 +2594,40 @@ function moveSwipe(event) {
 
 function endSwipe() {
 
-    if (!isDragging) {
+    if (!isSwiping) {
         return;
     }
 
 
-    isDragging = false;
+    isSwiping = false;
 
 
-    if (swipeCompleted) {
+    if (callAnswered) {
         return;
     }
 
 
-    const max =
-        getMaxSwipe();
+    const maximum =
+        getSwipeMaximum();
 
 
-    const position =
+    const currentLeft =
         parseFloat(
-            swipeHandle.style.left
+            swipeAnswerHandle.style.left
         ) || 4;
 
 
     if (
-        position >=
-        max * 0.88
+        currentLeft >=
+        maximum * .88
     ) {
 
-        completeSwipe();
+        answerCall();
 
-    } else {
+    }
+    else {
 
-        swipeHandle.style.left =
+        swipeAnswerHandle.style.left =
             "4px";
 
     }
@@ -2402,27 +2636,28 @@ function endSwipe() {
 
 
 /* =========================================================
-   SWIPE COMPLETE
+   ANSWER CALL
+   → BUBU CALLING VIDEO
 ========================================================= */
 
-function completeSwipe() {
+function answerCall() {
 
-    if (swipeCompleted) {
+    if (callAnswered) {
         return;
     }
 
 
-    swipeCompleted = true;
+    callAnswered = true;
 
-    isDragging = false;
-
-
-    const max =
-        getMaxSwipe();
+    isSwiping = false;
 
 
-    swipeHandle.style.left =
-        max + "px";
+    const maximum =
+        getSwipeMaximum();
+
+
+    swipeAnswerHandle.style.left =
+        maximum + "px";
 
 
     setTimeout(
@@ -2447,7 +2682,7 @@ function completeSwipe() {
                 function(error) {
 
                     console.error(
-                        "Bubu calling video error:",
+                        "bubu calling.mp4 error:",
                         error
                     );
 
@@ -2455,17 +2690,17 @@ function completeSwipe() {
             );
 
         },
-        350
+        300
     );
 
 }
 
 
 /* =========================================================
-   MOUSE SWIPE
+   MOUSE
 ========================================================= */
 
-swipeHandle.addEventListener(
+swipeAnswerHandle.addEventListener(
     "mousedown",
     startSwipe
 );
@@ -2482,10 +2717,10 @@ document.addEventListener(
 
 
 /* =========================================================
-   TOUCH SWIPE
+   TOUCH
 ========================================================= */
 
-swipeHandle.addEventListener(
+swipeAnswerHandle.addEventListener(
     "touchstart",
     startSwipe,
     {
@@ -2524,18 +2759,17 @@ callingVideo.addEventListener(
         );
 
 
+        /*
+         * Happy Birthday screen appears FIRST.
+         */
+
         newBirthdayScreen.classList.add(
             "active"
         );
 
 
         /*
-         * NEW AUDIO:
-         *
-         * bubu-wish-audio.mp3
-         *
-         * Starts ONLY when Happy Birthday
-         * screen appears.
+         * Then the NEW audio starts.
          */
 
         bubuWishAudio.pause();
@@ -2547,7 +2781,7 @@ callingVideo.addEventListener(
             function(error) {
 
                 console.error(
-                    "Bubu wish audio error:",
+                    "bubu-wish-audio.mp3 error:",
                     error
                 );
 
@@ -2559,7 +2793,7 @@ callingVideo.addEventListener(
 
 
 /* =========================================================
-   HAPPY BIRTHDAY AUDIO FINISHED
+   BUBU WISH AUDIO FINISHED
    → DOOR
 ========================================================= */
 
@@ -2586,12 +2820,15 @@ bubuWishAudio.addEventListener(
             "opening"
         );
 
+
+        doorOpening = false;
+
     }
 );
 
 
 /* =========================================================
-   DOOR CLICK / TOUCH
+   DOOR
 ========================================================= */
 
 let doorOpening = false;
@@ -2634,7 +2871,7 @@ function openDoor() {
                 function(error) {
 
                     console.error(
-                        "Bubu video error:",
+                        "happy bday.mp4 error:",
                         error
                     );
 
@@ -2649,7 +2886,7 @@ function openDoor() {
 
 
 /* =========================================================
-   MOUSE CLICK
+   DOOR CLICK
 ========================================================= */
 
 doorFrame.addEventListener(
@@ -2659,7 +2896,7 @@ doorFrame.addEventListener(
 
 
 /* =========================================================
-   MOBILE TOUCH
+   DOOR TOUCH
 ========================================================= */
 
 doorFrame.addEventListener(
@@ -2678,7 +2915,7 @@ doorFrame.addEventListener(
 
 
 /* =========================================================
-   BUBU VIDEO FINISHED
+   FINAL VIDEO
 ========================================================= */
 
 bubuVideo.addEventListener(
