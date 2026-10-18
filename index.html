@@ -7,6 +7,9 @@
 <title>Birthday Surprise ❤️</title>
 
 <style>
+/* =========================================================
+   RESET
+========================================================= */
 
 * {
     box-sizing: border-box;
@@ -18,17 +21,20 @@ html,
 body {
     width: 100%;
     min-height: 100%;
+}
+
+body {
     overflow-x: hidden;
 
     background:
         radial-gradient(
-            circle at 50% 45%,
+            circle at 50% 42%,
             #351044 0%,
             #19051f 38%,
             #08030d 100%
         );
 
-    color: white;
+    color: #ffffff;
 
     font-family:
         Georgia,
@@ -37,9 +43,9 @@ body {
 }
 
 
-/* =====================================================
-   COMMON SCREEN
-===================================================== */
+/* =========================================================
+   SCREEN
+========================================================= */
 
 .screen {
     position: relative;
@@ -62,9 +68,9 @@ body {
 }
 
 
-/* =====================================================
+/* =========================================================
    STARS
-===================================================== */
+========================================================= */
 
 .screen::before {
     content: "";
@@ -78,12 +84,12 @@ body {
     background-image:
         radial-gradient(
             circle,
-            rgba(255,255,255,.8) 1px,
+            rgba(255,255,255,0.8) 1px,
             transparent 1.5px
         ),
         radial-gradient(
             circle,
-            rgba(255,255,255,.5) 1px,
+            rgba(255,255,255,0.5) 1px,
             transparent 1.5px
         );
 
@@ -95,20 +101,22 @@ body {
         20px 30px,
         90px 100px;
 
-    opacity: .45;
+    opacity: 0.45;
 }
 
 
-/* =====================================================
+/* =========================================================
    SCREEN 1
-===================================================== */
+========================================================= */
 
 #screen1 {
     padding: 40px 20px;
 }
 
-.first-content {
 
+/* Main content */
+
+.first-content {
     position: relative;
 
     z-index: 2;
@@ -122,42 +130,41 @@ body {
     align-items: center;
 }
 
-.small-heading {
 
+/* Small heading */
+
+.small-heading {
     font-size: 13px;
 
     letter-spacing: 5px;
 
     margin-bottom: 18px;
 
-    opacity: .9;
+    opacity: 0.9;
 }
 
 
+/* Main title */
+
 .main-title {
+    font-size: clamp(55px, 8vw, 105px);
 
-    font-size:
-        clamp(
-            55px,
-            8vw,
-            105px
-        );
-
-    line-height: .88;
+    line-height: 0.88;
 
     font-weight: bold;
 
     letter-spacing: 1px;
 
     text-shadow:
-        0 0 8px rgba(255,255,255,.8),
-        0 0 22px rgba(213,105,255,.8),
-        0 0 40px rgba(213,105,255,.45);
+        0 0 8px rgba(255,255,255,0.8),
+        0 0 22px rgba(213,105,255,0.8),
+        0 0 40px rgba(213,105,255,0.45);
 }
 
 
-.subtitle {
+/* Subtitle */
 
+.subtitle {
     margin-top: 30px;
 
     max-width: 650px;
@@ -168,8 +175,9 @@ body {
 }
 
 
-.question {
+/* Question */
 
+.question {
     margin-top: 34px;
 
     font-size: 23px;
@@ -180,34 +188,45 @@ body {
 }
 
 
-/* =====================================================
+/* =========================================================
+   READY BUTTON AREA
+
+   IMPORTANT:
+   The button gets its own real space below the question.
+   This prevents it from overlapping the text.
+========================================================= */
+
+.ready-area {
+    position: relative;
+
+    width: 100%;
+
+    height: 75px;
+
+    margin-top: 20px;
+
+    z-index: 50;
+}
+
+
+/* =========================================================
    READY BUTTON
-===================================================== */
+========================================================= */
 
 #readyButton {
-
     position: absolute;
 
     left: 50%;
 
-    /*
-       ORIGINAL POSITION
+    top: 50%;
 
-       This is deliberately BELOW
-       the question so it doesn't overlap.
-    */
-
-    top: calc(50% + 220px);
-
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
 
     min-width: 130px;
 
     padding: 13px 25px;
 
-    border:
-        1px solid
-        rgba(255,255,255,.6);
+    border: 1px solid rgba(255,255,255,0.6);
 
     border-radius: 40px;
 
@@ -218,7 +237,7 @@ body {
             #9f42e7
         );
 
-    color: white;
+    color: #ffffff;
 
     font-family:
         Georgia,
@@ -232,55 +251,52 @@ body {
     cursor: pointer;
 
     box-shadow:
-        0 0 12px rgba(226,80,255,.8),
-        0 0 25px rgba(226,80,255,.45);
+        0 0 12px rgba(226,80,255,0.8),
+        0 0 25px rgba(226,80,255,0.45);
 
-    z-index: 50;
+    z-index: 100;
 
     transition:
-        left .55s cubic-bezier(.2,.8,.2,1),
-        right .55s cubic-bezier(.2,.8,.2,1),
-        top .55s cubic-bezier(.2,.8,.2,1),
-        transform .55s cubic-bezier(.2,.8,.2,1);
+        left 0.55s cubic-bezier(0.2,0.8,0.2,1),
+        right 0.55s cubic-bezier(0.2,0.8,0.2,1),
+        top 0.55s cubic-bezier(0.2,0.8,0.2,1),
+        transform 0.55s cubic-bezier(0.2,0.8,0.2,1);
 
     -webkit-tap-highlight-color: transparent;
 
     touch-action: manipulation;
 }
 
-
 #readyButton:hover {
-
     box-shadow:
         0 0 18px rgba(226,80,255,1),
-        0 0 35px rgba(226,80,255,.65);
+        0 0 35px rgba(226,80,255,0.65);
 }
 
 
-/* =====================================================
-   FIRST ESCAPE
-   TOP CENTER
-===================================================== */
+/* =========================================================
+   READY BUTTON - TOP CENTER
+========================================================= */
 
 #readyButton.top-center {
+    position: fixed;
 
     left: 50%;
 
-    right: auto;
-
     top: 25px;
 
-    transform:
-        translateX(-50%);
+    right: auto;
+
+    transform: translateX(-50%);
 }
 
 
-/* =====================================================
-   SECOND ESCAPE
-   TOP RIGHT
-===================================================== */
+/* =========================================================
+   READY BUTTON - TOP RIGHT
+========================================================= */
 
 #readyButton.top-right {
+    position: fixed;
 
     left: auto;
 
@@ -292,19 +308,16 @@ body {
 }
 
 
-/* =====================================================
+/* =========================================================
    SCREEN 2
-===================================================== */
+========================================================= */
 
 #screen2 {
-
-    padding:
-        30px 20px;
+    padding: 30px 20px;
 }
 
 
 .second-content {
-
     position: relative;
 
     z-index: 2;
@@ -314,26 +327,19 @@ body {
 
 
 .second-title {
-
-    font-size:
-        clamp(
-            40px,
-            6vw,
-            70px
-        );
+    font-size: clamp(40px, 6vw, 70px);
 
     line-height: 1.1;
 
     font-weight: bold;
 
     text-shadow:
-        0 0 10px rgba(255,255,255,.8),
-        0 0 25px rgba(213,105,255,.7);
+        0 0 10px rgba(255,255,255,0.8),
+        0 0 25px rgba(213,105,255,0.7);
 }
 
 
 .second-text {
-
     margin-top: 22px;
 
     font-size: 22px;
@@ -344,15 +350,11 @@ body {
 
 .go-button,
 .celebrate-button {
-
     margin-top: 35px;
 
-    padding:
-        14px 28px;
+    padding: 14px 28px;
 
-    border:
-        1px solid
-        rgba(255,255,255,.6);
+    border: 1px solid rgba(255,255,255,0.6);
 
     border-radius: 40px;
 
@@ -363,7 +365,7 @@ body {
             #9f42e7
         );
 
-    color: white;
+    color: #ffffff;
 
     font-family:
         Georgia,
@@ -377,34 +379,36 @@ body {
     cursor: pointer;
 
     box-shadow:
-        0 0 15px rgba(226,80,255,.8),
-        0 0 30px rgba(226,80,255,.4);
+        0 0 15px rgba(226,80,255,0.8),
+        0 0 30px rgba(226,80,255,0.4);
 
     -webkit-tap-highlight-color: transparent;
 
     touch-action: manipulation;
 }
 
+.go-button:hover,
+.celebrate-button:hover {
+    box-shadow:
+        0 0 18px rgba(226,80,255,1),
+        0 0 35px rgba(226,80,255,0.65);
+}
 
-/* =====================================================
+
+/* =========================================================
    SCREEN 3 - PRAYER
-===================================================== */
+========================================================= */
 
 #screen3 {
+    padding: 50px 20px;
 
-    padding:
-        50px 20px;
+    align-items: flex-start;
 
-    align-items:
-        flex-start;
-
-    overflow-y:
-        auto;
+    overflow-y: auto;
 }
 
 
 .prayer-container {
-
     position: relative;
 
     z-index: 2;
@@ -417,54 +421,56 @@ body {
 }
 
 
-.assalam {
+/* Prayer heading */
 
-    font-size:
-        clamp(
-            30px,
-            4vw,
-            50px
-        );
+.assalam {
+    font-size: clamp(30px, 4vw, 50px);
 
     line-height: 1.25;
 
     font-weight: bold;
 
     text-shadow:
-        0 0 10px rgba(255,255,255,.8),
-        0 0 25px rgba(213,105,255,.7);
+        0 0 10px rgba(255,255,255,0.8),
+        0 0 25px rgba(213,105,255,0.7);
 }
 
+
+/* Prayer */
 
 .prayer {
-
     margin-top: 35px;
 
-    font-size:
-        clamp(
-            17px,
-            2vw,
-            23px
-        );
+    font-size: clamp(17px, 2vw, 23px);
 
-    line-height: 1.8;
+    line-height: 1.85;
 }
 
+
+/* Arabic / opening */
 
 .prayer-arabic {
-
-    margin-bottom: 25px;
+    margin-bottom: 30px;
 }
 
 
-.prayer-meaning {
+/* Telugu prayer */
 
+.prayer-telugu {
     margin-top: 25px;
 }
 
 
-.ameen {
+/* Individual prayer paragraph */
 
+.prayer p {
+    margin-bottom: 18px;
+}
+
+
+/* Aameen */
+
+.ameen {
     margin-top: 35px;
 
     font-size: 28px;
@@ -473,96 +479,131 @@ body {
 }
 
 
-#celebrateButton {
+/* Celebrate button */
 
+#celebrateButton {
     display: none;
 
     margin-top: 40px;
 }
 
 
-/* =====================================================
+/* =========================================================
    MOBILE
-===================================================== */
+========================================================= */
 
 @media (max-width: 600px) {
 
-    .small-heading {
+    #screen1 {
+        padding:
+            35px 18px;
+    }
 
+
+    .small-heading {
         font-size: 10px;
 
         letter-spacing: 3px;
     }
 
 
-    .subtitle {
-
-        font-size: 15px;
-    }
-
-
-    .question {
-
-        font-size: 19px;
-    }
-
-
-    /*
-       Original button position
-       on mobile
-    */
-
-    #readyButton {
-
-        top:
-            calc(
-                50% + 175px
+    .main-title {
+        font-size:
+            clamp(
+                48px,
+                14vw,
+                75px
             );
     }
 
 
+    .subtitle {
+        margin-top: 25px;
+
+        font-size: 15px;
+
+        line-height: 1.5;
+    }
+
+
+    .question {
+        margin-top: 28px;
+
+        font-size: 19px;
+
+        line-height: 1.45;
+    }
+
+
+    .ready-area {
+        height: 70px;
+
+        margin-top: 18px;
+    }
+
+
+    #readyButton {
+        min-width: 125px;
+
+        padding:
+            12px 22px;
+
+        font-size: 12px;
+    }
+
+
     #readyButton.top-center {
-
-        left: 50%;
-
-        right: auto;
-
         top: 15px;
-
-        transform:
-            translateX(-50%);
     }
 
 
     #readyButton.top-right {
-
-        left: auto;
-
         right: 15px;
 
         top: 15px;
+    }
 
-        transform: none;
+
+    .second-title {
+        font-size: 42px;
     }
 
 
     .second-text {
-
         font-size: 19px;
+
+        line-height: 1.5;
     }
 
 
-    .prayer {
+    .prayer-container {
+        padding-top: 35px;
 
-        font-size: 16px;
-
-        line-height: 1.7;
+        padding-bottom: 80px;
     }
 
 
     .assalam {
-
         font-size: 29px;
+
+        line-height: 1.3;
+    }
+
+
+    .prayer {
+        font-size: 17px;
+
+        line-height: 1.8;
+    }
+
+
+    .prayer p {
+        margin-bottom: 16px;
+    }
+
+
+    .ameen {
+        font-size: 25px;
     }
 }
 
@@ -573,9 +614,9 @@ body {
 <body>
 
 
-<!-- =====================================================
+<!-- =========================================================
      SCREEN 1
-===================================================== -->
+========================================================= -->
 
 <section
     id="screen1"
@@ -616,25 +657,37 @@ body {
 
         </div>
 
+
+        <!--
+            The button has its own dedicated area.
+            Therefore it cannot cover the question.
+        -->
+
+        <div
+            id="readyArea"
+            class="ready-area"
+        >
+
+            <button
+                id="readyButton"
+                type="button"
+            >
+
+                I'M READY ✨
+
+            </button>
+
+        </div>
+
     </div>
-
-
-    <button
-        id="readyButton"
-        type="button"
-    >
-
-        I'M READY ✨
-
-    </button>
 
 </section>
 
 
 
-<!-- =====================================================
+<!-- =========================================================
      SCREEN 2
-===================================================== -->
+========================================================= -->
 
 <section
     id="screen2"
@@ -642,6 +695,7 @@ body {
 >
 
     <div class="second-content">
+
 
         <h1 class="second-title">
 
@@ -669,15 +723,16 @@ body {
 
         </button>
 
+
     </div>
 
 </section>
 
 
 
-<!-- =====================================================
-     SCREEN 3 - PRAYER
-===================================================== -->
+<!-- =========================================================
+     SCREEN 3 - WISH / PRAYER
+========================================================= -->
 
 <section
     id="screen3"
@@ -699,72 +754,45 @@ body {
         <div class="prayer">
 
 
+            <!-- Opening -->
+
             <div class="prayer-arabic">
 
-
                 <p>
-                    Bismillahir Rahmanir Raheem.
+                    Bismillahir Rahmanir Raheem. ❤️
                 </p>
-
-
-                <p>
-                    Alhamdulillahi Rabbil Aalameen.
-                </p>
-
-
-                <p>
-                    Allahumma barik lahu fi umrihi,
-                    warzuqhu sehat, sa'adat aur barkat.
-                </p>
-
-
-                <p>
-                    Waj'al hayat-hu ma'mooratan
-                    bil-imaan wal-khair wan-najah.
-                </p>
-
-
-                <p>
-                    Wahfazhu min kulli sharr,
-                    waqbal du'aa'ahu.
-                </p>
-
 
             </div>
 
 
+            <!-- Natural Telugu -->
 
-            <div class="prayer-meaning">
+            <div class="prayer-telugu">
 
 
                 <p>
-                    Dayagala, karunamayudaina Allah perutho
-                    prarambhistunnam.
+                    సర్వలోకాల ప్రభువైన అల్లాహ్‌కే
+                    అన్ని ప్రశంసలు చెందుతాయి.
                 </p>
 
 
                 <p>
-                    Prashamsalanni prapanchala Prabhuvaina
-                    Allah ke chendutayi.
+                    అల్లాహ్ అతని వయస్సులో బరకత్ ప్రసాదించి,
+                    మంచి ఆరోగ్యం, సంతోషం, శ్రేయస్సు
+                    మరియు సమృద్ధిని అనుగ్రహించాలి.
                 </p>
 
 
                 <p>
-                    Allah, athani vayassulo barkat ivvu,
-                    manchi aarogyam, santosham mariyu
-                    samruddhi ivvu.
+                    అతని జీవితం ఇమాన్‌తో,
+                    మంచి పనులతో మరియు విజయాలతో
+                    నిండిపోవాలి.
                 </p>
 
 
                 <p>
-                    Athani jeevithanni imaan, manchi mariyu
-                    vijayalatho nimpandi.
-                </p>
-
-
-                <p>
-                    Prathi chedu nunchi athanni kapadandi,
-                    athani manchi prarthanalanu sweekarinchandi.
+                    అల్లాహ్ అతన్ని ప్రతి చెడు నుండి కాపాడి,
+                    అతని మంచి దువాలను స్వీకరించాలి.
                 </p>
 
 
@@ -776,10 +804,9 @@ body {
 
         <div class="ameen">
 
-            Aameen 🤲 ❤️
+            Aameen 🤲❤️
 
         </div>
-
 
 
         <button
@@ -799,9 +826,13 @@ body {
 
 
 
-<!-- =====================================================
+<!-- =========================================================
      BIRTHDAY SONG
-===================================================== -->
+
+     IMPORTANT:
+     Keep the MP3 filename exactly the same as the
+     file in your GitHub repository.
+========================================================= -->
 
 <audio
     id="birthdaySong"
@@ -820,75 +851,57 @@ body {
 
 <script>
 
-/* =====================================================
+/* =========================================================
    ELEMENTS
-===================================================== */
+========================================================= */
 
 const screen1 =
-    document.getElementById(
-        "screen1"
-    );
-
+    document.getElementById("screen1");
 
 const screen2 =
-    document.getElementById(
-        "screen2"
-    );
-
+    document.getElementById("screen2");
 
 const screen3 =
-    document.getElementById(
-        "screen3"
-    );
+    document.getElementById("screen3");
 
+const readyArea =
+    document.getElementById("readyArea");
 
 const readyButton =
-    document.getElementById(
-        "readyButton"
-    );
-
+    document.getElementById("readyButton");
 
 const goButton =
-    document.getElementById(
-        "goButton"
-    );
-
+    document.getElementById("goButton");
 
 const celebrateButton =
-    document.getElementById(
-        "celebrateButton"
-    );
-
+    document.getElementById("celebrateButton");
 
 const birthdaySong =
-    document.getElementById(
-        "birthdaySong"
-    );
+    document.getElementById("birthdaySong");
 
 
-
-/* =====================================================
+/* =========================================================
    READY BUTTON STATES
 
-   0 = ORIGINAL
+   0 = Original position
 
-   1 = TOP CENTER
+   1 = Top center
 
-   2 = ORIGINAL AFTER FIRST ESCAPE
+   2 = Original position
 
-   3 = TOP RIGHT
+   3 = Top right
 
-   4 = ORIGINAL AFTER SECOND ESCAPE
+   4 = Original position
 
-   5 = FINISHED
-===================================================== */
+   5 = Finished
+========================================================= */
 
 let readyStage = 0;
 
 
-/* =====================================================
-   MOVE TO TOP CENTER
-===================================================== */
+/* =========================================================
+   MOVE BUTTON TO TOP CENTER
+========================================================= */
 
 function moveToTopCenter() {
 
@@ -908,9 +921,9 @@ function moveToTopCenter() {
 }
 
 
-/* =====================================================
+/* =========================================================
    RETURN FROM TOP CENTER
-===================================================== */
+========================================================= */
 
 function returnFromTopCenter() {
 
@@ -926,9 +939,9 @@ function returnFromTopCenter() {
 }
 
 
-/* =====================================================
-   MOVE TO TOP RIGHT
-===================================================== */
+/* =========================================================
+   MOVE BUTTON TO TOP RIGHT
+========================================================= */
 
 function moveToTopRight() {
 
@@ -948,9 +961,9 @@ function moveToTopRight() {
 }
 
 
-/* =====================================================
+/* =========================================================
    RETURN FROM TOP RIGHT
-===================================================== */
+========================================================= */
 
 function returnFromTopRight() {
 
@@ -966,15 +979,37 @@ function returnFromTopRight() {
 }
 
 
-/* =====================================================
-   CURSOR APPROACH
+/* =========================================================
+   GET BUTTON CENTER
+========================================================= */
 
-   Only the ORIGINAL button reacts.
+function getButtonCenter() {
 
-   This prevents the button from
-   jumping around while it is already
-   at the top.
-===================================================== */
+    const rect =
+        readyButton.getBoundingClientRect();
+
+    return {
+        x:
+            rect.left +
+            rect.width / 2,
+
+        y:
+            rect.top +
+            rect.height / 2
+    };
+}
+
+
+/* =========================================================
+   CHECK CURSOR APPROACH
+
+   The button only escapes when it is in its
+   ORIGINAL position.
+
+   Once it reaches top center or top right,
+   the cursor cannot accidentally make it
+   jump somewhere else.
+========================================================= */
 
 function checkCursorApproach(
     x,
@@ -982,43 +1017,38 @@ function checkCursorApproach(
 ) {
 
     if (
-        !screen1.classList.contains(
-            "active"
-        )
+        !screen1.classList.contains("active")
     ) {
-
         return;
     }
 
 
-    const rect =
-        readyButton.getBoundingClientRect();
+    if (
+        readyStage !== 0 &&
+        readyStage !== 2
+    ) {
+        return;
+    }
 
 
-    const centerX =
-        rect.left +
-        rect.width / 2;
-
-
-    const centerY =
-        rect.top +
-        rect.height / 2;
+    const center =
+        getButtonCenter();
 
 
     const distance =
         Math.hypot(
-            x - centerX,
-            y - centerY
+            x - center.x,
+            y - center.y
         );
 
 
     /*
-       FIRST APPROACH
+       FIRST ESCAPE
     */
 
     if (
         readyStage === 0 &&
-        distance < 150
+        distance < 145
     ) {
 
         moveToTopCenter();
@@ -1028,12 +1058,12 @@ function checkCursorApproach(
 
 
     /*
-       SECOND APPROACH
+       SECOND ESCAPE
     */
 
     if (
         readyStage === 2 &&
-        distance < 150
+        distance < 145
     ) {
 
         moveToTopRight();
@@ -1044,9 +1074,9 @@ function checkCursorApproach(
 }
 
 
-/* =====================================================
+/* =========================================================
    DESKTOP MOUSE
-===================================================== */
+========================================================= */
 
 document.addEventListener(
     "mousemove",
@@ -1061,9 +1091,9 @@ document.addEventListener(
 );
 
 
-/* =====================================================
+/* =========================================================
    MOBILE TOUCH
-===================================================== */
+========================================================= */
 
 document.addEventListener(
     "touchmove",
@@ -1073,7 +1103,6 @@ document.addEventListener(
             !event.touches ||
             !event.touches[0]
         ) {
-
             return;
         }
 
@@ -1094,9 +1123,9 @@ document.addEventListener(
 );
 
 
-/* =====================================================
+/* =========================================================
    READY BUTTON CLICK
-===================================================== */
+========================================================= */
 
 readyButton.addEventListener(
     "click",
@@ -1106,8 +1135,8 @@ readyButton.addEventListener(
         /*
            TOP CENTER
 
-           Click →
-           ORIGINAL POSITION
+           Click it →
+           Original position
         */
 
         if (
@@ -1123,10 +1152,10 @@ readyButton.addEventListener(
 
 
         /*
-           ORIGINAL AFTER FIRST ESCAPE
+           SECOND ORIGINAL POSITION
 
-           Click →
-           TOP RIGHT
+           Click/try to press it →
+           Top right
         */
 
         if (
@@ -1144,8 +1173,8 @@ readyButton.addEventListener(
         /*
            TOP RIGHT
 
-           Click →
-           ORIGINAL POSITION
+           Click it →
+           Original position
         */
 
         if (
@@ -1161,10 +1190,10 @@ readyButton.addEventListener(
 
 
         /*
-           ORIGINAL AFTER SECOND ESCAPE
+           FINAL ORIGINAL POSITION
 
-           Click →
-           SCREEN 2
+           Click it →
+           Screen 2
         */
 
         if (
@@ -1186,8 +1215,7 @@ readyButton.addEventListener(
 
 
         /*
-           Initial state:
-           don't allow accidental click.
+           Prevent accidental initial click.
         */
 
         event.preventDefault();
@@ -1196,9 +1224,9 @@ readyButton.addEventListener(
 );
 
 
-/* =====================================================
-   LET'S GO
-===================================================== */
+/* =========================================================
+   LET'S GO BUTTON
+========================================================= */
 
 goButton.addEventListener(
     "click",
@@ -1206,13 +1234,12 @@ goButton.addEventListener(
 
 
         /*
-           Show prayer first.
+           Move to prayer screen.
         */
 
         screen2.classList.remove(
             "active"
         );
-
 
         screen3.classList.add(
             "active"
@@ -1220,7 +1247,10 @@ goButton.addEventListener(
 
 
         /*
-           SONG STARTS HERE ONLY.
+           Start the song ONLY HERE.
+
+           The user has just clicked LET'S GO,
+           so this is an intentional user action.
         */
 
         birthdaySong.pause();
@@ -1250,14 +1280,15 @@ goButton.addEventListener(
                     function(error) {
 
                         console.log(
-                            "Browser blocked autoplay:",
+                            "Browser blocked playback:",
                             error
                         );
 
 
                         /*
-                           Retry on next
-                           user interaction.
+                           Fallback:
+                           another user interaction
+                           will try again.
                         */
 
                         document.body.addEventListener(
@@ -1277,16 +1308,15 @@ goButton.addEventListener(
 );
 
 
-/* =====================================================
+/* =========================================================
    SONG FALLBACK
-===================================================== */
+========================================================= */
 
 function startSongAgain() {
 
     if (
         !birthdaySong.paused
     ) {
-
         return;
     }
 
@@ -1315,9 +1345,9 @@ function startSongAgain() {
 }
 
 
-/* =====================================================
+/* =========================================================
    SONG FINISHED
-===================================================== */
+========================================================= */
 
 birthdaySong.addEventListener(
     "ended",
@@ -1330,9 +1360,9 @@ birthdaySong.addEventListener(
 );
 
 
-/* =====================================================
-   CELEBRATE
-===================================================== */
+/* =========================================================
+   CELEBRATE BUTTON
+========================================================= */
 
 celebrateButton.addEventListener(
     "click",
@@ -1346,9 +1376,9 @@ celebrateButton.addEventListener(
 );
 
 
-/* =====================================================
+/* =========================================================
    AUDIO ERROR
-===================================================== */
+========================================================= */
 
 birthdaySong.addEventListener(
     "error",
@@ -1362,7 +1392,6 @@ birthdaySong.addEventListener(
 );
 
 </script>
-
 
 </body>
 </html>
