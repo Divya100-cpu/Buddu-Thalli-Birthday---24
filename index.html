@@ -8,13 +8,51 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{width:100%;height:100%}
-body{overflow:hidden;font-family:Georgia,"Times New Roman",serif;background:#08020c;color:white}
+body{
+  overflow:hidden;
+  font-family:Georgia,"Times New Roman",serif;
+  background:#08020c;
+  color:white
+}
 
-.screen{position:fixed;inset:0;width:100%;height:100vh;display:none;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+.screen{
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100vh;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  overflow:hidden
+}
+
 .screen.active{display:flex}
 
-.balloon{position:fixed;width:52px;height:68px;border-radius:50%;opacity:.75;z-index:1;animation:floatBalloon 6s ease-in-out infinite}
-.balloon::after{content:"";position:absolute;width:1px;height:100px;left:50%;top:64px;background:rgba(255,255,255,.35)}
+/* =========================
+   BACKGROUND
+========================= */
+
+.balloon{
+  position:fixed;
+  width:52px;
+  height:68px;
+  border-radius:50%;
+  opacity:.75;
+  z-index:1;
+  animation:floatBalloon 6s ease-in-out infinite
+}
+
+.balloon::after{
+  content:"";
+  position:absolute;
+  width:1px;
+  height:100px;
+  left:50%;
+  top:64px;
+  background:rgba(255,255,255,.35)
+}
+
 .balloon1{left:5%;top:15%;background:#ff5c8a}
 .balloon2{left:15%;top:70%;background:#a855f7;animation-delay:1s}
 .balloon3{right:7%;top:18%;background:#ec4899;animation-delay:2s}
@@ -23,302 +61,638 @@ body{overflow:hidden;font-family:Georgia,"Times New Roman",serif;background:#080
 .balloon6{right:40%;top:82%;background:#c084fc;animation-delay:2.5s}
 
 @keyframes floatBalloon{
-0%,100%{transform:translateY(0) rotate(-3deg)}
-50%{transform:translateY(-18px) rotate(3deg)}
+  0%,100%{transform:translateY(0) rotate(-3deg)}
+  50%{transform:translateY(-18px) rotate(3deg)}
 }
 
-.heart{position:fixed;font-size:28px;opacity:.7;z-index:1;animation:floatHeart 7s ease-in-out infinite}
+.heart{
+  position:fixed;
+  font-size:28px;
+  opacity:.7;
+  z-index:1;
+  animation:floatHeart 7s ease-in-out infinite
+}
+
 .heart1{left:12%;top:40%}
 .heart2{right:12%;top:45%;animation-delay:1s}
 .heart3{left:27%;bottom:10%;animation-delay:2s}
 .heart4{right:28%;top:12%;animation-delay:3s}
 
 @keyframes floatHeart{
-0%,100%{transform:translateY(0);opacity:.5}
-50%{transform:translateY(-15px);opacity:.9}
+  0%,100%{transform:translateY(0);opacity:.5}
+  50%{transform:translateY(-15px);opacity:.9}
 }
+
+/* =========================
+   FIRST SCREEN
+========================= */
 
 #screen1{
-background:radial-gradient(circle at center,#42104f 0%,#210725 45%,#09020d 100%)
+  background:
+  radial-gradient(circle at center,#42104f 0%,#210725 45%,#09020d 100%)
 }
 
-.first-content{width:min(900px,92%);position:relative;z-index:5}
-.small-heading{font-size:14px;letter-spacing:5px;opacity:.8;margin-bottom:20px}
-.main-title{font-size:clamp(55px,8vw,105px);line-height:.94;font-weight:bold;text-shadow:0 0 10px rgba(255,255,255,.8),0 0 30px rgba(255,80,220,.4)}
-.subtitle{width:min(700px,95%);margin:30px auto 0;font-size:clamp(17px,2.2vw,24px);line-height:1.6;color:rgba(255,255,255,.88)}
-.question{margin-top:35px;font-size:clamp(19px,2.5vw,29px);line-height:1.45;font-weight:bold}
-.ready-area{margin-top:30px;min-height:70px}
+.first-content{
+  width:min(900px,92%);
+  position:relative;
+  z-index:5
+}
+
+.small-heading{
+  font-size:14px;
+  letter-spacing:5px;
+  opacity:.8;
+  margin-bottom:20px
+}
+
+.main-title{
+  font-size:clamp(55px,8vw,105px);
+  line-height:.94;
+  font-weight:bold;
+  text-shadow:
+  0 0 10px rgba(255,255,255,.8),
+  0 0 30px rgba(255,80,220,.4)
+}
+
+.subtitle{
+  width:min(700px,95%);
+  margin:30px auto 0;
+  font-size:clamp(17px,2.2vw,24px);
+  line-height:1.6;
+  color:rgba(255,255,255,.88)
+}
+
+.question{
+  margin-top:35px;
+  font-size:clamp(19px,2.5vw,29px);
+  line-height:1.45;
+  font-weight:bold
+}
+
+.ready-area{
+  margin-top:30px;
+  min-height:70px
+}
 
 #readyButton{
-border:1px solid rgba(255,255,255,.6);
-background:linear-gradient(135deg,#e85caf,#9f3edb);
-color:white;border-radius:999px;padding:15px 34px;
-font-family:Georgia,"Times New Roman",serif;font-size:14px;font-weight:bold;
-letter-spacing:1px;cursor:pointer;
-box-shadow:0 0 15px rgba(255,80,220,.45),0 0 30px rgba(180,70,230,.25)
+  border:1px solid rgba(255,255,255,.6);
+  background:linear-gradient(135deg,#e85caf,#9f3edb);
+  color:white;
+  border-radius:999px;
+  padding:15px 34px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:14px;
+  font-weight:bold;
+  letter-spacing:1px;
+  cursor:pointer;
+  box-shadow:
+  0 0 15px rgba(255,80,220,.45),
+  0 0 30px rgba(180,70,230,.25)
 }
+
+/* =========================
+   SECOND SCREEN
+========================= */
 
 #screen2{
-background:radial-gradient(circle at center,#42104f,#210725 50%,#09020d)
+  background:
+  radial-gradient(circle at center,#42104f,#210725 50%,#09020d)
 }
 
-.second-content{width:min(850px,92%);position:relative;z-index:5}
-.second-title{font-size:clamp(55px,8vw,100px);text-shadow:0 0 10px white,0 0 30px rgba(255,80,220,.4)}
-.second-text{margin-top:25px;font-size:clamp(18px,2.4vw,27px);line-height:1.6}
-
-.go-button,.celebrate-button{
-border:1px solid rgba(255,255,255,.6);
-background:linear-gradient(135deg,#e85caf,#9f3edb);
-color:white;border-radius:999px;padding:15px 34px;
-font-family:Georgia,"Times New Roman",serif;font-size:14px;font-weight:bold;
-letter-spacing:1px;cursor:pointer;
-box-shadow:0 0 15px rgba(255,80,220,.45);
-transition:transform .25s ease
+.second-content{
+  width:min(850px,92%);
+  position:relative;
+  z-index:5
 }
 
-.go-button{margin-top:32px}
-.go-button:hover,.celebrate-button:hover{transform:scale(1.05)}
+.second-title{
+  font-size:clamp(55px,8vw,100px);
+  text-shadow:
+  0 0 10px white,
+  0 0 30px rgba(255,80,220,.4)
+}
+
+.second-text{
+  margin-top:25px;
+  font-size:clamp(18px,2.4vw,27px);
+  line-height:1.6
+}
+
+.go-button,
+.celebrate-button{
+  border:1px solid rgba(255,255,255,.6);
+  background:linear-gradient(135deg,#e85caf,#9f3edb);
+  color:white;
+  border-radius:999px;
+  padding:15px 34px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:14px;
+  font-weight:bold;
+  letter-spacing:1px;
+  cursor:pointer;
+  box-shadow:0 0 15px rgba(255,80,220,.45);
+  transition:transform .25s ease
+}
+
+.go-button{
+  margin-top:32px
+}
+
+.go-button:hover,
+.celebrate-button:hover{
+  transform:scale(1.05)
+}
+
+/* =========================
+   PRAYER SCREEN
+========================= */
 
 #screen3{
-background:radial-gradient(circle at center,#42104f 0%,#210725 45%,#09020d 100%)
+  background:
+  radial-gradient(circle at center,#42104f 0%,#210725 45%,#09020d 100%)
 }
 
 .prayer-container{
-width:min(900px,94%);max-height:94vh;overflow-y:auto;
-position:relative;z-index:5;scrollbar-width:none
+  width:min(900px,94%);
+  max-height:94vh;
+  overflow-y:auto;
+  position:relative;
+  z-index:5;
+  scrollbar-width:none
 }
 
-.prayer-container::-webkit-scrollbar{display:none}
-.assalam{font-size:clamp(27px,4vw,48px);line-height:1.3;text-shadow:0 0 10px white,0 0 25px rgba(255,80,220,.35)}
-.prayer{margin:30px auto 0;width:min(800px,95%)}
-
-.roman-prayer p,.telugu-meaning p{
-margin:16px 0;font-size:clamp(17px,2vw,23px);line-height:1.7
+.prayer-container::-webkit-scrollbar{
+  display:none
 }
 
-.prayer-divider{margin:25px 0;font-size:25px}
-.ameen{margin-top:22px;font-size:30px;font-weight:bold}
+.assalam{
+  font-size:clamp(27px,4vw,48px);
+  line-height:1.3;
+  text-shadow:
+  0 0 10px white,
+  0 0 25px rgba(255,80,220,.35)
+}
+
+.prayer{
+  margin:30px auto 0;
+  width:min(800px,95%)
+}
+
+.roman-prayer p,
+.telugu-meaning p{
+  margin:16px 0;
+  font-size:clamp(17px,2vw,23px);
+  line-height:1.7
+}
+
+.prayer-divider{
+  margin:25px 0;
+  font-size:25px
+}
+
+.ameen{
+  margin-top:22px;
+  font-size:30px;
+  font-weight:bold
+}
 
 .celebrate-button{
-margin-top:28px;opacity:0;pointer-events:none
+  margin-top:28px;
+  opacity:0;
+  pointer-events:none
 }
 
-.celebrate-button.show{opacity:1;pointer-events:auto}
+.celebrate-button.show{
+  opacity:1;
+  pointer-events:auto
+}
+
+/* =========================
+   CALLING VIDEO
+========================= */
 
 #callingVideoScreen{
-position:fixed;inset:0;width:100%;height:100vh;
-display:none;align-items:center;justify-content:center;
-overflow:hidden;z-index:4000;background:#000
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100vh;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  z-index:4000;
+  background:#000
 }
 
-#callingVideoScreen.active{display:flex}
+#callingVideoScreen.active{
+  display:flex
+}
 
 #callingVideo{
-position:absolute;inset:0;width:100vw;height:100vh;
-object-fit:cover;display:block;background:#000
+  position:absolute;
+  inset:0;
+  width:100vw;
+  height:100vh;
+  object-fit:cover;
+  display:block;
+  background:#000
 }
 
 #hiddenAnswerArea{
-position:absolute;left:50%;bottom:45px;transform:translateX(-50%);
-width:145px;height:115px;z-index:20;background:transparent;
-border:none;outline:none;cursor:grab;touch-action:none;
-user-select:none;-webkit-user-select:none;
-display:flex;align-items:flex-end;justify-content:center
+  position:absolute;
+  left:50%;
+  bottom:45px;
+  transform:translateX(-50%);
+  width:145px;
+  height:115px;
+  z-index:20;
+  background:transparent;
+  border:none;
+  outline:none;
+  cursor:grab;
+  touch-action:none;
+  user-select:none;
+  -webkit-user-select:none;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center
 }
 
 #swipeUpHint{
-width:54px;height:54px;border-radius:50%;
-background:rgba(255,255,255,.10);
-border:1px solid rgba(255,255,255,.20);
-backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);
-display:flex;align-items:center;justify-content:center;
-font-size:22px;opacity:.35;
-animation:swipeUpHint 1.7s ease-in-out infinite;
-pointer-events:none
+  width:54px;
+  height:54px;
+  border-radius:50%;
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.20);
+  backdrop-filter:blur(5px);
+  -webkit-backdrop-filter:blur(5px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+  opacity:.35;
+  animation:swipeUpHint 1.7s ease-in-out infinite;
+  pointer-events:none
 }
 
 @keyframes swipeUpHint{
-0%,100%{transform:translateY(8px);opacity:.18}
-50%{transform:translateY(-8px);opacity:.5}
+  0%,100%{
+    transform:translateY(8px);
+    opacity:.18
+  }
+
+  50%{
+    transform:translateY(-8px);
+    opacity:.5
+  }
 }
 
-#hiddenAnswerArea.answered #swipeUpHint{opacity:0;pointer-events:none}
+#hiddenAnswerArea.answered #swipeUpHint{
+  opacity:0;
+  pointer-events:none
+}
+
+/* =========================
+   BIRTHDAY SCREEN
+========================= */
 
 #birthdayScreen{
-position:fixed;inset:0;width:100%;height:100vh;
-display:none;align-items:center;justify-content:center;
-text-align:center;overflow:hidden;z-index:4500;
-background:radial-gradient(circle at center,#42104f,#18051e 55%,#060208)
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100vh;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  overflow:hidden;
+  z-index:4500;
+  background:
+  radial-gradient(circle at center,#42104f,#18051e 55%,#060208)
 }
 
-#birthdayScreen.active{display:flex}
-.birthday-content{width:min(900px,92%);position:relative;z-index:5}
-.birthday-small{font-size:14px;letter-spacing:5px;opacity:.85;margin-bottom:20px}
+#birthdayScreen.active{
+  display:flex
+}
+
+.birthday-content{
+  width:min(900px,92%);
+  position:relative;
+  z-index:5
+}
+
+.birthday-small{
+  font-size:14px;
+  letter-spacing:5px;
+  opacity:.85;
+  margin-bottom:20px
+}
 
 .birthday-title{
-font-size:clamp(55px,8vw,105px);line-height:.95;font-weight:bold;
-text-shadow:0 0 10px white,0 0 25px rgba(255,80,220,.45),0 0 45px rgba(170,70,255,.3)
+  font-size:clamp(55px,8vw,105px);
+  line-height:.95;
+  font-weight:bold;
+  text-shadow:
+  0 0 10px white,
+  0 0 25px rgba(255,80,220,.45),
+  0 0 45px rgba(170,70,255,.3)
 }
 
 .birthday-name{
-margin-top:18px;font-size:clamp(32px,5vw,60px);
-color:#ffd1f1;font-weight:bold;text-shadow:0 0 15px rgba(255,100,220,.7)
+  margin-top:18px;
+  font-size:clamp(32px,5vw,60px);
+  color:#ffd1f1;
+  font-weight:bold;
+  text-shadow:0 0 15px rgba(255,100,220,.7)
 }
 
 .birthday-message{
-width:min(750px,94%);margin:28px auto 0;
-font-size:clamp(17px,2.2vw,24px);
-line-height:1.7;color:rgba(255,255,255,.92)
+  width:min(750px,94%);
+  margin:28px auto 0;
+  font-size:clamp(17px,2.2vw,24px);
+  line-height:1.7;
+  color:rgba(255,255,255,.92)
 }
+
+/* =========================
+   DOOR
+========================= */
 
 #doorScreen{
-position:fixed;inset:0;width:100%;height:100vh;
-display:none;align-items:center;justify-content:center;
-flex-direction:column;text-align:center;overflow:hidden;
-z-index:5000;
-background:radial-gradient(circle at center,#42104f 0%,#210725 40%,#09020d 100%)
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100vh;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  text-align:center;
+  overflow:hidden;
+  z-index:5000;
+  background:
+  radial-gradient(circle at center,#42104f 0%,#210725 40%,#09020d 100%)
 }
 
-#doorScreen.active{display:flex}
+#doorScreen.active{
+  display:flex
+}
 
 .door-title{
-position:relative;z-index:20;width:min(850px,92%);
-margin-bottom:15px;font-size:clamp(30px,5vw,65px);
-line-height:1.2;color:white;
-text-shadow:0 0 10px white,0 0 25px rgba(255,80,220,.5)
+  position:relative;
+  z-index:20;
+  width:min(850px,92%);
+  margin-bottom:15px;
+  font-size:clamp(30px,5vw,65px);
+  line-height:1.2;
+  color:white;
+  text-shadow:
+  0 0 10px white,
+  0 0 25px rgba(255,80,220,.5)
 }
 
 .door-subtitle{
-position:relative;z-index:20;margin-bottom:25px;
-font-size:clamp(16px,2.3vw,23px);color:rgba(255,255,255,.85)
+  position:relative;
+  z-index:20;
+  margin-bottom:25px;
+  font-size:clamp(16px,2.3vw,23px);
+  color:rgba(255,255,255,.85)
 }
 
 .door-frame{
-position:relative;width:min(340px,72vw);height:min(460px,60vh);
-perspective:1400px;z-index:10;cursor:pointer;
-filter:drop-shadow(0 0 25px rgba(190,70,230,.5))
+  position:relative;
+  width:min(340px,72vw);
+  height:min(460px,60vh);
+  perspective:1400px;
+  z-index:10;
+  cursor:pointer;
+  filter:drop-shadow(0 0 25px rgba(190,70,230,.5))
 }
 
 .door-inside{
-position:absolute;inset:0;border-radius:14px 14px 5px 5px;
-overflow:hidden;
-background:radial-gradient(circle at 50% 45%,#c23d91,#4c125e 35%,#16051d 75%);
-box-shadow:inset 0 0 60px rgba(255,80,220,.3)
+  position:absolute;
+  inset:0;
+  border-radius:14px 14px 5px 5px;
+  overflow:hidden;
+  background:
+  radial-gradient(circle at 50% 45%,#c23d91,#4c125e 35%,#16051d 75%);
+  box-shadow:inset 0 0 60px rgba(255,80,220,.3)
 }
 
 .door-heart{
-position:absolute;left:50%;top:43%;
-transform:translate(-50%,-50%);
-font-size:clamp(65px,10vw,110px);
-animation:heartBeat 1.2s infinite
+  position:absolute;
+  left:50%;
+  top:43%;
+  transform:translate(-50%,-50%);
+  font-size:clamp(65px,10vw,110px);
+  animation:heartBeat 1.2s infinite
 }
 
 @keyframes heartBeat{
-0%,100%{transform:translate(-50%,-50%) scale(1)}
-50%{transform:translate(-50%,-50%) scale(1.12)}
+  0%,100%{
+    transform:translate(-50%,-50%) scale(1)
+  }
+
+  50%{
+    transform:translate(-50%,-50%) scale(1.12)
+  }
 }
 
-.door-left,.door-right{
-position:absolute;top:0;width:50%;height:100%;
-background:linear-gradient(90deg,#22062e,#54105f 45%,#26072f);
-border:3px solid #d88bd5;
-box-shadow:inset 0 0 25px rgba(255,100,220,.25);
-transition:transform 1.1s cubic-bezier(.7,0,.2,1)
+.door-left,
+.door-right{
+  position:absolute;
+  top:0;
+  width:50%;
+  height:100%;
+  background:linear-gradient(90deg,#22062e,#54105f 45%,#26072f);
+  border:3px solid #d88bd5;
+  box-shadow:inset 0 0 25px rgba(255,100,220,.25);
+  transition:transform 1.1s cubic-bezier(.7,0,.2,1)
 }
 
-.door-left{left:0;transform-origin:left center;border-radius:14px 0 0 5px}
-.door-right{right:0;transform-origin:right center;border-radius:0 14px 5px 0}
+.door-left{
+  left:0;
+  transform-origin:left center;
+  border-radius:14px 0 0 5px
+}
+
+.door-right{
+  right:0;
+  transform-origin:right center;
+  border-radius:0 14px 5px 0
+}
 
 .door-panel{
-position:absolute;left:14%;right:14%;top:12%;bottom:12%;
-border:2px solid rgba(255,200,250,.35);border-radius:8px
+  position:absolute;
+  left:14%;
+  right:14%;
+  top:12%;
+  bottom:12%;
+  border:2px solid rgba(255,200,250,.35);
+  border-radius:8px
 }
 
 .door-handle{
-position:absolute;top:50%;width:13px;height:13px;border-radius:50%;
-background:#ffd36e;box-shadow:0 0 12px rgba(255,210,100,.8);z-index:10
+  position:absolute;
+  top:50%;
+  width:13px;
+  height:13px;
+  border-radius:50%;
+  background:#ffd36e;
+  box-shadow:0 0 12px rgba(255,210,100,.8);
+  z-index:10
 }
 
-.door-left .door-handle{right:10px}
-.door-right .door-handle{left:10px}
+.door-left .door-handle{
+  right:10px
+}
 
-#doorScreen.opening .door-left{transform:rotateY(-105deg)}
-#doorScreen.opening .door-right{transform:rotateY(105deg)}
+.door-right .door-handle{
+  left:10px
+}
+
+#doorScreen.opening .door-left{
+  transform:rotateY(-105deg)
+}
+
+#doorScreen.opening .door-right{
+  transform:rotateY(105deg)
+}
 
 #doorScreen.opening .door-title,
 #doorScreen.opening .door-subtitle{
-opacity:0;transition:opacity .4s ease
+  opacity:0;
+  transition:opacity .4s ease
 }
 
 .touch-door{
-position:relative;z-index:20;margin-top:22px;font-size:14px;
-letter-spacing:2px;opacity:.85;animation:touchPulse 1.6s ease-in-out infinite
+  position:relative;
+  z-index:20;
+  margin-top:22px;
+  font-size:14px;
+  letter-spacing:2px;
+  opacity:.85;
+  animation:touchPulse 1.6s ease-in-out infinite
 }
 
 @keyframes touchPulse{
-0%,100%{opacity:.5}
-50%{opacity:1}
+  0%,100%{opacity:.5}
+  50%{opacity:1}
 }
+
+/* =========================
+   BUBU FLYING VIDEO
+========================= */
 
 #bubuVideoScreen{
-position:fixed;inset:0;width:100%;height:100vh;
-display:none;align-items:center;justify-content:center;
-overflow:hidden;z-index:6000;background:#000
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100vh;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  z-index:6000;
+  background:#000
 }
 
-#bubuVideoScreen.active{display:flex}
+#bubuVideoScreen.active{
+  display:flex
+}
 
 #bubuVideo{
-width:100vw;height:100vh;object-fit:contain;display:block;background:#000
+  width:100vw;
+  height:100vh;
+  object-fit:contain;
+  display:block;
+  background:#000
 }
 
-
 /* =========================================================
-   NEW EXTENSION — MYSTERY BOXES + INVITATION
+   NEW SCREEN — 24 MYSTERY GIFT BOXES
 ========================================================= */
 
 #gift24Screen{
-position:fixed;inset:0;width:100%;height:100vh;
-display:none;align-items:center;justify-content:center;
-text-align:center;overflow-y:auto;overflow-x:hidden;
-z-index:7000;
-background:radial-gradient(circle at center,#42104f 0%,#210725 45%,#09020d 100%)
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100vh;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  overflow-y:auto;
+  overflow-x:hidden;
+  z-index:7000;
+  background:
+  radial-gradient(circle at center,#42104f 0%,#210725 45%,#09020d 100%)
 }
 
-#gift24Screen.active{display:flex}
+#gift24Screen.active{
+  display:flex
+}
 
 .gift24-wrap{
-width:min(900px,94vw);padding:28px 10px;
-position:relative;z-index:5
+  width:min(900px,94vw);
+  padding:28px 10px;
+  position:relative;
+  z-index:5
 }
 
 .gift24-mini{
-font-size:10px;letter-spacing:4px;opacity:.72;margin-bottom:12px
+  font-size:10px;
+  letter-spacing:4px;
+  opacity:.72;
+  margin-bottom:12px
 }
 
 .gift24-title{
-font-size:clamp(38px,7vw,70px);line-height:.95;font-weight:bold;
-text-shadow:0 0 10px white,0 0 30px rgba(255,80,220,.35)
+  font-size:clamp(38px,7vw,70px);
+  line-height:.95;
+  font-weight:bold;
+  text-shadow:
+  0 0 10px white,
+  0 0 30px rgba(255,80,220,.35)
 }
 
 .gift24-subtitle{
-margin-top:12px;font-size:14px;color:rgba(255,255,255,.68)
+  margin-top:12px;
+  font-size:14px;
+  color:rgba(255,255,255,.68)
 }
 
 .gift24-grid{
-width:min(720px,94vw);margin:25px auto 18px;
-display:grid;grid-template-columns:repeat(6,1fr);gap:11px
+  width:min(720px,94vw);
+  margin:25px auto 18px;
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:11px
 }
 
 .gift24-box{
-position:relative;aspect-ratio:1;
-border:1px solid rgba(255,255,255,.16);
-border-radius:15px;
-background:linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.025));
-cursor:pointer;display:flex;align-items:center;justify-content:center;
-overflow:hidden;transform:translateY(25px) scale(.8);opacity:0;
-animation:gift24Appear .55s ease forwards;
-transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease
+  position:relative;
+  aspect-ratio:1;
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:15px;
+  background:
+  linear-gradient(
+    145deg,
+    rgba(255,255,255,.09),
+    rgba(255,255,255,.025)
+  );
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  transform:translateY(25px) scale(.8);
+  opacity:0;
+  animation:gift24Appear .55s ease forwards;
+  transition:
+  transform .25s ease,
+  border-color .25s ease,
+  box-shadow .25s ease
 }
 
 .gift24-box:nth-child(1){animation-delay:.03s}
@@ -347,186 +721,412 @@ transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease
 .gift24-box:nth-child(24){animation-delay:.72s}
 
 @keyframes gift24Appear{
-from{opacity:0;transform:translateY(25px) scale(.8)}
-to{opacity:1;transform:translateY(0) scale(1)}
+  from{
+    opacity:0;
+    transform:translateY(25px) scale(.8)
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1)
+  }
 }
 
 .gift24-box:hover{
-transform:translateY(-5px) scale(1.04);
-border-color:rgba(255,255,255,.55);
-box-shadow:0 0 22px rgba(236,72,153,.2)
+  transform:translateY(-5px) scale(1.04);
+  border-color:rgba(255,255,255,.55);
+  box-shadow:0 0 22px rgba(236,72,153,.2)
 }
 
 .gift24-box::before{
-content:"";position:absolute;width:100%;height:8px;top:50%;left:0;
-transform:translateY(-50%);
-background:linear-gradient(90deg,transparent,rgba(236,72,153,.55),transparent)
+  content:"";
+  position:absolute;
+  width:100%;
+  height:8px;
+  top:50%;
+  left:0;
+  transform:translateY(-50%);
+  background:
+  linear-gradient(
+    90deg,
+    transparent,
+    rgba(236,72,153,.55),
+    transparent
+  )
 }
 
 .gift24-box::after{
-content:"";position:absolute;width:8px;height:100%;left:50%;top:0;
-transform:translateX(-50%);
-background:linear-gradient(180deg,transparent,rgba(236,72,153,.42),transparent)
+  content:"";
+  position:absolute;
+  width:8px;
+  height:100%;
+  left:50%;
+  top:0;
+  transform:translateX(-50%);
+  background:
+  linear-gradient(
+    180deg,
+    transparent,
+    rgba(236,72,153,.42),
+    transparent
+  )
 }
 
 .gift24-number{
-position:relative;z-index:5;font-size:10px;letter-spacing:2px;
-color:rgba(255,255,255,.72)
+  position:relative;
+  z-index:5;
+  font-size:10px;
+  letter-spacing:2px;
+  color:rgba(255,255,255,.72)
 }
 
 .gift24-clue{
-position:absolute;z-index:10;inset:4px;
-display:flex;align-items:center;justify-content:center;text-align:center;
-padding:7px;opacity:0;transform:scale(.45);
-color:#ffe2f1;font-size:8px;line-height:1.35;
-transition:opacity .35s ease,transform .35s ease
+  position:absolute;
+  z-index:10;
+  inset:4px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:7px;
+  opacity:0;
+  transform:scale(.45);
+  color:#ffe2f1;
+  font-size:8px;
+  line-height:1.35;
+  transition:
+  opacity .35s ease,
+  transform .35s ease
 }
 
 .gift24-box.opened{
-border-color:rgba(255,200,235,.75);
-background:radial-gradient(circle,rgba(236,72,153,.18),rgba(255,255,255,.025));
-box-shadow:0 0 30px rgba(236,72,153,.18);
-animation:gift24Open .55s ease forwards
+  border-color:rgba(255,200,235,.75);
+  background:
+  radial-gradient(
+    circle,
+    rgba(236,72,153,.18),
+    rgba(255,255,255,.025)
+  );
+  box-shadow:0 0 30px rgba(236,72,153,.18);
+  animation:gift24Open .55s ease forwards
 }
 
 @keyframes gift24Open{
-0%{transform:scale(1) rotate(0)}
-35%{transform:scale(1.15) rotate(3deg)}
-70%{transform:scale(.94) rotate(-2deg)}
-100%{transform:scale(1) rotate(0)}
+  0%{
+    transform:scale(1) rotate(0)
+  }
+
+  35%{
+    transform:scale(1.15) rotate(3deg)
+  }
+
+  70%{
+    transform:scale(.94) rotate(-2deg)
+  }
+
+  100%{
+    transform:scale(1) rotate(0)
+  }
 }
 
-.gift24-box.opened .gift24-number{opacity:0}
-.gift24-box.opened .gift24-clue{opacity:1;transform:scale(1)}
+.gift24-box.opened .gift24-number{
+  opacity:0
+}
+
+.gift24-box.opened .gift24-clue{
+  opacity:1;
+  transform:scale(1)
+}
 
 #gift24Continue{
-opacity:0;pointer-events:none;transform:translateY(12px);
-transition:opacity .5s ease,transform .5s ease;
-margin-top:4px;
-border:1px solid rgba(255,255,255,.6);
-background:linear-gradient(135deg,#e85caf,#9f3edb);
-color:white;border-radius:999px;padding:14px 30px;
-font-family:Georgia,"Times New Roman",serif;font-size:13px;
-font-weight:bold;letter-spacing:1px;cursor:pointer;
-box-shadow:0 0 15px rgba(255,80,220,.45)
+  opacity:0;
+  pointer-events:none;
+  transform:translateY(12px);
+  transition:
+  opacity .5s ease,
+  transform .5s ease;
+  margin-top:4px;
+  border:1px solid rgba(255,255,255,.6);
+  background:linear-gradient(135deg,#e85caf,#9f3edb);
+  color:white;
+  border-radius:999px;
+  padding:14px 30px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:13px;
+  font-weight:bold;
+  letter-spacing:1px;
+  cursor:pointer;
+  box-shadow:0 0 15px rgba(255,80,220,.45)
 }
 
 #gift24Continue.show{
-opacity:1;pointer-events:auto;transform:translateY(0)
+  opacity:1;
+  pointer-events:auto;
+  transform:translateY(0)
 }
+
+/* =========================================================
+   FINAL INDIRECT INVITATION
+========================================================= */
 
 #privateInviteScreen{
-position:fixed;inset:0;width:100%;height:100vh;
-display:none;align-items:center;justify-content:center;
-text-align:center;overflow:hidden;z-index:7100;
-background:radial-gradient(circle at center,#42104f 0%,#210725 48%,#09020d 100%)
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100vh;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  overflow:hidden;
+  z-index:7100;
+  background:
+  radial-gradient(circle at center,#42104f 0%,#210725 48%,#09020d 100%)
 }
 
-#privateInviteScreen.active{display:flex}
+#privateInviteScreen.active{
+  display:flex
+}
 
 .invite24-card{
-width:min(650px,90vw);padding:42px 25px;
-border:1px solid rgba(255,255,255,.16);border-radius:25px;
-background:linear-gradient(145deg,rgba(255,255,255,.065),rgba(255,255,255,.018));
-box-shadow:0 35px 100px rgba(0,0,0,.55);
-animation:invite24In .8s ease
+  width:min(650px,90vw);
+  padding:42px 25px;
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:25px;
+  background:
+  linear-gradient(
+    145deg,
+    rgba(255,255,255,.065),
+    rgba(255,255,255,.018)
+  );
+  box-shadow:0 35px 100px rgba(0,0,0,.55);
+  animation:invite24In .8s ease
 }
 
 @keyframes invite24In{
-from{opacity:0;transform:translateY(35px) scale(.95);filter:blur(8px)}
-to{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}
+  from{
+    opacity:0;
+    transform:translateY(35px) scale(.95);
+    filter:blur(8px)
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+    filter:blur(0)
+  }
 }
 
 .invite24-mini{
-font-size:9px;letter-spacing:5px;opacity:.72;margin-bottom:16px
+  font-size:9px;
+  letter-spacing:5px;
+  opacity:.72;
+  margin-bottom:16px
 }
 
 .invite24-card h1{
-font-size:clamp(43px,8vw,76px);font-weight:bold;line-height:.95;
-text-shadow:0 0 10px white,0 0 30px rgba(255,80,220,.35)
+  font-size:clamp(43px,8vw,76px);
+  font-weight:bold;
+  line-height:.95;
+  text-shadow:
+  0 0 10px white,
+  0 0 30px rgba(255,80,220,.35)
 }
 
 .invite24-line{
-width:45px;height:1px;background:#dca8bb;margin:24px auto
+  width:45px;
+  height:1px;
+  background:#dca8bb;
+  margin:24px auto
 }
 
 .invite24-text{
-font-size:18px;line-height:1.8;color:rgba(255,255,255,.82)
+  font-size:18px;
+  line-height:1.8;
+  color:rgba(255,255,255,.82)
 }
 
 .invite24-date{
-margin-top:22px;font-size:12px;letter-spacing:4px;color:#dca8bb
+  margin-top:22px;
+  font-size:12px;
+  letter-spacing:4px;
+  color:#dca8bb
 }
 
 .invite24-clue{
-margin:24px auto 0;padding:13px 18px;width:min(420px,90%);
-border:1px solid rgba(255,255,255,.11);border-radius:50px;
-background:rgba(255,255,255,.025);
-color:rgba(255,255,255,.58);font-size:11px;line-height:1.55
+  margin:24px auto 0;
+  padding:13px 18px;
+  width:min(420px,90%);
+  border:1px solid rgba(255,255,255,.11);
+  border-radius:50px;
+  background:rgba(255,255,255,.025);
+  color:rgba(255,255,255,.58);
+  font-size:11px;
+  line-height:1.55
 }
 
 .invite24-clue strong{
-color:#f4d5e5;font-weight:normal
+  color:#f4d5e5;
+  font-weight:normal
 }
 
 .invite24-countdown{
-margin-top:25px;display:flex;justify-content:center;align-items:center;gap:10px
+  margin-top:25px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px
 }
 
 .invite24-count-item strong{
-display:block;font-size:clamp(30px,6vw,52px);font-weight:400
+  display:block;
+  font-size:clamp(30px,6vw,52px);
+  font-weight:400
 }
 
 .invite24-count-item span{
-display:block;margin-top:3px;font-size:7px;letter-spacing:2px;
-color:rgba(255,255,255,.4)
+  display:block;
+  margin-top:3px;
+  font-size:7px;
+  letter-spacing:2px;
+  color:rgba(255,255,255,.4)
 }
 
-.invite24-colon{color:#dca8bb;font-size:20px}
+.invite24-colon{
+  color:#dca8bb;
+  font-size:20px
+}
 
 .invite24-map{
-margin-top:28px;border:1px solid rgba(255,255,255,.5);
-background:linear-gradient(135deg,#e85caf,#9f3edb);
-color:white;border-radius:999px;padding:13px 28px;
-font-family:Georgia,"Times New Roman",serif;font-size:12px;
-font-weight:bold;letter-spacing:1px;cursor:pointer;
-box-shadow:0 0 15px rgba(255,80,220,.35)
+  margin-top:28px;
+  border:1px solid rgba(255,255,255,.5);
+  background:linear-gradient(135deg,#e85caf,#9f3edb);
+  color:white;
+  border-radius:999px;
+  padding:13px 28px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:12px;
+  font-weight:bold;
+  letter-spacing:1px;
+  cursor:pointer;
+  box-shadow:0 0 15px rgba(255,80,220,.35)
 }
 
+/* =========================
+   MOBILE
+========================= */
+
 @media(max-width:600px){
-.small-heading{font-size:10px;letter-spacing:3px}
-.main-title{font-size:48px}
-.subtitle{font-size:16px;line-height:1.55}
-.question{font-size:20px}
-.assalam{font-size:27px}
-.roman-prayer p,.telugu-meaning p{font-size:16px;line-height:1.65}
-.birthday-title{font-size:52px}
-.birthday-name{font-size:34px}
-.birthday-message{font-size:17px;line-height:1.65}
-.door-title{font-size:31px}
-.door-subtitle{font-size:17px}
-.door-frame{width:250px;height:360px}
-#hiddenAnswerArea{width:190px;height:150px;bottom:25px}
-.gift24-grid{grid-template-columns:repeat(4,1fr);gap:8px;width:92vw}
-.gift24-box{border-radius:11px}
-.gift24-number{font-size:8px}
-.gift24-clue{font-size:7px;padding:4px}
-.gift24-wrap{padding-top:22px;padding-bottom:22px}
-.invite24-card{padding:36px 18px}
-.invite24-text{font-size:16px}
+
+  .small-heading{
+    font-size:10px;
+    letter-spacing:3px
+  }
+
+  .main-title{
+    font-size:48px
+  }
+
+  .subtitle{
+    font-size:16px;
+    line-height:1.55
+  }
+
+  .question{
+    font-size:20px
+  }
+
+  .assalam{
+    font-size:27px
+  }
+
+  .roman-prayer p,
+  .telugu-meaning p{
+    font-size:16px;
+    line-height:1.65
+  }
+
+  .birthday-title{
+    font-size:52px
+  }
+
+  .birthday-name{
+    font-size:34px
+  }
+
+  .birthday-message{
+    font-size:17px;
+    line-height:1.65
+  }
+
+  .door-title{
+    font-size:31px
+  }
+
+  .door-subtitle{
+    font-size:17px
+  }
+
+  .door-frame{
+    width:250px;
+    height:360px
+  }
+
+  #hiddenAnswerArea{
+    width:190px;
+    height:150px;
+    bottom:25px
+  }
+
+  .gift24-grid{
+    grid-template-columns:repeat(4,1fr);
+    gap:8px;
+    width:92vw
+  }
+
+  .gift24-box{
+    border-radius:11px
+  }
+
+  .gift24-number{
+    font-size:8px
+  }
+
+  .gift24-clue{
+    font-size:7px;
+    padding:4px
+  }
+
+  .gift24-wrap{
+    padding-top:22px;
+    padding-bottom:22px
+  }
+
+  .invite24-card{
+    padding:36px 18px
+  }
+
+  .invite24-text{
+    font-size:16px
+  }
 }
 
 @media(prefers-reduced-motion:reduce){
-*,*::before,*::after{
-animation-duration:.01ms!important;
-animation-iteration-count:1!important;
-transition-duration:.01ms!important
-}
+
+  *,
+  *::before,
+  *::after{
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important
+  }
 }
 </style>
 </head>
 
 <body>
+
+<!-- EXISTING BACKGROUND ELEMENTS -->
 
 <div class="balloon balloon1"></div>
 <div class="balloon balloon2"></div>
@@ -540,1080 +1140,1601 @@ transition-duration:.01ms!important
 <div class="heart heart3">💗</div>
 <div class="heart heart4">❤️</div>
 
+
+<!-- EXISTING SCREEN 1 -->
+
 <section id="screen1" class="screen active">
-<div class="first-content">
-<div class="small-heading">30 DAYS · 30 WISHES</div>
 
-<h1 class="main-title">
-FINALLY...<br>
-THE WAIT IS<br>
-OVER.
-</h1>
+  <div class="first-content">
 
-<p class="subtitle">
-Thirty days of wishes brought us
-all the way here...
-and now there's only one thing
-left to ask.
-</p>
+    <div class="small-heading">
+      30 DAYS · 30 WISHES
+    </div>
 
-<div class="question">
-Are you ready to see<br>
-what surprise I planned
-for you? 👀 ❤️
-</div>
+    <h1 class="main-title">
+      FINALLY...<br>
+      THE WAIT IS<br>
+      OVER.
+    </h1>
 
-<div class="ready-area">
-<button id="readyButton" type="button">
-I'M READY ✨
-</button>
-</div>
-</div>
+    <p class="subtitle">
+      Thirty days of wishes brought us
+      all the way here...
+      and now there's only one thing
+      left to ask.
+    </p>
+
+    <div class="question">
+      Are you ready to see<br>
+      what surprise I planned
+      for you? 👀 ❤️
+    </div>
+
+    <div class="ready-area">
+
+      <button id="readyButton" type="button">
+        I'M READY ✨
+      </button>
+
+    </div>
+
+  </div>
+
 </section>
+
+
+<!-- EXISTING SCREEN 2 -->
 
 <section id="screen2" class="screen">
-<div class="second-content">
 
-<h1 class="second-title">
-Oh wow! 😍
-</h1>
+  <div class="second-content">
 
-<p class="second-text">
-Ohhh wow, you are so excited! 👀❤️<br>
-I knew you wouldn't be able
-to wait anymore. 😂
-</p>
+    <h1 class="second-title">
+      Oh wow! 😍
+    </h1>
 
-<button id="goButton" class="go-button" type="button">
-LET'S GO ✨
-</button>
+    <p class="second-text">
+      Ohhh wow, you are so excited! 👀❤️<br>
+      I knew you wouldn't be able
+      to wait anymore. 😂
+    </p>
 
-</div>
+    <button id="goButton" class="go-button" type="button">
+      LET'S GO ✨
+    </button>
+
+  </div>
+
 </section>
+
+
+<!-- EXISTING PRAYER -->
 
 <section id="screen3" class="screen">
-<div class="prayer-container">
 
-<h1 class="assalam">
-Assalamu Alaikum Ji,<br>
-Wa Rahmatullahi Wa Barakatuh ❤️
-</h1>
+  <div class="prayer-container">
 
-<div class="prayer">
+    <h1 class="assalam">
+      Assalamu Alaikum Ji,<br>
+      Wa Rahmatullahi Wa Barakatuh ❤️
+    </h1>
 
-<div class="roman-prayer">
+    <div class="prayer">
 
-<p>
-<strong>
-Bismillahir Rahmanir Raheem. ❤️
-</strong>
-</p>
+      <div class="roman-prayer">
 
-<p>
-Alhamdulillahi Rabbil Aalameen.
-</p>
+        <p>
+          <strong>
+            Bismillahir Rahmanir Raheem. ❤️
+          </strong>
+        </p>
 
-<p>
-Allahumma barik lahu fi umrihi,
-warzuqhu sehat, sa'adat aur barkat.
-</p>
+        <p>
+          Alhamdulillahi Rabbil Aalameen.
+        </p>
 
-<p>
-Waj'al hayat-hu ma'mooratan
-bil-imaan wal-khair wan-najah.
-</p>
+        <p>
+          Allahumma barik lahu fi umrihi,
+          warzuqhu sehat, sa'adat aur barkat.
+        </p>
 
-<p>
-Wahfazhu min kulli sharr,
-waqbal du'aa'ahu.
-</p>
+        <p>
+          Waj'al hayat-hu ma'mooratan
+          bil-imaan wal-khair wan-najah.
+        </p>
 
-</div>
+        <p>
+          Wahfazhu min kulli sharr,
+          waqbal du'aa'ahu.
+        </p>
 
-<div class="prayer-divider">
-❤️
-</div>
+      </div>
 
-<div class="telugu-meaning">
+      <div class="prayer-divider">
+        ❤️
+      </div>
 
-<p>
-<strong>
-బిస్మిల్లాహిర్ రహ్మానిర్ రహీమ్. ❤️
-</strong>
-</p>
+      <div class="telugu-meaning">
 
-<p>
-అనుగ్రహించే కరుణామయుడైన అల్లాహ్
-పేరుతో ఈ ప్రార్థనను ప్రారంభిస్తున్నాము.
-</p>
+        <p>
+          <strong>
+            బిస్మిల్లాహిర్ రహ్మానిర్ రహీమ్. ❤️
+          </strong>
+        </p>
 
-<p>
-సర్వలోకాల ప్రభువైన అల్లాహ్‌కే
-అన్ని ప్రశంసలు చెందుతాయి.
-</p>
+        <p>
+          అనుగ్రహించే కరుణామయుడైన అల్లాహ్
+          పేరుతో ఈ ప్రార్థనను ప్రారంభిస్తున్నాము.
+        </p>
 
-<p>
-అల్లాహ్ అతని వయస్సులో బరకత్ ప్రసాదించి,
-మంచి ఆరోగ్యం, సంతోషం, శ్రేయస్సు
-మరియు సమృద్ధిని అనుగ్రహించాలి.
-</p>
+        <p>
+          సర్వలోకాల ప్రభువైన అల్లాహ్‌కే
+          అన్ని ప్రశంసలు చెందుతాయి.
+        </p>
 
-<p>
-అతని జీవితం ఇమాన్‌తో,
-మంచి పనులతో మరియు విజయాలతో నిండిపోవాలి.
-</p>
+        <p>
+          అల్లాహ్ అతని వయస్సులో బరకత్ ప్రసాదించి,
+          మంచి ఆరోగ్యం, సంతోషం, శ్రేయస్సు
+          మరియు సమృద్ధిని అనుగ్రహించాలి.
+        </p>
 
-<p>
-అల్లాహ్ అతన్ని ప్రతి చెడు నుండి కాపాడి,
-అతని మంచి దువాలను స్వీకరించాలి.
-</p>
+        <p>
+          అతని జీవితం ఇమాన్‌తో,
+          మంచి పనులతో మరియు విజయాలతో నిండిపోవాలి.
+        </p>
 
-</div>
-</div>
+        <p>
+          అల్లాహ్ అతన్ని ప్రతి చెడు నుండి కాపాడి,
+          అతని మంచి దువాలను స్వీకరించాలి.
+        </p>
 
-<div class="ameen">
-Aameen 🤲❤️
-</div>
+      </div>
 
-<button id="celebrateButton" class="celebrate-button" type="button">
-LET'S START CELEBRATING 🎉❤️
-</button>
+    </div>
 
-</div>
+    <div class="ameen">
+      Aameen 🤲❤️
+    </div>
+
+    <button
+      id="celebrateButton"
+      class="celebrate-button"
+      type="button"
+    >
+      LET'S START CELEBRATING 🎉❤️
+    </button>
+
+  </div>
+
 </section>
+
+
+<!-- EXISTING CALLING VIDEO -->
 
 <section id="callingVideoScreen">
 
-<video id="callingVideo" playsinline preload="auto">
-<source src="bubu calling.mp4" type="video/mp4">
-</video>
+  <video
+    id="callingVideo"
+    playsinline
+    preload="auto"
+  >
 
-<div id="hiddenAnswerArea" aria-label="Swipe up to answer">
-<div id="swipeUpHint">↑</div>
-</div>
+    <source
+      src="bubu calling.mp4"
+      type="video/mp4"
+    >
+
+  </video>
+
+  <div
+    id="hiddenAnswerArea"
+    aria-label="Swipe up to answer"
+  >
+
+    <div id="swipeUpHint">
+      ↑
+    </div>
+
+  </div>
 
 </section>
+
+
+<!-- EXISTING BIRTHDAY SCREEN -->
 
 <section id="birthdayScreen">
 
-<div class="birthday-content">
+  <div class="birthday-content">
 
-<div class="birthday-small">
-TODAY IS ALL ABOUT YOU ❤️
-</div>
+    <div class="birthday-small">
+      TODAY IS ALL ABOUT YOU ❤️
+    </div>
 
-<h1 class="birthday-title">
-HAPPY<br>
-BIRTHDAY!
-</h1>
+    <h1 class="birthday-title">
+      HAPPY<br>
+      BIRTHDAY!
+    </h1>
 
-<div class="birthday-name">
-BUDDU ❤️
-</div>
+    <div class="birthday-name">
+      BUDDU ❤️
+    </div>
 
-<p class="birthday-message">
+    <p class="birthday-message">
 
-May Allah bless you with endless happiness,
-good health, peace and success. 🤍
+      May Allah bless you with endless happiness,
+      good health, peace and success. 🤍
 
-<br><br>
+      <br><br>
 
-May Allah protect you, guide you,
-accept all your duas and fill your life
-with beautiful moments, endless smiles
-and everything your heart wishes for. ✨
+      May Allah protect you, guide you,
+      accept all your duas and fill your life
+      with beautiful moments, endless smiles
+      and everything your heart wishes for. ✨
 
-<br><br>
+      <br><br>
 
-May this new year of your life be filled
-with love, happiness and barakah. ❤️
+      May this new year of your life be filled
+      with love, happiness and barakah. ❤️
 
-</p>
+    </p>
 
-</div>
+  </div>
+
 </section>
+
+
+<!-- EXISTING DOOR -->
 
 <section id="doorScreen">
 
-<h1 class="door-title">
-OPEN THE DOOR... 🚪❤️<br>
-BUBU IS WAITING FOR YOU 🥹
-</h1>
+  <h1 class="door-title">
+    OPEN THE DOOR... 🚪❤️<br>
+    BUBU IS WAITING FOR YOU 🥹
+  </h1>
 
-<p class="door-subtitle">
-Touch the door... something is waiting
-on the other side 👀❤️
-</p>
+  <p class="door-subtitle">
+    Touch the door... something is waiting
+    on the other side 👀❤️
+  </p>
 
-<div id="doorFrame" class="door-frame">
+  <div id="doorFrame" class="door-frame">
 
-<div class="door-inside">
-<div class="door-heart">❤️</div>
-</div>
+    <div class="door-inside">
+      <div class="door-heart">
+        ❤️
+      </div>
+    </div>
 
-<div class="door-left">
-<div class="door-panel"></div>
-<div class="door-handle"></div>
-</div>
+    <div class="door-left">
+      <div class="door-panel"></div>
+      <div class="door-handle"></div>
+    </div>
 
-<div class="door-right">
-<div class="door-panel"></div>
-<div class="door-handle"></div>
-</div>
+    <div class="door-right">
+      <div class="door-panel"></div>
+      <div class="door-handle"></div>
+    </div>
 
-</div>
+  </div>
 
-<div class="touch-door">
-👆 TOUCH THE DOOR TO OPEN
-</div>
+  <div class="touch-door">
+    👆 TOUCH THE DOOR TO OPEN
+  </div>
 
 </section>
+
+
+<!-- EXISTING BUBU FLYING VIDEO -->
 
 <section id="bubuVideoScreen">
 
-<video id="bubuVideo" playsinline preload="auto">
-<source src="happy bday.mp4" type="video/mp4">
-</video>
+  <video
+    id="bubuVideo"
+    playsinline
+    preload="auto"
+  >
+
+    <source
+      src="happy bday.mp4"
+      type="video/mp4"
+    >
+
+  </video>
 
 </section>
 
 
-<!-- NEW: 24 MYSTERY BOXES -->
+<!-- =====================================================
+     NEW SCREEN 1
+     24 MYSTERY BOXES
+===================================================== -->
 
 <section id="gift24Screen">
 
-<div class="gift24-wrap">
+  <div class="gift24-wrap">
 
-<div class="gift24-mini">
-BUBU → DUDU
-</div>
+    <div class="gift24-mini">
+      BUBU → DUDU
+    </div>
 
-<h1 class="gift24-title">
-Open carefully.
-</h1>
+    <h1 class="gift24-title">
+      Open carefully.
+    </h1>
 
-<p class="gift24-subtitle">
-A few things I picked for you. Don't overthink it.
-</p>
+    <p class="gift24-subtitle">
+      A few things I picked for you. Don't overthink it.
+    </p>
 
-<div id="gift24Grid" class="gift24-grid">
 
-<div class="gift24-box">
-<span class="gift24-number">01</span>
-<span class="gift24-clue">for the days you want to look a little better</span>
-</div>
+    <div id="gift24Grid" class="gift24-grid">
 
-<div class="gift24-box">
-<span class="gift24-number">02</span>
-<span class="gift24-clue">another one… because one was never enough</span>
-</div>
 
-<div class="gift24-box">
-<span class="gift24-number">03</span>
-<span class="gift24-clue">something that follows your steps</span>
-</div>
+      <div class="gift24-box">
+        <span class="gift24-number">01</span>
+        <span class="gift24-clue">
+          for the days you want to look a little better
+        </span>
+      </div>
 
-<div class="gift24-box">
-<span class="gift24-number">04</span>
-<span class="gift24-clue">a little something for your favourite kind of smell</span>
-</div>
 
-<div class="gift24-box">
-<span class="gift24-number">05</span>
-<span class="gift24-clue">this one makes the day smell better</span>
-</div>
+      <div class="gift24-box">
+        <span class="gift24-number">02</span>
+        <span class="gift24-clue">
+          another one… because one was never enough
+        </span>
+      </div>
 
-<div class="gift24-box">
-<span class="gift24-number">06</span>
-<span class="gift24-clue">something close to what you believe in</span>
-</div>
 
-<div class="gift24-box">
-<span class="gift24-number">07</span>
-<span class="gift24-clue">for the sun that refuses to leave you alone</span>
-</div>
+      <div class="gift24-box">
+        <span class="gift24-number">03</span>
+        <span class="gift24-clue">
+          something that follows your steps
+        </span>
+      </div>
 
-<div class="gift24-box">
-<span class="gift24-number">08</span>
-<span class="gift24-clue">yes… the sun gets another one</span>
-</div>
 
-<div class="gift24-box">
-<span class="gift24-number">09</span>
-<span class="gift24-clue">something you can keep close</span>
-</div>
+      <div class="gift24-box">
+        <span class="gift24-number">04</span>
+        <span class="gift24-clue">
+          a little something for your favourite kind of smell
+        </span>
+      </div>
 
-<div class="gift24-box">
-<span class="gift24-number">10</span>
-<span class="gift24-clue">tiny. familiar. probably going to make you smile.</span>
-</div>
 
-<div class="gift24-box">
-<span class="gift24-number">11</span>
-<span class="gift24-clue">for those very bright days</span>
-</div>
+      <div class="gift24-box">
+        <span class="gift24-number">05</span>
+        <span class="gift24-clue">
+          this one makes the day smell better
+        </span>
+      </div>
 
-<div class="gift24-box">
-<span class="gift24-number">12</span>
-<span class="gift24-clue">and one more thing for outside</span>
-</div>
 
-<div class="gift24-box">
-<span class="gift24-number">13</span>
-<span class="gift24-clue">because apparently you need options</span>
-</div>
+      <div class="gift24-box">
+        <span class="gift24-number">06</span>
+        <span class="gift24-clue">
+          something close to what you believe in
+        </span>
+      </div>
 
-<div class="gift24-box">
-<span class="gift24-number">14</span>
-<span class="gift24-clue">your rides might approve of this one</span>
-</div>
 
-<div class="gift24-box">
-<span class="gift24-number">15</span>
-<span class="gift24-clue">something that keeps little things where they belong</span>
-</div>
+      <div class="gift24-box">
+        <span class="gift24-number">07</span>
+        <span class="gift24-clue">
+          for the sun that refuses to leave you alone
+        </span>
+      </div>
 
-<div class="gift24-box">
-<span class="gift24-number">16</span>
-<span class="gift24-clue">this one is meant to stay with you</span>
-</div>
 
-<div class="gift24-box">
-<span class="gift24-number">17</span>
-<span class="gift24-clue">for keeping things together</span>
-</div>
+      <div class="gift24-box">
+        <span class="gift24-number">08</span>
+        <span class="gift24-clue">
+          yes… the sun gets another one
+        </span>
+      </div>
 
-<div class="gift24-box">
-<span class="gift24-number">18</span>
-<span class="gift24-clue">something small for everyday comfort</span>
-</div>
 
-<div class="gift24-box">
-<span class="gift24-number">19</span>
-<span class="gift24-clue">for the road ahead</span>
-</div>
+      <div class="gift24-box">
+        <span class="gift24-number">09</span>
+        <span class="gift24-clue">
+          something you can keep close
+        </span>
+      </div>
 
-<div class="gift24-box">
-<span class="gift24-number">20</span>
-<span class="gift24-clue">your hands might thank me later</span>
-</div>
 
-<div class="gift24-box">
-<span class="gift24-number">21</span>
-<span class="gift24-clue">something worth keeping for later</span>
-</div>
+      <div class="gift24-box">
+        <span class="gift24-number">10</span>
+        <span class="gift24-clue">
+          tiny. familiar. probably going to make you smile.
+        </span>
+      </div>
 
-<div class="gift24-box">
-<span class="gift24-number">22</span>
-<span class="gift24-clue">something that belongs beside you at night</span>
-</div>
 
-<div class="gift24-box">
-<span class="gift24-number">23</span>
-<span class="gift24-clue">something sweet… obviously.</span>
-</div>
+      <div class="gift24-box">
+        <span class="gift24-number">11</span>
+        <span class="gift24-clue">
+          for those very bright days
+        </span>
+      </div>
 
-<div class="gift24-box">
-<span class="gift24-number">24</span>
-<span class="gift24-clue">this one isn't really a thing. It's a plan.</span>
-</div>
 
-</div>
+      <div class="gift24-box">
+        <span class="gift24-number">12</span>
+        <span class="gift24-clue">
+          and one more thing for outside
+        </span>
+      </div>
 
-<button id="gift24Continue" type="button">
-ONE LAST THING
-</button>
 
-</div>
+      <div class="gift24-box">
+        <span class="gift24-number">13</span>
+        <span class="gift24-clue">
+          because apparently you need options
+        </span>
+      </div>
+
+
+      <div class="gift24-box">
+        <span class="gift24-number">14</span>
+        <span class="gift24-clue">
+          your rides might approve of this one
+        </span>
+      </div>
+
+
+      <div class="gift24-box">
+        <span class="gift24-number">15</span>
+        <span class="gift24-clue">
+          something that keeps little things where they belong
+        </span>
+      </div>
+
+
+      <div class="gift24-box">
+        <span class="gift24-number">16</span>
+        <span class="gift24-clue">
+          this one is meant to stay with you
+        </span>
+      </div>
+
+
+      <div class="gift24-box">
+        <span class="gift24-number">17</span>
+        <span class="gift24-clue">
+          for keeping things together
+        </span>
+      </div>
+
+
+      <div class="gift24-box">
+        <span class="gift24-number">18</span>
+        <span class="gift24-clue">
+          something small for everyday comfort
+        </span>
+      </div>
+
+
+      <div class="gift24-box">
+        <span class="gift24-number">19</span>
+        <span class="gift24-clue">
+          for the road ahead
+        </span>
+      </div>
+
+
+      <div class="gift24-box">
+        <span class="gift24-number">20</span>
+        <span class="gift24-clue">
+          your hands might thank me later
+        </span>
+      </div>
+
+
+      <div class="gift24-box">
+        <span class="gift24-number">21</span>
+        <span class="gift24-clue">
+          something worth keeping for later
+        </span>
+      </div>
+
+
+      <div class="gift24-box">
+        <span class="gift24-number">22</span>
+        <span class="gift24-clue">
+          something that belongs beside you at night
+        </span>
+      </div>
+
+
+      <div class="gift24-box">
+        <span class="gift24-number">23</span>
+        <span class="gift24-clue">
+          something sweet… obviously.
+        </span>
+      </div>
+
+
+      <div class="gift24-box">
+        <span class="gift24-number">24</span>
+        <span class="gift24-clue">
+          this one isn't really a thing. It's a plan.
+        </span>
+      </div>
+
+
+    </div>
+
+
+    <button
+      id="gift24Continue"
+      type="button"
+    >
+      ONE LAST THING
+    </button>
+
+  </div>
+
 </section>
 
 
-<!-- NEW: FINAL INDIRECT INVITATION -->
+<!-- =====================================================
+     NEW SCREEN 2
+     FINAL INDIRECT INVITATION
+===================================================== -->
 
 <section id="privateInviteScreen">
 
-<div class="invite24-card">
+  <div class="invite24-card">
 
-<div class="invite24-mini">
-A MESSAGE FROM BUBU
-</div>
+    <div class="invite24-mini">
+      A MESSAGE FROM BUBU
+    </div>
 
-<h1>
-Be ready.
-</h1>
+    <h1>
+      Be ready.
+    </h1>
 
-<div class="invite24-line"></div>
+    <div class="invite24-line"></div>
 
-<div class="invite24-text">
-October 30.<br>
-Don't make other plans.
-</div>
+    <div class="invite24-text">
+      October 30.<br>
+      Don't make other plans.
+    </div>
 
-<div class="invite24-date">
-12:00 AM → 9:00 AM
-</div>
+    <div class="invite24-date">
+      12:00 AM → 9:00 AM
+    </div>
 
-<div class="invite24-clue">
-One tiny clue:<br>
-<strong>
-open Google Maps. I'll let it do the talking.
-</strong>
-</div>
+    <div class="invite24-clue">
 
-<div class="invite24-countdown">
+      One tiny clue:<br>
 
-<div class="invite24-count-item">
-<strong id="inviteHours">09</strong>
-<span>HOURS</span>
-</div>
+      <strong>
+        open Google Maps. I'll let it do the talking.
+      </strong>
 
-<div class="invite24-colon">:</div>
+    </div>
 
-<div class="invite24-count-item">
-<strong id="inviteMinutes">00</strong>
-<span>MINUTES</span>
-</div>
 
-<div class="invite24-colon">:</div>
+    <div class="invite24-countdown">
 
-<div class="invite24-count-item">
-<strong id="inviteSeconds">00</strong>
-<span>SECONDS</span>
-</div>
+      <div class="invite24-count-item">
 
-</div>
+        <strong id="inviteHours">
+          09
+        </strong>
 
-<button id="inviteMapsButton" class="invite24-map" type="button">
-CHECK THE MAP
-</button>
+        <span>
+          HOURS
+        </span>
 
-</div>
+      </div>
+
+
+      <div class="invite24-colon">
+        :
+      </div>
+
+
+      <div class="invite24-count-item">
+
+        <strong id="inviteMinutes">
+          00
+        </strong>
+
+        <span>
+          MINUTES
+        </span>
+
+      </div>
+
+
+      <div class="invite24-colon">
+        :
+      </div>
+
+
+      <div class="invite24-count-item">
+
+        <strong id="inviteSeconds">
+          00
+        </strong>
+
+        <span>
+          SECONDS
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <button
+      id="inviteMapsButton"
+      class="invite24-map"
+      type="button"
+    >
+      CHECK THE MAP
+    </button>
+
+  </div>
+
 </section>
 
 
+<!-- EXISTING AUDIO -->
+
 <audio id="birthdaySong" preload="auto">
-<source src="birthday-song-00-00-to-00-58.mp3" type="audio/mpeg">
+
+  <source
+    src="birthday-song-00-00-to-00-58.mp3"
+    type="audio/mpeg"
+  >
+
 </audio>
 
+
 <audio id="bubuWishAudio" preload="auto">
-<source src="bubu-wish-audio.mp3" type="audio/mpeg">
+
+  <source
+    src="bubu-wish-audio.mp3"
+    type="audio/mpeg"
+  >
+
 </audio>
 
 
 <script>
 
-const screen1=document.getElementById("screen1");
-const screen2=document.getElementById("screen2");
-const screen3=document.getElementById("screen3");
+/* =========================================================
+   EXISTING FLOW
+========================================================= */
 
-const callingVideoScreen=document.getElementById("callingVideoScreen");
-const birthdayScreen=document.getElementById("birthdayScreen");
-const doorScreen=document.getElementById("doorScreen");
-const bubuVideoScreen=document.getElementById("bubuVideoScreen");
+const screen1 =
+  document.getElementById("screen1");
 
-const readyButton=document.getElementById("readyButton");
-const goButton=document.getElementById("goButton");
-const celebrateButton=document.getElementById("celebrateButton");
+const screen2 =
+  document.getElementById("screen2");
 
-const birthdaySong=document.getElementById("birthdaySong");
-const bubuWishAudio=document.getElementById("bubuWishAudio");
+const screen3 =
+  document.getElementById("screen3");
 
-const callingVideo=document.getElementById("callingVideo");
-const bubuVideo=document.getElementById("bubuVideo");
+const callingVideoScreen =
+  document.getElementById("callingVideoScreen");
 
-let readyMoves=0;
-const MAX_READY_MOVES=3;
+const birthdayScreen =
+  document.getElementById("birthdayScreen");
 
-let lastX=null;
-let lastY=null;
+const doorScreen =
+  document.getElementById("doorScreen");
+
+const bubuVideoScreen =
+  document.getElementById("bubuVideoScreen");
+
+
+const readyButton =
+  document.getElementById("readyButton");
+
+const goButton =
+  document.getElementById("goButton");
+
+const celebrateButton =
+  document.getElementById("celebrateButton");
+
+
+const birthdaySong =
+  document.getElementById("birthdaySong");
+
+const bubuWishAudio =
+  document.getElementById("bubuWishAudio");
+
+
+const callingVideo =
+  document.getElementById("callingVideo");
+
+const bubuVideo =
+  document.getElementById("bubuVideo");
+
+
+let readyMoves = 0;
+
+const MAX_READY_MOVES = 3;
+
+let lastX = null;
+let lastY = null;
+
 
 function moveReadyButton(){
 
-const rect=readyButton.getBoundingClientRect();
-const margin=25;
+  const rect =
+    readyButton.getBoundingClientRect();
 
-const maxX=Math.max(
-margin,
-window.innerWidth-rect.width-margin
-);
+  const margin = 25;
 
-const maxY=Math.max(
-margin,
-window.innerHeight-rect.height-margin
-);
+  const maxX =
+    Math.max(
+      margin,
+      window.innerWidth -
+      rect.width -
+      margin
+    );
 
-let randomX;
-let randomY;
+  const maxY =
+    Math.max(
+      margin,
+      window.innerHeight -
+      rect.height -
+      margin
+    );
 
-do{
+  let randomX;
+  let randomY;
 
-randomX=
-Math.floor(
-Math.random()*
-(maxX-margin+1)
-)+margin;
 
-randomY=
-Math.floor(
-Math.random()*
-(maxY-margin+1)
-)+margin;
+  do{
+
+    randomX =
+      Math.floor(
+        Math.random() *
+        (maxX - margin + 1)
+      ) + margin;
+
+    randomY =
+      Math.floor(
+        Math.random() *
+        (maxY - margin + 1)
+      ) + margin;
+
+  }
+
+  while(
+    lastX !== null &&
+    Math.abs(randomX - lastX) < 100 &&
+    Math.abs(randomY - lastY) < 100
+  );
+
+
+  lastX = randomX;
+  lastY = randomY;
+
+
+  readyButton.style.position =
+    "fixed";
+
+  readyButton.style.left =
+    randomX + "px";
+
+  readyButton.style.top =
+    randomY + "px";
 
 }
-while(
-lastX!==null&&
-Math.abs(randomX-lastX)<100&&
-Math.abs(randomY-lastY)<100
-);
 
-lastX=randomX;
-lastY=randomY;
-
-readyButton.style.position="fixed";
-readyButton.style.left=randomX+"px";
-readyButton.style.top=randomY+"px";
-
-}
 
 readyButton.addEventListener(
-"click",
-function(){
+  "click",
+  function(){
 
-if(readyMoves<MAX_READY_MOVES){
+    if(
+      readyMoves <
+      MAX_READY_MOVES
+    ){
 
-readyMoves++;
-moveReadyButton();
-return;
+      readyMoves++;
 
-}
+      moveReadyButton();
 
-readyButton.style.position="";
-readyButton.style.left="";
-readyButton.style.top="";
+      return;
+    }
 
-screen1.classList.remove("active");
-screen2.classList.add("active");
 
-}
+    readyButton.style.position = "";
+
+    readyButton.style.left = "";
+
+    readyButton.style.top = "";
+
+
+    screen1.classList.remove(
+      "active"
+    );
+
+    screen2.classList.add(
+      "active"
+    );
+
+  }
 );
 
 
 goButton.addEventListener(
-"click",
-function(){
+  "click",
+  function(){
 
-screen2.classList.remove("active");
-screen3.classList.add("active");
+    screen2.classList.remove(
+      "active"
+    );
 
-celebrateButton.classList.remove("show");
+    screen3.classList.add(
+      "active"
+    );
 
-birthdaySong.pause();
-birthdaySong.currentTime=0;
 
-birthdaySong.play().catch(
-function(error){
-console.log("Birthday song autoplay:",error);
-}
-);
+    celebrateButton.classList.remove(
+      "show"
+    );
 
-}
+
+    birthdaySong.pause();
+
+    birthdaySong.currentTime = 0;
+
+
+    birthdaySong.play().catch(
+      function(error){
+
+        console.log(
+          "Birthday song autoplay:",
+          error
+        );
+
+      }
+    );
+
+  }
 );
 
 
 birthdaySong.addEventListener(
-"ended",
-function(){
+  "ended",
+  function(){
 
-celebrateButton.classList.add("show");
+    celebrateButton.classList.add(
+      "show"
+    );
 
-}
+  }
 );
 
 
 celebrateButton.addEventListener(
-"click",
-function(){
+  "click",
+  function(){
 
-birthdaySong.pause();
-birthdaySong.currentTime=0;
+    birthdaySong.pause();
 
-bubuWishAudio.pause();
-bubuWishAudio.currentTime=0;
+    birthdaySong.currentTime = 0;
 
-screen3.classList.remove("active");
 
-callingVideoScreen.classList.add("active");
+    bubuWishAudio.pause();
 
-callingVideo.pause();
-callingVideo.currentTime=0;
+    bubuWishAudio.currentTime = 0;
 
-hiddenAnswerArea.classList.remove("answered");
 
-videoAnswered=false;
+    screen3.classList.remove(
+      "active"
+    );
 
-callingVideo.play().catch(
-function(error){
-console.log("Calling video autoplay:",error);
-}
-);
 
-}
-);
+    callingVideoScreen.classList.add(
+      "active"
+    );
 
 
-const hiddenAnswerArea=
-document.getElementById("hiddenAnswerArea");
+    callingVideo.pause();
 
-let videoDragging=false;
-let videoStartY=0;
-let videoCurrentY=0;
-let videoAnswered=false;
+    callingVideo.currentTime = 0;
 
-const SWIPE_UP_DISTANCE=70;
 
-function startSwipeUp(event){
+    hiddenAnswerArea.classList.remove(
+      "answered"
+    );
 
-if(videoAnswered)return;
 
-const point=
-event.touches?
-event.touches[0]:
-event;
+    videoAnswered = false;
 
-videoDragging=true;
-videoStartY=point.clientY;
-videoCurrentY=0;
 
-if(event.cancelable){
-event.preventDefault();
-}
+    callingVideo.play().catch(
+      function(error){
 
-}
+        console.log(
+          "Calling video autoplay:",
+          error
+        );
 
-function moveSwipeUp(event){
+      }
+    );
 
-if(!videoDragging)return;
-
-const point=
-event.touches?
-event.touches[0]:
-event;
-
-videoCurrentY=
-videoStartY-point.clientY;
-
-if(videoCurrentY<0){
-videoCurrentY=0;
-}
-
-const movement=
-Math.min(videoCurrentY,70);
-
-const hint=
-document.getElementById("swipeUpHint");
-
-hint.style.transform=
-`translateY(-${movement}px)`;
-
-if(event.cancelable){
-event.preventDefault();
-}
-
-}
-
-function endSwipeUp(){
-
-if(!videoDragging)return;
-
-videoDragging=false;
-
-if(videoCurrentY>=SWIPE_UP_DISTANCE){
-answerCall();
-}else{
-
-const hint=
-document.getElementById("swipeUpHint");
-
-hint.style.transform="";
-
-}
-
-videoCurrentY=0;
-
-}
-
-function answerCall(){
-
-if(videoAnswered)return;
-
-videoAnswered=true;
-
-hiddenAnswerArea.classList.add("answered");
-
-if(callingVideo.paused){
-
-callingVideo.play().catch(
-function(error){
-console.log("Calling video:",error);
-}
-);
-
-}
-
-}
-
-hiddenAnswerArea.addEventListener(
-"mousedown",
-startSwipeUp
-);
-
-document.addEventListener(
-"mousemove",
-moveSwipeUp
-);
-
-document.addEventListener(
-"mouseup",
-endSwipeUp
-);
-
-hiddenAnswerArea.addEventListener(
-"touchstart",
-startSwipeUp,
-{passive:false}
-);
-
-document.addEventListener(
-"touchmove",
-moveSwipeUp,
-{passive:false}
-);
-
-document.addEventListener(
-"touchend",
-endSwipeUp
-);
-
-
-callingVideo.addEventListener(
-"ended",
-function(){
-
-callingVideo.pause();
-
-callingVideoScreen.classList.remove("active");
-
-birthdayScreen.classList.add("active");
-
-bubuWishAudio.pause();
-bubuWishAudio.currentTime=0;
-
-bubuWishAudio.play().catch(
-function(error){
-console.error("bubu-wish-audio.mp3:",error);
-}
-);
-
-}
-);
-
-
-bubuWishAudio.addEventListener(
-"ended",
-function(){
-
-bubuWishAudio.pause();
-bubuWishAudio.currentTime=0;
-
-birthdayScreen.classList.remove("active");
-
-doorScreen.classList.add("active");
-
-}
-);
-
-
-const doorFrame=
-document.getElementById("doorFrame");
-
-let doorOpening=false;
-
-function openDoor(){
-
-if(doorOpening)return;
-
-doorOpening=true;
-
-doorScreen.classList.add("opening");
-
-setTimeout(
-function(){
-
-doorScreen.classList.remove("active");
-
-bubuVideoScreen.classList.add("active");
-
-bubuVideo.pause();
-bubuVideo.currentTime=0;
-
-bubuVideo.play().catch(
-function(error){
-console.error("happy bday.mp4:",error);
-}
-);
-
-},
-1100
-);
-
-}
-
-doorFrame.addEventListener(
-"click",
-openDoor
-);
-
-doorFrame.addEventListener(
-"touchstart",
-function(event){
-
-event.preventDefault();
-openDoor();
-
-},
-{passive:false}
+  }
 );
 
 
 /* =========================================================
-   24 BOXES
+   CALLING VIDEO SWIPE
 ========================================================= */
 
-const gift24Screen=
-document.getElementById("gift24Screen");
+const hiddenAnswerArea =
+  document.getElementById(
+    "hiddenAnswerArea"
+  );
 
-const gift24Boxes=
-document.querySelectorAll(".gift24-box");
 
-const gift24Continue=
-document.getElementById("gift24Continue");
+let videoDragging = false;
 
-const privateInviteScreen=
-document.getElementById("privateInviteScreen");
+let videoStartY = 0;
 
-const inviteHours=
-document.getElementById("inviteHours");
+let videoCurrentY = 0;
 
-const inviteMinutes=
-document.getElementById("inviteMinutes");
+let videoAnswered = false;
 
-const inviteSeconds=
-document.getElementById("inviteSeconds");
 
-const inviteMapsButton=
-document.getElementById("inviteMapsButton");
+const SWIPE_UP_DISTANCE = 70;
 
-let openedGift24=0;
-let inviteCountdownTimer=null;
+
+function startSwipeUp(event){
+
+  if(videoAnswered)return;
+
+
+  const point =
+    event.touches ?
+    event.touches[0] :
+    event;
+
+
+  videoDragging = true;
+
+  videoStartY =
+    point.clientY;
+
+  videoCurrentY = 0;
+
+
+  if(event.cancelable){
+
+    event.preventDefault();
+
+  }
+
+}
+
+
+function moveSwipeUp(event){
+
+  if(!videoDragging)return;
+
+
+  const point =
+    event.touches ?
+    event.touches[0] :
+    event;
+
+
+  videoCurrentY =
+    videoStartY -
+    point.clientY;
+
+
+  if(videoCurrentY < 0){
+
+    videoCurrentY = 0;
+
+  }
+
+
+  const movement =
+    Math.min(
+      videoCurrentY,
+      70
+    );
+
+
+  const hint =
+    document.getElementById(
+      "swipeUpHint"
+    );
+
+
+  hint.style.transform =
+    `translateY(-${movement}px)`;
+
+
+  if(event.cancelable){
+
+    event.preventDefault();
+
+  }
+
+}
+
+
+function endSwipeUp(){
+
+  if(!videoDragging)return;
+
+
+  videoDragging = false;
+
+
+  if(
+    videoCurrentY >=
+    SWIPE_UP_DISTANCE
+  ){
+
+    answerCall();
+
+  }
+
+  else{
+
+    const hint =
+      document.getElementById(
+        "swipeUpHint"
+      );
+
+    hint.style.transform = "";
+
+  }
+
+
+  videoCurrentY = 0;
+
+}
+
+
+function answerCall(){
+
+  if(videoAnswered)return;
+
+
+  videoAnswered = true;
+
+
+  hiddenAnswerArea.classList.add(
+    "answered"
+  );
+
+
+  if(callingVideo.paused){
+
+    callingVideo.play().catch(
+      function(error){
+
+        console.log(
+          "Calling video:",
+          error
+        );
+
+      }
+    );
+
+  }
+
+}
+
+
+hiddenAnswerArea.addEventListener(
+  "mousedown",
+  startSwipeUp
+);
+
+
+document.addEventListener(
+  "mousemove",
+  moveSwipeUp
+);
+
+
+document.addEventListener(
+  "mouseup",
+  endSwipeUp
+);
+
+
+hiddenAnswerArea.addEventListener(
+  "touchstart",
+  startSwipeUp,
+  {passive:false}
+);
+
+
+document.addEventListener(
+  "touchmove",
+  moveSwipeUp,
+  {passive:false}
+);
+
+
+document.addEventListener(
+  "touchend",
+  endSwipeUp
+);
+
+
+/* =========================================================
+   AFTER CALLING VIDEO
+========================================================= */
+
+callingVideo.addEventListener(
+  "ended",
+  function(){
+
+    callingVideo.pause();
+
+
+    callingVideoScreen.classList.remove(
+      "active"
+    );
+
+
+    birthdayScreen.classList.add(
+      "active"
+    );
+
+
+    bubuWishAudio.pause();
+
+    bubuWishAudio.currentTime = 0;
+
+
+    bubuWishAudio.play().catch(
+      function(error){
+
+        console.error(
+          "bubu-wish-audio.mp3:",
+          error
+        );
+
+      }
+    );
+
+  }
+);
+
+
+/* =========================================================
+   AFTER BUBU WISH AUDIO
+========================================================= */
+
+bubuWishAudio.addEventListener(
+  "ended",
+  function(){
+
+    bubuWishAudio.pause();
+
+    bubuWishAudio.currentTime = 0;
+
+
+    birthdayScreen.classList.remove(
+      "active"
+    );
+
+
+    doorScreen.classList.add(
+      "active"
+    );
+
+  }
+);
+
+
+/* =========================================================
+   DOOR
+========================================================= */
+
+const doorFrame =
+  document.getElementById(
+    "doorFrame"
+  );
+
+
+let doorOpening = false;
+
+
+function openDoor(){
+
+  if(doorOpening)return;
+
+
+  doorOpening = true;
+
+
+  doorScreen.classList.add(
+    "opening"
+  );
+
+
+  setTimeout(
+    function(){
+
+      doorScreen.classList.remove(
+        "active"
+      );
+
+
+      bubuVideoScreen.classList.add(
+        "active"
+      );
+
+
+      bubuVideo.pause();
+
+      bubuVideo.currentTime = 0;
+
+
+      bubuVideo.play().catch(
+        function(error){
+
+          console.error(
+            "happy bday.mp4:",
+            error
+          );
+
+        }
+      );
+
+    },
+    1100
+  );
+
+}
+
+
+doorFrame.addEventListener(
+  "click",
+  openDoor
+);
+
+
+doorFrame.addEventListener(
+  "touchstart",
+  function(event){
+
+    event.preventDefault();
+
+    openDoor();
+
+  },
+  {passive:false}
+);
+
+
+/* =========================================================
+   NEW 24 BOXES
+========================================================= */
+
+const gift24Screen =
+  document.getElementById(
+    "gift24Screen"
+  );
+
+
+const gift24Boxes =
+  document.querySelectorAll(
+    ".gift24-box"
+  );
+
+
+const gift24Continue =
+  document.getElementById(
+    "gift24Continue"
+  );
+
+
+const privateInviteScreen =
+  document.getElementById(
+    "privateInviteScreen"
+  );
+
+
+const inviteHours =
+  document.getElementById(
+    "inviteHours"
+  );
+
+
+const inviteMinutes =
+  document.getElementById(
+    "inviteMinutes"
+  );
+
+
+const inviteSeconds =
+  document.getElementById(
+    "inviteSeconds"
+  );
+
+
+const inviteMapsButton =
+  document.getElementById(
+    "inviteMapsButton"
+  );
+
+
+let openedGift24 = 0;
+
+let inviteCountdownTimer = null;
 
 
 gift24Boxes.forEach(
-function(box){
+  function(box){
 
-box.addEventListener(
-"click",
-function(){
+    box.addEventListener(
+      "click",
+      function(){
 
-if(
-box.classList.contains("opened")
-){
-return;
-}
+        if(
+          box.classList.contains(
+            "opened"
+          )
+        ){
 
-box.classList.add("opened");
+          return;
 
-openedGift24++;
+        }
 
-if(navigator.vibrate){
-navigator.vibrate([20,30,20]);
-}
 
-if(
-openedGift24===
-gift24Boxes.length
-){
+        box.classList.add(
+          "opened"
+        );
 
-setTimeout(
-function(){
 
-gift24Continue.classList.add("show");
+        openedGift24++;
 
-},
-500
+
+        if(navigator.vibrate){
+
+          navigator.vibrate(
+            [20,30,20]
+          );
+
+        }
+
+
+        if(
+          openedGift24 ===
+          gift24Boxes.length
+        ){
+
+          setTimeout(
+            function(){
+
+              gift24Continue.classList.add(
+                "show"
+              );
+
+            },
+            500
+          );
+
+        }
+
+      }
+    );
+
+  }
 );
 
-}
 
-}
-);
-
-}
-);
-
+/* =========================================================
+   AFTER ALL 24
+========================================================= */
 
 gift24Continue.addEventListener(
-"click",
-function(){
+  "click",
+  function(){
 
-gift24Screen.classList.remove("active");
+    gift24Screen.classList.remove(
+      "active"
+    );
 
-privateInviteScreen.classList.add("active");
 
-startMeetingCountdown();
+    privateInviteScreen.classList.add(
+      "active"
+    );
 
-}
+
+    startMeetingCountdown();
+
+  }
 );
 
+
+/* =========================================================
+   COUNTDOWN
+========================================================= */
 
 function getMeetingTarget(){
 
-const now=new Date();
+  const now =
+    new Date();
 
-let target=
-new Date(
-now.getFullYear(),
-9,
-30,
-9,
-0,
-0,
-0
-);
 
-if(now>=target){
+  let target =
+    new Date(
+      now.getFullYear(),
+      9,
+      30,
+      9,
+      0,
+      0,
+      0
+    );
 
-target=
-new Date(
-now.getFullYear()+1,
-9,
-30,
-9,
-0,
-0,
-0
-);
 
-}
+  if(now >= target){
 
-return target;
+    target =
+      new Date(
+        now.getFullYear() + 1,
+        9,
+        30,
+        9,
+        0,
+        0,
+        0
+      );
+
+  }
+
+
+  return target;
 
 }
 
 
 function startMeetingCountdown(){
 
-if(inviteCountdownTimer){
-clearInterval(inviteCountdownTimer);
+  if(inviteCountdownTimer){
+
+    clearInterval(
+      inviteCountdownTimer
+    );
+
+  }
+
+
+  function updateCountdown(){
+
+    const now =
+      new Date();
+
+
+    const target =
+      getMeetingTarget();
+
+
+    const difference =
+      Math.max(
+        0,
+        target.getTime() -
+        now.getTime()
+      );
+
+
+    const totalSeconds =
+      Math.floor(
+        difference / 1000
+      );
+
+
+    const hours =
+      Math.floor(
+        totalSeconds / 3600
+      );
+
+
+    const minutes =
+      Math.floor(
+        (totalSeconds % 3600) / 60
+      );
+
+
+    const seconds =
+      totalSeconds % 60;
+
+
+    inviteHours.textContent =
+      String(hours)
+      .padStart(2,"0");
+
+
+    inviteMinutes.textContent =
+      String(minutes)
+      .padStart(2,"0");
+
+
+    inviteSeconds.textContent =
+      String(seconds)
+      .padStart(2,"0");
+
+  }
+
+
+  updateCountdown();
+
+
+  inviteCountdownTimer =
+    setInterval(
+      updateCountdown,
+      1000
+    );
+
 }
 
-function updateCountdown(){
 
-const now=new Date();
+/* =========================================================
+   GOOGLE MAPS
+   CHANGE ONLY THIS VALUE LATER
+========================================================= */
 
-const target=
-getMeetingTarget();
-
-const difference=
-Math.max(
-0,
-target.getTime()-
-now.getTime()
-);
-
-const totalSeconds=
-Math.floor(
-difference/1000
-);
-
-const hours=
-Math.floor(
-totalSeconds/3600
-);
-
-const minutes=
-Math.floor(
-(totalSeconds%3600)/60
-);
-
-const seconds=
-totalSeconds%60;
-
-inviteHours.textContent=
-String(hours).padStart(2,"0");
-
-inviteMinutes.textContent=
-String(minutes).padStart(2,"0");
-
-inviteSeconds.textContent=
-String(seconds).padStart(2,"0");
-
-}
-
-updateCountdown();
-
-inviteCountdownTimer=
-setInterval(
-updateCountdown,
-1000
-);
-
-}
-
-
-/*
- CHANGE ONLY THIS VALUE.
-
- Put your actual theatre/location
- search text here.
-*/
-
-const MAP_SEARCH=
-"your secret birthday place";
+const MAP_SEARCH =
+  "your secret birthday place";
 
 
 inviteMapsButton.addEventListener(
-"click",
-function(){
+  "click",
+  function(){
 
-const mapsURL=
-"https://www.google.com/maps/search/?api=1&query="+
-encodeURIComponent(MAP_SEARCH);
+    const mapsURL =
+      "https://www.google.com/maps/search/?api=1&query=" +
+      encodeURIComponent(
+        MAP_SEARCH
+      );
 
-window.open(
-mapsURL,
-"_blank",
-"noopener,noreferrer"
-);
 
-}
+    window.open(
+      mapsURL,
+      "_blank",
+      "noopener,noreferrer"
+    );
+
+  }
 );
 
 
 /* =========================================================
+   IMPORTANT:
    BUBU FLYING VIDEO ENDS
    ↓
-   24 BOXES
+   DIRECTLY TO 24 BOXES
 ========================================================= */
 
 bubuVideo.addEventListener(
-"ended",
-function(){
+  "ended",
+  function(){
 
-bubuVideo.pause();
+    bubuVideo.pause();
 
-gift24Screen.classList.add("active");
 
-}
+    bubuVideoScreen.classList.remove(
+      "active"
+    );
+
+
+    gift24Screen.classList.add(
+      "active"
+    );
+
+  }
 );
 
 </script>
