@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Birthday Surprise ❤️</title>
+<title>Buddu Thalli Birthday ❤️</title>
 
 <style>
 * {
@@ -32,6 +32,10 @@ body {
     color: white;
     font-family: Georgia, "Times New Roman", serif;
 }
+
+/* =========================================================
+   COMMON SCREEN
+========================================================= */
 
 .screen {
     position: relative;
@@ -61,6 +65,7 @@ body {
     border-radius: 50%;
     opacity: .8;
     z-index: 1;
+
     animation: floatBalloon 6s ease-in-out infinite;
 }
 
@@ -70,6 +75,7 @@ body {
     width: 1px;
     height: 100px;
     background: rgba(255,255,255,.4);
+
     left: 50%;
     top: 65px;
 }
@@ -116,6 +122,7 @@ body {
 }
 
 @keyframes floatBalloon {
+
     0%,100% {
         transform: translateY(0) rotate(-3deg);
     }
@@ -127,10 +134,15 @@ body {
 
 .heart {
     position: fixed;
+
     font-size: 30px;
+
     opacity: .7;
+
     z-index: 1;
-    animation: floatHeart 7s ease-in-out infinite;
+
+    animation:
+        floatHeart 7s ease-in-out infinite;
 }
 
 .heart1 {
@@ -157,6 +169,7 @@ body {
 }
 
 @keyframes floatHeart {
+
     0%,100% {
         transform: translateY(0);
         opacity: .5;
@@ -174,20 +187,27 @@ body {
 
 .first-content {
     width: min(900px, 92%);
+
     position: relative;
+
     z-index: 5;
 }
 
 .small-heading {
     font-size: 14px;
+
     letter-spacing: 5px;
+
     opacity: .8;
+
     margin-bottom: 20px;
 }
 
 .main-title {
     font-size: clamp(55px, 8vw, 105px);
+
     line-height: .94;
+
     font-weight: bold;
 
     text-shadow:
@@ -197,18 +217,37 @@ body {
 
 .subtitle {
     width: min(700px, 95%);
+
     margin: 30px auto 0;
 
-    font-size: clamp(17px, 2.2vw, 24px);
+    font-size:
+        clamp(
+            17px,
+            2.2vw,
+            24px
+        );
+
     line-height: 1.6;
 
-    color: rgba(255,255,255,.88);
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            .88
+        );
 }
 
 .question {
     margin-top: 35px;
 
-    font-size: clamp(19px, 2.5vw, 29px);
+    font-size:
+        clamp(
+            19px,
+            2.5vw,
+            29px
+        );
+
     line-height: 1.45;
 
     font-weight: bold;
@@ -216,11 +255,20 @@ body {
 
 .ready-area {
     margin-top: 30px;
+
     min-height: 70px;
 }
 
 #readyButton {
-    border: 1px solid rgba(255,255,255,.6);
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            .6
+        );
 
     background:
         linear-gradient(
@@ -233,11 +281,16 @@ body {
 
     border-radius: 999px;
 
-    padding: 15px 34px;
+    padding:
+        15px 34px;
 
-    font-family: Georgia, "Times New Roman", serif;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
     font-size: 14px;
+
     font-weight: bold;
 
     letter-spacing: 1px;
@@ -245,8 +298,20 @@ body {
     cursor: pointer;
 
     box-shadow:
-        0 0 15px rgba(255,80,220,.45),
-        0 0 30px rgba(180,70,230,.25);
+        0 0 15px
+        rgba(
+            255,
+            80,
+            220,
+            .45
+        ),
+        0 0 30px
+        rgba(
+            180,
+            70,
+            230,
+            .25
+        );
 
     transition:
         left .55s ease,
@@ -255,18 +320,35 @@ body {
         box-shadow .25s ease;
 
     position: relative;
+
     z-index: 50;
 }
 
 #readyButton:hover {
+
     transform: scale(1.05);
+
     box-shadow:
-        0 0 20px rgba(255,80,220,.7),
-        0 0 40px rgba(180,70,230,.4);
+        0 0 20px
+        rgba(
+            255,
+            80,
+            220,
+            .7
+        ),
+        0 0 40px
+        rgba(
+            180,
+            70,
+            230,
+            .4
+        );
 }
 
 #readyButton.random-position {
+
     position: fixed;
+
     z-index: 9999;
 }
 
@@ -275,31 +357,65 @@ body {
 ========================================================= */
 
 .second-content {
-    width: min(850px, 92%);
+
+    width:
+        min(
+            850px,
+            92%
+        );
+
     position: relative;
+
     z-index: 5;
 }
 
 .second-title {
-    font-size: clamp(55px, 8vw, 100px);
+
+    font-size:
+        clamp(
+            55px,
+            8vw,
+            100px
+        );
 
     text-shadow:
         0 0 10px white,
-        0 0 30px rgba(255,80,220,.4);
+        0 0 30px
+        rgba(
+            255,
+            80,
+            220,
+            .4
+        );
 }
 
 .second-text {
+
     margin-top: 25px;
 
-    font-size: clamp(18px, 2.4vw, 27px);
+    font-size:
+        clamp(
+            18px,
+            2.4vw,
+            27px
+        );
+
     line-height: 1.6;
 }
 
 .go-button,
 .bubu-button {
+
     margin-top: 32px;
 
-    border: 1px solid rgba(255,255,255,.6);
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            .6
+        );
 
     background:
         linear-gradient(
@@ -312,11 +428,16 @@ body {
 
     border-radius: 999px;
 
-    padding: 15px 34px;
+    padding:
+        15px 34px;
 
-    font-family: Georgia, "Times New Roman", serif;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
     font-size: 14px;
+
     font-weight: bold;
 
     letter-spacing: 1px;
@@ -324,14 +445,23 @@ body {
     cursor: pointer;
 
     box-shadow:
-        0 0 15px rgba(255,80,220,.45);
+        0 0 15px
+        rgba(
+            255,
+            80,
+            220,
+            .45
+        );
 
-    transition: transform .25s ease;
+    transition:
+        transform .25s ease;
 }
 
 .go-button:hover,
 .bubu-button:hover {
-    transform: scale(1.05);
+
+    transform:
+        scale(1.05);
 }
 
 /* =========================================================
@@ -339,12 +469,19 @@ body {
 ========================================================= */
 
 .prayer-container {
-    width: min(900px, 94%);
+
+    width:
+        min(
+            900px,
+            94%
+        );
+
     max-height: 94vh;
 
     overflow-y: auto;
 
     position: relative;
+
     z-index: 5;
 
     scrollbar-width: none;
@@ -355,48 +492,87 @@ body {
 }
 
 .assalam {
-    font-size: clamp(27px, 4vw, 48px);
+
+    font-size:
+        clamp(
+            27px,
+            4vw,
+            48px
+        );
+
     line-height: 1.3;
 
     text-shadow:
         0 0 10px white,
-        0 0 25px rgba(255,80,220,.35);
+        0 0 25px
+        rgba(
+            255,
+            80,
+            220,
+            .35
+        );
 }
 
 .prayer {
-    margin: 30px auto 0;
 
-    width: min(800px, 95%);
+    margin:
+        30px auto 0;
+
+    width:
+        min(
+            800px,
+            95%
+        );
 }
 
 .roman-prayer p,
 .telugu-meaning p {
+
     margin: 16px 0;
 
-    font-size: clamp(17px, 2vw, 23px);
+    font-size:
+        clamp(
+            17px,
+            2vw,
+            23px
+        );
+
     line-height: 1.7;
 }
 
 .prayer-divider {
-    margin: 25px 0;
+
+    margin:
+        25px 0;
 
     font-size: 25px;
 }
 
 .ameen {
+
     margin-top: 22px;
 
     font-size: 30px;
+
     font-weight: bold;
 }
 
 .celebrate-button {
+
     margin-top: 28px;
 
     opacity: 0;
+
     pointer-events: none;
 
-    border: 1px solid rgba(255,255,255,.6);
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            .6
+        );
 
     background:
         linear-gradient(
@@ -409,11 +585,16 @@ body {
 
     border-radius: 999px;
 
-    padding: 16px 32px;
+    padding:
+        16px 32px;
 
-    font-family: Georgia, "Times New Roman", serif;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
     font-size: 14px;
+
     font-weight: bold;
 
     letter-spacing: 1px;
@@ -421,7 +602,13 @@ body {
     cursor: pointer;
 
     box-shadow:
-        0 0 15px rgba(255,80,220,.45);
+        0 0 15px
+        rgba(
+            255,
+            80,
+            220,
+            .45
+        );
 
     transition:
         opacity .6s ease,
@@ -429,63 +616,122 @@ body {
 }
 
 .celebrate-button.show {
+
     opacity: 1;
+
     pointer-events: auto;
 }
 
 .celebrate-button:hover {
-    transform: scale(1.05);
+
+    transform:
+        scale(1.05);
 }
 
 /* =========================================================
-   ORIGINAL FINAL SCREEN
+   OLD FINAL SCREEN
 ========================================================= */
 
 #screen4 {
+
     background:
         radial-gradient(
             circle at center,
-            rgba(111, 30, 125, .5),
-            rgba(8,3,13,.95)
+            rgba(
+                111,
+                30,
+                125,
+                .5
+            ),
+            rgba(
+                8,
+                3,
+                13,
+                .95
+            )
         );
 }
 
 .final-content {
-    width: min(850px, 92%);
+
+    width:
+        min(
+            850px,
+            92%
+        );
+
     position: relative;
+
     z-index: 10;
 }
 
 .final-small {
+
     font-size: 14px;
+
     letter-spacing: 5px;
+
     margin-bottom: 20px;
 }
 
 .final-title {
-    font-size: clamp(60px, 9vw, 120px);
+
+    font-size:
+        clamp(
+            60px,
+            9vw,
+            120px
+        );
 
     line-height: .9;
 
     text-shadow:
         0 0 10px white,
-        0 0 30px rgba(255,80,220,.5);
+        0 0 30px
+        rgba(
+            255,
+            80,
+            220,
+            .5
+        );
 }
 
 .final-message {
-    margin: 30px auto 0;
 
-    width: min(700px, 95%);
+    margin:
+        30px auto 0;
 
-    font-size: clamp(19px, 2.5vw, 29px);
+    width:
+        min(
+            700px,
+            95%
+        );
+
+    font-size:
+        clamp(
+            19px,
+            2.5vw,
+            29px
+        );
 
     line-height: 1.6;
 }
 
+/* =========================================================
+   CONFETTI
+========================================================= */
+
 .confetti {
+
     position: absolute;
+
     font-size: 30px;
-    animation: confettiFloat 4s ease-in-out infinite;
+
+    animation:
+        confettiFloat
+        4s
+        ease-in-out
+        infinite;
 }
 
 .confetti:nth-child(1) {
@@ -548,29 +794,38 @@ body {
 }
 
 @keyframes confettiFloat {
+
     0%,100% {
-        transform: translateY(0) rotate(0);
+        transform:
+            translateY(0)
+            rotate(0);
     }
 
     50% {
-        transform: translateY(-18px) rotate(10deg);
+        transform:
+            translateY(-18px)
+            rotate(10deg);
     }
 }
 
 /* =========================================================
-   NEW PHONE VIDEO
+   NEW FULL SCREEN VIDEO
 ========================================================= */
 
 .new-screen {
+
     position: fixed;
+
     inset: 0;
 
     width: 100%;
+
     height: 100vh;
 
     display: none;
 
     align-items: center;
+
     justify-content: center;
 
     text-align: center;
@@ -589,11 +844,18 @@ body {
 }
 
 .new-screen.active {
+
     display: flex;
 }
 
+/* =========================================================
+   PHONE VIDEO
+========================================================= */
+
 .phone-video {
+
     width: 100%;
+
     height: 100%;
 
     object-fit: contain;
@@ -604,18 +866,26 @@ body {
 }
 
 /* =========================================================
-   NEW HAPPY BIRTHDAY SCREEN
+   HAPPY BIRTHDAY SCREEN
 ========================================================= */
 
 .new-birthday-content {
-    width: min(900px, 92%);
+
+    width:
+        min(
+            900px,
+            92%
+        );
 
     position: relative;
+
     z-index: 5;
 }
 
 .new-small-heading {
+
     font-size: 14px;
+
     letter-spacing: 5px;
 
     opacity: .85;
@@ -624,7 +894,13 @@ body {
 }
 
 .new-birthday-title {
-    font-size: clamp(55px, 8vw, 105px);
+
+    font-size:
+        clamp(
+            55px,
+            8vw,
+            105px
+        );
 
     line-height: .95;
 
@@ -632,60 +908,158 @@ body {
 
     text-shadow:
         0 0 10px white,
-        0 0 25px rgba(255,80,220,.45),
-        0 0 45px rgba(170,70,255,.3);
+        0 0 25px
+        rgba(
+            255,
+            80,
+            220,
+            .45
+        ),
+        0 0 45px
+        rgba(
+            170,
+            70,
+            255,
+            .3
+        );
 }
 
 .new-birthday-name {
+
     margin-top: 18px;
 
-    font-size: clamp(32px, 5vw, 60px);
+    font-size:
+        clamp(
+            32px,
+            5vw,
+            60px
+        );
 
     color: #ffd1f1;
 
     font-weight: bold;
 
     text-shadow:
-        0 0 15px rgba(255,100,220,.7);
+        0 0 15px
+        rgba(
+            255,
+            100,
+            220,
+            .7
+        );
 }
 
 .new-birthday-message {
-    width: min(750px, 94%);
 
-    margin: 28px auto 0;
+    width:
+        min(
+            750px,
+            94%
+        );
 
-    font-size: clamp(17px, 2.2vw, 24px);
+    margin:
+        28px auto 0;
+
+    font-size:
+        clamp(
+            17px,
+            2.2vw,
+            24px
+        );
 
     line-height: 1.7;
 
-    color: rgba(255,255,255,.92);
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            .92
+        );
+}
+
+/*
+   This button is hidden until
+   the entire singing song finishes.
+*/
+
+#bubuWaitingButton {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transform:
+        translateY(15px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease,
+        visibility .8s ease;
+}
+
+#bubuWaitingButton.song-finished {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+    transform:
+        translateY(0);
 }
 
 /* =========================================================
-   BUBU WAITING SCREEN
+   BUBU PHOTO SCREEN
 ========================================================= */
 
 .bubu-waiting-content {
-    width: min(900px, 92%);
+
+    width:
+        min(
+            900px,
+            92%
+        );
 
     position: relative;
+
     z-index: 5;
 }
 
 .bubu-waiting-title {
-    font-size: clamp(32px, 5vw, 62px);
+
+    font-size:
+        clamp(
+            32px,
+            5vw,
+            62px
+        );
 
     line-height: 1.15;
 
     text-shadow:
         0 0 10px white,
-        0 0 25px rgba(255,80,220,.5);
+        0 0 25px
+        rgba(
+            255,
+            80,
+            220,
+            .5
+        );
 
     margin-bottom: 25px;
 }
 
 .bubu-photo {
-    width: min(330px, 72vw);
+
+    width:
+        min(
+            330px,
+            72vw
+        );
 
     max-height: 58vh;
 
@@ -693,27 +1067,44 @@ body {
 
     display: block;
 
-    margin: 0 auto;
+    margin:
+        0 auto;
 
     border-radius: 20px;
 
     box-shadow:
-        0 0 20px rgba(255,100,220,.45),
-        0 0 50px rgba(180,60,240,.25);
+        0 0 20px
+        rgba(
+            255,
+            100,
+            220,
+            .45
+        ),
+        0 0 50px
+        rgba(
+            180,
+            60,
+            240,
+            .25
+        );
 }
 
 .bubu-coming-button {
+
     display: block;
 
-    margin: 28px auto 0;
+    margin:
+        28px auto 0;
 }
 
 /* =========================================================
-   BUBU FLYING VIDEO
+   BUBU VIDEO
 ========================================================= */
 
 .bubu-video {
+
     width: 100vw;
+
     height: 100vh;
 
     object-fit: contain;
@@ -730,90 +1121,130 @@ body {
 @media (max-width: 600px) {
 
     .small-heading {
+
         font-size: 10px;
+
         letter-spacing: 3px;
     }
 
     .main-title {
+
         font-size: 48px;
     }
 
     .subtitle {
+
         font-size: 16px;
+
         line-height: 1.55;
     }
 
     .question {
+
         font-size: 20px;
     }
 
     #readyButton {
-        padding: 13px 27px;
+
+        padding:
+            13px 27px;
     }
 
     .assalam {
+
         font-size: 27px;
     }
 
     .roman-prayer p,
     .telugu-meaning p {
+
         font-size: 16px;
+
         line-height: 1.65;
     }
 
     .celebrate-button {
+
         width: 90%;
+
         max-width: 330px;
 
         font-size: 14px;
 
-        padding: 15px 20px;
+        padding:
+            15px 20px;
     }
 
     .final-title {
+
         font-size: 52px;
     }
 
     .final-message {
+
         font-size: 19px;
     }
 
     .new-small-heading {
+
         font-size: 10px;
+
         letter-spacing: 3px;
     }
 
+    .new-birthday-title {
+
+        font-size: 52px;
+    }
+
+    .new-birthday-name {
+
+        font-size: 34px;
+    }
+
     .new-birthday-message {
+
         font-size: 17px;
+
         line-height: 1.65;
     }
 
     .bubu-waiting-title {
+
         font-size: 30px;
     }
 
     .bubu-photo {
-        width: min(280px, 80vw);
+
+        width:
+            min(
+                280px,
+                80vw
+            );
     }
 
     .bubu-button,
     .bubu-coming-button {
+
         width: 90%;
+
         max-width: 330px;
 
         font-size: 13px;
 
-        padding: 14px 18px;
+        padding:
+            14px 18px;
     }
 }
 
 </style>
 </head>
 
+
 <body>
 
 <!-- =========================================================
-     EXISTING BACKGROUND
+     BACKGROUND
 ========================================================= -->
 
 <div class="balloon balloon1"></div>
@@ -830,10 +1261,12 @@ body {
 
 
 <!-- =========================================================
-     EXISTING SCREEN 1
+     SCREEN 1
 ========================================================= -->
 
-<section id="screen1" class="screen active">
+<section
+    id="screen1"
+    class="screen active">
 
     <div class="first-content">
 
@@ -848,13 +1281,21 @@ body {
         </h1>
 
         <p class="subtitle">
-            Thirty days of wishes brought us all the way here...
-            and now there's only one thing left to ask.
+
+            Thirty days of wishes brought us
+            all the way here...
+            and now there's only one thing
+            left to ask.
+
         </p>
 
         <div class="question">
+
             Are you ready to see<br>
-            what surprise I planned for you? 👀 ❤️
+
+            what surprise I planned
+            for you? 👀 ❤️
+
         </div>
 
         <div class="ready-area">
@@ -875,10 +1316,12 @@ body {
 
 
 <!-- =========================================================
-     EXISTING SCREEN 2
+     SCREEN 2
 ========================================================= -->
 
-<section id="screen2" class="screen">
+<section
+    id="screen2"
+    class="screen">
 
     <div class="second-content">
 
@@ -887,8 +1330,12 @@ body {
         </h1>
 
         <p class="second-text">
+
             Ohhh wow, you are so excited! 👀❤️<br>
-            I knew you wouldn't be able to wait anymore. 😂
+
+            I knew you wouldn't be able
+            to wait anymore. 😂
+
         </p>
 
         <button
@@ -906,16 +1353,21 @@ body {
 
 
 <!-- =========================================================
-     EXISTING SCREEN 3 - PRAYER
+     SCREEN 3 - PRAYER
 ========================================================= -->
 
-<section id="screen3" class="screen">
+<section
+    id="screen3"
+    class="screen">
 
     <div class="prayer-container">
 
         <h1 class="assalam">
+
             Assalamu Alaikum Ji,<br>
+
             Wa Rahmatullahi Wa Barakatuh ❤️
+
         </h1>
 
         <div class="prayer">
@@ -938,8 +1390,8 @@ body {
                 </p>
 
                 <p>
-                    Waj'al hayat-hu ma'mooratan bil-imaan
-                    wal-khair wan-najah.
+                    Waj'al hayat-hu ma'mooratan
+                    bil-imaan wal-khair wan-najah.
                 </p>
 
                 <p>
@@ -962,8 +1414,8 @@ body {
                 </p>
 
                 <p>
-                    అనుగ్రహించే కరుణామయుడైన అల్లాహ్ పేరుతో
-                    ఈ ప్రార్థనను ప్రారంభిస్తున్నాము.
+                    అనుగ్రహించే కరుణామయుడైన అల్లాహ్
+                    పేరుతో ఈ ప్రార్థనను ప్రారంభిస్తున్నాము.
                 </p>
 
                 <p>
@@ -1010,11 +1462,12 @@ body {
 
 
 <!-- =========================================================
-     EXISTING FINAL SCREEN
-     KEPT IN PLACE
+     OLD FINAL SCREEN
 ========================================================= -->
 
-<section id="screen4" class="screen">
+<section
+    id="screen4"
+    class="screen">
 
     <div class="confetti">🎉</div>
     <div class="confetti">✨</div>
@@ -1058,7 +1511,6 @@ body {
 
 
 <!-- =========================================================
-     NEW STEP 1
      PHONE VIDEO
 ========================================================= -->
 
@@ -1082,7 +1534,6 @@ body {
 
 
 <!-- =========================================================
-     NEW STEP 2
      HAPPY BIRTHDAY BUDDU
 ========================================================= -->
 
@@ -1097,11 +1548,16 @@ body {
         </div>
 
         <h1 class="new-birthday-title">
-            HAPPY BIRTHDAY!
+
+            HAPPY<br>
+            BIRTHDAY!
+
         </h1>
 
         <div class="new-birthday-name">
+
             BUDDU ❤️
+
         </div>
 
         <p class="new-birthday-message">
@@ -1123,6 +1579,11 @@ body {
 
         </p>
 
+        <!--
+             THIS APPEARS ONLY AFTER
+             THE COMPLETE SONG FINISHES.
+        -->
+
         <button
             id="bubuWaitingButton"
             class="bubu-button"
@@ -1138,7 +1599,6 @@ body {
 
 
 <!-- =========================================================
-     NEW STEP 3
      BUBU PHOTO
 ========================================================= -->
 
@@ -1149,7 +1609,9 @@ body {
     <div class="bubu-waiting-content">
 
         <h1 class="bubu-waiting-title">
+
             BUBU IS WAITING TO WISH YOU... 🥹❤️
+
         </h1>
 
         <img
@@ -1173,7 +1635,6 @@ body {
 
 
 <!-- =========================================================
-     NEW STEP 4
      BUBU FLYING VIDEO
 ========================================================= -->
 
@@ -1197,7 +1658,7 @@ body {
 
 
 <!-- =========================================================
-     EXISTING BIRTHDAY SONG
+     EXISTING PRAYER / BACKGROUND SONG
 ========================================================= -->
 
 <audio
@@ -1211,38 +1672,71 @@ body {
 </audio>
 
 
+<!-- =========================================================
+     NEW SINGING HAPPY BIRTHDAY SONG
+========================================================= -->
+
+<audio
+    id="birthdayWishMusic"
+    preload="auto">
+
+    <source
+        src="happy-birthday-singing.mp3"
+        type="audio/mpeg">
+
+</audio>
+
+
 <script>
 
 /* =========================================================
-   ELEMENTS
+   EXISTING ELEMENTS
 ========================================================= */
 
 const screen1 =
-    document.getElementById("screen1");
+    document.getElementById(
+        "screen1"
+    );
 
 const screen2 =
-    document.getElementById("screen2");
+    document.getElementById(
+        "screen2"
+    );
 
 const screen3 =
-    document.getElementById("screen3");
+    document.getElementById(
+        "screen3"
+    );
 
 const screen4 =
-    document.getElementById("screen4");
+    document.getElementById(
+        "screen4"
+    );
 
 const readyButton =
-    document.getElementById("readyButton");
+    document.getElementById(
+        "readyButton"
+    );
 
 const goButton =
-    document.getElementById("goButton");
+    document.getElementById(
+        "goButton"
+    );
 
 const celebrateButton =
-    document.getElementById("celebrateButton");
+    document.getElementById(
+        "celebrateButton"
+    );
 
 const birthdaySong =
-    document.getElementById("birthdaySong");
+    document.getElementById(
+        "birthdaySong"
+    );
 
 
-/* NEW ELEMENTS */
+/* =========================================================
+   NEW ELEMENTS
+========================================================= */
 
 const phoneVideoScreen =
     document.getElementById(
@@ -1257,6 +1751,11 @@ const phoneVideo =
 const newBirthdayScreen =
     document.getElementById(
         "newBirthdayScreen"
+    );
+
+const birthdayWishMusic =
+    document.getElementById(
+        "birthdayWishMusic"
     );
 
 const bubuWaitingButton =
@@ -1286,8 +1785,8 @@ const bubuVideo =
 
 
 /* =========================================================
-   READY BUTTON
-   3 RANDOM MOVEMENTS
+   I'M READY
+   EXACTLY 3 RANDOM MOVES
 ========================================================= */
 
 let readyMoves = 0;
@@ -1295,6 +1794,7 @@ let readyMoves = 0;
 const MAX_READY_MOVES = 3;
 
 let lastX = null;
+
 let lastY = null;
 
 
@@ -1304,29 +1804,23 @@ function moveReadyButton() {
         readyButton.getBoundingClientRect();
 
 
-    const buttonWidth =
-        rect.width;
-
-    const buttonHeight =
-        rect.height;
-
-
     const margin = 25;
 
 
     const maxX =
         window.innerWidth -
-        buttonWidth -
+        rect.width -
         margin;
 
 
     const maxY =
         window.innerHeight -
-        buttonHeight -
+        rect.height -
         margin;
 
 
     let randomX;
+
     let randomY;
 
 
@@ -1368,6 +1862,7 @@ function moveReadyButton() {
 
 
     lastX = randomX;
+
     lastY = randomY;
 
 
@@ -1409,13 +1904,9 @@ readyButton.addEventListener(
     "click",
     function(event) {
 
-        /*
-           First 3 clicks:
-           move to random locations.
-        */
-
         if (
-            readyMoves < MAX_READY_MOVES
+            readyMoves <
+            MAX_READY_MOVES
         ) {
 
             event.preventDefault();
@@ -1425,13 +1916,9 @@ readyButton.addEventListener(
             moveReadyButton();
 
             return;
+
         }
 
-
-        /*
-           After 3 movements,
-           normal click works.
-        */
 
         readyButton.classList.remove(
             "random-position"
@@ -1439,7 +1926,9 @@ readyButton.addEventListener(
 
 
         readyButton.style.left = "";
+
         readyButton.style.top = "";
+
         readyButton.style.transform = "";
 
 
@@ -1457,7 +1946,7 @@ readyButton.addEventListener(
 
 
 /* =========================================================
-   LET'S GO → PRAYER
+   LET'S GO
 ========================================================= */
 
 goButton.addEventListener(
@@ -1510,8 +1999,7 @@ goButton.addEventListener(
 
 
 /* =========================================================
-   SONG ENDS
-   → SHOW CELEBRATE BUTTON
+   PRAYER SONG ENDS
 ========================================================= */
 
 birthdaySong.addEventListener(
@@ -1527,32 +2015,7 @@ birthdaySong.addEventListener(
 
 
 /* =========================================================
-   HIDE NEW SCREENS
-========================================================= */
-
-function hideNewScreens() {
-
-    phoneVideoScreen.classList.remove(
-        "active"
-    );
-
-    newBirthdayScreen.classList.remove(
-        "active"
-    );
-
-    bubuPhotoScreen.classList.remove(
-        "active"
-    );
-
-    bubuVideoScreen.classList.remove(
-        "active"
-    );
-
-}
-
-
-/* =========================================================
-   LET'S START CELEBRATING
+   CELEBRATE
    → PHONE VIDEO
 ========================================================= */
 
@@ -1560,18 +2023,10 @@ celebrateButton.addEventListener(
     "click",
     function() {
 
-        /*
-           Stop the birthday song.
-        */
-
         birthdaySong.pause();
 
         birthdaySong.currentTime = 0;
 
-
-        /*
-           Hide the existing screens.
-        */
 
         screen3.classList.remove(
             "active"
@@ -1581,12 +2036,6 @@ celebrateButton.addEventListener(
             "active"
         );
 
-
-        /*
-           Start the new phone video.
-        */
-
-        hideNewScreens();
 
         phoneVideoScreen.classList.add(
             "active"
@@ -1622,8 +2071,9 @@ celebrateButton.addEventListener(
 
 
 /* =========================================================
-   PHONE VIDEO ENDS
+   PHONE VIDEO FINISHES
    → HAPPY BIRTHDAY SCREEN
+   → START SINGING
 ========================================================= */
 
 phoneVideo.addEventListener(
@@ -1642,18 +2092,85 @@ phoneVideo.addEventListener(
             "active"
         );
 
+
+        /*
+           Make sure the Bubu button
+           is hidden again.
+        */
+
+        bubuWaitingButton.classList.remove(
+            "song-finished"
+        );
+
+
+        /*
+           Start the actual singing
+           Happy Birthday song.
+        */
+
+        birthdayWishMusic.currentTime = 0;
+
+
+        const musicPromise =
+            birthdayWishMusic.play();
+
+
+        if (
+            musicPromise !== undefined
+        ) {
+
+            musicPromise.catch(
+                function(error) {
+
+                    console.log(
+                        "Birthday singing:",
+                        error
+                    );
+
+                }
+            );
+
+        }
+
     }
 );
 
 
 /* =========================================================
-   BUBU WAITING BUTTON
+   SINGING SONG COMPLETELY FINISHES
+   → SHOW BUBU BUTTON
+========================================================= */
+
+birthdayWishMusic.addEventListener(
+    "ended",
+    function() {
+
+        birthdayWishMusic.pause();
+
+        birthdayWishMusic.currentTime = 0;
+
+
+        bubuWaitingButton.classList.add(
+            "song-finished"
+        );
+
+    }
+);
+
+
+/* =========================================================
+   BUBU IS WAITING
    → BUBU PHOTO
 ========================================================= */
 
 bubuWaitingButton.addEventListener(
     "click",
     function() {
+
+        birthdayWishMusic.pause();
+
+        birthdayWishMusic.currentTime = 0;
+
 
         newBirthdayScreen.classList.remove(
             "active"
@@ -1669,8 +2186,8 @@ bubuWaitingButton.addEventListener(
 
 
 /* =========================================================
-   BUBU COMING BUTTON
-   → BUBU FLYING VIDEO
+   BUBU IS COMING
+   → FLYING VIDEO
 ========================================================= */
 
 bubuComingButton.addEventListener(
@@ -1730,7 +2247,7 @@ bubuVideo.addEventListener(
 
 
 /* =========================================================
-   RESIZE SAFETY FOR RANDOM BUTTON
+   WINDOW RESIZE
 ========================================================= */
 
 window.addEventListener(
