@@ -5,12 +5,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Buddu Thalli Birthday ❤️</title>
+
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{width:100%;min-height:100%}
 body{overflow-x:hidden;background:radial-gradient(circle at 50% 35%,#42104f 0%,#210725 35%,#100315 65%,#060208 100%);color:white;font-family:Georgia,"Times New Roman",serif}
 .screen{position:relative;width:100%;min-height:100vh;display:none;align-items:center;justify-content:center;text-align:center;overflow:hidden}
 .screen.active{display:flex}
+
 .balloon{position:fixed;width:55px;height:70px;border-radius:50%;opacity:.8;z-index:1;animation:floatBalloon 6s ease-in-out infinite}
 .balloon::after{content:"";position:absolute;width:1px;height:100px;background:rgba(255,255,255,.4);left:50%;top:65px}
 .balloon1{left:5%;top:15%;background:#ff5c8a}
@@ -21,11 +23,9 @@ body{overflow-x:hidden;background:radial-gradient(circle at 50% 35%,#42104f 0%,#
 .balloon6{right:40%;top:82%;background:#c084fc;animation-delay:2.5s}
 @keyframes floatBalloon{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-18px) rotate(3deg)}}
 .heart{position:fixed;font-size:30px;opacity:.7;z-index:1;animation:floatHeart 7s ease-in-out infinite}
-.heart1{left:12%;top:40%}
-.heart2{right:12%;top:45%;animation-delay:1s}
-.heart3{left:27%;bottom:10%;animation-delay:2s}
-.heart4{right:28%;top:12%;animation-delay:3s}
+.heart1{left:12%;top:40%}.heart2{right:12%;top:45%;animation-delay:1s}.heart3{left:27%;bottom:10%;animation-delay:2s}.heart4{right:28%;top:12%;animation-delay:3s}
 @keyframes floatHeart{0%,100%{transform:translateY(0);opacity:.5}50%{transform:translateY(-15px);opacity:.9}}
+
 .first-content{width:min(900px,92%);position:relative;z-index:5}
 .small-heading{font-size:14px;letter-spacing:5px;opacity:.8;margin-bottom:20px}
 .main-title{font-size:clamp(55px,8vw,105px);line-height:.94;font-weight:bold;text-shadow:0 0 10px rgba(255,255,255,.8),0 0 30px rgba(255,80,220,.4)}
@@ -33,13 +33,15 @@ body{overflow-x:hidden;background:radial-gradient(circle at 50% 35%,#42104f 0%,#
 .question{margin-top:35px;font-size:clamp(19px,2.5vw,29px);line-height:1.45;font-weight:bold}
 .ready-area{margin-top:30px;min-height:70px}
 #readyButton{border:1px solid rgba(255,255,255,.6);background:linear-gradient(135deg,#e85caf,#9f3edb);color:white;border-radius:999px;padding:15px 34px;font-family:Georgia,"Times New Roman",serif;font-size:14px;font-weight:bold;letter-spacing:1px;cursor:pointer;box-shadow:0 0 15px rgba(255,80,220,.45),0 0 30px rgba(180,70,230,.25);transition:left .55s ease,top .55s ease,transform .25s ease,box-shadow .25s ease;position:relative;z-index:50}
-#readyButton:hover{transform:scale(1.05);box-shadow:0 0 20px rgba(255,80,220,.7),0 0 40px rgba(180,70,230,.4)}
+#readyButton:hover{transform:scale(1.05)}
 #readyButton.random-position{position:fixed;z-index:9999}
+
 .second-content{width:min(850px,92%);position:relative;z-index:5}
 .second-title{font-size:clamp(55px,8vw,100px);text-shadow:0 0 10px white,0 0 30px rgba(255,80,220,.4)}
 .second-text{margin-top:25px;font-size:clamp(18px,2.4vw,27px);line-height:1.6}
 .go-button,.bubu-button{margin-top:32px;border:1px solid rgba(255,255,255,.6);background:linear-gradient(135deg,#e85caf,#9f3edb);color:white;border-radius:999px;padding:15px 34px;font-family:Georgia,"Times New Roman",serif;font-size:14px;font-weight:bold;letter-spacing:1px;cursor:pointer;box-shadow:0 0 15px rgba(255,80,220,.45);transition:transform .25s ease}
 .go-button:hover,.bubu-button:hover{transform:scale(1.05)}
+
 .prayer-container{width:min(900px,94%);max-height:94vh;overflow-y:auto;position:relative;z-index:5;scrollbar-width:none}
 .prayer-container::-webkit-scrollbar{display:none}
 .assalam{font-size:clamp(27px,4vw,48px);line-height:1.3;text-shadow:0 0 10px white,0 0 25px rgba(255,80,220,.35)}
@@ -49,7 +51,7 @@ body{overflow-x:hidden;background:radial-gradient(circle at 50% 35%,#42104f 0%,#
 .ameen{margin-top:22px;font-size:30px;font-weight:bold}
 .celebrate-button{margin-top:28px;opacity:0;pointer-events:none;border:1px solid rgba(255,255,255,.6);background:linear-gradient(135deg,#e85caf,#9f3edb);color:white;border-radius:999px;padding:16px 32px;font-family:Georgia,"Times New Roman",serif;font-size:14px;font-weight:bold;letter-spacing:1px;cursor:pointer;box-shadow:0 0 15px rgba(255,80,220,.45);transition:opacity .6s ease,transform .25s ease}
 .celebrate-button.show{opacity:1;pointer-events:auto}
-.celebrate-button:hover{transform:scale(1.05)}
+
 .new-screen{position:fixed;inset:0;width:100%;height:100vh;display:none;align-items:center;justify-content:center;text-align:center;overflow:hidden;z-index:1000;background:radial-gradient(circle at center,#42104f,#18051e 55%,#060208)}
 .new-screen.active{display:flex}
 .phone-video{width:100%;height:100%;object-fit:contain;background:#060208;display:block}
@@ -58,9 +60,10 @@ body{overflow-x:hidden;background:radial-gradient(circle at 50% 35%,#42104f 0%,#
 .new-birthday-title{font-size:clamp(55px,8vw,105px);line-height:.95;font-weight:bold;text-shadow:0 0 10px white,0 0 25px rgba(255,80,220,.45),0 0 45px rgba(170,70,255,.3)}
 .new-birthday-name{margin-top:18px;font-size:clamp(32px,5vw,60px);color:#ffd1f1;font-weight:bold;text-shadow:0 0 15px rgba(255,100,220,.7)}
 .new-birthday-message{width:min(750px,94%);margin:28px auto 0;font-size:clamp(17px,2.2vw,24px);line-height:1.7;color:rgba(255,255,255,.92)}
+
 .door-screen{position:fixed;inset:0;width:100%;height:100vh;display:none;align-items:center;justify-content:center;flex-direction:column;text-align:center;overflow:hidden;z-index:2000;background:radial-gradient(circle at center,#42104f 0%,#210725 40%,#09020d 100%)}
 .door-screen.active{display:flex}
-.door-title{position:relative;z-index:20;width:min(850px,92%);margin-bottom:25px;font-size:clamp(30px,5vw,65px);line-height:1.2;color:white;text-shadow:0 0 10px white,0 0 25px rgba(255,80,220,.5),0 0 50px rgba(180,70,230,.35);animation:doorTextGlow 2s ease-in-out infinite}
+.door-title{position:relative;z-index:20;width:min(850px,92%);margin-bottom:25px;font-size:clamp(30px,5vw,65px);line-height:1.2;text-shadow:0 0 10px white,0 0 25px rgba(255,80,220,.5),0 0 50px rgba(180,70,230,.35);animation:doorTextGlow 2s ease-in-out infinite}
 @keyframes doorTextGlow{0%,100%{opacity:.9;transform:translateY(0)}50%{opacity:1;transform:translateY(-4px)}}
 .door-subtitle{position:relative;z-index:20;margin-bottom:25px;font-size:clamp(16px,2.3vw,23px);color:rgba(255,255,255,.85)}
 .door-frame{position:relative;width:min(340px,72vw);height:min(460px,60vh);perspective:1400px;z-index:10;cursor:pointer;filter:drop-shadow(0 0 25px rgba(190,70,230,.5))}
@@ -72,65 +75,42 @@ body{overflow-x:hidden;background:radial-gradient(circle at 50% 35%,#42104f 0%,#
 .door-right{right:0;transform-origin:right center;border-radius:0 14px 5px 0;transition:transform 1.1s cubic-bezier(.7,0,.2,1)}
 .door-panel{position:absolute;left:14%;right:14%;top:12%;bottom:12%;border:2px solid rgba(255,200,250,.35);border-radius:8px}
 .door-handle{position:absolute;top:50%;width:13px;height:13px;border-radius:50%;background:#ffd36e;box-shadow:0 0 12px rgba(255,210,100,.8);z-index:10}
-.door-left .door-handle{right:10px}
-.door-right .door-handle{left:10px}
+.door-left .door-handle{right:10px}.door-right .door-handle{left:10px}
 .door-screen.opening .door-left{transform:rotateY(-105deg)}
 .door-screen.opening .door-right{transform:rotateY(105deg)}
 .door-screen.opening .door-title,.door-screen.opening .door-subtitle{opacity:0;transition:opacity .5s ease}
 .touch-door{position:relative;z-index:20;margin-top:22px;font-size:14px;letter-spacing:2px;opacity:.85;animation:touchPulse 1.6s ease-in-out infinite}
 @keyframes touchPulse{0%,100%{opacity:.5}50%{opacity:1}}
+
 .bubu-video-screen{position:fixed;inset:0;width:100%;height:100vh;display:none;align-items:center;justify-content:center;overflow:hidden;z-index:3000;background:#060208}
 .bubu-video-screen.active{display:flex}
 .bubu-video{width:100vw;height:100vh;object-fit:contain;background:#060208;display:block}
-@media(max-width:600px){
-.small-heading{font-size:10px;letter-spacing:3px}
-.main-title{font-size:48px}
-.subtitle{font-size:16px;line-height:1.55}
-.question{font-size:20px}
-#readyButton{padding:13px 27px}
-.assalam{font-size:27px}
-.roman-prayer p,.telugu-meaning p{font-size:16px;line-height:1.65}
-.celebrate-button{width:90%;max-width:330px;font-size:14px;padding:15px 20px}
-.new-small-heading{font-size:10px;letter-spacing:3px}
-.new-birthday-title{font-size:52px}
-.new-birthday-name{font-size:34px}
-.new-birthday-message{font-size:17px;line-height:1.65}
-.door-title{font-size:31px}
-.door-subtitle{font-size:17px}
-.door-frame{width:250px;height:360px}
-.touch-door{font-size:12px;letter-spacing:1.5px}
-}
-.bubu-meet-screen{position:fixed;inset:0;width:100%;height:100vh;display:none;align-items:center;justify-content:center;overflow:hidden;text-align:center;z-index:4000;background:radial-gradient(circle at 50% 35%,#5a165e 0%,#26082e 45%,#08020c 100%)}
-.bubu-meet-screen.active{display:flex}
-.bubu-meet-scene{position:relative;width:min(1000px,94vw);height:min(700px,88vh);overflow:hidden}
-.bubu-meet-glow{position:absolute;left:50%;bottom:17%;width:min(600px,80vw);height:120px;transform:translateX(-50%);background:radial-gradient(ellipse,rgba(255,125,224,.30),transparent 70%);filter:blur(10px)}
-.bubu-room{position:absolute;right:8%;top:15%;width:min(300px,35vw);height:min(390px,55vh);border:4px solid rgba(255,190,245,.65);border-radius:18px 18px 8px 8px;background:linear-gradient(180deg,rgba(92,23,100,.9),rgba(30,7,38,.96));box-shadow:0 0 35px rgba(255,90,220,.35),inset 0 0 40px rgba(255,130,230,.15)}
-.bubu-room::before{content:"";position:absolute;left:12%;right:12%;top:12%;bottom:12%;border:2px solid rgba(255,210,250,.22);border-radius:10px}
-.bubu-room-label{position:absolute;top:7%;left:50%;transform:translateX(-50%);font-size:13px;letter-spacing:2px;color:rgba(255,235,252,.75)}
-.bubu-room-heart{position:absolute;left:50%;top:48%;transform:translate(-50%,-50%);font-size:clamp(55px,8vw,90px);animation:roomHeart 1.2s ease-in-out infinite}
-@keyframes roomHeart{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.12)}}
-.bubu-runner{position:absolute;left:-15%;bottom:20%;width:125px;height:145px;z-index:8;display:flex;align-items:center;justify-content:center;font-size:clamp(70px,9vw,115px);filter:drop-shadow(0 10px 15px rgba(0,0,0,.25));animation:bubuRunToDudu 3.2s cubic-bezier(.2,.8,.2,1) forwards}
-@keyframes bubuRunToDudu{0%{left:-15%;transform:translateY(0) rotate(-8deg) scale(.88)}12%{transform:translateY(-18px) rotate(8deg) scale(.93)}24%{transform:translateY(0) rotate(-8deg) scale(.97)}36%{transform:translateY(-18px) rotate(8deg) scale(1)}48%{transform:translateY(0) rotate(-7deg) scale(1.02)}60%{transform:translateY(-15px) rotate(7deg) scale(1.03)}76%{left:39%;transform:translateY(0) rotate(-3deg) scale(1.04)}100%{left:43%;transform:translateY(0) rotate(0deg) scale(1.05)}}
-.bubu-dudu{position:absolute;right:20%;bottom:20%;z-index:7;font-size:clamp(55px,7vw,90px);opacity:0;animation:duduAppear 1s ease 2.5s forwards}
-@keyframes duduAppear{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-.bubu-hand{position:absolute;left:47%;bottom:31%;z-index:10;font-size:clamp(38px,5vw,65px);opacity:0;transform:rotate(-18deg) scale(.6);animation:offerHand .8s ease 3.25s forwards,handPulse 1.2s ease 4.2s infinite}
-@keyframes offerHand{from{opacity:0;transform:rotate(-18deg) scale(.6) translateX(-25px)}to{opacity:1;transform:rotate(-8deg) scale(1) translateX(0)}}
-@keyframes handPulse{0%,100%{transform:rotate(-8deg) scale(1)}50%{transform:rotate(-8deg) scale(1.1)}}
-.bubu-meet-text{position:absolute;left:50%;bottom:4%;width:min(850px,92%);transform:translateX(-50%);z-index:30;opacity:0;animation:meetTextIn 1s ease 3.8s forwards}
-.bubu-meet-text h2{font-size:clamp(24px,4vw,48px);line-height:1.2;text-shadow:0 0 12px rgba(255,255,255,.8),0 0 28px rgba(255,80,220,.45)}
-.bubu-meet-text p{margin-top:10px;font-size:clamp(15px,2vw,21px);color:rgba(255,255,255,.88)}
-@keyframes meetTextIn{from{opacity:0;transform:translateX(-50%) translateY(15px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+
+/* New surprise screen */
+.surprise-screen{position:fixed;inset:0;width:100%;height:100vh;display:none;align-items:center;justify-content:center;overflow:hidden;text-align:center;z-index:4000;padding:24px;background:radial-gradient(circle at 50% 35%,#5a165e 0%,#26082e 48%,#08020c 100%)}
+.surprise-screen.active{display:flex}
+.surprise-card{width:min(760px,94vw);padding:clamp(26px,5vw,54px) 22px;border:1px solid rgba(255,200,250,.3);border-radius:28px;background:linear-gradient(145deg,rgba(94,23,105,.55),rgba(22,5,29,.78));box-shadow:0 0 35px rgba(255,85,220,.22),inset 0 0 30px rgba(255,180,245,.04);animation:surpriseAppear .8s ease both}
+@keyframes surpriseAppear{from{opacity:0;transform:translateY(18px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+.surprise-icon{font-size:clamp(72px,13vw,130px);line-height:1.2;margin-bottom:15px;filter:drop-shadow(0 0 18px rgba(255,120,220,.45));animation:giftFloat 2s ease-in-out infinite}
+@keyframes giftFloat{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-9px) rotate(3deg)}}
+.surprise-title{font-size:clamp(30px,5vw,58px);line-height:1.15;text-shadow:0 0 12px rgba(255,255,255,.65),0 0 28px rgba(255,80,220,.4)}
+.surprise-copy{margin:18px auto 0;max-width:620px;font-size:clamp(17px,2.3vw,23px);line-height:1.65;color:rgba(255,255,255,.9)}
+.open-surprise-button{margin-top:28px;border:1px solid rgba(255,255,255,.65);border-radius:999px;padding:15px 28px;background:linear-gradient(135deg,#e85caf,#9f3edb);color:white;font-family:Georgia,"Times New Roman",serif;font-weight:bold;font-size:14px;letter-spacing:.7px;cursor:pointer;box-shadow:0 0 18px rgba(255,80,220,.4);transition:transform .2s ease,box-shadow .2s ease}
+.open-surprise-button:hover{transform:scale(1.04);box-shadow:0 0 28px rgba(255,80,220,.65)}
 .bubu-song-screen{position:fixed;inset:0;width:100%;height:100vh;display:none;align-items:center;justify-content:center;overflow:hidden;z-index:4500;background:#060208}
 .bubu-song-screen.active{display:flex}
-.bubu-song-video{width:100vw;height:100vh;object-fit:contain;background:#060208}
+.bubu-song-video{width:100vw;height:100vh;object-fit:contain;background:#060208;display:block}
+
 @media(max-width:600px){
-.bubu-room{right:5%;width:150px;height:230px;top:18%}
-.bubu-runner{bottom:25%}
-.bubu-dudu{right:8%;bottom:25%}
-.bubu-hand{left:48%;bottom:34%}
+.small-heading{font-size:10px;letter-spacing:3px}.main-title{font-size:48px}.subtitle{font-size:16px;line-height:1.55}.question{font-size:20px}#readyButton{padding:13px 27px}
+.assalam{font-size:27px}.roman-prayer p,.telugu-meaning p{font-size:16px;line-height:1.65}.celebrate-button{width:90%;max-width:330px;font-size:14px;padding:15px 20px}
+.new-small-heading{font-size:10px;letter-spacing:3px}.new-birthday-title{font-size:52px}.new-birthday-name{font-size:34px}.new-birthday-message{font-size:17px;line-height:1.65}
+.door-title{font-size:31px}.door-subtitle{font-size:17px}.door-frame{width:250px;height:360px}.touch-door{font-size:12px;letter-spacing:1.5px}
+.surprise-card{padding:30px 18px}.surprise-title{font-size:32px}.surprise-copy{font-size:17px}.open-surprise-button{width:100%;max-width:330px;padding:15px 16px}
 }
 </style>
 </head>
+
 <body>
 <div class="balloon balloon1"></div>
 <div class="balloon balloon2"></div>
@@ -223,23 +203,17 @@ May this new year of your life be filled with love, happiness and barakah. ❤�
 </video>
 </section>
 
-<section id="bubuMeetScreen" class="bubu-meet-screen">
-<div class="bubu-meet-scene">
-<div class="bubu-meet-glow"></div>
-<div class="bubu-room">
-<div class="bubu-room-label">OUR LITTLE WORLD ❤️</div>
-<div class="bubu-room-heart">❤️</div>
-</div>
-<div class="bubu-dudu">🧍🏻‍♀️</div>
-<div id="bubuRunner" class="bubu-runner">🧸</div>
-<div class="bubu-hand">🤝</div>
-<div class="bubu-meet-text">
-<h2>Bubu came running to you... 🥹❤️</h2>
-<p>Come with me, Dudu... I want to sing a little song just for you. 🎶❤️</p>
-</div>
+<!-- New surprise invitation -->
+<section id="bubuSurpriseScreen" class="surprise-screen">
+<div class="surprise-card">
+<div class="surprise-icon">🎁❤️</div>
+<h2 class="surprise-title">BUBU HAS PLANNED A LITTLE SURPRISE FOR YOU, DUDU! 🥹❤️</h2>
+<p class="surprise-copy">There is something special waiting just for you... 💗<br>Shall we open it together? 🎶</p>
+<button id="openSurpriseButton" class="open-surprise-button" type="button">LET'S OPEN YOUR SURPRISE 🎁❤️</button>
 </div>
 </section>
 
+<!-- Bubu singing video -->
 <section id="bubuSongScreen" class="bubu-song-screen">
 <video id="bubuSongVideo" class="bubu-song-video" playsinline preload="auto">
 <source src="bubu wish.mp4" type="video/mp4">
@@ -249,6 +223,7 @@ May this new year of your life be filled with love, happiness and barakah. ❤�
 <audio id="birthdaySong" preload="auto">
 <source src="birthday-song-00-00-to-00-58.mp3" type="audio/mpeg">
 </audio>
+
 <audio id="birthdayWishMusic" preload="auto">
 <source src="saavane-happy-birthday-happy-birthday-music-254480.mp3" type="audio/mpeg">
 </audio>
@@ -261,41 +236,44 @@ const phoneVideoScreen=document.getElementById("phoneVideoScreen");
 const newBirthdayScreen=document.getElementById("newBirthdayScreen");
 const doorScreen=document.getElementById("doorScreen");
 const bubuVideoScreen=document.getElementById("bubuVideoScreen");
+const bubuSurpriseScreen=document.getElementById("bubuSurpriseScreen");
+const bubuSongScreen=document.getElementById("bubuSongScreen");
+
 const readyButton=document.getElementById("readyButton");
 const goButton=document.getElementById("goButton");
 const celebrateButton=document.getElementById("celebrateButton");
+const doorFrame=document.getElementById("doorFrame");
+const openSurpriseButton=document.getElementById("openSurpriseButton");
+
 const birthdaySong=document.getElementById("birthdaySong");
 const phoneVideo=document.getElementById("phoneVideo");
 const birthdayWishMusic=document.getElementById("birthdayWishMusic");
 const bubuVideo=document.getElementById("bubuVideo");
-const doorFrame=document.getElementById("doorFrame");
-const bubuMeetScreen=document.getElementById("bubuMeetScreen");
-const bubuRunner=document.getElementById("bubuRunner");
-const bubuSongScreen=document.getElementById("bubuSongScreen");
 const bubuSongVideo=document.getElementById("bubuSongVideo");
 
 let readyMoves=0;
 const MAX_READY_MOVES=3;
-let lastX=null;
-let lastY=null;
+let lastX=null,lastY=null;
 
 function moveReadyButton(){
 const rect=readyButton.getBoundingClientRect();
 const margin=25;
 const maxX=Math.max(margin,window.innerWidth-rect.width-margin);
 const maxY=Math.max(margin,window.innerHeight-rect.height-margin);
-let randomX,randomY;
-do{
-randomX=Math.floor(Math.random()*(maxX-margin+1))+margin;
-randomY=Math.floor(Math.random()*(maxY-margin+1))+margin;
-}while(lastX!==null&&Math.abs(randomX-lastX)<100&&Math.abs(randomY-lastY)<100);
-lastX=randomX;
-lastY=randomY;
+let x=Math.floor(Math.random()*(maxX-margin+1))+margin;
+let y=Math.floor(Math.random()*(maxY-margin+1))+margin;
+if(lastX!==null){
+if(Math.abs(x-lastX)<100&&Math.abs(y-lastY)<100){
+x=Math.min(maxX,x+130);
+y=Math.min(maxY,y+100);
+}
+}
+lastX=x;lastY=y;
 readyButton.classList.add("random-position");
-readyButton.style.left=randomX+"px";
-readyButton.style.top=randomY+"px";
+readyButton.style.left=x+"px";
+readyButton.style.top=y+"px";
 readyButton.style.transform="scale(1.05)";
-setTimeout(function(){readyButton.style.transform="scale(1)";},250);
+setTimeout(()=>readyButton.style.transform="scale(1)",250);
 }
 
 readyButton.addEventListener("click",function(){
@@ -318,7 +296,7 @@ screen3.classList.add("active");
 celebrateButton.classList.remove("show");
 birthdaySong.pause();
 birthdaySong.currentTime=0;
-birthdaySong.play().catch(function(error){console.log("Prayer music error:",error);});
+birthdaySong.play().catch(error=>console.log("Prayer music error:",error));
 });
 
 birthdaySong.addEventListener("ended",function(){
@@ -330,23 +308,28 @@ birthdaySong.pause();
 birthdaySong.currentTime=0;
 birthdayWishMusic.pause();
 birthdayWishMusic.currentTime=0;
+
 screen3.classList.remove("active");
 phoneVideoScreen.classList.add("active");
 phoneVideo.pause();
 phoneVideo.currentTime=0;
+
 try{
 await phoneVideo.play();
 }catch(error){
 console.error("Phone video error:",error);
+alert("The phone video could not play. Please check the filename in GitHub.");
 }
 });
 
+/* Phone video ends first; then show birthday message and start its song. */
 phoneVideo.addEventListener("ended",async function(){
 phoneVideo.pause();
 phoneVideoScreen.classList.remove("active");
 newBirthdayScreen.classList.add("active");
 birthdayWishMusic.pause();
 birthdayWishMusic.currentTime=0;
+
 try{
 await birthdayWishMusic.play();
 }catch(error){
@@ -360,18 +343,17 @@ if(document.getElementById("musicFallback"))return;
 const button=document.createElement("button");
 button.id="musicFallback";
 button.textContent="🎵 PLAY HAPPY BIRTHDAY SONG";
-button.style.cssText="position:fixed;bottom:30px;left:50%;transform:translateX(-50%);z-index:99999;padding:15px 25px;border-radius:999px;border:1px solid white;background:linear-gradient(135deg,#e85caf,#9f3edb);color:white;font-family:Georgia,serif;font-weight:bold;cursor:pointer";
+button.style.cssText="position:fixed;bottom:25px;left:50%;transform:translateX(-50%);z-index:99999;padding:15px 24px;border-radius:999px;border:1px solid white;background:linear-gradient(135deg,#e85caf,#9f3edb);color:white;font-family:Georgia,serif;font-weight:bold;cursor:pointer";
 document.body.appendChild(button);
 button.addEventListener("click",async function(){
 try{
 await birthdayWishMusic.play();
 button.remove();
-}catch(error){
-console.error(error);
-}
+}catch(error){console.error(error);}
 });
 }
 
+/* When the complete birthday song ends, show the door. */
 birthdayWishMusic.addEventListener("ended",function(){
 birthdayWishMusic.pause();
 birthdayWishMusic.currentTime=0;
@@ -382,17 +364,23 @@ doorScreen.classList.add("active");
 doorScreen.classList.remove("opening");
 });
 
+/* Open the door and play the existing Bubu flying video. */
 let doorOpening=false;
 function openDoor(){
 if(doorOpening)return;
 doorOpening=true;
 doorScreen.classList.add("opening");
+
 setTimeout(function(){
 doorScreen.classList.remove("active");
 bubuVideoScreen.classList.add("active");
 bubuVideo.pause();
 bubuVideo.currentTime=0;
-bubuVideo.play().catch(function(error){console.error("Bubu video error:",error);});
+
+bubuVideo.play().catch(function(error){
+console.error("Bubu flying video error:",error);
+alert("The Bubu flying video could not play. Check that 'happy bday.mp4' exists in GitHub.");
+});
 },1100);
 }
 
@@ -402,26 +390,34 @@ event.preventDefault();
 openDoor();
 },{passive:false});
 
+/* Flying video finishes -> show the new surprise invitation. */
 bubuVideo.addEventListener("ended",function(){
 bubuVideo.pause();
 bubuVideo.currentTime=0;
 bubuVideoScreen.classList.remove("active");
-bubuMeetScreen.classList.add("active");
-bubuRunner.classList.remove("bubu-runner");
-void bubuRunner.offsetWidth;
-bubuRunner.classList.add("bubu-runner");
-setTimeout(function(){
-bubuMeetScreen.classList.remove("active");
+bubuSurpriseScreen.classList.add("active");
+});
+
+/* Dudu opens the surprise -> play Bubu's singing video. */
+openSurpriseButton.addEventListener("click",async function(){
+bubuSurpriseScreen.classList.remove("active");
 bubuSongScreen.classList.add("active");
 bubuSongVideo.pause();
 bubuSongVideo.currentTime=0;
-bubuSongVideo.play().catch(function(error){console.error("Bubu singing video error:",error);});
-},6500);
+
+try{
+await bubuSongVideo.play();
+}catch(error){
+console.error("Bubu singing video error:",error);
+bubuSongScreen.classList.remove("active");
+bubuSurpriseScreen.classList.add("active");
+alert("The singing video could not play. Check that 'bubu wish.mp4' is uploaded beside index.html.");
+}
 });
 
+/* Leave the last video frame visible when the singing video ends. */
 bubuSongVideo.addEventListener("ended",function(){
 bubuSongVideo.pause();
-bubuSongScreen.classList.remove("active");
 });
 
 window.addEventListener("resize",function(){
