@@ -1,1 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
+<title>Birthday Surprise ❤️</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html,
+body{
+    width:100%;
+    min-height:100%;
+    overflow:hidden;
+}
+
+body{
+    background:
+        radial-gradient(circle at 50% 45%, #351044 0%, #1c0924 38%, #08030d 100%);
+    color:#fff;
+    font-family:Georgia, "Times New Roman", serif;
+}
+
+/* STAR BACKGROUND */
+.stars{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:0;
+}
+
+.star{
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:#fff;
+    border-radius:50%;
+    opacity:.65;
+    animation:twinkle 3s infinite ease-in-out;
+}
+
+@keyframes twinkle{
+    0%,100%{opacity:.25}
+    50%{opacity:1}
+}
+
+/* SCREENS */
+.screen{
+    position:fixed;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:30px 20px;
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transition:opacity .7s ease;
+    z-index:2;
+}
+
+.screen.active{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+}
+
+/* SCREEN 1 */
+.content{
+    width:min(900px, 92vw);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    position:relative;
+    z-index:5;
+}
+
+.small-title{
+    font-size:13px;
+    letter-spacing:5px;
+    margin-bottom:18px;
+    opacity:.85;
+}
+
+.main-title{
+    font-size:clamp(54px, 7vw, 92px);
+    line-height:.88;
+    font-weight:bold;
+    letter-spacing:1px;
+    text-shadow:
+        0 0 8px rgba(255,255,255,.8),
+        0 0 25px rgba(222,91,255,.45);
+    margin-bottom:30px;
+}
+
+.description{
+    font-size:clamp(16px, 2vw, 20px);
+    line-height:1.5;
+    max-width:650px;
+    margin-bottom:36px;
+    opacity:.92;
+}
+
+.question{
+    font-size:clamp(20px, 2.5vw, 28px);
+    font-weight:bold;
+    line-height:1.35;
+    max-width:650px;
+}
+
+/* BUTTON AREA */
+.button-area{
+    width:100%;
+    height:130px;
+    position:relative;
+    margin-top:12px;
+}
+
+.ready-button{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+
+    border:none;
+    outline:none;
+
+    min-width:140px;
+    height:50px;
+    padding:0 28px;
+
+    border-radius:999px;
+
+    color:white;
+    background:linear-gradient(135deg,#e34ba8,#a83ee5);
+
+    border:1px solid rgba(255,255,255,.55);
+
+    font-family:Georgia, "Times New Roman", serif;
+    font-size:13px;
+    font-weight:bold;
+    letter-spacing:.5px;
+
+    box-shadow:
+        0 0 10px rgba(224,75,218,.7),
+        0 0 25px rgba(190,70,240,.35);
+
+    cursor:pointer;
+
+    z-index:50;
+
+    transition:
+        left .65s cubic-bezier(.22,.61,.36,1),
+        top .65s cubic-bezier(.22,.61,.36,1),
+        transform .65s cubic-bezier(.22,.61,.36,1);
+
+    touch-action:none;
+    user-select:none;
+    -webkit-user-select:none;
+}
+
+/* SCREEN 2 */
+.suspense-content{
+    width:min(800px,92vw);
+}
+
+.suspense-title{
+    font-size:clamp(40px,6vw,72px);
+    line-height:1.05;
+    margin-bottom:20px;
+    text-shadow:
+        0 0 10px rgba(255,255,255,.8),
+        0 0 25px rgba(222,91,255,.45);
+}
+
+.suspense-text{
+    font-size:clamp(19px,2.5vw,28px);
+    line-height:1.5;
+    font-weight:bold;
+    margin-bottom:35px;
+}
+
+.go-button{
+    border:none;
+    outline:none;
+    min-width:135px;
+    height:50px;
+    padding:0 25px;
+    border-radius:999px;
+
+    color:white;
+    background:linear-gradient(135deg,#e34ba8,#a83ee5);
+
+    border:1px solid rgba(255,255,255,.55);
+
+    font-family:Georgia, "Times New Roman", serif;
+    font-weight:bold;
+    font-size:13px;
+
+    box-shadow:
+        0 0 10px rgba(224,75,218,.7),
+        0 0 25px rgba(190,70,240,.35);
+
+    cursor:pointer;
+}
+
+/* PRAYER SCREEN */
+.prayer-content{
+    width:min(900px,94vw);
+    max-height:90vh;
+    overflow-y:auto;
+    padding:30px 15px 50px;
+    scrollbar-width:none;
+}
+
+.prayer-content::-webkit-scrollbar{
+    display:none;
+}
+
+.assalam{
+    font-size:clamp(28px,4vw,40px);
+    line-height:1.35;
+    font-weight:bold;
+    margin-bottom:28px;
+
+    text-shadow:
+        0 0 8px rgba(255,255,255,.8),
+        0 0 20px rgba(220,100,255,.4);
+}
+
+.prayer-arabic{
+    font-size:clamp(17px,2vw,22px);
+    line-height:1.9;
+    margin-bottom:25px;
+}
+
+.prayer-meaning{
+    font-size:clamp(16px,1.9vw,21px);
+    line-height:1.9;
+    margin-top:25px;
+}
+
+.ameen{
+    font-size:clamp(24px,3vw,34px);
+    font-weight:bold;
+    margin-top:30px;
+}
+
+/* CELEBRATE */
+.celebrate-button{
+    display:none;
+    margin:35px auto 0;
+
+    border:none;
+    outline:none;
+
+    min-width:190px;
+    height:55px;
+
+    padding:0 30px;
+
+    border-radius:999px;
+
+    color:white;
+    background:linear-gradient(135deg,#e34ba8,#a83ee5);
+
+    border:1px solid rgba(255,255,255,.65);
+
+    font-family:Georgia, "Times New Roman", serif;
+    font-weight:bold;
+    font-size:14px;
+
+    box-shadow:
+        0 0 12px rgba(224,75,218,.8),
+        0 0 30px rgba(190,70,240,.45);
+
+    cursor:pointer;
+}
+
+.celebrate-button.show{
+    display:block;
+    animation:celebrateIn 1s ease forwards;
+}
+
+@keyframes celebrateIn{
+    from{
+        opacity:0;
+        transform:scale(.5);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+/* MOBILE */
+@media(max-width:600px){
+
+    .screen{
+        padding:20px 16px;
+    }
+
+    .small-title{
+        font-size:10px;
+        letter-spacing:3px;
+    }
+
+    .main-title{
+        font-size:47px;
+        line-height:.92;
+    }
+
+    .description{
+        font-size:15px;
+        max-width:330px;
+        margin-bottom:25px;
+    }
+
+    .question{
+        font-size:19px;
+        max-width:340px;
+    }
+
+    .button-area{
+        height:130px;
+    }
+
+    .ready-button{
+        min-width:135px;
+        height:48px;
+    }
+
+    .suspense-title{
+        font-size:42px;
+    }
+
+    .suspense-text{
+        font-size:20px;
+    }
+
+    .assalam{
+        font-size:27px;
+    }
+
+    .prayer-arabic{
+        font-size:16px;
+        line-height:1.75;
+    }
+
+    .prayer-meaning{
+        font-size:16px;
+        line-height:1.8;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- STARS -->
+<div class="stars">
+    <span class="star" style="left:8%;top:20%;animation-delay:.2s"></span>
+    <span class="star" style="left:18%;top:70%;animation-delay:1s"></span>
+    <span class="star" style="left:29%;top:25%;animation-delay:1.7s"></span>
+    <span class="star" style="left:42%;top:12%;animation-delay:.5s"></span>
+    <span class="star" style="left:55%;top:76%;animation-delay:1.3s"></span>
+    <span class="star" style="left:67%;top:18%;animation-delay:2s"></span>
+    <span class="star" style="left:78%;top:65%;animation-delay:.8s"></span>
+    <span class="star" style="left:88%;top:25%;animation-delay:1.5s"></span>
+    <span class="star" style="left:94%;top:75%;animation-delay:2.2s"></span>
+    <span class="star" style="left:50%;top:45%;animation-delay:.9s"></span>
+    <span class="star" style="left:12%;top:45%;animation-delay:1.9s"></span>
+</div>
+
+
+<!-- ================= SCREEN 1 ================= -->
+
+<section id="screen1" class="screen active">
+
+    <div class="content">
+
+        <div class="small-title">
+            30 DAYS · 30 WISHES
+        </div>
+
+        <h1 class="main-title">
+            FINALLY...<br>
+            THE WAIT IS<br>
+            OVER.
+        </h1>
+
+        <p class="description">
+            Thirty days of wishes brought us all the way here...
+            and now there's only one thing left to ask.
+        </p>
+
+        <div class="question">
+            Are you ready to see<br>
+            what surprise I planned for you? 👀 ❤️
+        </div>
+
+        <div class="button-area" id="buttonArea">
+
+            <button
+                id="readyButton"
+                class="ready-button"
+                type="button">
+                I'M READY ✨
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SCREEN 2 ================= -->
+
+<section id="screen2" class="screen">
+
+    <div class="suspense-content">
+
+        <h2 class="suspense-title">
+            Oh wowww! 😂
+        </h2>
+
+        <div class="suspense-text">
+            I see that you're very excited! 👀<br>
+            But... there's still some suspense left. 😉
+        </div>
+
+        <button
+            id="goButton"
+            class="go-button"
+            type="button">
+            LET'S GO ✨
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SCREEN 3 ================= -->
+
+<section id="screen3" class="screen">
+
+    <div class="prayer-content">
+
+        <div class="assalam">
+            Assalamu Alaikum Ji,<br>
+            Wa Rahmatullahi Wa Barakatuh ❤️
+        </div>
+
+        <div class="prayer-arabic">
+
+            <strong>Bismillahir Rahmanir Raheem.</strong><br>
+
+            Alhamdulillahi Rabbil Aalameen.<br>
+
+            Allahumma barik lahu fi umrihi,
+            warzuqhu sehat, sa'adat aur barkat.<br>
+
+            Waj'al hayat-hu ma'mooratan
+            bil-imaan wal-khair wan-najah.<br>
+
+            Wahfazhu min kulli sharr,
+            waqbal du'aa'ahu.
+
+        </div>
+
+        <div class="prayer-meaning">
+
+            Dayagala, karunamayudaina Allah perutho prarambhistunnam.<br>
+
+            Prashamsalanni prapanchala Prabhuvaina Allah ke chendutayi.<br>
+
+            Allah, athani vayassulo barkat ivvu,
+            manchi aarogyam, santosham mariyu samruddhi ivvu.<br>
+
+            Athani jeevithanni imaan,
+            manchi mariyu vijayalatho nimpandi.<br>
+
+            Prathi chedu nunchi athanni kapadandi,
+            athani manchi prarthanalanu sweekarinchandi.
+
+        </div>
+
+        <div class="ameen">
+            Aameen 🤲 ❤️
+        </div>
+
+        <button
+            id="celebrateButton"
+            class="celebrate-button"
+            type="button">
+            LET'S CELEBRATE! 🎉
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= AUDIO ================= -->
+
+<audio id="birthdaySong" preload="auto">
+    <source
+        src="birthday-song-00-00-to-00-58.mp3"
+        type="audio/mpeg">
+</audio>
+
+
+<script>
+
+/* =========================================================
+   SCREEN CONTROL
+========================================================= */
+
+const screen1 = document.getElementById("screen1");
+const screen2 = document.getElementById("screen2");
+const screen3 = document.getElementById("screen3");
+
+const readyButton = document.getElementById("readyButton");
+const goButton = document.getElementById("goButton");
+
+const birthdaySong = document.getElementById("birthdaySong");
+
+const celebrateButton =
+    document.getElementById("celebrateButton");
+
+
+function showScreen(screen){
+
+    screen1.classList.remove("active");
+    screen2.classList.remove("active");
+    screen3.classList.remove("active");
+
+    screen.classList.add("active");
+}
+
+
+/* =========================================================
+   I'M READY BUTTON MOVEMENT
+=========================================================
+
+   STATE 0 = Original position
+   STATE 1 = Top center
+   STATE 2 = Top right
+   STATE 3 = Original position again
+
+   After STATE 3, tapping the button opens Screen 2.
+========================================================= */
+
+let buttonState = 0;
+
+let startY = null;
+let lastY = null;
+
+let suppressClick = false;
+
+
+/* Exact positions */
+
+function setButtonPosition(state){
+
+    if(state === 0){
+
+        readyButton.style.left = "50%";
+        readyButton.style.top = "50%";
+        readyButton.style.transform =
+            "translate(-50%, -50%)";
+
+    }
+
+    if(state === 1){
+
+        readyButton.style.left = "50%";
+        readyButton.style.top = "30px";
+        readyButton.style.transform =
+            "translate(-50%, 0)";
+
+    }
+
+    if(state === 2){
+
+        readyButton.style.left = "calc(100% - 85px)";
+        readyButton.style.top = "30px";
+        readyButton.style.transform =
+            "translate(0, 0)";
+
+    }
+
+    if(state === 3){
+
+        readyButton.style.left = "50%";
+        readyButton.style.top = "50%";
+        readyButton.style.transform =
+            "translate(-50%, -50%)";
+
+    }
+}
+
+
+/* Mouse + touch */
+
+readyButton.addEventListener("pointerdown", function(event){
+
+    if(buttonState >= 3){
+        return;
+    }
+
+    startY = event.clientY;
+    lastY = event.clientY;
+
+    /*
+       Prevent the normal click from immediately
+       opening the next screen.
+    */
+    suppressClick = true;
+
+    /*
+       FIRST TOUCH / CLICK
+       Button jumps all the way to TOP.
+    */
+
+    if(buttonState === 0){
+
+        buttonState = 1;
+
+        setButtonPosition(1);
+
+        event.preventDefault();
+
+        return;
+    }
+
+});
+
+
+readyButton.addEventListener("pointermove", function(event){
+
+    if(buttonState === 0 || startY === null){
+        return;
+    }
+
+    const currentY = event.clientY;
+
+    const movement =
+        currentY - lastY;
+
+    /*
+       Finger/mouse moving DOWN
+       TOP CENTER -> TOP RIGHT
+    */
+
+    if(buttonState === 1 && movement > 8){
+
+        buttonState = 2;
+
+        setButtonPosition(2);
+
+        lastY = currentY;
+
+        event.preventDefault();
+
+        return;
+    }
+
+    /*
+       Finger/mouse moving DOWN AGAIN
+       TOP RIGHT -> ORIGINAL
+    */
+
+    if(buttonState === 2 && movement > 8){
+
+        buttonState = 3;
+
+        setButtonPosition(3);
+
+        lastY = currentY;
+
+        event.preventDefault();
+
+        return;
+    }
+
+    lastY = currentY;
+
+});
+
+
+readyButton.addEventListener("pointerup", function(){
+
+    startY = null;
+    lastY = null;
+
+});
+
+
+readyButton.addEventListener("pointercancel", function(){
+
+    startY = null;
+    lastY = null;
+
+});
+
+
+/*
+   Final tap after the three movements
+*/
+
+readyButton.addEventListener("click", function(event){
+
+    if(suppressClick){
+
+        suppressClick = false;
+
+        /*
+           If this was one of the movement interactions,
+           don't open Screen 2 yet.
+        */
+
+        if(buttonState < 3){
+
+            event.preventDefault();
+            return;
+        }
+
+    }
+
+    if(buttonState === 3){
+
+        showScreen(screen2);
+
+    }
+
+});
+
+
+/* =========================================================
+   LET'S GO
+========================================================= */
+
+goButton.addEventListener("click", async function(){
+
+    /*
+       Start the audio directly from the user's click.
+       This is important for mobile browser autoplay rules.
+    */
+
+    try{
+
+        birthdaySong.currentTime = 0;
+
+        await birthdaySong.play();
+
+    }catch(error){
+
+        console.log(
+            "Audio could not start:",
+            error
+        );
+
+    }
+
+    /*
+       Show prayer at the same moment
+       the song begins.
+    */
+
+    showScreen(screen3);
+
+});
+
+
+/* =========================================================
+   WHEN SONG FINISHES
+========================================================= */
+
+birthdaySong.addEventListener("ended", function(){
+
+    celebrateButton.classList.add("show");
+
+});
+
+
+/* =========================================================
+   SAFETY:
+   If the song cannot load, log the problem.
+========================================================= */
+
+birthdaySong.addEventListener("error", function(){
+
+    console.log(
+        "The MP3 could not be loaded. Check the filename."
+    );
+
+});
+
+
+/* =========================================================
+   CELEBRATE BUTTON
+========================================================= */
+
+celebrateButton.addEventListener("click", function(){
+
+    alert("Let's celebrate! 🎉❤️");
+
+});
+
+
+/* =========================================================
+   INITIAL POSITION
+========================================================= */
+
+setButtonPosition(0);
+
+</script>
+
+</body>
+</html>
