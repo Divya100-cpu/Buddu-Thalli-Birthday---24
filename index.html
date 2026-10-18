@@ -6,59 +6,1248 @@
 <title>Buddu Thalli Birthday ❤️</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{width:100%;min-height:100%;margin:0}
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html,body{
+    width:100%;
+    min-height:100%;
+}
+
 body{
     overflow:hidden;
-    background:radial-gradient(circle at 50% 35%,#42104f 0%,#210725 35%,#100315 65%,#060208 100%);
+    background:
+        radial-gradient(circle at 50% 35%,
+        #42104f 0%,
+        #210725 35%,
+        #100315 65%,
+        #060208 100%);
     color:white;
     font-family:Georgia,"Times New Roman",serif;
 }
+
 .screen{
     position:fixed;
     inset:0;
     width:100%;
-    height:100%;
+    height:100vh;
     display:none;
     align-items:center;
     justify-content:center;
     text-align:center;
     overflow:hidden;
 }
-.screen.active{display:flex}
-.decor{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+
+.screen.active{
+    display:flex;
+}
+
+/* ================================
+   FLOATING DECORATIONS
+================================ */
+
 .balloon{
     position:absolute;
     width:55px;
-    height:68px;
-    border-radius:50% 50% 45% 45%;
-    opacity:.85;
+    height:70px;
+    border-radius:50%;
+    opacity:.8;
+    z-index:1;
     animation:floatBalloon 6s ease-in-out infinite;
 }
+
 .balloon:after{
     content:"";
     position:absolute;
     width:1px;
     height:100px;
     background:rgba(255,255,255,.4);
-    top:65px;
     left:50%;
+    top:65px;
 }
-.balloon1{left:5%;top:15%;background:#ff5c8a}
-.balloon2{left:15%;top:70%;background:#a855f7;animation-delay:1s}
-.balloon3{right:7%;top:18%;background:#ec4899;animation-delay:2s}
-.balloon4{right:17%;top:72%;background:#8b5cf6;animation-delay:3s}
-.balloon5{left:40%;top:8%;background:#f472b6;animation-delay:1.5s}
-.balloon6{right:40%;top:82%;background:#c084fc;animation-delay:2.5s}
+
+.balloon1{left:5%;top:15%;background:#ff5c8a;}
+.balloon2{left:15%;top:70%;background:#a855f7;animation-delay:1s;}
+.balloon3{right:7%;top:18%;background:#ec4899;animation-delay:2s;}
+.balloon4{right:17%;top:72%;background:#8b5cf6;animation-delay:3s;}
+.balloon5{left:40%;top:8%;background:#f472b6;animation-delay:1.5s;}
+.balloon6{right:40%;top:82%;background:#c084fc;animation-delay:2.5s;}
+
 @keyframes floatBalloon{
     0%,100%{transform:translateY(0) rotate(-3deg)}
     50%{transform:translateY(-18px) rotate(3deg)}
 }
+
 .heart{
     position:absolute;
-    font-size:26px;
+    font-size:30px;
+    opacity:.75;
+    z-index:2;
     animation:floatHeart 7s ease-in-out infinite;
-    text-shadow:0 0 10px rgba(255,50,100,.6);
 }
+
 .heart1{left:12%;top:40%}
-.heart2{right:12%;
+.heart2{right:12%;top:45%;animation-delay:1s}
+.heart3{left:27%;bottom:10%;animation-delay:2s}
+.heart4{right:28%;top:12%;animation-delay:3s}
+
+@keyframes floatHeart{
+    0%,100%{transform:translateY(0);opacity:.5}
+    50%{transform:translateY(-15px);opacity:.95}
+}
+
+/* ================================
+   FIRST SCREEN
+   ORIGINAL BIRTHDAY SCREEN
+================================ */
+
+#screen1{
+    z-index:10;
+}
+
+.first-content{
+    width:min(950px,92%);
+    position:relative;
+    z-index:10;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.small-heading{
+    font-size:14px;
+    letter-spacing:5px;
+    opacity:.9;
+    margin-bottom:18px;
+}
+
+.main-title{
+    font-size:clamp(58px,8.5vw,108px);
+    line-height:.92;
+    font-weight:bold;
+    color:white;
+    text-shadow:
+        0 0 8px rgba(255,255,255,.95),
+        0 0 22px rgba(255,105,230,.95),
+        0 0 45px rgba(190,70,255,.7);
+    animation:titleGlow 2.8s ease-in-out infinite;
+}
+
+@keyframes titleGlow{
+    0%,100%{
+        text-shadow:
+        0 0 8px white,
+        0 0 22px #ff69e6,
+        0 0 45px #be46ff;
+    }
+    50%{
+        text-shadow:
+        0 0 12px white,
+        0 0 30px #ff70df,
+        0 0 60px #c14dff;
+    }
+}
+
+.birthday-name{
+    margin-top:18px;
+    font-size:clamp(34px,5vw,62px);
+    font-weight:bold;
+    color:#ffd5f3;
+    text-shadow:
+        0 0 12px rgba(255,100,220,.85),
+        0 0 25px rgba(190,70,255,.45);
+}
+
+.birthday-name span{
+    color:#ff334f;
+}
+
+.birthday-message{
+    width:min(760px,94%);
+    margin:28px auto 0;
+    font-size:clamp(17px,2.1vw,23px);
+    line-height:1.7;
+    color:rgba(255,255,255,.94);
+}
+
+.ready-area{
+    margin-top:27px;
+}
+
+#readyButton{
+    min-width:315px;
+    padding:15px 28px;
+    border:1px solid rgba(255,255,255,.75);
+    border-radius:999px;
+    background:linear-gradient(135deg,#e85caf,#9f3edb);
+    color:white;
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:13px;
+    font-weight:bold;
+    letter-spacing:.8px;
+    cursor:pointer;
+    box-shadow:
+        0 0 15px rgba(255,80,220,.65),
+        0 0 30px rgba(180,70,230,.35);
+    transition:.25s;
+}
+
+#readyButton:hover{
+    transform:scale(1.05);
+}
+
+/* ================================
+   CALLING SCREEN
+================================ */
+
+#phoneVideoScreen{
+    background:#000;
+    z-index:20;
+}
+
+.phone-video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.phone-swipe-overlay{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:25px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+    z-index:30;
+    pointer-events:none;
+}
+
+.phone-swipe-overlay.show{
+    pointer-events:auto;
+}
+
+.swipe-label{
+    font-size:13px;
+    font-weight:bold;
+    letter-spacing:1px;
+    text-shadow:0 2px 8px #000;
+}
+
+.swipe-track{
+    width:min(330px,78vw);
+    height:52px;
+    border-radius:999px;
+    background:rgba(0,0,0,.55);
+    border:1px solid rgba(255,255,255,.45);
+    position:relative;
+    box-shadow:0 0 20px rgba(255,255,255,.15);
+    overflow:hidden;
+}
+
+.swipe-track:after{
+    content:"SWIPE TO ANSWER ❤️";
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:.8px;
+    color:white;
+}
+
+.swipe-thumb{
+    position:absolute;
+    z-index:3;
+    left:4px;
+    top:4px;
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#ff5ebc,#9e42df);
+    border:2px solid white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:21px;
+    cursor:grab;
+    touch-action:none;
+    user-select:none;
+}
+
+.swipe-thumb:active{
+    cursor:grabbing;
+}
+
+/* ================================
+   BIRTHDAY MESSAGE
+================================ */
+
+#newBirthdayScreen{
+    z-index:25;
+}
+
+.birthday-wish-content{
+    width:min(900px,92%);
+    position:relative;
+    z-index:10;
+}
+
+.wish-title{
+    font-size:clamp(45px,7vw,90px);
+    line-height:1;
+    text-shadow:
+        0 0 10px white,
+        0 0 30px rgba(255,80,220,.5);
+}
+
+.wish-name{
+    margin-top:18px;
+    font-size:clamp(32px,5vw,60px);
+    color:#ffd5f3;
+}
+
+.wish-text{
+    margin:28px auto 0;
+    width:min(800px,95%);
+    font-size:clamp(17px,2.2vw,24px);
+    line-height:1.75;
+}
+
+.music-status{
+    margin-top:25px;
+    font-size:13px;
+    opacity:.75;
+}
+
+/* ================================
+   DOOR SCREEN
+================================ */
+
+#doorScreen{
+    z-index:30;
+    flex-direction:column;
+    background:
+        radial-gradient(circle at center,#42104f,#17051d 65%,#050107);
+}
+
+.door-content{
+    position:relative;
+    z-index:10;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.door-title{
+    font-size:clamp(34px,5vw,62px);
+    line-height:1.1;
+    margin-bottom:35px;
+    text-shadow:
+        0 0 10px white,
+        0 0 30px #c04dff;
+}
+
+.door{
+    width:min(310px,70vw);
+    height:min(430px,62vh);
+    position:relative;
+    cursor:pointer;
+    perspective:1000px;
+}
+
+.door-frame{
+    position:absolute;
+    inset:0;
+    border:8px solid #8b4b32;
+    border-radius:12px 12px 0 0;
+    background:#24100c;
+    box-shadow:
+        0 0 20px rgba(0,0,0,.8),
+        0 0 35px rgba(190,70,255,.35);
+    overflow:hidden;
+}
+
+.door-left,
+.door-right{
+    position:absolute;
+    top:0;
+    width:50%;
+    height:100%;
+    background:
+        linear-gradient(90deg,#522512,#8a4726,#55230f);
+    border:3px solid #b86d43;
+    transition:transform 1s ease;
+    z-index:2;
+}
+
+.door-left{
+    left:0;
+    transform-origin:left center;
+}
+
+.door-right{
+    right:0;
+    transform-origin:right center;
+}
+
+.door.opening .door-left{
+    transform:rotateY(-105deg);
+}
+
+.door.opening .door-right{
+    transform:rotateY(105deg);
+}
+
+.door-knob{
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    background:#f4c46c;
+    z-index:5;
+    box-shadow:0 0 10px #ffd98a;
+}
+
+.door-hint{
+    margin-top:25px;
+    font-size:15px;
+    animation:pulseHint 1.5s infinite;
+}
+
+@keyframes pulseHint{
+    0%,100%{opacity:.6;transform:scale(1)}
+    50%{opacity:1;transform:scale(1.05)}
+}
+
+/* ================================
+   BUBU FLYING VIDEO
+================================ */
+
+#bubuVideoScreen{
+    z-index:40;
+    background:#000;
+}
+
+.bubu-video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* ================================
+   MOBILE
+================================ */
+
+@media(max-width:600px){
+
+    .small-heading{
+        font-size:10px;
+        letter-spacing:3px;
+    }
+
+    .main-title{
+        font-size:52px;
+    }
+
+    .birthday-name{
+        font-size:34px;
+    }
+
+    .birthday-message{
+        font-size:17px;
+        line-height:1.65;
+    }
+
+    #readyButton{
+        min-width:0;
+        width:90%;
+        max-width:330px;
+        font-size:12px;
+        padding:14px 20px;
+    }
+
+    .wish-text{
+        font-size:17px;
+    }
+
+    .door-title{
+        font-size:34px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- DECORATION -->
+<div class="balloon balloon1"></div>
+<div class="balloon balloon2"></div>
+<div class="balloon balloon3"></div>
+<div class="balloon balloon4"></div>
+<div class="balloon balloon5"></div>
+<div class="balloon balloon6"></div>
+
+<div class="heart heart1">❤️</div>
+<div class="heart heart2">💜</div>
+<div class="heart heart3">❤️</div>
+<div class="heart heart4">💖</div>
+
+
+<!-- =====================================================
+     SCREEN 1
+     ORIGINAL BIRTHDAY SCREEN
+===================================================== -->
+
+<section id="screen1" class="screen active">
+
+    <div class="first-content">
+
+        <div class="small-heading">
+            TODAY IS ALL ABOUT YOU ❤️
+        </div>
+
+        <div class="main-title">
+            HAPPY<br>
+            BIRTHDAY!
+        </div>
+
+        <div class="birthday-name">
+            BUDDU <span>❤️</span>
+        </div>
+
+        <div class="birthday-message">
+
+            <p>
+                May Allah bless you with endless happiness,
+                good health, peace and success. 🤍
+            </p>
+
+            <p style="margin-top:20px;">
+                May Allah protect you, guide you, accept all your duas
+                and fill your life with beautiful moments, endless smiles
+                and everything your heart wishes for. ✨
+            </p>
+
+            <p style="margin-top:20px;">
+                May this new year of your life be filled with love,
+                happiness and barakah. ❤️
+            </p>
+
+        </div>
+
+        <div class="ready-area">
+
+            <button id="readyButton">
+                BUBU IS WAITING FOR YOU TO WISH ❤️
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SCREEN 2
+     BUBU CALLING VIDEO
+===================================================== -->
+
+<section id="phoneVideoScreen" class="screen">
+
+    <video
+        id="phoneVideo"
+        class="phone-video"
+        playsinline
+        preload="auto"
+        src="bubu calling.mp4">
+    </video>
+
+    <div
+        id="phoneSwipeOverlay"
+        class="phone-swipe-overlay show">
+
+        <div class="swipe-label">
+            ☎ SWIPE TO ANSWER & OPEN YOUR SURPRISE ❤️
+        </div>
+
+        <div
+            id="swipeTrack"
+            class="swipe-track">
+
+            <div
+                id="swipeThumb"
+                class="swipe-thumb">
+                →
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SCREEN 3
+     BIRTHDAY MESSAGE + BUBU VOICE
+===================================================== -->
+
+<section id="newBirthdayScreen" class="screen">
+
+    <div class="birthday-wish-content">
+
+        <div class="wish-title">
+            HAPPY BIRTHDAY!
+        </div>
+
+        <div class="wish-name">
+            BUDDU ❤️
+        </div>
+
+        <div class="wish-text">
+
+            May Allah bless you with endless happiness,
+            good health, peace and success. 🤍
+
+            <br><br>
+
+            May Allah protect you, guide you, accept all your duas
+            and fill your life with beautiful moments, endless smiles
+            and everything your heart wishes for. ✨
+
+            <br><br>
+
+            May this new year of your life be filled with love,
+            happiness and barakah. ❤️
+
+        </div>
+
+        <div class="music-status">
+            🎵 Bubu has something special to sing for you... ❤️
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SCREEN 4
+     DOOR
+===================================================== -->
+
+<section id="doorScreen" class="screen">
+
+    <div class="door-content">
+
+        <div class="door-title">
+            BUBU PLANNED A SURPRISE FOR YOU... 🎁❤️
+        </div>
+
+        <div
+            id="door"
+            class="door">
+
+            <div class="door-frame">
+
+                <div class="door-left"></div>
+                <div class="door-right"></div>
+
+                <div class="door-knob"></div>
+
+            </div>
+
+        </div>
+
+        <div class="door-hint">
+            👆 TOUCH THE DOOR TO OPEN ❤️
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SCREEN 5
+     BUBU FLYING / SURPRISE VIDEO
+===================================================== -->
+
+<section id="bubuVideoScreen" class="screen">
+
+    <video
+        id="bubuVideo"
+        class="bubu-video"
+        playsinline
+        preload="auto"
+        src="bubu wish.mp4">
+    </video>
+
+</section>
+
+
+<!-- =====================================================
+     AUDIO
+===================================================== -->
+
+<audio
+    id="birthdayWishMusic"
+    preload="auto"
+    src="bubu-wish-audio.mp3">
+</audio>
+
+
+<script>
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const screen1 =
+    document.getElementById("screen1");
+
+const phoneVideoScreen =
+    document.getElementById("phoneVideoScreen");
+
+const newBirthdayScreen =
+    document.getElementById("newBirthdayScreen");
+
+const doorScreen =
+    document.getElementById("doorScreen");
+
+const bubuVideoScreen =
+    document.getElementById("bubuVideoScreen");
+
+const readyButton =
+    document.getElementById("readyButton");
+
+const phoneVideo =
+    document.getElementById("phoneVideo");
+
+const phoneSwipeOverlay =
+    document.getElementById("phoneSwipeOverlay");
+
+const swipeTrack =
+    document.getElementById("swipeTrack");
+
+const swipeThumb =
+    document.getElementById("swipeThumb");
+
+const birthdayWishMusic =
+    document.getElementById("birthdayWishMusic");
+
+const door =
+    document.getElementById("door");
+
+const bubuVideo =
+    document.getElementById("bubuVideo");
+
+
+/* =====================================================
+   FIRST SCREEN
+   CLICK → CALLING VIDEO
+===================================================== */
+
+readyButton.addEventListener("click", async function(){
+
+    /*
+       Make absolutely sure old audio is stopped.
+    */
+
+    birthdayWishMusic.pause();
+    birthdayWishMusic.currentTime = 0;
+    birthdayWishMusic.muted = false;
+
+
+    /*
+       Hide first screen.
+    */
+
+    screen1.classList.remove("active");
+
+
+    /*
+       Open calling screen.
+    */
+
+    phoneVideoScreen.classList.add("active");
+
+
+    /*
+       Calling video's OWN audio must play.
+       Do NOT mute this video.
+    */
+
+    phoneVideo.pause();
+    phoneVideo.currentTime = 0;
+
+    phoneVideo.muted = false;
+    phoneVideo.defaultMuted = false;
+    phoneVideo.volume = 1;
+
+    phoneVideo.removeAttribute("muted");
+
+
+    /*
+       Start the actual calling video.
+    */
+
+    try{
+
+        await phoneVideo.play();
+
+    }catch(error){
+
+        console.log(
+            "Calling video play error:",
+            error
+        );
+
+    }
+
+});
+
+
+/* =====================================================
+   CALLING VIDEO
+   ITS OWN AUDIO PLAYS.
+   NO BIRTHDAY SONG HERE.
+===================================================== */
+
+phoneVideo.addEventListener("play",function(){
+
+    phoneVideo.muted = false;
+    phoneVideo.volume = 1;
+
+});
+
+
+/* =====================================================
+   SWIPE CONTROL
+===================================================== */
+
+let dragging = false;
+
+function resetSwipe(){
+
+    swipeThumb.style.left = "4px";
+
+}
+
+function getSwipeX(clientX){
+
+    const rect =
+        swipeTrack.getBoundingClientRect();
+
+    const thumbWidth =
+        swipeThumb.offsetWidth;
+
+    const min =
+        4;
+
+    const max =
+        rect.width -
+        thumbWidth -
+        4;
+
+    let x =
+        clientX -
+        rect.left -
+        thumbWidth / 2;
+
+    return Math.max(
+        min,
+        Math.min(max,x)
+    );
+
+}
+
+
+swipeThumb.addEventListener(
+    "pointerdown",
+    function(event){
+
+        dragging = true;
+
+        swipeThumb.setPointerCapture(
+            event.pointerId
+        );
+
+    }
+);
+
+
+swipeThumb.addEventListener(
+    "pointermove",
+    function(event){
+
+        if(!dragging)return;
+
+        swipeThumb.style.left =
+            getSwipeX(event.clientX) + "px";
+
+    }
+);
+
+
+swipeThumb.addEventListener(
+    "pointerup",
+    function(){
+
+        finishSwipe();
+
+    }
+);
+
+
+swipeThumb.addEventListener(
+    "pointercancel",
+    function(){
+
+        finishSwipe();
+
+    }
+);
+
+
+function finishSwipe(){
+
+    if(!dragging)return;
+
+    const rect =
+        swipeTrack.getBoundingClientRect();
+
+    const thumbWidth =
+        swipeThumb.offsetWidth;
+
+    const max =
+        rect.width -
+        thumbWidth -
+        4;
+
+    const current =
+        parseFloat(
+            swipeThumb.style.left || "4"
+        );
+
+
+    if(current >= max * .70){
+
+        swipeThumb.style.left =
+            max + "px";
+
+        openBirthday();
+
+    }else{
+
+        swipeThumb.style.left =
+            "4px";
+
+    }
+
+    dragging = false;
+
+}
+
+
+/* Also allow tapping the right side on mobile */
+
+swipeTrack.addEventListener(
+    "click",
+    function(event){
+
+        if(event.target === swipeThumb){
+            return;
+        }
+
+        const rect =
+            swipeTrack.getBoundingClientRect();
+
+        const percentage =
+            (event.clientX - rect.left) /
+            rect.width;
+
+        if(percentage >= .70){
+
+            const max =
+                rect.width -
+                swipeThumb.offsetWidth -
+                4;
+
+            swipeThumb.style.left =
+                max + "px";
+
+            openBirthday();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   OPEN BIRTHDAY MESSAGE
+===================================================== */
+
+let birthdayOpened = false;
+
+function openBirthday(){
+
+    if(birthdayOpened){
+        return;
+    }
+
+    birthdayOpened = true;
+
+
+    /*
+       Stop calling video.
+    */
+
+    phoneVideo.pause();
+
+    phoneVideo.currentTime = 0;
+
+
+    /*
+       Hide calling screen.
+    */
+
+    phoneVideoScreen.classList.remove(
+        "active"
+    );
+
+
+    /*
+       Show birthday message.
+    */
+
+    newBirthdayScreen.classList.add(
+        "active"
+    );
+
+
+    /*
+       NOW start Bubu birthday wish audio.
+       It does NOT start before this point.
+    */
+
+    birthdayWishMusic.pause();
+
+    birthdayWishMusic.currentTime = 0;
+
+    birthdayWishMusic.muted = false;
+
+    birthdayWishMusic.volume = 1;
+
+
+    const startMusic =
+        birthdayWishMusic.play();
+
+
+    if(startMusic !== undefined){
+
+        startMusic.catch(function(error){
+
+            console.log(
+                "Birthday wish audio error:",
+                error
+            );
+
+        });
+
+    }
+
+}
+
+
+/* =====================================================
+   BUBU BIRTHDAY AUDIO FINISHES
+   → DOOR
+===================================================== */
+
+birthdayWishMusic.addEventListener(
+    "ended",
+    function(){
+
+        birthdayWishMusic.pause();
+
+        birthdayWishMusic.currentTime = 0;
+
+
+        /*
+           Hide birthday message.
+        */
+
+        newBirthdayScreen.classList.remove(
+            "active"
+        );
+
+
+        /*
+           Show surprise door.
+        */
+
+        doorScreen.classList.add(
+            "active"
+        );
+
+    }
+);
+
+
+/* =====================================================
+   DOOR OPEN
+===================================================== */
+
+let doorOpened = false;
+
+function openDoor(){
+
+    if(doorOpened){
+        return;
+    }
+
+    doorOpened = true;
+
+
+    /*
+       Animate both doors.
+    */
+
+    door.classList.add(
+        "opening"
+    );
+
+
+    /*
+       After animation,
+       open Bubu surprise video.
+    */
+
+    setTimeout(function(){
+
+        doorScreen.classList.remove(
+            "active"
+        );
+
+        bubuVideoScreen.classList.add(
+            "active"
+        );
+
+
+        /*
+           Start Bubu video.
+        */
+
+        bubuVideo.pause();
+
+        bubuVideo.currentTime = 0;
+
+        bubuVideo.muted = false;
+
+        bubuVideo.volume = 1;
+
+
+        bubuVideo.play().catch(function(error){
+
+            console.log(
+                "Bubu surprise video error:",
+                error
+            );
+
+        });
+
+    },1100);
+
+}
+
+
+/* Desktop click */
+
+door.addEventListener(
+    "click",
+    openDoor
+);
+
+
+/* Mobile touch */
+
+door.addEventListener(
+    "touchstart",
+    function(event){
+
+        event.preventDefault();
+
+        openDoor();
+
+    },
+    {
+        passive:false
+    }
+);
+
+
+/* =====================================================
+   BUBU VIDEO
+===================================================== */
+
+bubuVideo.addEventListener(
+    "ended",
+    function(){
+
+        bubuVideo.pause();
+
+    }
+);
+
+
+/* =====================================================
+   IMPORTANT:
+   DO NOT AUTOPLAY ANYTHING ON PAGE LOAD.
+===================================================== */
+
+window.addEventListener(
+    "load",
+    function(){
+
+        /*
+           Always force first screen.
+        */
+
+        screen1.classList.add("active");
+
+        phoneVideoScreen.classList.remove("active");
+        newBirthdayScreen.classList.remove("active");
+        doorScreen.classList.remove("active");
+        bubuVideoScreen.classList.remove("active");
+
+
+        /*
+           No music before user starts.
+        */
+
+        birthdayWishMusic.pause();
+
+        birthdayWishMusic.currentTime = 0;
+
+        phoneVideo.pause();
+
+    }
+);
+
+</script>
+
+</body>
+</html>
