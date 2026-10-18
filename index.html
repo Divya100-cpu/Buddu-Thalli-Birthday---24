@@ -138,6 +138,7 @@ body {
 
     transition:
         left .55s cubic-bezier(.2,.8,.2,1),
+        right .55s cubic-bezier(.2,.8,.2,1),
         top .55s cubic-bezier(.2,.8,.2,1),
         transform .55s cubic-bezier(.2,.8,.2,1);
 
@@ -151,9 +152,18 @@ body {
         0 0 35px rgba(226,80,255,.65);
 }
 
-/* Button at TOP RIGHT */
+/* FIRST ESCAPE - TOP CENTER */
 
-#readyButton.escape {
+#readyButton.escape-top {
+    left: 50%;
+    right: auto;
+    top: 25px;
+    transform: translateX(-50%);
+}
+
+/* SECOND ESCAPE - TOP RIGHT */
+
+#readyButton.escape-right {
     left: auto;
     right: 25px;
     top: 25px;
@@ -296,7 +306,14 @@ body {
         top: calc(50% + 135px);
     }
 
-    #readyButton.escape {
+    #readyButton.escape-top {
+        left: 50%;
+        right: auto;
+        top: 15px;
+        transform: translateX(-50%);
+    }
+
+    #readyButton.escape-right {
         right: 15px;
         top: 15px;
     }
@@ -383,7 +400,7 @@ body {
 
 
 <!-- =====================================================
-     SCREEN 3
+     SCREEN 3 - WISH / PRAYER
 ===================================================== -->
 
 <section id="screen3" class="screen">
@@ -482,7 +499,7 @@ body {
     id="birthdaySong"
     preload="auto"
     playsinline>
-    <source src="asubhu-badamin.mp3" type="audio/mpeg">
+    <source src="birthday-song-00-00-to-00-58.mp3" type="audio/mpeg">
 </audio>
 
 
@@ -507,102 +524,104 @@ const birthdaySong =
 
 
 /* =====================================================
-   BUTTON STATE
+   READY BUTTON STATE
+
+   0 = Original position
+   1 = Top center
+   2 = Original position after first escape
+   3 = Top right
+   4 = Original position after second escape
+   5 = Finished
 ===================================================== */
 
-let buttonAtTop = false;
+let readyStage = 0;
 let screen1Finished = false;
 
 
 /* =====================================================
-   MOVE READY BUTTON TO TOP RIGHT
+   MOVE BUTTON TO TOP CENTER
 ===================================================== */
 
-function moveButtonToTop() {
+function moveButtonToTopCenter() {
 
     if (screen1Finished) return;
 
-    buttonAtTop = true;
+    if (readyStage !== 0) return;
 
-    readyButton.classList.add("escape");
+    readyStage = 1;
+
+    readyButton.classList.remove("escape-right");
+
+    readyButton.classList.add("escape-top");
 }
 
 
 /* =====================================================
-   MOVE BUTTON BACK TO ORIGINAL POSITION
+   RETURN FROM TOP CENTER
 ===================================================== */
 
-function moveButtonBack() {
+function moveButtonBackFromTopCenter() {
 
     if (screen1Finished) return;
 
-    buttonAtTop = false;
+    if (readyStage !== 1) return;
 
-    readyButton.classList.remove("escape");
+    readyStage = 2;
+
+    readyButton.classList.remove("escape-top");
 }
 
 
 /* =====================================================
-   DESKTOP
-   Cursor approaching button
+   MOVE BUTTON TO TOP RIGHT
 ===================================================== */
 
-document.addEventListener("mousemove", function(event) {
+function moveButtonToTopRight() {
 
-    if (!screen1.classList.contains("active")) return;
     if (screen1Finished) return;
 
-    const rect = readyButton.getBoundingClientRect();
+    if (readyStage !== 2) return;
 
-    const buttonCenterX =
-        rect.left + rect.width / 2;
+    readyStage = 3;
 
-    const buttonCenterY =
-        rect.top + rect.height / 2;
+    readyButton.classList.remove("escape-top");
 
-    const distance = Math.sqrt(
-        Math.pow(event.clientX - buttonCenterX, 2) +
-        Math.pow(event.clientY - buttonCenterY, 2)
-    );
-
-    /*
-      When cursor comes close,
-      immediately send button to TOP RIGHT.
-    */
-
-    if (distance < 170) {
-        moveButtonToTop();
-    }
-
-    /*
-      When cursor goes away/down,
-      return button to original position.
-    */
-
-    if (
-        buttonAtTop &&
-        event.clientY > window.innerHeight * 0.55
-    ) {
-        moveButtonBack();
-    }
-
-});
+    readyButton.classList.add("escape-right");
+}
 
 
 /* =====================================================
-   MOBILE TOUCH
+   RETURN FROM TOP RIGHT
 ===================================================== */
 
-document.addEventListener("touchmove", function(event) {
+function moveButtonBackFromTopRight() {
 
-    if (!screen1.classList.contains("active")) return;
     if (screen1Finished) return;
 
-    const touch = event.touches[0];
+    if (readyStage !== 3) return;
 
-    if (!touch) return;
+    readyStage = 4;
 
-    const rect = readyButton.getBoundingClientRect();
+    readyButton.classList.remove("escape-right");
+}
+
+
+/* =====================================================
+   CHECK CURSOR / TOUCH APPROACH
+===================================================== */
+
+function handleApproach(x, y) {
+
+    if (!screen1.classList.contains("active")) {
+        return;
+    }
+
+    if (screen1Finished) {
+        return;
+    }
+
+    const rect =
+        readyButton.getBoundingClientRect();
 
     const centerX =
         rect.left + rect.width / 2;
@@ -610,147 +629,265 @@ document.addEventListener("touchmove", function(event) {
     const centerY =
         rect.top + rect.height / 2;
 
-    const distance = Math.sqrt(
-        Math.pow(touch.clientX - centerX, 2) +
-        Math.pow(touch.clientY - centerY, 2)
-    );
+    const distance =
+        Math.hypot(
+            x - centerX,
+            y - centerY
+        );
 
-    if (distance < 190) {
-        moveButtonToTop();
-    }
+
+    /*
+       First time:
+       Original → Top Center
+    */
 
     if (
-        buttonAtTop &&
-        touch.clientY > window.innerHeight * 0.55
+        distance < 170 &&
+        readyStage === 0
     ) {
-        moveButtonBack();
+
+        moveButtonToTopCenter();
+
+        return;
     }
 
-}, { passive: true });
+
+    /*
+       Second time:
+       Original → Top Right
+    */
+
+    if (
+        distance < 170 &&
+        readyStage === 2
+    ) {
+
+        moveButtonToTopRight();
+
+        return;
+    }
+}
+
+
+/* =====================================================
+   DESKTOP MOUSE
+===================================================== */
+
+document.addEventListener(
+    "mousemove",
+    function(event) {
+
+        handleApproach(
+            event.clientX,
+            event.clientY
+        );
+
+    }
+);
+
+
+/* =====================================================
+   MOBILE TOUCH MOVE
+===================================================== */
+
+document.addEventListener(
+    "touchmove",
+    function(event) {
+
+        if (
+            !event.touches ||
+            !event.touches[0]
+        ) {
+            return;
+        }
+
+        const touch =
+            event.touches[0];
+
+        handleApproach(
+            touch.clientX,
+            touch.clientY
+        );
+
+    },
+    { passive: true }
+);
 
 
 /* =====================================================
    MOBILE TOUCH START
 ===================================================== */
 
-document.addEventListener("touchstart", function(event) {
+document.addEventListener(
+    "touchstart",
+    function(event) {
 
-    if (!screen1.classList.contains("active")) return;
-    if (screen1Finished) return;
+        if (
+            !event.touches ||
+            !event.touches[0]
+        ) {
+            return;
+        }
 
-    const touch = event.touches[0];
+        const touch =
+            event.touches[0];
 
-    if (!touch) return;
+        handleApproach(
+            touch.clientX,
+            touch.clientY
+        );
 
-    const rect = readyButton.getBoundingClientRect();
-
-    const centerX =
-        rect.left + rect.width / 2;
-
-    const centerY =
-        rect.top + rect.height / 2;
-
-    const distance = Math.sqrt(
-        Math.pow(touch.clientX - centerX, 2) +
-        Math.pow(touch.clientY - centerY, 2)
-    );
-
-    if (distance < 200) {
-        moveButtonToTop();
-    }
-
-}, { passive: true });
+    },
+    { passive: true }
+);
 
 
 /* =====================================================
-   READY BUTTON CLICK
+   I'M READY BUTTON
 ===================================================== */
 
-readyButton.addEventListener("click", function(event) {
+readyButton.addEventListener(
+    "click",
+    function(event) {
 
-    /*
-      First click/tap only moves it to the top.
-    */
 
-    if (!buttonAtTop) {
+        /*
+           TOP CENTER
+
+           Click →
+           Return to original position
+        */
+
+        if (readyStage === 1) {
+
+            event.preventDefault();
+
+            moveButtonBackFromTopCenter();
+
+            return;
+        }
+
+
+        /*
+           TOP RIGHT
+
+           Click →
+           Return to original position
+        */
+
+        if (readyStage === 3) {
+
+            event.preventDefault();
+
+            moveButtonBackFromTopRight();
+
+            return;
+        }
+
+
+        /*
+           ONLY NOW can the actual
+           I'M READY click continue.
+        */
+
+        if (readyStage === 4) {
+
+            screen1Finished = true;
+
+            readyStage = 5;
+
+            screen1.classList.remove("active");
+
+            screen2.classList.add("active");
+
+            return;
+        }
+
+
+        /*
+           Prevent skipping the escape sequence.
+        */
 
         event.preventDefault();
 
-        moveButtonToTop();
-
-        return;
     }
-
-    /*
-      Second interaction while button
-      is at TOP RIGHT opens Screen 2.
-    */
-
-    screen1Finished = true;
-
-    screen1.classList.remove("active");
-
-    screen2.classList.add("active");
-
-});
+);
 
 
 /* =====================================================
    LET'S GO
 ===================================================== */
 
-goButton.addEventListener("click", function() {
+goButton.addEventListener(
+    "click",
+    function() {
 
-    screen2.classList.remove("active");
 
-    screen3.classList.add("active");
+        /*
+           First show the prayer screen.
+        */
 
-    /*
-      Reset song first.
-    */
+        screen2.classList.remove("active");
 
-    birthdaySong.pause();
-    birthdaySong.currentTime = 0;
+        screen3.classList.add("active");
 
-    /*
-      Start song directly from the user's
-      button interaction.
-    */
 
-    const playPromise = birthdaySong.play();
+        /*
+           Start song ONLY after
+           LET'S GO is clicked.
 
-    if (playPromise !== undefined) {
+           This is a user interaction,
+           so browser autoplay restrictions
+           are much less likely to interfere.
+        */
 
-        playPromise
-            .then(function() {
+        birthdaySong.pause();
 
-                console.log(
-                    "Birthday song started successfully."
-                );
+        birthdaySong.currentTime = 0;
 
-            })
-            .catch(function(error) {
 
-                console.error(
-                    "Song could not start:",
-                    error
-                );
+        const playPromise =
+            birthdaySong.play();
 
-                /*
-                  If browser still blocks it,
-                  the user can tap the page once.
-                */
 
-                document.body.addEventListener(
-                    "click",
-                    startSongOnce,
-                    { once: true }
-                );
+        if (
+            playPromise !== undefined
+        ) {
 
-            });
+            playPromise
+                .then(function() {
+
+                    console.log(
+                        "Birthday song started."
+                    );
+
+                })
+                .catch(function(error) {
+
+                    console.error(
+                        "Song could not start:",
+                        error
+                    );
+
+
+                    /*
+                       Browser fallback.
+                       The next user click/tap
+                       will attempt playback again.
+                    */
+
+                    document.body.addEventListener(
+                        "click",
+                        startSongOnce,
+                        { once: true }
+                    );
+
+                });
+
+        }
+
     }
-
-});
+);
 
 
 /* =====================================================
@@ -759,14 +896,26 @@ goButton.addEventListener("click", function() {
 
 function startSongOnce() {
 
-    if (!birthdaySong.paused) return;
+    if (!birthdaySong.paused) {
+        return;
+    }
+
 
     birthdaySong.play()
+        .then(function() {
+
+            console.log(
+                "Birthday song started after user interaction."
+            );
+
+        })
         .catch(function(error) {
+
             console.log(
                 "Waiting for another user interaction.",
                 error
             );
+
         });
 
 }
@@ -776,40 +925,47 @@ function startSongOnce() {
    WHEN SONG FINISHES
 ===================================================== */
 
-birthdaySong.addEventListener("ended", function() {
+birthdaySong.addEventListener(
+    "ended",
+    function() {
 
-    celebrateButton.style.display = "inline-block";
+        celebrateButton.style.display =
+            "inline-block";
 
-});
+    }
+);
 
 
 /* =====================================================
    CELEBRATE BUTTON
 ===================================================== */
 
-celebrateButton.addEventListener("click", function() {
+celebrateButton.addEventListener(
+    "click",
+    function() {
 
-    /*
-      This is intentionally left ready for
-      your next surprise screen.
-    */
+        alert(
+            "Let's celebrate! ❤️"
+        );
 
-    alert("Let's celebrate! ❤️");
-
-});
+    }
+);
 
 
 /* =====================================================
-   DEBUG
+   AUDIO ERROR
 ===================================================== */
 
-birthdaySong.addEventListener("error", function() {
+birthdaySong.addEventListener(
+    "error",
+    function() {
 
-    console.error(
-        "ERROR: asubhu-badamin.mp3 could not be loaded."
-    );
+        console.error(
+            "ERROR: birthday song could not be loaded."
+        );
 
-});
+    }
+);
 
 </script>
 
