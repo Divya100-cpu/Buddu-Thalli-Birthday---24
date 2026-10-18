@@ -34,10 +34,6 @@ body {
     font-family: Georgia, "Times New Roman", serif;
 }
 
-/* =====================================================
-   COMMON SCREEN
-===================================================== */
-
 .screen {
     position: relative;
     width: 100%;
@@ -55,9 +51,7 @@ body {
     display: flex;
 }
 
-/* =====================================================
-   FLOATING BACKGROUND
-===================================================== */
+/* BACKGROUND */
 
 .balloon {
     position: fixed;
@@ -66,7 +60,6 @@ body {
     border-radius: 50%;
     opacity: .8;
     z-index: 1;
-
     animation: floatBalloon 6s ease-in-out infinite;
 }
 
@@ -76,7 +69,6 @@ body {
     width: 1px;
     height: 100px;
     background: rgba(255,255,255,.4);
-
     left: 50%;
     top: 65px;
 }
@@ -138,7 +130,6 @@ body {
     font-size: 30px;
     opacity: .7;
     z-index: 1;
-
     animation: floatHeart 7s ease-in-out infinite;
 }
 
@@ -178,9 +169,7 @@ body {
     }
 }
 
-/* =====================================================
-   FIRST SCREEN
-===================================================== */
+/* FIRST SCREEN */
 
 .first-content {
     width: min(900px, 92%);
@@ -289,9 +278,7 @@ body {
     z-index: 9999;
 }
 
-/* =====================================================
-   SECOND SCREEN
-===================================================== */
+/* SECOND SCREEN */
 
 .second-content {
 
@@ -362,9 +349,7 @@ body {
     transform: scale(1.05);
 }
 
-/* =====================================================
-   PRAYER SCREEN
-===================================================== */
+/* PRAYER */
 
 .prayer-container {
 
@@ -484,152 +469,7 @@ body {
     transform: scale(1.05);
 }
 
-/* =====================================================
-   OLD FINAL SCREEN
-===================================================== */
-
-#screen4 {
-
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(111,30,125,.5),
-            rgba(8,3,13,.95)
-        );
-}
-
-.final-content {
-
-    width: min(850px, 92%);
-
-    position: relative;
-
-    z-index: 10;
-}
-
-.final-small {
-
-    font-size: 14px;
-    letter-spacing: 5px;
-    margin-bottom: 20px;
-}
-
-.final-title {
-
-    font-size: clamp(60px, 9vw, 120px);
-
-    line-height: .9;
-
-    text-shadow:
-        0 0 10px white,
-        0 0 30px rgba(255,80,220,.5);
-}
-
-.final-message {
-
-    margin: 30px auto 0;
-
-    width: min(700px, 95%);
-
-    font-size: clamp(19px, 2.5vw, 29px);
-
-    line-height: 1.6;
-}
-
-/* =====================================================
-   CONFETTI
-===================================================== */
-
-.confetti {
-
-    position: absolute;
-
-    font-size: 30px;
-
-    animation:
-        confettiFloat
-        4s
-        ease-in-out
-        infinite;
-}
-
-.confetti:nth-child(1) {
-    left: 10%;
-    top: 20%;
-}
-
-.confetti:nth-child(2) {
-    left: 25%;
-    top: 75%;
-    animation-delay: .5s;
-}
-
-.confetti:nth-child(3) {
-    left: 45%;
-    top: 12%;
-    animation-delay: 1s;
-}
-
-.confetti:nth-child(4) {
-    right: 20%;
-    top: 25%;
-    animation-delay: 1.5s;
-}
-
-.confetti:nth-child(5) {
-    right: 10%;
-    top: 70%;
-    animation-delay: 2s;
-}
-
-.confetti:nth-child(6) {
-    left: 70%;
-    top: 12%;
-    animation-delay: 2.5s;
-}
-
-.confetti:nth-child(7) {
-    left: 15%;
-    top: 50%;
-    animation-delay: 3s;
-}
-
-.confetti:nth-child(8) {
-    right: 30%;
-    top: 60%;
-    animation-delay: 1.2s;
-}
-
-.confetti:nth-child(9) {
-    right: 5%;
-    top: 40%;
-    animation-delay: 1.8s;
-}
-
-.confetti:nth-child(10) {
-    left: 50%;
-    bottom: 10%;
-    animation-delay: 2.8s;
-}
-
-@keyframes confettiFloat {
-
-    0%,100% {
-        transform:
-            translateY(0)
-            rotate(0);
-    }
-
-    50% {
-        transform:
-            translateY(-18px)
-            rotate(10deg);
-    }
-}
-
-/* =====================================================
-   NEW FULL SCREEN
-===================================================== */
+/* NEW SCREENS */
 
 .new-screen {
 
@@ -664,9 +504,7 @@ body {
     display: flex;
 }
 
-/* =====================================================
-   PHONE VIDEO
-===================================================== */
+/* PHONE VIDEO */
 
 .phone-video {
 
@@ -680,9 +518,7 @@ body {
     display: block;
 }
 
-/* =====================================================
-   HAPPY BIRTHDAY SCREEN
-===================================================== */
+/* HAPPY BIRTHDAY */
 
 .new-birthday-content {
 
@@ -745,10 +581,7 @@ body {
     color: rgba(255,255,255,.92);
 }
 
-/* =====================================================
-   BUBU WAITING BUTTON
-   Hidden until song ends
-===================================================== */
+/* BUBU WAITING */
 
 #bubuWaitingButton {
 
@@ -777,9 +610,7 @@ body {
     transform: translateY(0);
 }
 
-/* =====================================================
-   BUBU PHOTO SCREEN
-===================================================== */
+/* BUBU PHOTO */
 
 .bubu-waiting-content {
 
@@ -829,9 +660,7 @@ body {
     margin: 28px auto 0;
 }
 
-/* =====================================================
-   BUBU VIDEO
-===================================================== */
+/* BUBU VIDEO */
 
 .bubu-video {
 
@@ -846,9 +675,7 @@ body {
     display: block;
 }
 
-/* =====================================================
-   MOBILE
-===================================================== */
+/* MOBILE */
 
 @media (max-width: 600px) {
 
@@ -891,14 +718,6 @@ body {
         padding: 15px 20px;
     }
 
-    .final-title {
-        font-size: 52px;
-    }
-
-    .final-message {
-        font-size: 19px;
-    }
-
     .new-small-heading {
         font-size: 10px;
         letter-spacing: 3px;
@@ -925,8 +744,7 @@ body {
         width: min(280px, 80vw);
     }
 
-    .bubu-button,
-    .bubu-coming-button {
+    .bubu-button {
         width: 90%;
         max-width: 330px;
         font-size: 13px;
@@ -937,12 +755,9 @@ body {
 </style>
 </head>
 
-
 <body>
 
-<!-- =====================================================
-     BACKGROUND
-===================================================== -->
+<!-- BACKGROUND -->
 
 <div class="balloon balloon1"></div>
 <div class="balloon balloon2"></div>
@@ -957,9 +772,7 @@ body {
 <div class="heart heart4">❤️</div>
 
 
-<!-- =====================================================
-     SCREEN 1
-===================================================== -->
+<!-- SCREEN 1 -->
 
 <section
     id="screen1"
@@ -1012,9 +825,7 @@ body {
 </section>
 
 
-<!-- =====================================================
-     SCREEN 2
-===================================================== -->
+<!-- SCREEN 2 -->
 
 <section
     id="screen2"
@@ -1049,9 +860,7 @@ body {
 </section>
 
 
-<!-- =====================================================
-     SCREEN 3 - PRAYER
-===================================================== -->
+<!-- SCREEN 3 -->
 
 <section
     id="screen3"
@@ -1158,9 +967,7 @@ body {
 </section>
 
 
-<!-- =====================================================
-     PHONE VIDEO
-===================================================== -->
+<!-- PHONE VIDEO -->
 
 <section
     id="phoneVideoScreen"
@@ -1181,9 +988,7 @@ body {
 </section>
 
 
-<!-- =====================================================
-     HAPPY BIRTHDAY SCREEN
-===================================================== -->
+<!-- HAPPY BIRTHDAY -->
 
 <section
     id="newBirthdayScreen"
@@ -1241,9 +1046,7 @@ body {
 </section>
 
 
-<!-- =====================================================
-     BUBU PHOTO SCREEN
-===================================================== -->
+<!-- BUBU PHOTO -->
 
 <section
     id="bubuPhotoScreen"
@@ -1277,9 +1080,7 @@ body {
 </section>
 
 
-<!-- =====================================================
-     BUBU FLYING VIDEO
-===================================================== -->
+<!-- BUBU FLYING VIDEO -->
 
 <section
     id="bubuVideoScreen"
@@ -1300,9 +1101,7 @@ body {
 </section>
 
 
-<!-- =====================================================
-     EXISTING BACKGROUND SONG
-===================================================== -->
+<!-- OLD BACKGROUND SONG -->
 
 <audio
     id="birthdaySong"
@@ -1315,16 +1114,15 @@ body {
 </audio>
 
 
-<!-- =====================================================
-     HAPPY BIRTHDAY SINGING SONG
-===================================================== -->
+<!-- HAPPY BIRTHDAY SINGING SONG -->
 
 <audio
     id="birthdayWishMusic"
-    preload="auto">
+    preload="auto"
+    muted>
 
     <source
-        src="happy-birthday-singing.mp3"
+        src="saavane-happy-birthday-happy-birthday-music-254480.mp3"
         type="audio/mpeg">
 
 </audio>
@@ -1333,7 +1131,7 @@ body {
 <script>
 
 /* =====================================================
-   EXISTING SCREENS
+   SCREENS
 ===================================================== */
 
 const screen1 =
@@ -1344,6 +1142,18 @@ const screen2 =
 
 const screen3 =
     document.getElementById("screen3");
+
+const phoneVideoScreen =
+    document.getElementById("phoneVideoScreen");
+
+const newBirthdayScreen =
+    document.getElementById("newBirthdayScreen");
+
+const bubuPhotoScreen =
+    document.getElementById("bubuPhotoScreen");
+
+const bubuVideoScreen =
+    document.getElementById("bubuVideoScreen");
 
 
 /* =====================================================
@@ -1359,68 +1169,25 @@ const goButton =
 const celebrateButton =
     document.getElementById("celebrateButton");
 
-
-/* =====================================================
-   OLD AUDIO
-===================================================== */
-
-const birthdaySong =
-    document.getElementById("birthdaySong");
-
-
-/* =====================================================
-   PHONE VIDEO
-===================================================== */
-
-const phoneVideoScreen =
-    document.getElementById("phoneVideoScreen");
-
-const phoneVideo =
-    document.getElementById("phoneVideo");
-
-
-/* =====================================================
-   NEW BIRTHDAY SCREEN
-===================================================== */
-
-const newBirthdayScreen =
-    document.getElementById("newBirthdayScreen");
-
-
-/* =====================================================
-   NEW BIRTHDAY SONG
-===================================================== */
-
-const birthdayWishMusic =
-    document.getElementById("birthdayWishMusic");
-
-
-/* =====================================================
-   BUBU BUTTON
-===================================================== */
-
 const bubuWaitingButton =
     document.getElementById("bubuWaitingButton");
-
-
-/* =====================================================
-   BUBU PHOTO SCREEN
-===================================================== */
-
-const bubuPhotoScreen =
-    document.getElementById("bubuPhotoScreen");
-
 
 const bubuComingButton =
     document.getElementById("bubuComingButton");
 
 
 /* =====================================================
-   BUBU VIDEO
+   MEDIA
 ===================================================== */
 
-const bubuVideoScreen =
-    document.getElementById("bubuVideoScreen");
+const birthdaySong =
+    document.getElementById("birthdaySong");
+
+const phoneVideo =
+    document.getElementById("phoneVideo");
+
+const birthdayWishMusic =
+    document.getElementById("birthdayWishMusic");
 
 const bubuVideo =
     document.getElementById("bubuVideo");
@@ -1428,7 +1195,7 @@ const bubuVideo =
 
 /* =====================================================
    I'M READY
-   3 RANDOM MOVEMENTS
+   3 RANDOM MOVES
 ===================================================== */
 
 let readyMoves = 0;
@@ -1436,7 +1203,6 @@ let readyMoves = 0;
 const MAX_READY_MOVES = 3;
 
 let lastX = null;
-
 let lastY = null;
 
 
@@ -1458,56 +1224,38 @@ function moveReadyButton() {
         margin;
 
     let randomX;
-
     let randomY;
-
 
     do {
 
         randomX =
             Math.floor(
                 Math.random() *
-                Math.max(
-                    1,
-                    maxX - margin
-                )
+                Math.max(1, maxX - margin)
             ) + margin;
-
 
         randomY =
             Math.floor(
                 Math.random() *
-                Math.max(
-                    1,
-                    maxY - margin
-                )
+                Math.max(1, maxY - margin)
             ) + margin;
-
 
     } while (
 
         lastX !== null &&
 
-        Math.abs(
-            randomX - lastX
-        ) < 100 &&
+        Math.abs(randomX - lastX) < 100 &&
 
-        Math.abs(
-            randomY - lastY
-        ) < 100
+        Math.abs(randomY - lastY) < 100
 
     );
 
-
     lastX = randomX;
-
     lastY = randomY;
-
 
     readyButton.classList.add(
         "random-position"
     );
-
 
     readyButton.style.left =
         randomX + "px";
@@ -1515,10 +1263,8 @@ function moveReadyButton() {
     readyButton.style.top =
         randomY + "px";
 
-
     readyButton.style.transform =
         "scale(1.05)";
-
 
     setTimeout(function() {
 
@@ -1528,10 +1274,6 @@ function moveReadyButton() {
     }, 250);
 }
 
-
-/* =====================================================
-   READY BUTTON
-===================================================== */
 
 readyButton.addEventListener(
     "click",
@@ -1548,17 +1290,12 @@ readyButton.addEventListener(
             return;
         }
 
-
         readyButton.classList.remove(
             "random-position"
         );
 
         readyButton.style.left = "";
-
         readyButton.style.top = "";
-
-        readyButton.style.transform = "";
-
 
         screen1.classList.remove(
             "active"
@@ -1588,22 +1325,19 @@ goButton.addEventListener(
             "active"
         );
 
-
         celebrateButton.classList.remove(
             "show"
         );
-
 
         birthdaySong.pause();
 
         birthdaySong.currentTime = 0;
 
-
         birthdaySong.play().catch(
             function(error) {
 
                 console.log(
-                    "Existing audio:",
+                    "Background song:",
                     error
                 );
 
@@ -1615,8 +1349,7 @@ goButton.addEventListener(
 
 
 /* =====================================================
-   OLD SONG ENDS
-   SHOW CELEBRATE BUTTON
+   OLD SONG FINISHED
 ===================================================== */
 
 birthdaySong.addEventListener(
@@ -1632,8 +1365,10 @@ birthdaySong.addEventListener(
 
 
 /* =====================================================
-   LET'S START CELEBRATING
-   → PHONE VIDEO
+   CELEBRATE
+   IMPORTANT FIX:
+   START HAPPY BIRTHDAY AUDIO MUTED
+   DURING USER CLICK
 ===================================================== */
 
 celebrateButton.addEventListener(
@@ -1645,23 +1380,61 @@ celebrateButton.addEventListener(
         birthdaySong.currentTime = 0;
 
 
+        /*
+         * Reset Happy Birthday song.
+         */
+
+        birthdayWishMusic.pause();
+
+        birthdayWishMusic.currentTime = 0;
+
+        birthdayWishMusic.muted = true;
+
+
+        /*
+         * START THE AUDIO NOW,
+         * WHILE THIS IS STILL A USER CLICK.
+         *
+         * Chrome is much more likely to allow
+         * this than starting it after video ended.
+         */
+
+        birthdayWishMusic.play()
+            .then(function() {
+
+                console.log(
+                    "Happy Birthday audio started silently."
+                );
+
+            })
+            .catch(function(error) {
+
+                console.error(
+                    "Audio could not start:",
+                    error
+                );
+
+            });
+
+
+        /*
+         * Start phone video.
+         */
+
         screen3.classList.remove(
             "active"
         );
-
 
         phoneVideoScreen.classList.add(
             "active"
         );
 
-
         phoneVideo.currentTime = 0;
-
 
         phoneVideo.play().catch(
             function(error) {
 
-                console.log(
+                console.error(
                     "Phone video:",
                     error
                 );
@@ -1676,7 +1449,7 @@ celebrateButton.addEventListener(
 /* =====================================================
    PHONE VIDEO ENDS
    → HAPPY BIRTHDAY SCREEN
-   → START SINGING
+   → UNMUTE SONG
 ===================================================== */
 
 phoneVideo.addEventListener(
@@ -1697,72 +1470,33 @@ phoneVideo.addEventListener(
 
 
         /*
-         * Keep Bubu button hidden.
+         * NOW UNMUTE.
+         *
+         * The audio was already started from
+         * the user's Celebrate click.
+         *
+         * So Chrome doesn't need to treat this
+         * as a brand-new autoplay request.
+         */
+
+        birthdayWishMusic.muted = false;
+
+
+        /*
+         * Make sure Bubu button stays hidden
+         * until the COMPLETE song finishes.
          */
 
         bubuWaitingButton.classList.remove(
             "song-finished"
         );
 
-
-        /*
-         * Reset song.
-         */
-
-        birthdayWishMusic.pause();
-
-        birthdayWishMusic.currentTime = 0;
-
-
-        /*
-         * IMPORTANT:
-         * Reload the MP3 before playing.
-         * This helps GitHub Pages load the
-         * newly uploaded file correctly.
-         */
-
-        birthdayWishMusic.load();
-
-
-        /*
-         * Start singing.
-         */
-
-        birthdayWishMusic.play()
-            .then(function() {
-
-                console.log(
-                    "Happy Birthday singing started ❤️"
-                );
-
-            })
-            .catch(function(error) {
-
-                console.error(
-                    "Happy Birthday MP3 failed:",
-                    error
-                );
-
-
-                /*
-                 * DO NOT LEAVE THE PAGE STUCK.
-                 *
-                 * If the audio cannot start,
-                 * allow the user to continue.
-                 */
-
-                bubuWaitingButton.classList.add(
-                    "song-finished"
-                );
-
-            });
-
     }
 );
 
 
 /* =====================================================
-   HAPPY BIRTHDAY SONG FINISHES
+   HAPPY BIRTHDAY SONG FINISHED
    → SHOW BUBU BUTTON
 ===================================================== */
 
@@ -1770,6 +1504,8 @@ birthdayWishMusic.addEventListener(
     "ended",
     function() {
 
+        birthdayWishMusic.muted = false;
+
         birthdayWishMusic.pause();
 
         birthdayWishMusic.currentTime = 0;
@@ -1784,8 +1520,7 @@ birthdayWishMusic.addEventListener(
 
 
 /* =====================================================
-   IF AUDIO CANNOT LOAD
-   → PREVENT PERMANENT STUCK SCREEN
+   AUDIO ERROR
 ===================================================== */
 
 birthdayWishMusic.addEventListener(
@@ -1793,9 +1528,12 @@ birthdayWishMusic.addEventListener(
     function() {
 
         console.error(
-            "Could not load happy-birthday-singing.mp3"
+            "Happy Birthday MP3 could not load."
         );
 
+        /*
+         * Don't leave the user stuck forever.
+         */
 
         bubuWaitingButton.classList.add(
             "song-finished"
@@ -1806,8 +1544,7 @@ birthdayWishMusic.addEventListener(
 
 
 /* =====================================================
-   BUBU IS WAITING
-   → BUBU PHOTO
+   BUBU WAITING
 ===================================================== */
 
 bubuWaitingButton.addEventListener(
@@ -1818,11 +1555,9 @@ bubuWaitingButton.addEventListener(
 
         birthdayWishMusic.currentTime = 0;
 
-
         newBirthdayScreen.classList.remove(
             "active"
         );
-
 
         bubuPhotoScreen.classList.add(
             "active"
@@ -1834,7 +1569,6 @@ bubuWaitingButton.addEventListener(
 
 /* =====================================================
    BUBU IS COMING
-   → FLYING VIDEO
 ===================================================== */
 
 bubuComingButton.addEventListener(
@@ -1845,19 +1579,16 @@ bubuComingButton.addEventListener(
             "active"
         );
 
-
         bubuVideoScreen.classList.add(
             "active"
         );
 
-
         bubuVideo.currentTime = 0;
-
 
         bubuVideo.play().catch(
             function(error) {
 
-                console.log(
+                console.error(
                     "Bubu video:",
                     error
                 );
@@ -1896,30 +1627,23 @@ window.addEventListener(
                 "random-position"
             )
         ) {
-
             return;
-
         }
-
 
         const rect =
             readyButton.getBoundingClientRect();
 
-
         const margin = 20;
-
 
         const maxX =
             window.innerWidth -
             rect.width -
             margin;
 
-
         const maxY =
             window.innerHeight -
             rect.height -
             margin;
-
 
         const safeX =
             Math.max(
@@ -1930,7 +1654,6 @@ window.addEventListener(
                 )
             );
 
-
         const safeY =
             Math.max(
                 margin,
@@ -1940,10 +1663,8 @@ window.addEventListener(
                 )
             );
 
-
         readyButton.style.left =
             safeX + "px";
-
 
         readyButton.style.top =
             safeY + "px";
