@@ -3,52 +3,36 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Buddu Thalli Birthday ❤️</title>
+<title>Buddu Thalli Birthday — 24</title>
 
 <style>
-
-/* =========================================================
-   BASIC
-========================================================= */
-
 *{
     box-sizing:border-box;
     margin:0;
     padding:0;
 }
 
-html,
-body{
+html,body{
     width:100%;
     height:100%;
-}
-
-body{
     overflow:hidden;
+    background:#08070a;
+    color:#fff;
     font-family:Georgia,"Times New Roman",serif;
-    background:#08020c;
-    color:white;
 }
 
-
-/* =========================================================
-   COMMON SCREEN
-========================================================= */
+button{
+    font-family:inherit;
+}
 
 .screen{
     position:fixed;
     inset:0;
     width:100%;
-    height:100vh;
-
+    height:100%;
     display:none;
-
     align-items:center;
     justify-content:center;
-
-    text-align:center;
-
     overflow:hidden;
 }
 
@@ -56,1042 +40,811 @@ body{
     display:flex;
 }
 
-
-/* =========================================================
-   BACKGROUND DECORATIONS
-========================================================= */
-
-.balloon{
-    position:fixed;
-
-    width:52px;
-    height:68px;
-
-    border-radius:50%;
-
-    opacity:.75;
-
-    z-index:1;
-
-    animation:floatBalloon 6s ease-in-out infinite;
-}
-
-.balloon::after{
-    content:"";
-
-    position:absolute;
-
-    width:1px;
-    height:100px;
-
-    left:50%;
-    top:64px;
-
-    background:rgba(255,255,255,.35);
-}
-
-.balloon1{
-    left:5%;
-    top:15%;
-    background:#ff5c8a;
-}
-
-.balloon2{
-    left:15%;
-    top:70%;
-    background:#a855f7;
-    animation-delay:1s;
-}
-
-.balloon3{
-    right:7%;
-    top:18%;
-    background:#ec4899;
-    animation-delay:2s;
-}
-
-.balloon4{
-    right:17%;
-    top:72%;
-    background:#8b5cf6;
-    animation-delay:3s;
-}
-
-.balloon5{
-    left:40%;
-    top:8%;
-    background:#f472b6;
-    animation-delay:1.5s;
-}
-
-.balloon6{
-    right:40%;
-    top:82%;
-    background:#c084fc;
-    animation-delay:2.5s;
-}
-
-@keyframes floatBalloon{
-
-    0%,100%{
-        transform:translateY(0) rotate(-3deg);
-    }
-
-    50%{
-        transform:translateY(-18px) rotate(3deg);
-    }
-}
-
-.heart{
-    position:fixed;
-
-    font-size:28px;
-
-    opacity:.7;
-
-    z-index:1;
-
-    animation:floatHeart 7s ease-in-out infinite;
-}
-
-.heart1{
-    left:12%;
-    top:40%;
-}
-
-.heart2{
-    right:12%;
-    top:45%;
-    animation-delay:1s;
-}
-
-.heart3{
-    left:27%;
-    bottom:10%;
-    animation-delay:2s;
-}
-
-.heart4{
-    right:28%;
-    top:12%;
-    animation-delay:3s;
-}
-
-@keyframes floatHeart{
-
-    0%,100%{
-        transform:translateY(0);
-        opacity:.5;
-    }
-
-    50%{
-        transform:translateY(-15px);
-        opacity:.9;
-    }
+video{
+    max-width:100%;
+    max-height:100%;
 }
 
 
 /* =========================================================
-   FIRST SCREEN
-========================================================= */
-
-#screen1{
-
-    background:
-        radial-gradient(
-            circle at center,
-            #42104f 0%,
-            #210725 45%,
-            #09020d 100%
-        );
-}
-
-.first-content{
-
-    width:min(900px,92%);
-
-    position:relative;
-
-    z-index:5;
-}
-
-.small-heading{
-
-    font-size:14px;
-
-    letter-spacing:5px;
-
-    opacity:.8;
-
-    margin-bottom:20px;
-}
-
-.main-title{
-
-    font-size:clamp(55px,8vw,105px);
-
-    line-height:.94;
-
-    font-weight:bold;
-
-    text-shadow:
-        0 0 10px rgba(255,255,255,.8),
-        0 0 30px rgba(255,80,220,.4);
-}
-
-.subtitle{
-
-    width:min(700px,95%);
-
-    margin:30px auto 0;
-
-    font-size:clamp(17px,2.2vw,24px);
-
-    line-height:1.6;
-
-    color:rgba(255,255,255,.88);
-}
-
-.question{
-
-    margin-top:35px;
-
-    font-size:clamp(19px,2.5vw,29px);
-
-    line-height:1.45;
-
-    font-weight:bold;
-}
-
-.ready-area{
-
-    margin-top:30px;
-
-    min-height:70px;
-}
-
-#readyButton{
-
-    border:1px solid rgba(255,255,255,.6);
-
-    background:
-        linear-gradient(
-            135deg,
-            #e85caf,
-            #9f3edb
-        );
-
-    color:white;
-
-    border-radius:999px;
-
-    padding:15px 34px;
-
-    font-family:Georgia,"Times New Roman",serif;
-
-    font-size:14px;
-
-    font-weight:bold;
-
-    letter-spacing:1px;
-
-    cursor:pointer;
-
-    box-shadow:
-        0 0 15px rgba(255,80,220,.45),
-        0 0 30px rgba(180,70,230,.25);
-}
-
-
-/* =========================================================
-   SECOND SCREEN
-========================================================= */
-
-#screen2{
-
-    background:
-        radial-gradient(
-            circle at center,
-            #42104f,
-            #210725 50%,
-            #09020d
-        );
-}
-
-.second-content{
-
-    width:min(850px,92%);
-
-    position:relative;
-
-    z-index:5;
-}
-
-.second-title{
-
-    font-size:clamp(55px,8vw,100px);
-
-    text-shadow:
-        0 0 10px white,
-        0 0 30px rgba(255,80,220,.4);
-}
-
-.second-text{
-
-    margin-top:25px;
-
-    font-size:clamp(18px,2.4vw,27px);
-
-    line-height:1.6;
-}
-
-.go-button,
-.celebrate-button{
-
-    border:1px solid rgba(255,255,255,.6);
-
-    background:
-        linear-gradient(
-            135deg,
-            #e85caf,
-            #9f3edb
-        );
-
-    color:white;
-
-    border-radius:999px;
-
-    padding:15px 34px;
-
-    font-family:Georgia,"Times New Roman",serif;
-
-    font-size:14px;
-
-    font-weight:bold;
-
-    letter-spacing:1px;
-
-    cursor:pointer;
-
-    box-shadow:
-        0 0 15px rgba(255,80,220,.45);
-
-    transition:transform .25s ease;
-}
-
-.go-button{
-
-    margin-top:32px;
-}
-
-.go-button:hover,
-.celebrate-button:hover{
-
-    transform:scale(1.05);
-}
-
-
-/* =========================================================
-   PRAYER
-========================================================= */
-
-#screen3{
-
-    background:
-        radial-gradient(
-            circle at center,
-            #42104f 0%,
-            #210725 45%,
-            #09020d 100%
-        );
-}
-
-.prayer-container{
-
-    width:min(900px,94%);
-
-    max-height:94vh;
-
-    overflow-y:auto;
-
-    position:relative;
-
-    z-index:5;
-
-    scrollbar-width:none;
-}
-
-.prayer-container::-webkit-scrollbar{
-    display:none;
-}
-
-.assalam{
-
-    font-size:clamp(27px,4vw,48px);
-
-    line-height:1.3;
-
-    text-shadow:
-        0 0 10px white,
-        0 0 25px rgba(255,80,220,.35);
-}
-
-.prayer{
-
-    margin:30px auto 0;
-
-    width:min(800px,95%);
-}
-
-.roman-prayer p,
-.telugu-meaning p{
-
-    margin:16px 0;
-
-    font-size:clamp(17px,2vw,23px);
-
-    line-height:1.7;
-}
-
-.prayer-divider{
-
-    margin:25px 0;
-
-    font-size:25px;
-}
-
-.ameen{
-
-    margin-top:22px;
-
-    font-size:30px;
-
-    font-weight:bold;
-}
-
-.celebrate-button{
-
-    margin-top:28px;
-
-    opacity:0;
-
-    pointer-events:none;
-}
-
-.celebrate-button.show{
-
-    opacity:1;
-
-    pointer-events:auto;
-}
-
-
-/* =========================================================
-   BUBU CALLING VIDEO
-========================================================= */
-
-#callingVideoScreen{
-
-    position:fixed;
-
-    inset:0;
-
-    width:100%;
-
-    height:100vh;
-
-    display:none;
-
-    align-items:center;
-
-    justify-content:center;
-
-    overflow:hidden;
-
-    z-index:4000;
-
-    background:#000;
-}
-
-#callingVideoScreen.active{
-
-    display:flex;
-}
-
-#callingVideo{
-
-    position:absolute;
-
-    inset:0;
-
-    width:100vw;
-
-    height:100vh;
-
-    object-fit:cover;
-
-    display:block;
-
-    background:#000;
-}
-
-
-/* =========================================================
-   HIDDEN SWIPE-UP ANSWER AREA
-========================================================= */
-
-/*
-   There is NO horizontal swipe bar.
-
-   The user simply swipes UP over the hidden
-   answer area at the bottom-center of the
-   calling screen.
-*/
-
-#hiddenAnswerArea{
-
-    position:absolute;
-
-    left:50%;
-
-    bottom:45px;
-
-    transform:translateX(-50%);
-
-    width:145px;
-
-    height:115px;
-
-    z-index:20;
-
-    background:transparent;
-
-    border:none;
-
-    outline:none;
-
-    cursor:grab;
-
-    touch-action:none;
-
-    user-select:none;
-
-    -webkit-user-select:none;
-
-    display:flex;
-
-    align-items:flex-end;
-
-    justify-content:center;
-}
-
-
-/*
-   Very subtle visual hint.
-
-   It is NOT a horizontal bar.
-   It looks like a small swipe-up indicator.
-*/
-
-#swipeUpHint{
-
-    width:54px;
-
-    height:54px;
-
-    border-radius:50%;
-
-    background:rgba(255,255,255,.10);
-
-    border:1px solid rgba(255,255,255,.20);
-
-    backdrop-filter:blur(5px);
-
-    -webkit-backdrop-filter:blur(5px);
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    font-size:22px;
-
-    opacity:.35;
-
-    animation:swipeUpHint 1.7s ease-in-out infinite;
-
-    pointer-events:none;
-}
-
-@keyframes swipeUpHint{
-
-    0%,100%{
-
-        transform:translateY(8px);
-
-        opacity:.18;
-    }
-
-    50%{
-
-        transform:translateY(-8px);
-
-        opacity:.5;
-    }
-}
-
-
-/*
-   After swipe, hide the hint.
-*/
-
-#hiddenAnswerArea.answered #swipeUpHint{
-
-    opacity:0;
-
-    pointer-events:none;
-}
-
-
-/* =========================================================
-   HAPPY BIRTHDAY SCREEN
-========================================================= */
-
-#birthdayScreen{
-
-    position:fixed;
-
-    inset:0;
-
-    width:100%;
-
-    height:100vh;
-
-    display:none;
-
-    align-items:center;
-
-    justify-content:center;
-
-    text-align:center;
-
-    overflow:hidden;
-
-    z-index:4500;
-
-    background:
-        radial-gradient(
-            circle at center,
-            #42104f,
-            #18051e 55%,
-            #060208
-        );
-}
-
-#birthdayScreen.active{
-
-    display:flex;
-}
-
-.birthday-content{
-
-    width:min(900px,92%);
-
-    position:relative;
-
-    z-index:5;
-}
-
-.birthday-small{
-
-    font-size:14px;
-
-    letter-spacing:5px;
-
-    opacity:.85;
-
-    margin-bottom:20px;
-}
-
-.birthday-title{
-
-    font-size:clamp(55px,8vw,105px);
-
-    line-height:.95;
-
-    font-weight:bold;
-
-    text-shadow:
-        0 0 10px white,
-        0 0 25px rgba(255,80,220,.45),
-        0 0 45px rgba(170,70,255,.3);
-}
-
-.birthday-name{
-
-    margin-top:18px;
-
-    font-size:clamp(32px,5vw,60px);
-
-    color:#ffd1f1;
-
-    font-weight:bold;
-
-    text-shadow:
-        0 0 15px rgba(255,100,220,.7);
-}
-
-.birthday-message{
-
-    width:min(750px,94%);
-
-    margin:28px auto 0;
-
-    font-size:clamp(17px,2.2vw,24px);
-
-    line-height:1.7;
-
-    color:rgba(255,255,255,.92);
-}
-
-
-/* =========================================================
-   DOOR SCREEN
-========================================================= */
-
-#doorScreen{
-
-    position:fixed;
-
-    inset:0;
-
-    width:100%;
-
-    height:100vh;
-
-    display:none;
-
-    align-items:center;
-
-    justify-content:center;
-
-    flex-direction:column;
-
-    text-align:center;
-
-    overflow:hidden;
-
-    z-index:5000;
-
-    background:
-        radial-gradient(
-            circle at center,
-            #42104f 0%,
-            #210725 40%,
-            #09020d 100%
-        );
-}
-
-#doorScreen.active{
-
-    display:flex;
-}
-
-.door-title{
-
-    position:relative;
-
-    z-index:20;
-
-    width:min(850px,92%);
-
-    margin-bottom:15px;
-
-    font-size:clamp(30px,5vw,65px);
-
-    line-height:1.2;
-
-    color:white;
-
-    text-shadow:
-        0 0 10px white,
-        0 0 25px rgba(255,80,220,.5);
-}
-
-.door-subtitle{
-
-    position:relative;
-
-    z-index:20;
-
-    margin-bottom:25px;
-
-    font-size:clamp(16px,2.3vw,23px);
-
-    color:rgba(255,255,255,.85);
-}
-
-
-/* =========================================================
-   DOOR
-========================================================= */
-
-.door-frame{
-
-    position:relative;
-
-    width:min(340px,72vw);
-
-    height:min(460px,60vh);
-
-    perspective:1400px;
-
-    z-index:10;
-
-    cursor:pointer;
-
-    filter:
-        drop-shadow(
-            0 0 25px rgba(190,70,230,.5)
-        );
-}
-
-.door-inside{
-
-    position:absolute;
-
-    inset:0;
-
-    border-radius:14px 14px 5px 5px;
-
-    overflow:hidden;
-
-    background:
-        radial-gradient(
-            circle at 50% 45%,
-            #c23d91,
-            #4c125e 35%,
-            #16051d 75%
-        );
-
-    box-shadow:
-        inset 0 0 60px rgba(255,80,220,.3);
-}
-
-.door-heart{
-
-    position:absolute;
-
-    left:50%;
-
-    top:43%;
-
-    transform:translate(-50%,-50%);
-
-    font-size:clamp(65px,10vw,110px);
-
-    animation:heartBeat 1.2s infinite;
-}
-
-@keyframes heartBeat{
-
-    0%,100%{
-
-        transform:
-            translate(-50%,-50%)
-            scale(1);
-    }
-
-    50%{
-
-        transform:
-            translate(-50%,-50%)
-            scale(1.12);
-    }
-}
-
-.door-left,
-.door-right{
-
-    position:absolute;
-
-    top:0;
-
-    width:50%;
-
-    height:100%;
-
-    background:
-        linear-gradient(
-            90deg,
-            #22062e,
-            #54105f 45%,
-            #26072f
-        );
-
-    border:3px solid #d88bd5;
-
-    box-shadow:
-        inset 0 0 25px rgba(255,100,220,.25);
-
-    transition:
-        transform 1.1s cubic-bezier(.7,0,.2,1);
-}
-
-.door-left{
-
-    left:0;
-
-    transform-origin:left center;
-
-    border-radius:14px 0 0 5px;
-}
-
-.door-right{
-
-    right:0;
-
-    transform-origin:right center;
-
-    border-radius:0 14px 5px 0;
-}
-
-.door-panel{
-
-    position:absolute;
-
-    left:14%;
-
-    right:14%;
-
-    top:12%;
-
-    bottom:12%;
-
-    border:2px solid rgba(255,200,250,.35);
-
-    border-radius:8px;
-}
-
-.door-handle{
-
-    position:absolute;
-
-    top:50%;
-
-    width:13px;
-
-    height:13px;
-
-    border-radius:50%;
-
-    background:#ffd36e;
-
-    box-shadow:
-        0 0 12px rgba(255,210,100,.8);
-
-    z-index:10;
-}
-
-.door-left .door-handle{
-    right:10px;
-}
-
-.door-right .door-handle{
-    left:10px;
-}
-
-#doorScreen.opening .door-left{
-
-    transform:rotateY(-105deg);
-}
-
-#doorScreen.opening .door-right{
-
-    transform:rotateY(105deg);
-}
-
-#doorScreen.opening .door-title,
-#doorScreen.opening .door-subtitle{
-
-    opacity:0;
-
-    transition:opacity .4s ease;
-}
-
-.touch-door{
-
-    position:relative;
-
-    z-index:20;
-
-    margin-top:22px;
-
-    font-size:14px;
-
-    letter-spacing:2px;
-
-    opacity:.85;
-
-    animation:touchPulse 1.6s ease-in-out infinite;
-}
-
-@keyframes touchPulse{
-
-    0%,100%{
-        opacity:.5;
-    }
-
-    50%{
-        opacity:1;
-    }
-}
-
-
-/* =========================================================
-   FINAL BUBU VIDEO
+   EXISTING VIDEO SCREENS
 ========================================================= */
 
 #bubuVideoScreen{
-
-    position:fixed;
-
-    inset:0;
-
-    width:100%;
-
-    height:100vh;
-
-    display:none;
-
-    align-items:center;
-
-    justify-content:center;
-
-    overflow:hidden;
-
-    z-index:6000;
-
     background:#000;
-}
-
-#bubuVideoScreen.active{
-
-    display:flex;
 }
 
 #bubuVideo{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
 
-    width:100vw;
 
-    height:100vh;
+/* =========================================================
+   NEW MYSTERY SECTION
+========================================================= */
 
-    object-fit:contain;
+#mysterySection{
+    position:fixed;
+    inset:0;
+    z-index:1000;
+    display:none;
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            rgba(215,157,181,.13),
+            transparent 40%
+        ),
+        #09070a;
+    color:#f8f2f4;
+    overflow:hidden;
+}
 
+#mysterySection.active{
     display:block;
+}
 
-    background:#000;
+.mystery-screen{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:35px 20px;
+    overflow:auto;
+}
+
+.mystery-screen.active{
+    display:flex;
+    animation:mysteryFade 1s ease;
+}
+
+@keyframes mysteryFade{
+    from{
+        opacity:0;
+        transform:translateY(18px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.mystery-content{
+    width:min(720px,94vw);
+    text-align:center;
+    position:relative;
+    z-index:5;
+}
+
+.mystery-content.wide{
+    width:min(900px,95vw);
+}
+
+.tiny-label{
+    font-family:Arial,sans-serif;
+    font-size:10px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    color:#d9a8b9;
+    margin-bottom:20px;
+}
+
+.mystery-content h1{
+    font-size:clamp(55px,10vw,105px);
+    font-weight:400;
+    letter-spacing:-3px;
+    margin-bottom:18px;
+}
+
+.mystery-content h2{
+    font-size:clamp(34px,6vw,70px);
+    line-height:1.05;
+    font-weight:400;
+    margin-bottom:18px;
+}
+
+.main-line{
+    font-size:clamp(22px,3vw,34px);
+}
+
+.sub-line{
+    color:#d9a8b9;
+    font-size:27px;
+    font-style:italic;
+    margin:12px 0;
+}
+
+.description{
+    color:#bdb1b7;
+    font-size:16px;
+    line-height:1.8;
+    margin:16px auto;
+}
+
+.small-text{
+    color:#aaa0a6;
+    font-size:14px;
+}
+
+.mystery-btn{
+    border:1px solid rgba(217,168,185,.55);
+    background:rgba(217,168,185,.08);
+    color:#fff;
+    padding:14px 30px;
+    border-radius:50px;
+    font-family:Arial,sans-serif;
+    font-size:10px;
+    letter-spacing:2.5px;
+    cursor:pointer;
+    margin-top:22px;
+    transition:.35s ease;
+}
+
+.mystery-btn:hover{
+    background:#d9a8b9;
+    color:#160f13;
+    transform:translateY(-3px);
+    box-shadow:0 10px 35px rgba(217,168,185,.2);
+}
+
+
+/* =========================================================
+   SCREEN 2 — 24 MYSTERY OBJECTS
+========================================================= */
+
+.mystery-grid{
+    width:min(650px,92vw);
+    margin:35px auto 15px;
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:11px;
+}
+
+.mystery-box{
+    aspect-ratio:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid rgba(255,255,255,.13);
+    border-radius:15px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.075),
+            rgba(255,255,255,.02)
+        );
+    color:rgba(255,255,255,.55);
+    font-family:Arial,sans-serif;
+    font-size:10px;
+    letter-spacing:1px;
+    cursor:pointer;
+    transition:.3s ease;
+}
+
+.mystery-box:hover{
+    transform:translateY(-6px) rotate(1deg);
+    border-color:rgba(217,168,185,.7);
+    background:rgba(217,168,185,.12);
+}
+
+.mystery-box.revealed{
+    animation:boxShake .45s ease;
+}
+
+@keyframes boxShake{
+    0%,100%{transform:scale(1);}
+    30%{transform:scale(1.08) rotate(-2deg);}
+    60%{transform:scale(.96) rotate(2deg);}
+}
+
+.secret-line{
+    color:#aaa0a6;
+    font-size:13px;
+    letter-spacing:1px;
+    margin:25px 0;
+}
+
+
+/* =========================================================
+   SCREEN 3 — ENVELOPE
+========================================================= */
+
+.closed-envelope{
+    position:relative;
+    width:190px;
+    height:125px;
+    margin:45px auto;
+    background:#21171d;
+    border:1px solid rgba(217,168,185,.35);
+    box-shadow:0 25px 70px rgba(0,0,0,.5);
+}
+
+.envelope-letter{
+    position:absolute;
+    width:150px;
+    height:100px;
+    left:20px;
+    top:-20px;
+    background:#eee4e7;
+    color:#281d22;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:1;
+}
+
+.envelope-letter span{
+    font-family:Arial,sans-serif;
+    font-size:12px;
+    letter-spacing:3px;
+}
+
+.envelope-flap{
+    position:absolute;
+    width:0;
+    height:0;
+    border-left:95px solid transparent;
+    border-right:95px solid transparent;
+    border-top:65px solid #38252e;
+    z-index:3;
+}
+
+
+/* =========================================================
+   SCREEN 4 — MEANING
+========================================================= */
+
+.meaning-container{
+    width:min(650px,92vw);
+    text-align:center;
+}
+
+.meaning-card{
+    display:none;
+    min-height:190px;
+    padding:45px 35px;
+    border:1px solid rgba(255,255,255,.13);
+    border-radius:24px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.065),
+            rgba(255,255,255,.018)
+        );
+}
+
+.meaning-card.active-meaning{
+    display:block;
+    animation:meaningIn .8s ease;
+}
+
+@keyframes meaningIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.meaning-number{
+    font-family:Arial,sans-serif;
+    color:#d9a8b9;
+    font-size:11px;
+    letter-spacing:3px;
+}
+
+.meaning-card p{
+    font-size:clamp(24px,4vw,38px);
+    line-height:1.35;
+    margin:25px auto 0;
+    max-width:500px;
+}
+
+.bottom-whisper{
+    color:#aaa0a6;
+    font-size:13px;
+    margin:25px 0;
+}
+
+
+/* =========================================================
+   SCREEN 5 — SINGLE BOX
+========================================================= */
+
+.single-mystery-box{
+    width:145px;
+    height:145px;
+    position:relative;
+    margin:35px auto 40px;
+}
+
+.box-body{
+    position:absolute;
+    width:120px;
+    height:100px;
+    left:12px;
+    bottom:0;
+    background:linear-gradient(145deg,#432c37,#241820);
+    border:1px solid rgba(217,168,185,.35);
+}
+
+.box-lid{
+    position:absolute;
+    width:140px;
+    height:28px;
+    left:2px;
+    top:20px;
+    background:#563844;
+    border:1px solid rgba(217,168,185,.45);
+    z-index:2;
+}
+
+.box-ribbon.vertical{
+    position:absolute;
+    width:18px;
+    height:125px;
+    left:61px;
+    top:20px;
+    background:rgba(217,168,185,.35);
+    z-index:4;
+}
+
+.box-ribbon.horizontal{
+    position:absolute;
+    width:140px;
+    height:15px;
+    left:2px;
+    top:28px;
+    background:rgba(217,168,185,.35);
+    z-index:4;
+}
+
+
+/* =========================================================
+   INVITATION ENVELOPE
+========================================================= */
+
+.invitation-screen{
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(217,168,185,.09),
+            transparent 48%
+        ),
+        #0b090b;
+}
+
+.invitation-envelope{
+    position:relative;
+    width:min(520px,90vw);
+    height:350px;
+    cursor:pointer;
+}
+
+.envelope-back{
+    position:absolute;
+    inset:0;
+    background:#21171d;
+    border:1px solid rgba(217,168,185,.35);
+    border-radius:8px;
+    box-shadow:0 30px 80px rgba(0,0,0,.6);
+}
+
+.envelope-paper{
+    position:absolute;
+    width:80%;
+    height:82%;
+    left:10%;
+    top:9%;
+    background:#eee6e8;
+    color:#261c21;
+    text-align:center;
+    padding:60px 20px;
+    z-index:2;
+    transition:.8s ease;
+}
+
+.envelope-paper h2{
+    font-size:48px;
+    font-weight:400;
+    margin:10px 0;
+}
+
+.inv-date{
+    font-size:22px;
+    letter-spacing:4px;
+}
+
+.inv-divider{
+    width:55px;
+    height:1px;
+    background:currentColor;
+    opacity:.3;
+    margin:25px auto;
+}
+
+.envelope-front{
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:0;
+    height:0;
+    border-left:260px solid #302129;
+    border-right:260px solid #302129;
+    border-top:175px solid transparent;
+    z-index:3;
+}
+
+.invitation-envelope.opened .envelope-paper{
+    transform:translateY(-70px);
+}
+
+.tap-text{
+    position:absolute;
+    bottom:10%;
+    color:#aaa0a6;
+    font-family:Arial,sans-serif;
+    font-size:10px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+}
+
+
+/* =========================================================
+   INVITATION CARD
+========================================================= */
+
+.invitation-card,
+.details-card,
+.final-invitation{
+    position:relative;
+    width:min(600px,92vw);
+    padding:65px 45px;
+    text-align:center;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.07),
+            rgba(255,255,255,.025)
+        );
+    border:1px solid rgba(217,168,185,.28);
+    box-shadow:0 35px 100px rgba(0,0,0,.45);
+}
+
+.invitation-card h1,
+.final-invitation h1{
+    font-size:clamp(45px,7vw,78px);
+    font-weight:400;
+    line-height:1.05;
+    margin:10px 0 25px;
+}
+
+.inv-message{
+    font-size:25px;
+    line-height:1.6;
+}
+
+.inv-small{
+    font-family:Arial,sans-serif;
+    font-size:10px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    color:#d9a8b9;
+}
+
+.inv-small.bottom{
+    margin-top:35px;
+}
+
+
+/* =========================================================
+   DETAILS
+========================================================= */
+
+.details-card h2{
+    font-size:55px;
+    font-weight:400;
+    margin:10px 0 45px;
+}
+
+.detail-row{
+    display:flex;
+    justify-content:space-between;
+    gap:25px;
+    padding:18px 0;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    text-align:left;
+}
+
+.detail-row span{
+    font-family:Arial,sans-serif;
+    font-size:9px;
+    letter-spacing:2px;
+    color:#d9a8b9;
+}
+
+.detail-row strong{
+    font-size:14px;
+    font-weight:400;
+    text-align:right;
+}
+
+.detail-ending{
+    margin:35px auto 10px;
+    color:#aaa0a6;
+    line-height:1.8;
+}
+
+
+/* =========================================================
+   MAP SCREEN
+========================================================= */
+
+.map-card{
+    position:relative;
+    width:min(750px,94vw);
+    height:min(650px,85vh);
+    overflow:hidden;
+    border:1px solid rgba(217,168,185,.3);
+    border-radius:25px;
+    box-shadow:0 35px 100px rgba(0,0,0,.5);
+}
+
+.map-background{
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(
+            30deg,
+            transparent 48%,
+            rgba(255,255,255,.05) 49%,
+            transparent 51%
+        ),
+        linear-gradient(
+            -30deg,
+            transparent 48%,
+            rgba(255,255,255,.04) 49%,
+            transparent 51%
+        ),
+        #171319;
+    background-size:90px 90px;
+}
+
+.map-road{
+    position:absolute;
+    height:3px;
+    background:rgba(255,255,255,.12);
+    transform-origin:left center;
+}
+
+.road-one{
+    width:110%;
+    top:28%;
+    left:-10%;
+    transform:rotate(18deg);
+}
+
+.road-two{
+    width:100%;
+    top:62%;
+    left:0;
+    transform:rotate(-14deg);
+}
+
+.road-three{
+    width:90%;
+    top:45%;
+    left:15%;
+    transform:rotate(70deg);
+}
+
+.map-location{
+    position:absolute;
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:rgba(255,255,255,.4);
+}
+
+.location-one{
+    left:18%;
+    top:30%;
+}
+
+.location-two{
+    right:20%;
+    bottom:25%;
+}
+
+.mystery-location-pin{
+    position:absolute;
+    left:50%;
+    top:45%;
+    width:42px;
+    height:55px;
+    transform:translate(-50%,-50%);
+}
+
+.pin-head{
+    width:25px;
+    height:25px;
+    background:#d9a8b9;
+    border-radius:50% 50% 50% 0;
+    transform:rotate(-45deg);
+    margin:auto;
+    box-shadow:0 0 35px rgba(217,168,185,.55);
+}
+
+.pin-pulse{
+    position:absolute;
+    width:75px;
+    height:75px;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    border:1px solid rgba(217,168,185,.5);
+    border-radius:50%;
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+    0%{
+        transform:translate(-50%,-50%) scale(.7);
+        opacity:.8;
+    }
+    100%{
+        transform:translate(-50%,-50%) scale(1.5);
+        opacity:0;
+    }
+}
+
+.map-overlay{
+    position:absolute;
+    left:50%;
+    bottom:25px;
+    transform:translateX(-50%);
+    width:min(600px,90%);
+    padding:35px;
+    text-align:center;
+    background:rgba(9,7,10,.92);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:20px;
+}
+
+.map-overlay h2{
+    font-size:45px;
+    font-weight:400;
+    margin:5px 0 12px;
+}
+
+.map-overlay p{
+    color:#aaa0a6;
+    line-height:1.6;
+}
+
+.map-line{
+    width:50px;
+    height:1px;
+    background:#d9a8b9;
+    margin:22px auto;
+}
+
+
+/* =========================================================
+   FINAL INVITATION
+========================================================= */
+
+.final-invitation{
+    padding:75px 45px;
+}
+
+.final-date{
+    color:#d9a8b9;
+    font-family:Arial,sans-serif;
+    letter-spacing:6px;
+    font-size:12px;
+}
+
+.final-invitation > p{
+    color:#aaa0a6;
+    line-height:1.8;
+    font-size:17px;
+}
+
+.final-invitation strong{
+    display:block;
+    font-size:22px;
+    margin:28px 0;
+    font-weight:400;
+}
+
+.signature{
+    font-style:italic;
+    color:#d9a8b9 !important;
+}
+
+.final-whisper{
+    position:absolute;
+    bottom:105px;
+    color:#aaa0a6;
+    font-size:12px;
+}
+
+
+/* =========================================================
+   COUNTDOWN
+========================================================= */
+
+.countdown-screen{
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(217,168,185,.12),
+            transparent 45%
+        ),
+        #09070a;
+}
+
+.countdown-content{
+    text-align:center;
+}
+
+.countdown-content h1{
+    font-size:clamp(50px,9vw,100px);
+    font-weight:400;
+    letter-spacing:3px;
+    margin:10px 0 55px;
+}
+
+.countdown{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:15px;
+}
+
+.count-box{
+    min-width:100px;
+}
+
+.count-box span{
+    display:block;
+    font-size:clamp(35px,6vw,65px);
+    font-variant-numeric:tabular-nums;
+}
+
+.count-box small{
+    font-family:Arial,sans-serif;
+    font-size:8px;
+    letter-spacing:3px;
+    color:#aaa0a6;
+}
+
+.colon{
+    color:#d9a8b9;
+    font-size:30px;
+    padding-bottom:18px;
+}
+
+.countdown-message{
+    margin-top:55px;
+    color:#aaa0a6;
+    font-size:15px;
+}
+
+.love-line{
+    margin-top:55px;
+    font-style:italic;
+    color:#d9a8b9;
+    line-height:2;
 }
 
 
@@ -1099,1133 +852,884 @@ body{
    MOBILE
 ========================================================= */
 
-@media(max-width:600px){
+@media(max-width:650px){
 
-    .small-heading{
-        font-size:10px;
-        letter-spacing:3px;
+    .mystery-grid{
+        grid-template-columns:repeat(4,1fr);
+        gap:8px;
     }
 
-    .main-title{
-        font-size:48px;
+    .mystery-box{
+        border-radius:10px;
     }
 
-    .subtitle{
-        font-size:16px;
-        line-height:1.55;
+    .invitation-card,
+    .details-card,
+    .final-invitation{
+        padding:45px 25px;
     }
 
-    .question{
-        font-size:20px;
+    .detail-row{
+        flex-direction:column;
+        gap:7px;
     }
 
-    .assalam{
-        font-size:27px;
+    .detail-row strong{
+        text-align:left;
     }
 
-    .roman-prayer p,
-    .telugu-meaning p{
-        font-size:16px;
-        line-height:1.65;
+    .countdown{
+        gap:4px;
     }
 
-    .birthday-title{
-        font-size:52px;
+    .count-box{
+        min-width:60px;
     }
 
-    .birthday-name{
-        font-size:34px;
+    .colon{
+        font-size:18px;
     }
 
-    .birthday-message{
-        font-size:17px;
-        line-height:1.65;
+    .map-card{
+        height:80vh;
     }
 
-    .door-title{
-        font-size:31px;
+    .map-overlay{
+        padding:25px 18px;
     }
 
-    .door-subtitle{
-        font-size:17px;
+    .envelope-front{
+        border-left-width:45vw;
+        border-right-width:45vw;
     }
-
-    .door-frame{
-        width:250px;
-        height:360px;
-    }
-
-    /*
-       Larger invisible swipe area on mobile
-       so the user doesn't have to hit a tiny spot.
-    */
-
-    #hiddenAnswerArea{
-
-        width:190px;
-
-        height:150px;
-
-        bottom:25px;
-    }
-
 }
-
-
-/* =========================================================
-   REDUCE MOTION
-========================================================= */
-
-@media(prefers-reduced-motion:reduce){
-
-    *,
-    *::before,
-    *::after{
-
-        animation-duration:.01ms !important;
-
-        animation-iteration-count:1 !important;
-
-        transition-duration:.01ms !important;
-    }
-
-}
-
 </style>
 </head>
-
 
 <body>
 
 
 <!-- =========================================================
-     BACKGROUND DECORATIONS
+     YOUR EXISTING WEBSITE CONTENT
+     KEEP YOUR CURRENT CONTENT HERE
 ========================================================= -->
 
-<div class="balloon balloon1"></div>
-<div class="balloon balloon2"></div>
-<div class="balloon balloon3"></div>
-<div class="balloon balloon4"></div>
-<div class="balloon balloon5"></div>
-<div class="balloon balloon6"></div>
+<!--
+IMPORTANT:
+Your existing HTML from your current file should remain here
+exactly as it already is.
 
-<div class="heart heart1">❤️</div>
-<div class="heart heart2">💜</div>
-<div class="heart heart3">💗</div>
-<div class="heart heart4">❤️</div>
+The new section below is designed to start AFTER your
+existing Bubu flying video finishes.
+-->
 
 
 <!-- =========================================================
-     SCREEN 1
+     BUBU FLYING VIDEO
+     USE YOUR EXISTING VIDEO ELEMENT
 ========================================================= -->
 
-<section id="screen1" class="screen active">
+<div id="bubuVideoScreen" class="screen">
 
-    <div class="first-content">
+    <video
+        id="bubuVideo"
+        playsinline
+        preload="auto"
+        src="happy bday.mp4">
+    </video>
 
-        <div class="small-heading">
-            30 DAYS · 30 WISHES
-        </div>
+</div>
 
-        <h1 class="main-title">
-            FINALLY...<br>
-            THE WAIT IS<br>
-            OVER.
-        </h1>
 
-        <p class="subtitle">
-            Thirty days of wishes brought us
-            all the way here...
-            and now there's only one thing
-            left to ask.
-        </p>
+<!-- =========================================================
+     NEW MYSTERY + INVITATION EXPERIENCE
+========================================================= -->
 
-        <div class="question">
+<section id="mysterySection">
 
-            Are you ready to see<br>
-            what surprise I planned
-            for you? 👀 ❤️
 
-        </div>
+    <!-- =====================================================
+         SCREEN 1
+    ====================================================== -->
 
-        <div class="ready-area">
+    <div class="mystery-screen active">
+
+        <div class="mystery-content">
+
+            <p class="tiny-label">
+                A LITTLE SOMETHING
+            </p>
+
+            <h1>DUDU…</h1>
+
+            <p class="main-line">
+                You thought that was the end?
+            </p>
+
+            <p class="sub-line">
+                Not quite.
+            </p>
+
+            <p class="description">
+                There’s a little more waiting for you.
+            </p>
 
             <button
-                id="readyButton"
-                type="button">
-
-                I'M READY ✨
-
+                class="mystery-btn"
+                onclick="nextMysteryScreen()">
+                KEEP GOING
             </button>
 
         </div>
 
     </div>
 
-</section>
+
+    <!-- =====================================================
+         SCREEN 2 — 24 MYSTERY THINGS
+    ====================================================== -->
+
+    <div class="mystery-screen">
+
+        <div class="mystery-content wide">
+
+            <p class="tiny-label">
+                DON'T ASK TOO MANY QUESTIONS
+            </p>
+
+            <h2>
+                24 little somethings.
+            </h2>
+
+            <p class="description">
+                All chosen for one person.
+            </p>
+
+            <div class="mystery-grid">
+
+                <div class="mystery-box">01</div>
+                <div class="mystery-box">02</div>
+                <div class="mystery-box">03</div>
+                <div class="mystery-box">04</div>
+                <div class="mystery-box">05</div>
+                <div class="mystery-box">06</div>
+
+                <div class="mystery-box">07</div>
+                <div class="mystery-box">08</div>
+                <div class="mystery-box">09</div>
+                <div class="mystery-box">10</div>
+                <div class="mystery-box">11</div>
+                <div class="mystery-box">12</div>
+
+                <div class="mystery-box">13</div>
+                <div class="mystery-box">14</div>
+                <div class="mystery-box">15</div>
+                <div class="mystery-box">16</div>
+                <div class="mystery-box">17</div>
+                <div class="mystery-box">18</div>
+
+                <div class="mystery-box">19</div>
+                <div class="mystery-box">20</div>
+                <div class="mystery-box">21</div>
+                <div class="mystery-box">22</div>
+                <div class="mystery-box">23</div>
+                <div class="mystery-box">24</div>
+
+            </div>
+
+            <p class="secret-line">
+                That's all you're allowed to know for now.
+            </p>
+
+            <button
+                class="mystery-btn"
+                onclick="nextMysteryScreen()">
+                I WON'T PEEK
+            </button>
+
+        </div>
+
+    </div>
 
 
-<!-- =========================================================
-     SCREEN 2
-========================================================= -->
+    <!-- =====================================================
+         SCREEN 3
+    ====================================================== -->
 
-<section id="screen2" class="screen">
+    <div class="mystery-screen">
 
-    <div class="second-content">
+        <div class="mystery-content">
 
-        <h1 class="second-title">
-            Oh wow! 😍
-        </h1>
+            <p class="tiny-label">
+                NICE TRY
+            </p>
 
-        <p class="second-text">
+            <h2>
+                You really thought<br>
+                I'd let you peek?
+            </h2>
 
-            Ohhh wow, you are so excited! 👀❤️<br>
+            <div class="closed-envelope">
 
-            I knew you wouldn't be able
-            to wait anymore. 😂
+                <div class="envelope-flap"></div>
 
+                <div class="envelope-letter">
+                    <span>NOPE.</span>
+                </div>
+
+            </div>
+
+            <p class="description">
+                Some things are better discovered
+                at the right time.
+            </p>
+
+            <button
+                class="mystery-btn"
+                onclick="nextMysteryScreen()">
+                FINE… CONTINUE
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         SCREEN 4
+    ====================================================== -->
+
+    <div class="mystery-screen">
+
+        <div class="meaning-container">
+
+            <p class="tiny-label">
+                A LITTLE THOUGHT
+            </p>
+
+            <div class="meaning-card active-meaning">
+
+                <span class="meaning-number">
+                    01
+                </span>
+
+                <p>
+                    Some were chosen because
+                    you'll need them.
+                </p>
+
+            </div>
+
+            <div class="meaning-card">
+
+                <span class="meaning-number">
+                    02
+                </span>
+
+                <p>
+                    Some because they reminded me
+                    of you.
+                </p>
+
+            </div>
+
+            <div class="meaning-card">
+
+                <span class="meaning-number">
+                    03
+                </span>
+
+                <p>
+                    Some because I wanted you
+                    to keep them.
+                </p>
+
+            </div>
+
+            <div class="meaning-card">
+
+                <span class="meaning-number">
+                    04
+                </span>
+
+                <p>
+                    And some…
+                    simply because I wanted to.
+                </p>
+
+            </div>
+
+            <p class="bottom-whisper">
+                No explanations yet.
+            </p>
+
+            <button
+                class="mystery-btn"
+                onclick="nextMysteryScreen()">
+                ONE MORE THING
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         SCREEN 5
+    ====================================================== -->
+
+    <div class="mystery-screen">
+
+        <div class="mystery-content">
+
+            <p class="tiny-label">
+                DUDU…
+            </p>
+
+            <div class="single-mystery-box">
+
+                <div class="box-lid"></div>
+
+                <div class="box-body"></div>
+
+                <div class="box-ribbon vertical"></div>
+
+                <div class="box-ribbon horizontal"></div>
+
+            </div>
+
+            <h2>
+                Still wondering?
+            </h2>
+
+            <p class="description">
+                Good.
+            </p>
+
+            <p class="small-text">
+                Don't try too hard to figure it out.
+            </p>
+
+            <button
+                class="mystery-btn"
+                onclick="nextMysteryScreen()">
+                I'M READY
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         SCREEN 6 — INVITATION ENVELOPE
+    ====================================================== -->
+
+    <div class="mystery-screen invitation-screen">
+
+        <div
+            class="invitation-envelope"
+            onclick="openInvitation()">
+
+            <div class="envelope-back"></div>
+
+            <div class="envelope-paper">
+
+                <p class="inv-small">
+                    A LITTLE INVITATION
+                </p>
+
+                <h2>
+                    For Dudu
+                </h2>
+
+                <p class="inv-date">
+                    October 30
+                </p>
+
+                <div class="inv-divider"></div>
+
+                <p>
+                    From Bubu
+                </p>
+
+            </div>
+
+            <div class="envelope-front"></div>
+
+        </div>
+
+        <p class="tap-text">
+            Tap to open
+        </p>
+
+    </div>
+
+
+    <!-- =====================================================
+         SCREEN 7 — INVITATION
+    ====================================================== -->
+
+    <div class="mystery-screen invitation-screen">
+
+        <div class="invitation-card">
+
+            <p class="inv-small">
+                BUBU → DUDU
+            </p>
+
+            <h1>
+                You're invited.
+            </h1>
+
+            <p class="inv-date">
+                October 30
+            </p>
+
+            <div class="inv-divider"></div>
+
+            <p class="inv-message">
+                Come spend your day with me.
+            </p>
+
+            <p class="inv-small bottom">
+                There's something I've planned.
+            </p>
+
+            <button
+                class="mystery-btn"
+                onclick="nextMysteryScreen()">
+                OPEN DETAILS
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         SCREEN 8 — DETAILS
+    ====================================================== -->
+
+    <div class="mystery-screen invitation-screen">
+
+        <div class="details-card">
+
+            <p class="inv-small">
+                DUDU'S DAY
+            </p>
+
+            <h2>
+                October 30
+            </h2>
+
+            <div class="detail-row">
+
+                <span>
+                    DATE
+                </span>
+
+                <strong>
+                    October 30
+                </strong>
+
+            </div>
+
+            <div class="detail-row">
+
+                <span>
+                    TIME
+                </span>
+
+                <strong>
+                    When Bubu says "Get ready."
+                </strong>
+
+            </div>
+
+            <div class="detail-row">
+
+                <span>
+                    DRESS CODE
+                </span>
+
+                <strong>
+                    Look good.
+                </strong>
+
+            </div>
+
+            <div class="detail-row">
+
+                <span>
+                    MOOD
+                </span>
+
+                <strong>
+                    Don't ask questions.
+                </strong>
+
+            </div>
+
+            <p class="detail-ending">
+
+                One thing is certain…
+
+                <br>
+
+                You're not spending this birthday
+                doing nothing.
+
+            </p>
+
+            <button
+                class="mystery-btn"
+                onclick="nextMysteryScreen()">
+                WHERE?
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         SCREEN 9 — MYSTERIOUS VENUE
+    ====================================================== -->
+
+    <div class="mystery-screen invitation-screen">
+
+        <div class="map-card">
+
+            <div class="map-background">
+
+                <div class="map-road road-one"></div>
+
+                <div class="map-road road-two"></div>
+
+                <div class="map-road road-three"></div>
+
+                <div class="map-location location-one"></div>
+
+                <div class="map-location location-two"></div>
+
+                <div class="mystery-location-pin">
+
+                    <div class="pin-pulse"></div>
+
+                    <div class="pin-head"></div>
+
+                </div>
+
+            </div>
+
+
+            <div class="map-overlay">
+
+                <p class="inv-small">
+                    VENUE
+                </p>
+
+                <h2>
+                    Somewhere.
+                </h2>
+
+                <p>
+                    You might already know it.
+                </p>
+
+                <p>
+                    Or maybe you don't.
+                </p>
+
+                <div class="map-line"></div>
+
+                <p>
+                    When the time comes…
+                    <br>
+                    Google Maps might do the rest.
+                </p>
+
+                <button
+                    class="mystery-btn"
+                    onclick="nextMysteryScreen()">
+                    ONE LAST THING
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         SCREEN 10 — FINAL INVITATION
+    ====================================================== -->
+
+    <div class="mystery-screen invitation-screen">
+
+        <div class="final-invitation">
+
+            <p class="inv-small">
+                DUDU
+            </p>
+
+            <h1>
+                Your presence<br>
+                is required.
+            </h1>
+
+            <p class="final-date">
+                OCTOBER 30
+            </p>
+
+            <div class="inv-divider"></div>
+
+            <p>
+                Come with me.
+            </p>
+
+            <p>
+                Don't worry about the details.
+                <br>
+                I've got them.
+            </p>
+
+            <strong>
+                Just be there.
+            </strong>
+
+            <p class="signature">
+                — Bubu
+            </p>
+
+        </div>
+
+        <p class="final-whisper">
+            P.S. You still haven't figured out
+            what's waiting for you.
         </p>
 
         <button
-            id="goButton"
-            class="go-button"
-            type="button">
+            class="mystery-btn"
+            onclick="startCountdown()">
 
-            LET'S GO ✨
+            I'LL BE THERE
 
         </button>
 
     </div>
 
-</section>
 
+    <!-- =====================================================
+         SCREEN 11 — COUNTDOWN
+    ====================================================== -->
 
-<!-- =========================================================
-     PRAYER SCREEN
-========================================================= -->
+    <div class="mystery-screen countdown-screen">
 
-<section id="screen3" class="screen">
+        <div class="countdown-content">
 
-    <div class="prayer-container">
+            <p class="tiny-label">
+                UNTIL DUDU'S DAY
+            </p>
 
-        <h1 class="assalam">
+            <h1>
+                OCTOBER 30
+            </h1>
 
-            Assalamu Alaikum Ji,<br>
+            <div class="countdown">
 
-            Wa Rahmatullahi Wa Barakatuh ❤️
+                <div class="count-box">
+                    <span id="days">00</span>
+                    <small>DAYS</small>
+                </div>
 
-        </h1>
+                <div class="colon">:</div>
 
+                <div class="count-box">
+                    <span id="hours">00</span>
+                    <small>HOURS</small>
+                </div>
 
-        <div class="prayer">
+                <div class="colon">:</div>
 
-            <div class="roman-prayer">
+                <div class="count-box">
+                    <span id="minutes">00</span>
+                    <small>MINUTES</small>
+                </div>
 
-                <p>
-                    <strong>
-                        Bismillahir Rahmanir Raheem. ❤️
-                    </strong>
-                </p>
+                <div class="colon">:</div>
 
-                <p>
-                    Alhamdulillahi Rabbil Aalameen.
-                </p>
-
-                <p>
-                    Allahumma barik lahu fi umrihi,
-                    warzuqhu sehat, sa'adat aur barkat.
-                </p>
-
-                <p>
-                    Waj'al hayat-hu ma'mooratan
-                    bil-imaan wal-khair wan-najah.
-                </p>
-
-                <p>
-                    Wahfazhu min kulli sharr,
-                    waqbal du'aa'ahu.
-                </p>
+                <div class="count-box">
+                    <span id="seconds">00</span>
+                    <small>SECONDS</small>
+                </div>
 
             </div>
 
-
-            <div class="prayer-divider">
-                ❤️
-            </div>
-
-
-            <div class="telugu-meaning">
-
-                <p>
-                    <strong>
-                        బిస్మిల్లాహిర్ రహ్మానిర్ రహీమ్. ❤️
-                    </strong>
-                </p>
-
-                <p>
-                    అనుగ్రహించే కరుణామయుడైన అల్లాహ్
-                    పేరుతో ఈ ప్రార్థనను ప్రారంభిస్తున్నాము.
-                </p>
-
-                <p>
-                    సర్వలోకాల ప్రభువైన అల్లాహ్‌కే
-                    అన్ని ప్రశంసలు చెందుతాయి.
-                </p>
-
-                <p>
-                    అల్లాహ్ అతని వయస్సులో బరకత్ ప్రసాదించి,
-                    మంచి ఆరోగ్యం, సంతోషం, శ్రేయస్సు
-                    మరియు సమృద్ధిని అనుగ్రహించాలి.
-                </p>
-
-                <p>
-                    అతని జీవితం ఇమాన్‌తో,
-                    మంచి పనులతో మరియు విజయాలతో నిండిపోవాలి.
-                </p>
-
-                <p>
-                    అల్లాహ్ అతన్ని ప్రతి చెడు నుండి కాపాడి,
-                    అతని మంచి దువాలను స్వీకరించాలి.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="ameen">
-            Aameen 🤲❤️
-        </div>
-
-
-        <button
-            id="celebrateButton"
-            class="celebrate-button"
-            type="button">
-
-            LET'S START CELEBRATING 🎉❤️
-
-        </button>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     BUBU CALLING VIDEO
-     
-     NO SEPARATE CALLING SCREEN.
-     
-     The video itself is shown immediately.
-========================================================= -->
-
-<section id="callingVideoScreen">
-
-    <video
-        id="callingVideo"
-        playsinline
-        preload="auto">
-
-        <source
-            src="bubu calling.mp4"
-            type="video/mp4">
-
-    </video>
-
-
-    <!--
-        INVISIBLE SWIPE-UP ANSWER AREA
-
-        User swipes UP here.
-
-        There is intentionally NO horizontal
-        swipe bar.
-    -->
-
-    <div
-        id="hiddenAnswerArea"
-        aria-label="Swipe up to answer">
-
-        <div id="swipeUpHint">
-            ↑
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     HAPPY BIRTHDAY SCREEN
-========================================================= -->
-
-<section id="birthdayScreen">
-
-    <div class="birthday-content">
-
-        <div class="birthday-small">
-            TODAY IS ALL ABOUT YOU ❤️
-        </div>
-
-        <h1 class="birthday-title">
-
-            HAPPY<br>
-            BIRTHDAY!
-
-        </h1>
-
-        <div class="birthday-name">
-
-            BUDDU ❤️
-
-        </div>
-
-        <p class="birthday-message">
-
-            May Allah bless you with endless happiness,
-            good health, peace and success. 🤍
-
-            <br><br>
-
-            May Allah protect you, guide you,
-            accept all your duas and fill your life
-            with beautiful moments, endless smiles
-            and everything your heart wishes for. ✨
-
-            <br><br>
-
-            May this new year of your life be filled
-            with love, happiness and barakah. ❤️
-
-        </p>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     DOOR SCREEN
-========================================================= -->
-
-<section id="doorScreen">
-
-    <h1 class="door-title">
-
-        OPEN THE DOOR... 🚪❤️<br>
-
-        BUBU IS WAITING FOR YOU 🥹
-
-    </h1>
-
-    <p class="door-subtitle">
-
-        Touch the door... something is waiting
-        on the other side 👀❤️
-
-    </p>
-
-
-    <div
-        id="doorFrame"
-        class="door-frame">
-
-        <div class="door-inside">
-
-            <div class="door-heart">
-                ❤️
-            </div>
-
-        </div>
-
-
-        <div class="door-left">
-
-            <div class="door-panel"></div>
-
-            <div class="door-handle"></div>
-
-        </div>
-
-
-        <div class="door-right">
-
-            <div class="door-panel"></div>
-
-            <div class="door-handle"></div>
+            <p class="countdown-message">
+                The less you know, the better.
+            </p>
+
+            <p class="love-line">
+                See you soon, Dudu.
+                <br>
+                — Bubu
+            </p>
 
         </div>
 
     </div>
 
 
-    <div class="touch-door">
-
-        👆 TOUCH THE DOOR TO OPEN
-
-    </div>
-
 </section>
-
-
-<!-- =========================================================
-     FINAL BUBU VIDEO
-========================================================= -->
-
-<section id="bubuVideoScreen">
-
-    <video
-        id="bubuVideo"
-        playsinline
-        preload="auto">
-
-        <source
-            src="happy bday.mp4"
-            type="video/mp4">
-
-    </video>
-
-</section>
-
-
-<!-- =========================================================
-     AUDIO
-========================================================= -->
-
-<audio
-    id="birthdaySong"
-    preload="auto">
-
-    <source
-        src="birthday-song-00-00-to-00-58.mp3"
-        type="audio/mpeg">
-
-</audio>
-
-
-<audio
-    id="bubuWishAudio"
-    preload="auto">
-
-    <source
-        src="bubu-wish-audio.mp3"
-        type="audio/mpeg">
-
-</audio>
 
 
 <script>
 
 /* =========================================================
-   GET ELEMENTS
+   EXISTING BUBU VIDEO → NEW MYSTERY SECTION
 ========================================================= */
-
-const screen1 =
-    document.getElementById("screen1");
-
-const screen2 =
-    document.getElementById("screen2");
-
-const screen3 =
-    document.getElementById("screen3");
-
-const callingVideoScreen =
-    document.getElementById("callingVideoScreen");
-
-const birthdayScreen =
-    document.getElementById("birthdayScreen");
-
-const doorScreen =
-    document.getElementById("doorScreen");
-
-const bubuVideoScreen =
-    document.getElementById("bubuVideoScreen");
-
-
-const readyButton =
-    document.getElementById("readyButton");
-
-const goButton =
-    document.getElementById("goButton");
-
-const celebrateButton =
-    document.getElementById("celebrateButton");
-
-
-const birthdaySong =
-    document.getElementById("birthdaySong");
-
-const bubuWishAudio =
-    document.getElementById("bubuWishAudio");
-
-const callingVideo =
-    document.getElementById("callingVideo");
 
 const bubuVideo =
     document.getElementById("bubuVideo");
 
-
-/* =========================================================
-   READY BUTTON
-========================================================= */
-
-let readyMoves = 0;
-
-const MAX_READY_MOVES = 3;
-
-let lastX = null;
-
-let lastY = null;
-
-
-function moveReadyButton(){
-
-    const rect =
-        readyButton.getBoundingClientRect();
-
-
-    const margin = 25;
-
-
-    const maxX =
-        Math.max(
-            margin,
-            window.innerWidth -
-            rect.width -
-            margin
-        );
-
-
-    const maxY =
-        Math.max(
-            margin,
-            window.innerHeight -
-            rect.height -
-            margin
-        );
-
-
-    let randomX;
-
-    let randomY;
-
-
-    do{
-
-        randomX =
-            Math.floor(
-                Math.random() *
-                (maxX - margin + 1)
-            ) + margin;
-
-
-        randomY =
-            Math.floor(
-                Math.random() *
-                (maxY - margin + 1)
-            ) + margin;
-
-    }
-
-    while(
-        lastX !== null &&
-        Math.abs(randomX-lastX) < 100 &&
-        Math.abs(randomY-lastY) < 100
-    );
-
-
-    lastX = randomX;
-
-    lastY = randomY;
-
-
-    readyButton.style.position =
-        "fixed";
-
-    readyButton.style.left =
-        randomX + "px";
-
-    readyButton.style.top =
-        randomY + "px";
-
-}
-
-
-readyButton.addEventListener(
-    "click",
-    function(){
-
-        if(
-            readyMoves <
-            MAX_READY_MOVES
-        ){
-
-            readyMoves++;
-
-            moveReadyButton();
-
-            return;
-
-        }
-
-
-        readyButton.style.position =
-            "";
-
-        readyButton.style.left =
-            "";
-
-        readyButton.style.top =
-            "";
-
-
-        screen1.classList.remove(
-            "active"
-        );
-
-        screen2.classList.add(
-            "active"
-        );
-
-    }
-);
-
-
-/* =========================================================
-   LET'S GO
-========================================================= */
-
-goButton.addEventListener(
-    "click",
-    function(){
-
-        screen2.classList.remove(
-            "active"
-        );
-
-        screen3.classList.add(
-            "active"
-        );
-
-
-        celebrateButton.classList.remove(
-            "show"
-        );
-
-
-        birthdaySong.pause();
-
-        birthdaySong.currentTime = 0;
-
-
-        birthdaySong.play().catch(
-            function(error){
-
-                console.log(
-                    "Birthday song autoplay:",
-                    error
-                );
-
-            }
-        );
-
-    }
-);
-
-
-/* =========================================================
-   BIRTHDAY SONG ENDS
-========================================================= */
-
-birthdaySong.addEventListener(
-    "ended",
-    function(){
-
-        celebrateButton.classList.add(
-            "show"
-        );
-
-    }
-);
-
-
-/* =========================================================
-   LET'S START CELEBRATING
-     
-   DIRECTLY OPENS bubu calling.mp4
-     
-   NO EXTRA CALL SCREEN.
-========================================================= */
-
-celebrateButton.addEventListener(
-    "click",
-    function(){
-
-        birthdaySong.pause();
-
-        birthdaySong.currentTime = 0;
-
-
-        bubuWishAudio.pause();
-
-        bubuWishAudio.currentTime = 0;
-
-
-        screen3.classList.remove(
-            "active"
-        );
-
-
-        callingVideoScreen.classList.add(
-            "active"
-        );
-
-
-        callingVideo.pause();
-
-        callingVideo.currentTime = 0;
-
-
-        hiddenAnswerArea.classList.remove(
-            "answered"
-        );
-
-
-        videoAnswered = false;
-
-
-        callingVideo.play().catch(
-            function(error){
-
-                console.log(
-                    "Calling video autoplay:",
-                    error
-                );
-
-            }
-        );
-
-    }
-);
-
-
-/* =========================================================
-   HIDDEN SWIPE-UP ANSWER
-========================================================= */
-
-const hiddenAnswerArea =
-    document.getElementById(
-        "hiddenAnswerArea"
-    );
-
-
-let videoDragging = false;
-
-let videoStartY = 0;
-
-let videoCurrentY = 0;
-
-let videoAnswered = false;
+const mysterySection =
+    document.getElementById("mysterySection");
 
 
 /*
-   Minimum upward movement required.
+   When the existing Bubu flying video finishes,
+   the new mystery experience begins.
 */
 
-const SWIPE_UP_DISTANCE = 70;
+if(bubuVideo){
 
+    bubuVideo.addEventListener(
+        "ended",
+        function(){
 
-/* =========================================================
-   START TOUCH
-========================================================= */
+            bubuVideo.pause();
 
-function startSwipeUp(event){
+            mysterySection.classList.add("active");
 
-    if(videoAnswered){
-        return;
-    }
+            startMysteryExperience();
 
-
-    const point =
-        event.touches
-        ? event.touches[0]
-        : event;
-
-
-    videoDragging = true;
-
-    videoStartY =
-        point.clientY;
-
-    videoCurrentY = 0;
-
-
-    if(event.cancelable){
-
-        event.preventDefault();
-
-    }
+        }
+    );
 
 }
 
 
 /* =========================================================
-   MOVE UP
+   MYSTERY SCREEN NAVIGATION
 ========================================================= */
 
-function moveSwipeUp(event){
+const mysteryScreens =
+    document.querySelectorAll(
+        "#mysterySection .mystery-screen"
+    );
 
-    if(!videoDragging){
-        return;
-    }
+let currentMysteryScreen = 0;
 
+function startMysteryExperience(){
 
-    const point =
-        event.touches
-        ? event.touches[0]
-        : event;
+    currentMysteryScreen = 0;
 
+    mysteryScreens.forEach(
+        function(screen){
+            screen.classList.remove("active");
+        }
+    );
 
-    /*
-       IMPORTANT:
-       Upward movement means:
+    mysteryScreens[0].classList.add("active");
 
-       starting Y - current Y
-    */
-
-    videoCurrentY =
-        videoStartY -
-        point.clientY;
-
-
-    /*
-       Do not allow downward movement.
-    */
-
-    if(videoCurrentY < 0){
-
-        videoCurrentY = 0;
-
-    }
-
-
-    /*
-       Move the subtle hint upward
-       while the user swipes.
-    */
-
-    const movement =
-        Math.min(
-            videoCurrentY,
-            70
-        );
-
-
-    const hint =
-        document.getElementById(
-            "swipeUpHint"
-        );
-
-
-    hint.style.transform =
-        `translateY(-${movement}px)`;
-
-
-    if(event.cancelable){
-
-        event.preventDefault();
-
-    }
+    startMeaningCards();
 
 }
 
 
-/* =========================================================
-   END SWIPE
-========================================================= */
-
-function endSwipeUp(){
-
-    if(!videoDragging){
-
-        return;
-
-    }
-
-
-    videoDragging = false;
-
-
-    /*
-       Successful upward swipe.
-    */
+function nextMysteryScreen(){
 
     if(
-        videoCurrentY >=
-        SWIPE_UP_DISTANCE
+        currentMysteryScreen >=
+        mysteryScreens.length - 1
     ){
-
-        answerCall();
-
+        return;
     }
 
-    else{
+    mysteryScreens[
+        currentMysteryScreen
+    ].classList.remove("active");
 
-        /*
-           Reset hint.
-        */
+    currentMysteryScreen++;
 
-        const hint =
-            document.getElementById(
-                "swipeUpHint"
-            );
-
-
-        hint.style.transform =
-            "";
-
-    }
-
-
-    videoCurrentY = 0;
+    mysteryScreens[
+        currentMysteryScreen
+    ].classList.add("active");
 
 }
 
 
 /* =========================================================
-   ANSWER CALL
+   24 MYSTERY BOXES
 ========================================================= */
 
-function answerCall(){
-
-    if(videoAnswered){
-
-        return;
-
-    }
-
-
-    videoAnswered = true;
-
-
-    hiddenAnswerArea.classList.add(
-        "answered"
+const mysteryBoxes =
+    document.querySelectorAll(
+        ".mystery-box"
     );
 
+const mysteryMessages = [
+    "Not this one.",
+    "You'll see.",
+    "Keep guessing.",
+    "Nope.",
+    "Bubu isn't telling.",
+    "Maybe later.",
+    "Nice try.",
+    "Wait for October 30."
+];
 
-    /*
-       The calling video continues playing.
-       We do NOT skip it.
-    */
+let mysteryClickCount = 0;
 
-    if(callingVideo.paused){
+mysteryBoxes.forEach(
+    function(box){
 
-        callingVideo.play().catch(
-            function(error){
+        box.addEventListener(
+            "click",
+            function(){
 
-                console.log(
-                    "Calling video:",
-                    error
+                box.classList.remove(
+                    "revealed"
                 );
 
-            }
-        );
+                void box.offsetWidth;
 
-    }
+                box.classList.add(
+                    "revealed"
+                );
 
-}
+                const oldText =
+                    box.innerText;
 
+                box.innerText =
+                    mysteryMessages[
+                        mysteryClickCount %
+                        mysteryMessages.length
+                    ];
 
-/* =========================================================
-   MOUSE SWIPE
-========================================================= */
+                mysteryClickCount++;
 
-hiddenAnswerArea.addEventListener(
-    "mousedown",
-    startSwipeUp
-);
+                setTimeout(
+                    function(){
 
+                        box.innerText =
+                            oldText;
 
-document.addEventListener(
-    "mousemove",
-    moveSwipeUp
-);
-
-
-document.addEventListener(
-    "mouseup",
-    endSwipeUp
-);
-
-
-/* =========================================================
-   TOUCH SWIPE
-========================================================= */
-
-hiddenAnswerArea.addEventListener(
-    "touchstart",
-    startSwipeUp,
-    {
-        passive:false
-    }
-);
-
-
-document.addEventListener(
-    "touchmove",
-    moveSwipeUp,
-    {
-        passive:false
-    }
-);
-
-
-document.addEventListener(
-    "touchend",
-    endSwipeUp
-);
-
-
-/* =========================================================
-   CALLING VIDEO ENDS
-     
-   ↓
-   HAPPY BIRTHDAY SCREEN
-========================================================= */
-
-callingVideo.addEventListener(
-    "ended",
-    function(){
-
-        callingVideo.pause();
-
-
-        callingVideoScreen.classList.remove(
-            "active"
-        );
-
-
-        birthdayScreen.classList.add(
-            "active"
-        );
-
-
-        /*
-           Start ONLY the birthday-screen audio.
-        */
-
-        bubuWishAudio.pause();
-
-        bubuWishAudio.currentTime = 0;
-
-
-        bubuWishAudio.play().catch(
-            function(error){
-
-                console.error(
-                    "bubu-wish-audio.mp3:",
-                    error
+                    },
+                    1000
                 );
 
             }
@@ -2236,134 +1740,243 @@ callingVideo.addEventListener(
 
 
 /* =========================================================
-   BUBU WISH AUDIO ENDS
-     
-   ↓
-   DOOR
+   INVITATION ENVELOPE
 ========================================================= */
 
-bubuWishAudio.addEventListener(
-    "ended",
-    function(){
+function openInvitation(){
 
-        bubuWishAudio.pause();
-
-        bubuWishAudio.currentTime = 0;
-
-
-        birthdayScreen.classList.remove(
-            "active"
+    const envelope =
+        document.querySelector(
+            ".invitation-envelope"
         );
 
-
-        doorScreen.classList.add(
-            "active"
-        );
-
-    }
-);
-
-
-/* =========================================================
-   DOOR
-========================================================= */
-
-const doorFrame =
-    document.getElementById(
-        "doorFrame"
+    envelope.classList.toggle(
+        "opened"
     );
-
-
-let doorOpening = false;
-
-
-function openDoor(){
-
-    if(doorOpening){
-
-        return;
-
-    }
-
-
-    doorOpening = true;
-
-
-    doorScreen.classList.add(
-        "opening"
-    );
-
 
     setTimeout(
         function(){
 
-            doorScreen.classList.remove(
-                "active"
-            );
-
-
-            bubuVideoScreen.classList.add(
-                "active"
-            );
-
-
-            bubuVideo.pause();
-
-            bubuVideo.currentTime = 0;
-
-
-            bubuVideo.play().catch(
-                function(error){
-
-                    console.error(
-                        "happy bday.mp4:",
-                        error
-                    );
-
-                }
-            );
-
+            nextMysteryScreen();
 
         },
-        1100
+        900
     );
 
 }
 
 
-doorFrame.addEventListener(
-    "click",
-    openDoor
-);
+/* =========================================================
+   MEANING CARDS
+========================================================= */
 
+let meaningIndex = 0;
 
-doorFrame.addEventListener(
-    "touchstart",
-    function(event){
+const meaningCards =
+    document.querySelectorAll(
+        ".meaning-card"
+    );
 
-        event.preventDefault();
+let meaningTimer = null;
 
-        openDoor();
+function startMeaningCards(){
 
-    },
-    {
-        passive:false
+    if(meaningTimer){
+        clearInterval(
+            meaningTimer
+        );
     }
-);
+
+    meaningIndex = 0;
+
+    meaningTimer =
+        setInterval(
+            function(){
+
+                const currentScreen =
+                    mysteryScreens[
+                        currentMysteryScreen
+                    ];
+
+                if(
+                    !currentScreen ||
+                    !currentScreen.querySelector(
+                        ".meaning-card"
+                    )
+                ){
+
+                    return;
+
+                }
+
+                const cards =
+                    currentScreen.querySelectorAll(
+                        ".meaning-card"
+                    );
+
+                cards.forEach(
+                    function(card){
+                        card.classList.remove(
+                            "active-meaning"
+                        );
+                    }
+                );
+
+                meaningIndex++;
+
+                if(
+                    meaningIndex >= cards.length
+                ){
+                    meaningIndex = 0;
+                }
+
+                cards[
+                    meaningIndex
+                ].classList.add(
+                    "active-meaning"
+                );
+
+            },
+            2600
+        );
+
+}
 
 
 /* =========================================================
-   FINAL VIDEO
+   COUNTDOWN
 ========================================================= */
 
-bubuVideo.addEventListener(
-    "ended",
-    function(){
+let countdownStarted = false;
 
-        bubuVideo.pause();
+function startCountdown(){
+
+    nextMysteryScreen();
+
+    if(countdownStarted){
+        return;
+    }
+
+    countdownStarted = true;
+
+    updateCountdown();
+
+    setInterval(
+        updateCountdown,
+        1000
+    );
+
+}
+
+
+function updateCountdown(){
+
+    /*
+       October 30, 2026.
+
+       Change the time below if you want
+       the countdown to finish at a specific
+       birthday time.
+    */
+
+    const birthday =
+        new Date(
+            "October 30, 2026 00:00:00"
+        ).getTime();
+
+    const now =
+        new Date().getTime();
+
+    const difference =
+        birthday - now;
+
+
+    if(difference <= 0){
+
+        document.getElementById(
+            "days"
+        ).innerText = "00";
+
+        document.getElementById(
+            "hours"
+        ).innerText = "00";
+
+        document.getElementById(
+            "minutes"
+        ).innerText = "00";
+
+        document.getElementById(
+            "seconds"
+        ).innerText = "00";
+
+        return;
 
     }
-);
+
+
+    const days =
+        Math.floor(
+            difference /
+            (1000 * 60 * 60 * 24)
+        );
+
+
+    const hours =
+        Math.floor(
+            (difference /
+            (1000 * 60 * 60)) % 24
+        );
+
+
+    const minutes =
+        Math.floor(
+            (difference /
+            (1000 * 60)) % 60
+        );
+
+
+    const seconds =
+        Math.floor(
+            (difference / 1000) % 60
+        );
+
+
+    document.getElementById(
+        "days"
+    ).innerText =
+        String(days).padStart(
+            2,
+            "0"
+        );
+
+
+    document.getElementById(
+        "hours"
+    ).innerText =
+        String(hours).padStart(
+            2,
+            "0"
+        );
+
+
+    document.getElementById(
+        "minutes"
+    ).innerText =
+        String(minutes).padStart(
+            2,
+            "0"
+        );
+
+
+    document.getElementById(
+        "seconds"
+    ).innerText =
+        String(seconds).padStart(
+            2,
+            "0"
+        );
+
+}
 
 </script>
 
