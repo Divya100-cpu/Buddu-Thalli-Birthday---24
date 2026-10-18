@@ -2,2745 +2,810 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Buddu Thalli Birthday ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little Something</title>
 
 <style>
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
 html,body{
-  width:100%;
-  height:100%;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    font-family:Georgia,"Times New Roman",serif;
+    background:#100014;
+    color:#fff;
 }
 
 body{
-  overflow:hidden;
-  font-family:Georgia,"Times New Roman",serif;
-  background:#08020c;
-  color:#fff;
+    position:relative;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:-20%;
+    background:
+        radial-gradient(circle at 50% 42%,rgba(170,45,210,.22),transparent 28%),
+        radial-gradient(circle at 50% 80%,rgba(110,25,145,.13),transparent 35%);
+    animation:bgPulse 7s ease-in-out infinite alternate;
+    pointer-events:none;
+}
+
+@keyframes bgPulse{
+    from{transform:scale(1)}
+    to{transform:scale(1.08)}
 }
 
 .screen{
-  position:fixed;
-  inset:0;
-  width:100%;
-  height:100vh;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  overflow:hidden;
+    position:absolute;
+    inset:0;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    opacity:0;
 }
 
 .screen.active{
-  display:flex;
+    display:flex;
+    animation:screenIn .8s ease forwards;
 }
 
-/* =========================
-   BACKGROUND
-========================= */
-
-#screen1,
-#screen2,
-#screen3,
-#surprise24Screen,
-#secretInviteScreen{
-  background:
-    radial-gradient(circle at center,#42104f 0%,#210725 45%,#09020d 100%);
+@keyframes screenIn{
+    from{
+        opacity:0;
+        transform:scale(.97);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
 }
 
-.balloon{
-  position:fixed;
-  width:52px;
-  height:68px;
-  border-radius:50%;
-  opacity:.75;
-  z-index:1;
-  animation:floatBalloon 6s ease-in-out infinite;
+/* --------------------------------
+   INTRO
+-------------------------------- */
+
+#intro{
+    text-align:center;
 }
 
-.balloon:after{
-  content:"";
-  position:absolute;
-  width:1px;
-  height:100px;
-  left:50%;
-  top:64px;
-  background:rgba(255,255,255,.35);
-}
-
-.balloon1{left:5%;top:15%;background:#ff5c8a}
-.balloon2{left:15%;top:70%;background:#a855f7;animation-delay:1s}
-.balloon3{right:7%;top:18%;background:#ec4899;animation-delay:2s}
-.balloon4{right:17%;top:72%;background:#8b5cf6;animation-delay:3s}
-.balloon5{left:40%;top:8%;background:#f472b6;animation-delay:1.5s}
-.balloon6{right:40%;top:82%;background:#c084fc;animation-delay:2.5s}
-
-@keyframes floatBalloon{
-  0%,100%{
-    transform:translateY(0) rotate(-3deg)
-  }
-  50%{
-    transform:translateY(-18px) rotate(3deg)
-  }
-}
-
-.heart{
-  position:fixed;
-  font-size:28px;
-  opacity:.7;
-  z-index:1;
-  animation:floatHeart 7s ease-in-out infinite;
-}
-
-.heart1{left:12%;top:40%}
-.heart2{right:12%;top:45%;animation-delay:1s}
-.heart3{left:27%;bottom:10%;animation-delay:2s}
-.heart4{right:28%;top:12%;animation-delay:3s}
-
-@keyframes floatHeart{
-  0%,100%{
-    transform:translateY(0);
-    opacity:.5;
-  }
-  50%{
-    transform:translateY(-15px);
-    opacity:.9;
-  }
-}
-
-/* =========================
-   FIRST SCREENS
-========================= */
-
-.first-content,
-.second-content{
-  width:min(900px,92%);
-  position:relative;
-  z-index:5;
-}
-
-.small-heading{
-  font-size:14px;
-  letter-spacing:5px;
-  opacity:.8;
-  margin-bottom:20px;
+.small-title{
+    font-size:10px;
+    letter-spacing:7px;
+    text-transform:uppercase;
+    opacity:.72;
+    margin-bottom:18px;
 }
 
 .main-title{
-  font-size:clamp(55px,8vw,105px);
-  line-height:.94;
-  font-weight:bold;
-  text-shadow:
-    0 0 10px rgba(255,255,255,.8),
-    0 0 30px rgba(255,80,220,.4);
+    font-size:clamp(42px,6vw,76px);
+    font-weight:bold;
+    text-shadow:
+        0 0 8px #fff,
+        0 0 20px rgba(255,160,255,.8),
+        0 0 40px rgba(210,80,240,.5);
 }
 
 .subtitle{
-  width:min(700px,95%);
-  margin:30px auto 0;
-  font-size:clamp(17px,2.2vw,24px);
-  line-height:1.6;
-  color:rgba(255,255,255,.88);
+    margin-top:14px;
+    font-size:14px;
+    opacity:.7;
+    letter-spacing:2px;
+}
+
+.start-btn,
+.next-btn,
+.close-btn{
+    margin-top:32px;
+    padding:13px 28px;
+    border-radius:30px;
+    border:1px solid rgba(255,255,255,.5);
+    color:white;
+    background:linear-gradient(135deg,#d94cc5,#9548dc);
+    box-shadow:0 0 20px rgba(210,70,230,.4);
+    cursor:pointer;
+    font-family:Georgia,serif;
+    font-size:12px;
+    letter-spacing:2px;
+    transition:.25s;
+}
+
+.start-btn:hover,
+.next-btn:hover,
+.close-btn:hover{
+    transform:scale(1.06);
+    box-shadow:0 0 30px rgba(230,100,255,.65);
+}
+
+/* --------------------------------
+   GIFTS
+-------------------------------- */
+
+#giftScreen{
+    padding:25px;
+}
+
+.gift-heading{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.gift-heading .small-title{
+    margin-bottom:10px;
+}
+
+.gift-heading h1{
+    font-size:clamp(40px,5.5vw,68px);
+    text-shadow:
+        0 0 8px white,
+        0 0 20px rgba(255,160,255,.8),
+        0 0 38px rgba(220,70,240,.45);
+}
+
+.gift-grid{
+    width:min(650px,92vw);
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:12px;
+}
+
+.gift{
+    position:relative;
+    aspect-ratio:1/1;
+    border:1px solid rgba(255,220,255,.45);
+    border-radius:12px;
+    background:
+        linear-gradient(90deg,transparent 42%,rgba(255,110,230,.35) 43%,rgba(255,110,230,.55) 50%,rgba(255,110,230,.35) 57%,transparent 58%),
+        linear-gradient(0deg,transparent 42%,rgba(255,110,230,.35) 43%,rgba(255,110,230,.55) 50%,rgba(255,110,230,.35) 57%,transparent 58%),
+        linear-gradient(145deg,#321238,#52205a);
+    box-shadow:
+        inset 0 0 20px rgba(230,80,255,.12),
+        0 0 12px rgba(210,60,230,.12);
+    cursor:pointer;
+    overflow:hidden;
+    transition:.3s;
+}
+
+.gift::before{
+    content:"";
+    position:absolute;
+    width:18px;
+    height:18px;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    border:2px solid rgba(255,180,255,.8);
+    border-radius:50%;
+    box-shadow:0 0 14px rgba(255,120,245,.8);
+}
+
+.gift::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:0;
+    width:2px;
+    height:100%;
+    transform:translateX(-50%);
+    background:rgba(255,125,235,.45);
 }
 
-.question{
-  margin-top:35px;
-  font-size:clamp(19px,2.5vw,29px);
-  line-height:1.45;
-  font-weight:bold;
+.gift:hover{
+    transform:translateY(-4px) scale(1.03);
+    box-shadow:
+        0 0 18px rgba(240,80,255,.4),
+        inset 0 0 25px rgba(240,80,255,.15);
 }
 
-.ready-area{
-  margin-top:30px;
-  min-height:70px;
+.gift.opened{
+    animation:giftOpen .55s ease;
 }
 
-#readyButton,
-.go-button,
-.celebrate-button,
-#secret24Continue,
-.mysteryHint-close,
-.invite-open,
-.invite-final{
-  border:1px solid rgba(255,255,255,.6);
-  background:linear-gradient(135deg,#e85caf,#9f3edb);
-  color:#fff;
-  border-radius:999px;
-  padding:14px 32px;
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:12px;
-  font-weight:bold;
-  letter-spacing:2px;
-  cursor:pointer;
-  box-shadow:0 0 20px rgba(255,80,220,.4);
-  transition:.25s ease;
+@keyframes giftOpen{
+    0%{transform:scale(1)}
+    50%{transform:scale(1.12)}
+    100%{transform:scale(1)}
 }
 
-#readyButton:hover,
-.go-button:hover,
-.celebrate-button:hover,
-.invite-open:hover,
-.invite-final:hover,
-#secret24Continue:hover{
-  transform:scale(1.05);
-}
-
-.second-title{
-  font-size:clamp(55px,8vw,100px);
-  text-shadow:0 0 10px #fff,0 0 30px rgba(255,80,220,.4);
-}
-
-.second-text{
-  margin-top:25px;
-  font-size:clamp(18px,2.4vw,27px);
-  line-height:1.6;
-}
-
-.go-button,
-.celebrate-button{
-  margin-top:32px;
-}
-
-.prayer-container{
-  width:min(900px,94%);
-  max-height:94vh;
-  overflow-y:auto;
-  position:relative;
-  z-index:5;
-  scrollbar-width:none;
-}
-
-.prayer-container::-webkit-scrollbar{
-  display:none;
-}
-
-.assalam{
-  font-size:clamp(27px,4vw,48px);
-  line-height:1.3;
-  text-shadow:0 0 10px #fff,0 0 25px rgba(255,80,220,.35);
-}
-
-.prayer{
-  margin:30px auto 0;
-  width:min(800px,95%);
-}
-
-.roman-prayer p,
-.telugu-meaning p{
-  margin:16px 0;
-  font-size:clamp(17px,2vw,23px);
-  line-height:1.7;
-}
-
-.prayer-divider{
-  margin:25px 0;
-  font-size:25px;
-}
-
-.ameen{
-  margin-top:22px;
-  font-size:30px;
-  font-weight:bold;
-}
-
-.celebrate-button{
-  opacity:0;
-  pointer-events:none;
-}
-
-.celebrate-button.show{
-  opacity:1;
-  pointer-events:auto;
-}
-
-/* =========================
-   VIDEO SCREENS
-========================= */
-
-#callingVideoScreen,
-#birthdayScreen,
-#doorScreen,
-#bubuVideoScreen,
-#surprise24Screen,
-#secretInviteScreen{
-  position:fixed;
-  inset:0;
-  width:100%;
-  height:100vh;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  overflow:hidden;
-}
-
-#callingVideoScreen{
-  z-index:4000;
-  background:#000;
-}
-
-#callingVideoScreen.active,
-#birthdayScreen.active,
-#doorScreen.active,
-#bubuVideoScreen.active,
-#surprise24Screen.active,
-#secretInviteScreen.active{
-  display:flex;
-}
-
-#callingVideo{
-  position:absolute;
-  inset:0;
-  width:100vw;
-  height:100vh;
-  object-fit:cover;
-  display:block;
-  background:#000;
-}
-
-#hiddenAnswerArea{
-  position:absolute;
-  left:50%;
-  bottom:45px;
-  transform:translateX(-50%);
-  width:145px;
-  height:115px;
-  z-index:20;
-  background:transparent;
-  border:0;
-  outline:0;
-  cursor:grab;
-  touch-action:none;
-  user-select:none;
-  display:flex;
-  align-items:flex-end;
-  justify-content:center;
-}
-
-#swipeUpHint{
-  width:54px;
-  height:54px;
-  border-radius:50%;
-  background:rgba(255,255,255,.1);
-  border:1px solid rgba(255,255,255,.2);
-  backdrop-filter:blur(5px);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:22px;
-  opacity:.35;
-  animation:swipeUpHint 1.7s ease-in-out infinite;
-  pointer-events:none;
-}
-
-@keyframes swipeUpHint{
-  0%,100%{
-    transform:translateY(8px);
-    opacity:.18;
-  }
-  50%{
-    transform:translateY(-8px);
-    opacity:.5;
-  }
-}
-
-#hiddenAnswerArea.answered #swipeUpHint{
-  opacity:0;
-}
-
-#birthdayScreen{
-  z-index:4500;
-  background:
-    radial-gradient(circle at center,#42104f,#18051e 55%,#060208);
-}
-
-.birthday-content{
-  width:min(900px,92%);
-  position:relative;
-  z-index:5;
-}
-
-.birthday-small{
-  font-size:14px;
-  letter-spacing:5px;
-  opacity:.85;
-  margin-bottom:20px;
-}
-
-.birthday-title{
-  font-size:clamp(55px,8vw,105px);
-  line-height:.95;
-  font-weight:bold;
-  text-shadow:
-    0 0 10px #fff,
-    0 0 25px rgba(255,80,220,.45);
-}
-
-.birthday-name{
-  margin-top:18px;
-  font-size:clamp(32px,5vw,60px);
-  color:#ffd1f1;
-  font-weight:bold;
-}
-
-.birthday-message{
-  width:min(750px,94%);
-  margin:28px auto 0;
-  font-size:clamp(17px,2.2vw,24px);
-  line-height:1.7;
-  color:rgba(255,255,255,.92);
-}
-
-/* =========================
-   DOOR
-========================= */
-
-#doorScreen{
-  z-index:5000;
-  flex-direction:column;
-  background:
-    radial-gradient(circle at center,#42104f 0%,#210725 40%,#09020d 100%);
-}
-
-.door-title{
-  position:relative;
-  z-index:20;
-  width:min(850px,92%);
-  margin-bottom:15px;
-  font-size:clamp(30px,5vw,65px);
-  line-height:1.2;
-  color:#fff;
-  text-shadow:0 0 10px #fff,0 0 25px rgba(255,80,220,.5);
-}
-
-.door-subtitle{
-  position:relative;
-  z-index:20;
-  margin-bottom:25px;
-  font-size:clamp(16px,2.3vw,23px);
-  color:rgba(255,255,255,.85);
-}
-
-.door-frame{
-  position:relative;
-  width:min(340px,72vw);
-  height:min(460px,60vh);
-  perspective:1400px;
-  z-index:10;
-  cursor:pointer;
-  filter:drop-shadow(0 0 25px rgba(190,70,230,.5));
-}
-
-.door-inside{
-  position:absolute;
-  inset:0;
-  border-radius:14px 14px 5px 5px;
-  overflow:hidden;
-  background:
-    radial-gradient(circle at 50% 45%,#c23d91,#4c125e 35%,#16051d 75%);
-  box-shadow:inset 0 0 60px rgba(255,80,220,.3);
-}
-
-.door-heart{
-  position:absolute;
-  left:50%;
-  top:43%;
-  transform:translate(-50%,-50%);
-  font-size:clamp(65px,10vw,110px);
-  animation:heartBeat 1.2s infinite;
-}
-
-@keyframes heartBeat{
-  0%,100%{
-    transform:translate(-50%,-50%) scale(1);
-  }
-  50%{
-    transform:translate(-50%,-50%) scale(1.12);
-  }
-}
-
-.door-left,
-.door-right{
-  position:absolute;
-  top:0;
-  width:50%;
-  height:100%;
-  background:linear-gradient(90deg,#22062e,#54105f 45%,#26072f);
-  border:3px solid #d88bd5;
-  box-shadow:inset 0 0 25px rgba(255,100,220,.25);
-  transition:transform 1.1s cubic-bezier(.7,0,.2,1);
-}
-
-.door-left{
-  left:0;
-  transform-origin:left center;
-  border-radius:14px 0 0 5px;
-}
-
-.door-right{
-  right:0;
-  transform-origin:right center;
-  border-radius:0 14px 5px 0;
-}
-
-.door-panel{
-  position:absolute;
-  left:14%;
-  right:14%;
-  top:12%;
-  bottom:12%;
-  border:2px solid rgba(255,200,250,.35);
-  border-radius:8px;
-}
-
-.door-handle{
-  position:absolute;
-  top:50%;
-  width:13px;
-  height:13px;
-  border-radius:50%;
-  background:#ffd36e;
-  box-shadow:0 0 12px rgba(255,210,100,.8);
-  z-index:10;
-}
-
-.door-left .door-handle{
-  right:10px;
-}
-
-.door-right .door-handle{
-  left:10px;
-}
-
-#doorScreen.opening .door-left{
-  transform:rotateY(-105deg);
-}
-
-#doorScreen.opening .door-right{
-  transform:rotateY(105deg);
-}
-
-.touch-door{
-  position:relative;
-  z-index:20;
-  margin-top:22px;
-  font-size:14px;
-  letter-spacing:2px;
-  opacity:.85;
-  animation:touchPulse 1.6s ease-in-out infinite;
-}
-
-@keyframes touchPulse{
-  0%,100%{opacity:.5}
-  50%{opacity:1}
-}
-
-/* =========================
-   BUBU VIDEO
-========================= */
-
-#bubuVideoScreen{
-  z-index:6000;
-  background:#000;
-}
-
-#bubuVideo{
-  width:100vw;
-  height:100vh;
-  object-fit:contain;
-  display:block;
-  background:#000;
-}
-
-/* =========================
-   24 GIFT BOX SCREEN
-========================= */
-
-#surprise24Screen{
-  z-index:7000;
-}
-
-.secret24-wrap{
-  width:min(1000px,94vw);
-  position:relative;
-  z-index:5;
-  padding:20px 0;
-}
-
-.secret24-kicker{
-  font-size:10px;
-  letter-spacing:6px;
-  opacity:.7;
-  margin-bottom:13px;
-}
-
-.secret24-title{
-  font-size:clamp(42px,6vw,78px);
-  line-height:1;
-  margin-bottom:30px;
-  text-shadow:
-    0 0 10px #fff,
-    0 0 25px rgba(255,80,220,.5);
-}
-
-.secret24-subtitle{
-  font-size:15px;
-  letter-spacing:1px;
-  opacity:.65;
-  margin-top:-17px;
-  margin-bottom:25px;
-}
-
-/* soft orbit behind gifts */
-
-.secret24-orbit{
-  position:absolute;
-  left:50%;
-  top:54%;
-  width:720px;
-  height:720px;
-  transform:translate(-50%,-50%);
-  border:1px solid rgba(255,110,230,.07);
-  border-radius:50%;
-  box-shadow:
-    0 0 80px rgba(180,60,220,.08),
-    inset 0 0 80px rgba(255,80,220,.05);
-  animation:secretOrbit 15s linear infinite;
-  pointer-events:none;
-}
-
-.secret24-orbit:before,
-.secret24-orbit:after{
-  content:"";
-  position:absolute;
-  width:6px;
-  height:6px;
-  border-radius:50%;
-  background:#ff8be8;
-  box-shadow:0 0 18px #ff55d6;
-}
-
-.secret24-orbit:before{
-  left:50%;
-  top:-3px;
-}
-
-.secret24-orbit:after{
-  right:13%;
-  bottom:10%;
-}
-
-@keyframes secretOrbit{
-  from{
-    transform:translate(-50%,-50%) rotate(0);
-  }
-  to{
-    transform:translate(-50%,-50%) rotate(360deg);
-  }
-}
-
-/* GIFT GRID */
-
-.secret24-grid{
-  width:min(720px,92vw);
-  margin:0 auto;
-  display:grid;
-  grid-template-columns:repeat(6,1fr);
-  gap:15px;
-  position:relative;
-  z-index:3;
-}
-
-/* actual gift */
-
-.secret-box{
-  appearance:none;
-  border:0;
-  background:transparent;
-  aspect-ratio:1;
-  position:relative;
-  cursor:pointer;
-  overflow:visible;
-  transition:transform .35s ease;
-  filter:drop-shadow(0 10px 13px rgba(0,0,0,.35));
-  perspective:600px;
-}
-
-.secret-box:hover{
-  transform:translateY(-7px) scale(1.04);
-}
-
-.gift-body{
-  position:absolute;
-  left:8%;
-  right:8%;
-  top:29%;
-  bottom:5%;
-  border-radius:5px 5px 10px 10px;
-  background:
-    linear-gradient(
-      135deg,
-      #652064 0%,
-      #8d2b82 45%,
-      #4d154e 100%
-    );
-  border:1px solid rgba(255,190,245,.4);
-  box-shadow:
-    inset 0 0 18px rgba(255,150,240,.16),
-    0 0 12px rgba(255,80,220,.16);
-  transition:
-    transform .55s cubic-bezier(.2,.8,.2,1),
-    filter .3s ease;
-}
-
-.gift-lid{
-  position:absolute;
-  left:5%;
-  right:5%;
-  top:20%;
-  height:23%;
-  border-radius:6px;
-  background:
-    linear-gradient(
-      135deg,
-      #8e2d84 0%,
-      #c347a9 48%,
-      #68205f 100%
-    );
-  border:1px solid rgba(255,220,250,.5);
-  box-shadow:
-    inset 0 0 15px rgba(255,180,245,.2),
-    0 4px 10px rgba(0,0,0,.25);
-  z-index:5;
-  transform-origin:bottom center;
-  transition:
-    transform .65s cubic-bezier(.2,.8,.2,1),
-    top .65s ease;
-}
-
-/* vertical ribbon */
-
-.gift-ribbon-v{
-  position:absolute;
-  left:50%;
-  top:18%;
-  bottom:5%;
-  width:17%;
-  transform:translateX(-50%);
-  background:
-    linear-gradient(
-      90deg,
-      #e26ac4,
-      #ffb1eb,
-      #d84eb8
-    );
-  opacity:.9;
-  z-index:6;
-  box-shadow:0 0 8px rgba(255,110,220,.22);
-}
-
-/* horizontal ribbon */
-
-.gift-ribbon-h{
-  position:absolute;
-  left:5%;
-  right:5%;
-  top:31%;
-  height:12%;
-  background:
-    linear-gradient(
-      180deg,
-      #ed79cf,
-      #ffb5ed,
-      #d957bb
-    );
-  opacity:.9;
-  z-index:7;
-  box-shadow:0 0 8px rgba(255,110,220,.22);
-}
-
-/* bow */
-
-.gift-bow{
-  position:absolute;
-  left:50%;
-  top:8%;
-  width:50px;
-  height:28px;
-  transform:translateX(-50%);
-  z-index:9;
-}
-
-.bow-left,
-.bow-right{
-  position:absolute;
-  width:27px;
-  height:20px;
-  top:5px;
-  background:linear-gradient(135deg,#ff9ce8,#c13fa9);
-  border:1px solid rgba(255,220,250,.5);
-}
-
-.bow-left{
-  right:22px;
-  border-radius:70% 25% 60% 30%;
-  transform:rotate(-20deg);
-}
-
-.bow-right{
-  left:22px;
-  border-radius:25% 70% 30% 60%;
-  transform:rotate(20deg);
-}
-
-.bow-center{
-  position:absolute;
-  left:50%;
-  top:7px;
-  width:15px;
-  height:15px;
-  transform:translateX(-50%);
-  border-radius:50%;
-  background:#ffd0f2;
-  box-shadow:0 0 10px rgba(255,170,240,.8);
-}
-
-/* shine */
-
-.gift-shine{
-  position:absolute;
-  left:15%;
-  top:33%;
-  width:28%;
-  height:25%;
-  border-radius:50%;
-  background:rgba(255,255,255,.18);
-  filter:blur(9px);
-  z-index:10;
-  pointer-events:none;
-  opacity:.5;
-}
-
-/* box opening */
-
-.secret-box.opened{
-  transform:translateY(-3px) scale(.98);
-}
-
-.secret-box.opened .gift-lid{
-  transform:
-    translateY(-25px)
-    rotateX(35deg)
-    rotateZ(-3deg);
-}
-
-.secret-box.opened .gift-bow{
-  transform:
-    translateX(-50%)
-    translateY(-22px)
-    rotate(-5deg);
-}
-
-.secret-box.opened .gift-body{
-  filter:
-    brightness(1.18)
-    drop-shadow(0 0 16px rgba(255,80,220,.35));
-}
+/* --------------------------------
+   POPUP
+-------------------------------- */
 
-/* glow burst */
-
-.gift-burst{
-  position:absolute;
-  left:50%;
-  top:50%;
-  width:8px;
-  height:8px;
-  transform:translate(-50%,-50%) scale(.2);
-  border-radius:50%;
-  background:#fff;
-  box-shadow:
-    0 -42px 0 #ffb4ec,
-    0 42px 0 #ffb4ec,
-    42px 0 0 #ffb4ec,
-    -42px 0 0 #ffb4ec,
-    30px -30px 0 #ffd4f5,
-    -30px -30px 0 #ffd4f5,
-    30px 30px 0 #ffd4f5,
-    -30px 30px 0 #ffd4f5;
-  opacity:0;
-  z-index:20;
-  pointer-events:none;
-}
-
-.secret-box.opened .gift-burst{
-  animation:giftBurst .75s ease-out forwards;
+.popup{
+    position:fixed;
+    inset:0;
+    background:rgba(8,0,12,.58);
+    backdrop-filter:blur(5px);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:20;
 }
-
-@keyframes giftBurst{
-  0%{
-    opacity:1;
-    transform:translate(-50%,-50%) scale(.2);
-  }
-  100%{
-    opacity:0;
-    transform:translate(-50%,-50%) scale(1.25);
-  }
-}
-
-/* =========================
-   MYSTERY POPUP
-========================= */
 
-#mysteryHint{
-  position:fixed;
-  left:50%;
-  top:50%;
-  transform:translate(-50%,-50%) scale(.85);
-  width:min(440px,84vw);
-  padding:30px 25px;
-  border:1px solid rgba(255,210,250,.35);
-  border-radius:18px;
-  background:
-    linear-gradient(
-      145deg,
-      rgba(75,20,85,.97),
-      rgba(30,7,38,.98)
-    );
-  box-shadow:
-    0 0 40px rgba(255,80,220,.28),
-    inset 0 0 35px rgba(255,80,220,.08);
-  z-index:100;
-  opacity:0;
-  pointer-events:none;
-  transition:
-    opacity .35s ease,
-    transform .35s ease;
+.popup.show{
+    display:flex;
+    animation:fadeIn .35s ease;
 }
 
-#mysteryHint.show{
-  opacity:1;
-  transform:translate(-50%,-50%) scale(1);
-  pointer-events:auto;
+@keyframes fadeIn{
+    from{opacity:0}
+    to{opacity:1}
 }
 
-.mysteryHint-text{
-  font-size:clamp(18px,2.5vw,25px);
-  line-height:1.55;
-  color:#fff;
+.popup-card{
+    width:min(420px,86vw);
+    padding:38px 28px;
+    text-align:center;
+    border-radius:18px;
+    border:1px solid rgba(255,210,255,.35);
+    background:
+        linear-gradient(145deg,rgba(66,24,75,.96),rgba(35,10,42,.97));
+    box-shadow:
+        0 0 35px rgba(210,70,240,.3),
+        inset 0 0 25px rgba(255,100,240,.06);
+    animation:popupIn .45s cubic-bezier(.2,.8,.2,1);
 }
 
-.mysteryHint-close{
-  margin-top:22px;
-  padding:11px 25px;
-  font-size:11px;
+@keyframes popupIn{
+    from{
+        opacity:0;
+        transform:scale(.75) translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:scale(1) translateY(0);
+    }
 }
 
-#secret24Continue{
-  margin-top:28px;
-  opacity:0;
-  pointer-events:none;
-  transform:translateY(10px);
-  transition:
-    opacity .5s ease,
-    transform .5s ease;
-  position:relative;
-  z-index:4;
+.popup-card h2{
+    font-size:25px;
+    line-height:1.45;
+    font-weight:normal;
+    text-shadow:0 0 10px rgba(255,200,255,.6);
 }
 
-#secret24Continue.show{
-  opacity:1;
-  pointer-events:auto;
-  transform:translateY(0);
+.popup-card .close-btn{
+    margin-top:25px;
 }
 
-/* =========================
+/* --------------------------------
    INVITATION
-========================= */
+-------------------------------- */
 
-#secretInviteScreen{
-  z-index:7100;
+#invitation{
+    padding:25px;
 }
 
-.invite-glow{
-  position:absolute;
-  width:500px;
-  height:500px;
-  border-radius:50%;
-  background:rgba(210,60,190,.12);
-  filter:blur(70px);
-  animation:inviteGlow 5s ease-in-out infinite;
+.invitation-card{
+    width:min(500px,88vw);
+    min-height:580px;
+    padding:45px 35px;
+    text-align:center;
+    border-radius:22px;
+    border:1px solid rgba(255,210,255,.4);
+    background:
+        linear-gradient(145deg,rgba(70,27,78,.95),rgba(35,9,43,.98));
+    box-shadow:
+        0 0 45px rgba(210,70,240,.25),
+        inset 0 0 35px rgba(255,120,240,.05);
+    animation:letterIn 1s ease;
 }
 
-@keyframes inviteGlow{
-  0%,100%{
-    transform:scale(.85);
-    opacity:.45;
-  }
-  50%{
-    transform:scale(1.15);
+@keyframes letterIn{
+    from{
+        opacity:0;
+        transform:translateY(40px) scale(.9);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+.invitation-small{
+    font-size:10px;
+    letter-spacing:6px;
+    opacity:.65;
+    margin-bottom:25px;
+}
+
+.invitation-card h1{
+    font-size:clamp(40px,6vw,65px);
+    line-height:1;
+    text-shadow:
+        0 0 8px white,
+        0 0 20px rgba(255,160,255,.8);
+}
+
+.date{
+    margin-top:28px;
+    font-size:28px;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+.time{
+    margin-top:8px;
+    font-size:15px;
+    letter-spacing:5px;
     opacity:.8;
-  }
 }
 
-.invite-wrap{
-  width:min(650px,92vw);
-  position:relative;
-  z-index:5;
+.divider{
+    width:70px;
+    height:1px;
+    background:rgba(255,200,255,.6);
+    margin:28px auto;
 }
 
-.invite-envelope{
-  width:min(310px,70vw);
-  height:205px;
-  margin:0 auto;
-  position:relative;
-  cursor:pointer;
-  filter:drop-shadow(0 15px 30px rgba(0,0,0,.4));
-  transition:
-    transform .8s ease,
-    opacity .6s ease;
+.invitation-line{
+    font-size:17px;
+    line-height:1.8;
+    letter-spacing:1px;
 }
 
-.invite-envelope:before{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius:14px;
-  background:linear-gradient(145deg,#5f1a68,#32103d);
-  border:1px solid rgba(255,200,250,.35);
-  box-shadow:
-    inset 0 0 35px rgba(255,100,220,.12),
-    0 0 35px rgba(255,70,220,.15);
+.secret{
+    margin-top:22px;
+    font-size:10px;
+    letter-spacing:4px;
+    opacity:.55;
+    text-transform:uppercase;
 }
 
-.invite-envelope:after{
-  content:"";
-  position:absolute;
-  left:0;
-  right:0;
-  top:0;
-  height:55%;
-  clip-path:polygon(0 0,100% 0,50% 100%);
-  background:linear-gradient(145deg,#762878,#3b1047);
-  border-radius:14px 14px 0 0;
-  border-top:1px solid rgba(255,210,250,.35);
+.final-btn{
+    margin-top:30px;
+    padding:13px 28px;
+    border:1px solid rgba(255,255,255,.45);
+    border-radius:30px;
+    background:linear-gradient(135deg,#d94cc5,#9548dc);
+    color:white;
+    cursor:pointer;
+    font-family:Georgia,serif;
+    letter-spacing:2px;
 }
 
-.envelope-seal{
-  position:absolute;
-  left:50%;
-  top:50%;
-  transform:translate(-50%,-50%);
-  width:58px;
-  height:58px;
-  border-radius:50%;
-  background:radial-gradient(circle,#ff9be9,#a934a7);
-  border:2px solid rgba(255,255,255,.65);
-  box-shadow:0 0 25px rgba(255,80,220,.7);
-  z-index:5;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:22px;
-}
-
-.invite-envelope.hidden{
-  transform:scale(1.35) rotate(-4deg);
-  opacity:0;
-  pointer-events:none;
-}
-
-.invite-open{
-  margin-top:28px;
-}
-
-.invite-open.hidden{
-  opacity:0;
-  pointer-events:none;
-}
-
-.invite-card{
-  width:min(620px,90vw);
-  padding:45px 30px;
-  border:1px solid rgba(255,210,250,.3);
-  border-radius:22px;
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255,255,255,.08),
-      rgba(255,80,220,.06)
-    );
-  box-shadow:
-    inset 0 0 50px rgba(255,80,220,.08),
-    0 0 50px rgba(180,60,220,.12);
-  opacity:0;
-  transform:translateY(25px) scale(.94);
-  pointer-events:none;
-  transition:
-    opacity .7s ease,
-    transform .7s ease;
-}
-
-.invite-card.revealed{
-  opacity:1;
-  transform:translateY(0) scale(1);
-  pointer-events:auto;
-}
-
-.invite-kicker{
-  font-size:10px;
-  letter-spacing:6px;
-  opacity:.65;
-  margin-bottom:20px;
-}
-
-.invite-title{
-  font-size:clamp(44px,7vw,76px);
-  line-height:.95;
-  text-shadow:
-    0 0 12px #fff,
-    0 0 30px rgba(255,80,220,.5);
-}
-
-.invite-date{
-  margin-top:25px;
-  font-size:clamp(25px,4vw,40px);
-  font-weight:bold;
-  letter-spacing:2px;
-}
-
-.invite-time{
-  margin-top:10px;
-  font-size:15px;
-  letter-spacing:3px;
-  opacity:.75;
-}
-
-.invite-line{
-  width:100px;
-  height:1px;
-  margin:24px auto;
-  background:linear-gradient(
-    90deg,
-    transparent,
-    #ff9be9,
-    transparent
-  );
-}
-
-.invite-location{
-  margin-top:28px;
-  font-size:clamp(17px,2.2vw,23px);
-  line-height:1.6;
-}
-
-.invite-secret{
-  margin-top:15px;
-  font-size:11px;
-  letter-spacing:4px;
-  opacity:.6;
-}
-
-.invite-final{
-  margin-top:28px;
-}
-
-/* =========================
-   MOBILE
-========================= */
+/* --------------------------------
+   RESPONSIVE
+-------------------------------- */
 
 @media(max-width:700px){
 
-  .main-title{
-    font-size:48px;
-  }
+    .gift-grid{
+        gap:7px;
+        width:95vw;
+    }
 
-  .subtitle{
-    font-size:16px;
-    line-height:1.55;
-  }
+    .gift{
+        border-radius:8px;
+    }
 
-  .question{
-    font-size:20px;
-  }
+    .gift-heading{
+        margin-bottom:18px;
+    }
 
-  .assalam{
-    font-size:27px;
-  }
+    .gift-heading h1{
+        font-size:40px;
+    }
 
-  .roman-prayer p,
-  .telugu-meaning p{
-    font-size:16px;
-    line-height:1.65;
-  }
+    .popup-card{
+        padding:30px 20px;
+    }
 
-  .birthday-title{
-    font-size:52px;
-  }
-
-  .birthday-name{
-    font-size:34px;
-  }
-
-  .birthday-message{
-    font-size:17px;
-    line-height:1.65;
-  }
-
-  .door-title{
-    font-size:31px;
-  }
-
-  .door-subtitle{
-    font-size:17px;
-  }
-
-  .door-frame{
-    width:250px;
-    height:360px;
-  }
-
-  #hiddenAnswerArea{
-    width:190px;
-    height:150px;
-    bottom:25px;
-  }
-
-  .secret24-kicker{
-    font-size:8px;
-  }
-
-  .secret24-title{
-    font-size:39px;
-    margin-bottom:24px;
-  }
-
-  .secret24-subtitle{
-    font-size:12px;
-  }
-
-  .secret24-grid{
-    width:94vw;
-    gap:8px;
-  }
-
-  .secret-box{
-    border-radius:8px;
-  }
-
-  .gift-bow{
-    transform:translateX(-50%) scale(.75);
-  }
-
-  .secret24-orbit{
-    width:390px;
-    height:390px;
-  }
-
-  .invite-card{
-    padding:35px 22px;
-  }
+    .invitation-card{
+        min-height:auto;
+        padding:35px 25px;
+    }
 }
 
-@media(prefers-reduced-motion:reduce){
+@media(max-width:430px){
 
-  *,
-  *:before,
-  *:after{
-    animation-duration:.01ms!important;
-    animation-iteration-count:1!important;
-    transition-duration:.01ms!important;
-  }
+    .gift-grid{
+        grid-template-columns:repeat(4,1fr);
+        width:90vw;
+        gap:8px;
+    }
+
+    .gift-heading h1{
+        font-size:35px;
+    }
+
+    .gift-heading .small-title{
+        font-size:8px;
+        letter-spacing:4px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<!-- FLOATING BACKGROUND -->
-
-<div class="balloon balloon1"></div>
-<div class="balloon balloon2"></div>
-<div class="balloon balloon3"></div>
-<div class="balloon balloon4"></div>
-<div class="balloon balloon5"></div>
-<div class="balloon balloon6"></div>
-
-<div class="heart heart1">❤️</div>
-<div class="heart heart2">💜</div>
-<div class="heart heart3">💗</div>
-<div class="heart heart4">❤️</div>
+<!-- AUDIO -->
+<audio id="birthdaySong" preload="auto">
+    <source src="Hey Rangule - NaaSongsHD.mp3" type="audio/mpeg">
+</audio>
 
 
-<!-- =========================
-     SCREEN 1
-========================= -->
+<!-- INTRO -->
+<section id="intro" class="screen active">
 
-<section id="screen1" class="screen active">
-
-  <div class="first-content">
-
-    <div class="small-heading">
-      30 DAYS · 30 WISHES
-    </div>
+    <div class="small-title">something is waiting</div>
 
     <h1 class="main-title">
-      FINALLY...<br>
-      THE WAIT IS<br>
-      OVER.
+        OPEN CAREFULLY.
     </h1>
 
-    <p class="subtitle">
-      Thirty days of wishes brought us all the way here...
-      and now there's only one thing left to ask.
-    </p>
-
-    <div class="question">
-      Are you ready to see<br>
-      what surprise I planned for you? 👀 ❤️
+    <div class="subtitle">
+        🎁
     </div>
 
-    <div class="ready-area">
-      <button id="readyButton">
-        I'M READY ✨
-      </button>
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     SCREEN 2
-========================= -->
-
-<section id="screen2" class="screen">
-
-  <div class="second-content">
-
-    <h1 class="second-title">
-      Oh wow! 😍
-    </h1>
-
-    <p class="second-text">
-      Ohhh wow, you are so excited! 👀❤️<br>
-      I knew you wouldn't be able to wait anymore. 😂
-    </p>
-
-    <button id="goButton" class="go-button">
-      LET'S GO ✨
+    <button class="start-btn" onclick="startExperience()">
+        OPEN
     </button>
 
-  </div>
+</section>
+
+
+<!-- 24 GIFTS -->
+<section id="giftScreen" class="screen">
+
+    <div class="gift-heading">
+
+        <div class="small-title">
+            something is waiting
+        </div>
+
+        <h1>OPEN CAREFULLY.</h1>
+
+    </div>
+
+    <div class="gift-grid" id="giftGrid"></div>
 
 </section>
 
 
-<!-- =========================
-     PRAYER
-========================= -->
+<!-- HINT POPUP -->
+<div class="popup" id="popup">
 
-<section id="screen3" class="screen">
+    <div class="popup-card">
 
-  <div class="prayer-container">
+        <h2 id="hintText">
+            Something you'll understand<br>
+            the moment you see it. 👀
+        </h2>
 
-    <h1 class="assalam">
-      Assalamu Alaikum Ji,<br>
-      Wa Rahmatullahi Wa Barakatuh ❤️
-    </h1>
-
-    <div class="prayer">
-
-      <div class="roman-prayer">
-
-        <p>
-          <strong>
-            Bismillahir Rahmanir Raheem. ❤️
-          </strong>
-        </p>
-
-        <p>
-          Alhamdulillahi Rabbil Aalameen.
-        </p>
-
-        <p>
-          Allahumma barik lahu fi umrihi,
-          warzuqhu sehat, sa'adat aur barkat.
-        </p>
-
-        <p>
-          Waj'al hayat-hu ma'mooratan bil-imaan
-          wal-khair wan-najah.
-        </p>
-
-        <p>
-          Wahfazhu min kulli sharr,
-          waqbal du'aa'ahu.
-        </p>
-
-      </div>
-
-      <div class="prayer-divider">
-        ❤️
-      </div>
-
-      <div class="telugu-meaning">
-
-        <p>
-          <strong>
-            బిస్మిల్లాహిర్ రహ్మానిర్ రహీమ్. ❤️
-          </strong>
-        </p>
-
-        <p>
-          అనుగ్రహించే కరుణామయుడైన అల్లాహ్ పేరుతో
-          ఈ ప్రార్థనను ప్రారంభిస్తున్నాము.
-        </p>
-
-        <p>
-          సర్వలోకాల ప్రభువైన అల్లాహ్‌కే అన్ని ప్రశంసలు చెందుతాయి.
-        </p>
-
-        <p>
-          అల్లాహ్ అతని వయస్సులో బరకత్ ప్రసాదించి,
-          మంచి ఆరోగ్యం, సంతోషం, శ్రేయస్సు మరియు
-          సమృద్ధిని అనుగ్రహించాలి.
-        </p>
-
-        <p>
-          అతని జీవితం ఇమాన్‌తో,
-          మంచి పనులతో మరియు విజయాలతో నిండిపోవాలి.
-        </p>
-
-        <p>
-          అల్లాహ్ అతన్ని ప్రతి చెడు నుండి కాపాడి,
-          అతని మంచి దువాలను స్వీకరించాలి.
-        </p>
-
-      </div>
+        <button class="close-btn" onclick="closePopup()">
+            CLOSE
+        </button>
 
     </div>
 
-    <div class="ameen">
-      Aameen 🤲❤️
+</div>
+
+
+<!-- INVITATION -->
+<section id="invitation" class="screen">
+
+    <div class="invitation-card">
+
+        <div class="invitation-small">
+            A LITTLE SOMETHING
+        </div>
+
+        <h1>
+            SAVE<br>
+            THE DATE
+        </h1>
+
+        <div class="date">
+            30 OCTOBER
+        </div>
+
+        <div class="time">
+            10:00 PM
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="invitation-line">
+            ONE EVENING.<br>
+            ONE PLAN.<br>
+            ONE PLACE.
+        </div>
+
+        <div class="secret">
+            private theatre · location sealed
+        </div>
+
+        <button class="final-btn" onclick="finishExperience()">
+            I'M IN ❤️
+        </button>
+
     </div>
-
-    <button id="celebrateButton" class="celebrate-button">
-      LET'S START CELEBRATING 🎉❤️
-    </button>
-
-  </div>
 
 </section>
-
-
-<!-- =========================
-     CALLING VIDEO
-========================= -->
-
-<section id="callingVideoScreen">
-
-  <video id="callingVideo" playsinline preload="auto">
-    <source src="bubu calling.mp4" type="video/mp4">
-  </video>
-
-  <div id="hiddenAnswerArea">
-
-    <div id="swipeUpHint">
-      ↑
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     BIRTHDAY
-========================= -->
-
-<section id="birthdayScreen">
-
-  <div class="birthday-content">
-
-    <div class="birthday-small">
-      TODAY IS ALL ABOUT YOU ❤️
-    </div>
-
-    <h1 class="birthday-title">
-      HAPPY<br>
-      BIRTHDAY!
-    </h1>
-
-    <div class="birthday-name">
-      BUDDU ❤️
-    </div>
-
-    <p class="birthday-message">
-
-      May Allah bless you with endless happiness,
-      good health, peace and success. 🤍
-
-      <br><br>
-
-      May Allah protect you, guide you,
-      accept all your duas and fill your life
-      with beautiful moments, endless smiles
-      and everything your heart wishes for. ✨
-
-      <br><br>
-
-      May this new year of your life be filled
-      with love, happiness and barakah. ❤️
-
-    </p>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     DOOR
-========================= -->
-
-<section id="doorScreen">
-
-  <h1 class="door-title">
-    OPEN THE DOOR... 🚪❤️<br>
-    BUBU IS WAITING FOR YOU 🥹
-  </h1>
-
-  <p class="door-subtitle">
-    Touch the door... something is waiting on the other side 👀❤️
-  </p>
-
-  <div id="doorFrame" class="door-frame">
-
-    <div class="door-inside">
-      <div class="door-heart">
-        ❤️
-      </div>
-    </div>
-
-    <div class="door-left">
-      <div class="door-panel"></div>
-      <div class="door-handle"></div>
-    </div>
-
-    <div class="door-right">
-      <div class="door-panel"></div>
-      <div class="door-handle"></div>
-    </div>
-
-  </div>
-
-  <div class="touch-door">
-    👆 TOUCH THE DOOR TO OPEN
-  </div>
-
-</section>
-
-
-<!-- =========================
-     BUBU VIDEO
-========================= -->
-
-<section id="bubuVideoScreen">
-
-  <video id="bubuVideo" playsinline preload="auto">
-    <source src="happy bday.mp4" type="video/mp4">
-  </video>
-
-</section>
-
-
-<!-- =========================
-     24 MYSTERY GIFT BOXES
-========================= -->
-
-<section id="surprise24Screen">
-
-  <div class="secret24-orbit"></div>
-
-  <div class="secret24-wrap">
-
-    <div class="secret24-kicker">
-      SOMETHING IS WAITING
-    </div>
-
-    <h1 class="secret24-title">
-      OPEN THESE<br>
-      GIFT BOXES.
-    </h1>
-
-    <p class="secret24-subtitle">
-      Don't try to guess what's inside. 🤫
-    </p>
-
-
-    <div class="secret24-grid">
-
-
-      <!-- 01 -->
-
-      <button class="secret-box" data-hint="Something you might reach for more often than you think... 👀">
-
-        <span class="gift-body"></span>
-        <span class="gift-lid"></span>
-        <span class="gift-ribbon-v"></span>
-        <span class="gift-ribbon-h"></span>
-
-        <span class="gift-bow">
-          <span class="bow-left"></span>
-          <span class="bow-right"></span>
-          <span class="bow-center"></span>
-        </span>
-
-        <span class="gift-shine"></span>
-        <span class="gift-burst"></span>
-
-      </button>
-
-
-      <!-- 02 -->
-
-      <button class="secret-box" data-hint="Something that belongs close to you. 🤫">
-
-        <span class="gift-body"></span>
-        <span class="gift-lid"></span>
-        <span class="gift-ribbon-v"></span>
-        <span class="gift-ribbon-h"></span>
-
-        <span class="gift-bow">
-          <span class="bow-left"></span>
-          <span class="bow-right"></span>
-          <span class="bow-center"></span>
-        </span>
-
-        <span class="gift-shine"></span>
-        <span class="gift-burst"></span>
-
-      </button>
-
-
-      <!-- 03 -->
-
-      <button class="secret-box" data-hint="You might not expect this one. 🤫">
-
-        <span class="gift-body"></span>
-        <span class="gift-lid"></span>
-        <span class="gift-ribbon-v"></span>
-        <span class="gift-ribbon-h"></span>
-
-        <span class="gift-bow">
-          <span class="bow-left"></span>
-          <span class="bow-right"></span>
-          <span class="bow-center"></span>
-        </span>
-
-        <span class="gift-shine"></span>
-        <span class="gift-burst"></span>
-
-      </button>
-
-
-      <!-- 04 -->
-
-      <button class="secret-box" data-hint="A small surprise with a little bit of you in it. ❤️">
-
-        <span class="gift-body"></span>
-        <span class="gift-lid"></span>
-        <span class="gift-ribbon-v"></span>
-        <span class="gift-ribbon-h"></span>
-
-        <span class="gift-bow">
-          <span class="bow-left"></span>
-          <span class="bow-right"></span>
-          <span class="bow-center"></span>
-        </span>
-
-        <span class="gift-shine"></span>
-        <span class="gift-burst"></span>
-
-      </button>
-
-
-      <!-- 05 -->
-
-      <button class="secret-box" data-hint="Something picked after thinking about you. ✨">
-
-        <span class="gift-body"></span>
-        <span class="gift-lid"></span>
-        <span class="gift-ribbon-v"></span>
-        <span class="gift-ribbon-h"></span>
-
-        <span class="gift-bow">
-          <span class="bow-left"></span>
-          <span class="bow-right"></span>
-          <span class="bow-center"></span>
-        </span>
-
-        <span class="gift-shine"></span>
-        <span class="gift-burst"></span>
-
-      </button>
-
-
-      <!-- 06 -->
-
-      <button class="secret-box" data-hint="This one might become part of your everyday life. 👀">
-
-        <span class="gift-body"></span>
-        <span class="gift-lid"></span>
-        <span class="gift-ribbon-v"></span>
-        <span class="gift-ribbon-h"></span>
-
-        <span class="gift-bow">
-          <span class="bow-left"></span>
-          <span class="bow-right"></span>
-          <span class="bow-center"></span>
-        </span>
-
-        <span class="gift-shine"></span>
-        <span class="gift-burst"></span>
-
-      </button>
-
-
-      <!-- 07 -->
-
-      <button class="secret-box" data-hint="Not everything here is what it looks like. 🤍">
-
-        <span class="gift-body"></span>
-        <span class="gift-lid"></span>
-        <span class="gift-ribbon-v"></span>
-        <span class="gift-ribbon-h"></span>
-
-        <span class="gift-bow">
-          <span class="bow-left"></span>
-          <span class="bow-right"></span>
-          <span class="bow-center"></span>
-        </span>
-
-        <span class="gift-shine"></span>
-        <span class="gift-burst"></span>
-
-      </button>
-
-
-      <!-- 08 -->
-
-      <button class="secret-box" data-hint="A tiny reminder that someone knows you well. ❤️">
-
-        <span class="gift-body"></span>
-        <span class="gift-lid"></span>
-        <span class="gift-ribbon-v"></span>
-        <span class="gift-ribbon-h"></span>
-
-        <span class="gift-bow">
-          <span class="bow-left"></span>
-          <span class="bow-right"></span>
-          <span class="bow-center"></span>
-        </span>
-
-        <span class="gift-shine"></span>
-        <span class="gift-burst"></span>
-
-      </button>
-
-
-      <!-- 09 -->
-
-      <button class="secret-box" data-hint="This one has a reason behind it. 🤫">
-
-        <span class="gift-body"></span>
-        <span class="gift-lid"></span>
-        <span class="gift-ribbon-v"></span>
-        <span class="gift-ribbon-h"></span>
-
-        <span class="gift-bow">
-          <span class="bow-left"></span>
-          <span class="bow-right"></span>
-          <span class="bow-center"></span>
-        </span>
-
-        <span class="gift-shine"></span>
-        <span class="gift-burst"></span>
-
-      </button>
-
-
-      <!-- 10 -->
-
-      <button class="secret-box" data-hint="Something you'll understand the moment you see it. 👀">
-
-        <span class="gift-body"></span>
-        <span class="gift-lid"></span>
-        <span class="gift-ribbon-v"></span>
-        <span class="gift-ribbon-h"></span>
-
-        <span class="gift-bow">
-          <span class="bow-left"></span>
-          <span class="bow-right"></span>
-          <span class="bow-center"></span>
-        </span>
-
-        <span class="gift-shine"></span>
-        <span class="gift-burst"></span>
-
-      </button>
-
-
-      <!-- 11 -->
-
-      <button class="secret-box" data-hint="A little piece of this birthday was saved just for you. ✨">
-
-        <span class="gift-body"></span>
-        <span class="gift-lid"></span>
-        <span class="gift-ribbon-v"></span>
-        <span class="gift-ribbon-h"></span>
-
-        <span class="gift-bow">
-          <span class="bow-left"></span>
-          <span class="bow-right"></span>
-          <span class="bow-center"></span>
-        </span>
-
-        <span class="gift-shine"></span>
-        <span class="gift-burst"></span>
-
-      </button>
-
-
-      <!-- 12 -->
-
-      <button class="secret-box" data-hint="This one may make you smile without warning. ❤️">
-
-        <span class="gift-body"></span>
-        <span class="gift-lid"></span>
-        <span class="gift-ribbon-v"></span>
-        <span class="gift-ribbon-h"></span>
-
-        <span class="gift-bow">
-          <span class="bow-left"></span>
-          <span class="bow-right"></span>
-          <span class="bow-center"></span>
-        </span>
-
-        <span class="gift-shine"></span>
-        <span class="gift-burst"></span>
-
-      </button>
-
-
-      <!-- 13 -->
-
-      <button class="secret-box" data-hint="Maybe this one will remind you of me. ❤️">
-
-        <span class="gift-body"></span>
-        <span class="gift-lid"></span>
-        <span class="gift-ribbon-v"></span>
-        <span class="gift-ribbon-h"></span>
-
-        <span class="gift-bow">
-          <span class="bow-left"></span>
-          <span class="bow-right"></span>
-          <span class="bow-center"></span>
-        </span>
-
-        <span class="gift-shine"></span>
-        <span class="gift-burst"></span>
-
-      </button>
-
-
-      <!-- 14 -->
-
-      <button class="secret-box" data-hint="Something simple, but chosen with a lot of thought. 🤍">
-
-        <span class="gift-body"></span>
-        <span class="gift-lid"></span>
-        <span class="gift-ribbon-v"></span>
-        <span class="gift-ribbon-h"></span>
-
-        <span class="gift-bow">
-          <span class="bow-left"></span>
-          <span class="bow-right"></span>
-          <span class="bow-center"></span>
-        </span>
-
-        <span class="gift-shine"></span>
-        <span class="gift-burst"></span>
-
-      </button>
-
-
-      <!-- 15 -->
-
-      <button class="secret-box" data-hint="This one has been waiting quietly for you. 🤫">
-
-        <span class="gift-body"></span>
-        <span class="gift-lid"></span>
-        <span class="gift-ribbon-v"></span>
-        <span class="gift-ribbon-h"></span>
-
-        <span class="gift-bow">
-          <span class="bow-left"></span>
-          <span class="bow-right"></span>
-          <span class="bow-center"></span>
-        </span>
-
-        <span class="gift-shine"></span>
-        <span class="gift-burst"></span>
-
-      </button>
-
-
-      <!-- 16 -->
-
-      <button class="secret-box" data-hint="A surprise that might stay with you for a while. ❤️">
-
-        <span class="gift-body"></span>
-        <span class="gift-lid"></span>
-        <span class="gift-ribbon-v"></span>
-        <span class="gift-ribbon-h"></span>
-
-        <span class="gift-bow">
-          <span class="bow-left"></span>
-          <span class="bow-right"></span>
-          <span class="bow-center"></span>
-        </span>
-
-        <span class="gift-shine"></span>
-        <span class="gift-burst"></span>
-
-      </button>
-
-
-      <!-- 17 -->
-
-      <button class="secret-box" data-hint="This one is more personal than it looks. ✨">
-
-        <span class="gift-body"></span>
-        <span class="gift-lid"></span>
-        <span class="gift-ribbon-v"></span>
-        <span class="gift-ribbon-h"></span>
-
-        <span class="gift-bow">
-          <span class="bow-left"></span>
-          <span class="bow-right"></span>
-          <span class="bow-center"></span>
-        </span>
-
-        <span class="gift-shine"></span>
-        <span class="gift-burst"></span>
-
-      </button>
-
-
-      <!-- 18 -->
-
-      <button class="secret-box" data-hint="One of those little things you won't see coming. 👀">
-
-        <span class="gift-body"></span>
-        <span class="gift-lid"></span>
-        <span class="gift-ribbon-v"></span>
-        <span class="gift-ribbon-h"></span>
-
-        <span class="gift-bow">
-          <span class="bow-left"></span>
-          <span class="bow-right"></span>
-          <span class="bow-center"></span>
-        </span>
-
-        <span class="gift-shine"></span>
-        <span class="gift-burst"></span>
-
-      </button>
-
-
-      <!-- 19 -->
-
-      <button class="secret-box" data-hint="One more little mystery to figure out. 👀">
-
-        <span class="gift-body"></span>
-        <span class="gift-lid"></span>
-        <span class="gift-ribbon-v"></span>
-        <span class="gift-ribbon-h"></span>
-
-        <span class="gift-bow">
-          <span class="bow-left"></span>
-          <span class="bow-right"></span>
-          <span class="bow-center"></span>
-        </span>
-
-        <span class="gift-shine"></span>
-        <span class="gift-burst"></span>
-
-      </button>
-
-
-      <!-- 20 -->
-
-      <button class="secret-box" data-hint="You won't guess this one that easily. 😌">
-
-        <span class="gift-body"></span>
-        <span class="gift-lid"></span>
-        <span class="gift-ribbon-v"></span>
-        <span class="gift-ribbon-h"></span>
-
-        <span class="gift-bow">
-          <span class="bow-left"></span>
-          <span class="bow-right"></span>
-          <span class="bow-center"></span>
-        </span>
-
-        <span class="gift-shine"></span>
-        <span class="gift-burst"></span>
-
-      </button>
-
-
-      <!-- 21 -->
-
-      <button class="secret-box" data-hint="Something useful... maybe. Or maybe not. 🤫">
-
-        <span class="gift-body"></span>
-        <span class="gift-lid"></span>
-        <span class="gift-ribbon-v"></span>
-        <span class="gift-ribbon-h"></span>
-
-        <span class="gift-bow">
-          <span class="bow-left"></span>
-          <span class="bow-right"></span>
-          <span class="bow-center"></span>
-        </span>
-
-        <span class="gift-shine"></span>
-        <span class="gift-burst"></span>
-
-      </button>
-
-
-      <!-- 22 -->
-
-      <button class="secret-box" data-hint="Almost there... don't start guessing yet. 😂">
-
-        <span class="gift-body"></span>
-        <span class="gift-lid"></span>
-        <span class="gift-ribbon-v"></span>
-        <span class="gift-ribbon-h"></span>
-
-        <span class="gift-bow">
-          <span class="bow-left"></span>
-          <span class="bow-right"></span>
-          <span class="bow-center"></span>
-        </span>
-
-        <span class="gift-shine"></span>
-        <span class="gift-burst"></span>
-
-      </button>
-
-
-      <!-- 23 -->
-
-      <button class="secret-box" data-hint="One of the little surprises saved especially for you. ❤️">
-
-        <span class="gift-body"></span>
-        <span class="gift-lid"></span>
-        <span class="gift-ribbon-v"></span>
-        <span class="gift-ribbon-h"></span>
-
-        <span class="gift-bow">
-          <span class="bow-left"></span>
-          <span class="bow-right"></span>
-          <span class="bow-center"></span>
-        </span>
-
-        <span class="gift-shine"></span>
-        <span class="gift-burst"></span>
-
-      </button>
-
-
-      <!-- 24 -->
-
-      <button class="secret-box" data-hint="You really thought that was the end? 👀❤️">
-
-        <span class="gift-body"></span>
-        <span class="gift-lid"></span>
-        <span class="gift-ribbon-v"></span>
-        <span class="gift-ribbon-h"></span>
-
-        <span class="gift-bow">
-          <span class="bow-left"></span>
-          <span class="bow-right"></span>
-          <span class="bow-center"></span>
-        </span>
-
-        <span class="gift-shine"></span>
-        <span class="gift-burst"></span>
-
-      </button>
-
-
-    </div>
-
-
-    <button id="secret24Continue">
-      ONE LAST THING
-    </button>
-
-  </div>
-
-
-  <!-- MYSTERY HINT -->
-
-  <div id="mysteryHint">
-
-    <div id="mysteryHintText" class="mysteryHint-text"></div>
-
-    <button id="mysteryHintClose" class="mysteryHint-close">
-      CLOSE
-    </button>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     INVITATION
-========================= -->
-
-<section id="secretInviteScreen">
-
-  <div class="invite-glow"></div>
-
-  <div class="invite-wrap">
-
-    <div id="inviteEnvelope" class="invite-envelope">
-
-      <div class="envelope-seal">
-        ❤️
-      </div>
-
-    </div>
-
-    <button id="inviteOpenButton" class="invite-open">
-      OPEN
-    </button>
-
-
-    <div id="inviteCard" class="invite-card">
-
-      <div class="invite-kicker">
-        A LITTLE SOMETHING
-      </div>
-
-      <h2 class="invite-title">
-        SAVE<br>
-        THE DATE
-      </h2>
-
-      <div class="invite-date">
-        30 OCTOBER
-      </div>
-
-      <div class="invite-time">
-        10:00 PM
-      </div>
-
-      <div class="invite-line"></div>
-
-      <div class="invite-location">
-        BE READY.<br>
-        THAT'S ALL I'M TELLING YOU. 🤫
-      </div>
-
-      <div class="invite-secret">
-        THE REST STAYS A SECRET.
-      </div>
-
-      <button id="inviteFinalButton" class="invite-final">
-        I'M IN ❤️
-      </button>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- AUDIO -->
-
-<audio id="birthdaySong" preload="auto">
-  <source src="birthday-song-00-00-to-00-58.mp3" type="audio/mpeg">
-</audio>
-
-<audio id="bubuWishAudio" preload="auto">
-  <source src="bubu-wish-audio.mp3" type="audio/mpeg">
-</audio>
 
 
 <script>
 
-/* =========================
-   BASIC SCREEN FLOW
-========================= */
-
-const screen1=document.getElementById("screen1");
-const screen2=document.getElementById("screen2");
-const screen3=document.getElementById("screen3");
-
-const readyButton=document.getElementById("readyButton");
-const goButton=document.getElementById("goButton");
-const celebrateButton=document.getElementById("celebrateButton");
-
-const birthdaySong=document.getElementById("birthdaySong");
-const bubuWishAudio=document.getElementById("bubuWishAudio");
-
-let readyMoves=0;
-
-function moveReadyButton(){
-
-  const maxX=Math.max(20,window.innerWidth/2-180);
-  const maxY=Math.max(20,window.innerHeight/2-100);
-
-  const randomX=(Math.random()*2-1)*maxX;
-  const randomY=(Math.random()*2-1)*maxY;
-
-  readyButton.style.position="relative";
-  readyButton.style.left=randomX+"px";
-  readyButton.style.top=randomY+"px";
-}
-
-readyButton.addEventListener("click",function(){
-
-  if(readyMoves<3){
-
-    readyMoves++;
-    moveReadyButton();
-    return;
-
-  }
-
-  screen1.classList.remove("active");
-  screen2.classList.add("active");
-
-});
-
-
-goButton.addEventListener("click",function(){
-
-  screen2.classList.remove("active");
-  screen3.classList.add("active");
-
-  celebrateButton.classList.remove("show");
-
-  birthdaySong.pause();
-  birthdaySong.currentTime=0;
-
-  birthdaySong.play().catch(function(error){
-    console.log(error);
-  });
-
-});
-
-
-birthdaySong.addEventListener("ended",function(){
-
-  celebrateButton.classList.add("show");
-
-});
-
-
-/* =========================
-   PRAYER -> CALLING VIDEO
-========================= */
-
-celebrateButton.addEventListener("click",function(){
-
-  birthdaySong.pause();
-  birthdaySong.currentTime=0;
-
-  bubuWishAudio.pause();
-  bubuWishAudio.currentTime=0;
-
-  screen3.classList.remove("active");
-
-  callingVideoScreen.classList.add("active");
-
-  callingVideo.pause();
-  callingVideo.currentTime=0;
-
-  hiddenAnswerArea.classList.remove("answered");
-
-  videoAnswered=false;
-
-  callingVideo.play().catch(function(error){
-    console.log(error);
-  });
-
-});
-
-
-/* =========================
-   CALLING VIDEO
-========================= */
-
-const callingVideoScreen=document.getElementById("callingVideoScreen");
-const callingVideo=document.getElementById("callingVideo");
-
-const hiddenAnswerArea=document.getElementById("hiddenAnswerArea");
-
-let videoDragging=false;
-let videoStartY=0;
-let videoCurrentY=0;
-let videoAnswered=false;
-
-const SWIPE_UP_DISTANCE=70;
-
-function startSwipeUp(event){
-
-  if(videoAnswered)return;
-
-  const point=event.touches
-    ?event.touches[0]
-    :event;
-
-  videoDragging=true;
-  videoStartY=point.clientY;
-  videoCurrentY=0;
-
-  if(event.cancelable){
-    event.preventDefault();
-  }
-
-}
-
-
-function moveSwipeUp(event){
-
-  if(!videoDragging)return;
-
-  const point=event.touches
-    ?event.touches[0]
-    :event;
-
-  videoCurrentY=
-    videoStartY-point.clientY;
-
-  if(videoCurrentY<0){
-    videoCurrentY=0;
-  }
-
-  const movement=Math.min(videoCurrentY,70);
-
-  document.getElementById("swipeUpHint").style.transform=
-    `translateY(-${movement}px)`;
-
-  if(event.cancelable){
-    event.preventDefault();
-  }
-
-}
-
-
-function endSwipeUp(){
-
-  if(!videoDragging)return;
-
-  videoDragging=false;
-
-  if(videoCurrentY>=SWIPE_UP_DISTANCE){
-
-    answerCall();
-
-  }else{
-
-    document.getElementById("swipeUpHint").style.transform="";
-
-  }
-
-  videoCurrentY=0;
-
-}
-
-
-function answerCall(){
-
-  if(videoAnswered)return;
-
-  videoAnswered=true;
-
-  hiddenAnswerArea.classList.add("answered");
-
-  if(callingVideo.paused){
-
-    callingVideo.play().catch(function(error){
-      console.log(error);
-    });
-
-  }
-
-}
-
-
-hiddenAnswerArea.addEventListener(
-  "mousedown",
-  startSwipeUp
-);
-
-document.addEventListener(
-  "mousemove",
-  moveSwipeUp
-);
-
-document.addEventListener(
-  "mouseup",
-  endSwipeUp
-);
-
-hiddenAnswerArea.addEventListener(
-  "touchstart",
-  startSwipeUp,
-  {passive:false}
-);
-
-document.addEventListener(
-  "touchmove",
-  moveSwipeUp,
-  {passive:false}
-);
-
-document.addEventListener(
-  "touchend",
-  endSwipeUp
-);
-
-
-callingVideo.addEventListener("ended",function(){
-
-  callingVideo.pause();
-
-  callingVideoScreen.classList.remove("active");
-
-  birthdayScreen.classList.add("active");
-
-  bubuWishAudio.pause();
-  bubuWishAudio.currentTime=0;
-
-  bubuWishAudio.play().catch(function(error){
-    console.log(error);
-  });
-
-});
-
-
-/* =========================
-   BIRTHDAY -> DOOR
-========================= */
-
-const birthdayScreen=document.getElementById("birthdayScreen");
-const doorScreen=document.getElementById("doorScreen");
-const bubuVideoScreen=document.getElementById("bubuVideoScreen");
-const bubuVideo=document.getElementById("bubuVideo");
-
-bubuWishAudio.addEventListener("ended",function(){
-
-  bubuWishAudio.pause();
-  bubuWishAudio.currentTime=0;
-
-  birthdayScreen.classList.remove("active");
-
-  doorScreen.classList.add("active");
-
-});
-
-
-/* =========================
-   DOOR
-========================= */
-
-const doorFrame=document.getElementById("doorFrame");
-
-let doorOpening=false;
-
-function openDoor(){
-
-  if(doorOpening)return;
-
-  doorOpening=true;
-
-  doorScreen.classList.add("opening");
-
-  setTimeout(function(){
-
-    doorScreen.classList.remove("active");
-
-    bubuVideoScreen.classList.add("active");
-
-    bubuVideo.pause();
-    bubuVideo.currentTime=0;
-
-    bubuVideo.play().catch(function(error){
-      console.log(error);
-    });
-
-  },1100);
-
-}
-
-doorFrame.addEventListener(
-  "click",
-  openDoor
-);
-
-doorFrame.addEventListener(
-  "touchstart",
-  function(event){
-
-    event.preventDefault();
-
-    openDoor();
-
-  },
-  {passive:false}
-);
-
-
-/* =========================
-   VIDEO -> GIFT BOXES
-========================= */
-
-const surprise24Screen=
-  document.getElementById("surprise24Screen");
-
-bubuVideo.addEventListener("ended",function(){
-
-  bubuVideo.pause();
-
-  bubuVideoScreen.classList.remove("active");
-
-  surprise24Screen.classList.add("active");
-
-});
-
-
-/* =========================
-   GIFT BOXES
-========================= */
-
-const secret24Boxes=
-  document.querySelectorAll(".secret-box");
-
-const secret24Continue=
-  document.getElementById("secret24Continue");
-
-const mysteryHint=
-  document.getElementById("mysteryHint");
-
-const mysteryHintText=
-  document.getElementById("mysteryHintText");
-
-const mysteryHintClose=
-  document.getElementById("mysteryHintClose");
-
-let openedSecret24=0;
-
+/* --------------------------------
+   AUDIO
+-------------------------------- */
+
+const song = document.getElementById("birthdaySong");
 
 /*
-  Every box opens visually,
-  then displays only an indirect clue.
+   The song starts from 0:00.
+   It keeps playing while the gifts are opened
+   and while the invitation appears.
+
+   When the invitation is finished, the audio stops.
 */
 
-secret24Boxes.forEach(function(box){
+let audioStarted = false;
 
-  box.addEventListener("click",function(){
 
-    if(box.classList.contains("opened")){
+/* --------------------------------
+   24 GIFTS
+-------------------------------- */
 
-      mysteryHintText.textContent=
-        box.dataset.hint;
+const giftGrid = document.getElementById("giftGrid");
+const popup = document.getElementById("popup");
+const hintText = document.getElementById("hintText");
 
-      mysteryHint.classList.add("show");
+const hints = [
 
-      return;
+    "Something you'll probably wear more than once. 👀",
+
+    "A little change to your usual look.",
+
+    "Something made for a very specific place. ✨",
+
+    "Something that belongs where you pray.",
+
+    "A little something with a fragrance attached.",
+
+    "Something you'll reach for before stepping out.",
+
+    "For the days when the sun has opinions. 😌",
+
+    "Something that quietly completes the look.",
+
+    "Small. Useful. Probably going everywhere with you.",
+
+    "Something you'll carry more often than you realize.",
+
+    "Something with a meaning only you'll fully understand. 🤍",
+
+    "A tiny companion for your keys.",
+
+    "Something worth keeping around for a long time.",
+
+    "Something that changes the room after dark. ✨",
+
+    "A little protection for everyday life.",
+
+    "Another little layer of protection.",
+
+    "Something sweet is hiding here. 🍫",
+
+    "Because one sweet thing clearly wasn't enough.",
+
+    "This one isn't really meant to stay in a box. 👀",
+
+    "Something that makes a celebration feel complete.",
+
+    "Apparently, one more sweet thing was necessary. 🍫",
+
+    "For your hands when you need a little extra comfort.",
+
+    "For a different kind of ride. 🏍️",
+
+    "The biggest surprise is never the easiest one to wrap. 👀"
+
+];
+
+
+for(let i = 0; i < 24; i++){
+
+    const box = document.createElement("div");
+
+    box.className = "gift";
+
+    box.dataset.index = i;
+
+    box.addEventListener("click", () => openGift(box,i));
+
+    giftGrid.appendChild(box);
+
+}
+
+
+/* --------------------------------
+   START
+-------------------------------- */
+
+function startExperience(){
+
+    if(!audioStarted){
+
+        song.currentTime = 0;
+
+        song.play()
+            .then(() => {
+                audioStarted = true;
+            })
+            .catch(() => {
+                /*
+                  Browser may require another tap
+                  before allowing audio.
+                */
+            });
 
     }
 
+    showScreen("giftScreen");
+
+}
+
+
+/* --------------------------------
+   OPEN GIFT
+-------------------------------- */
+
+function openGift(box,index){
+
+    box.classList.remove("opened");
+
+    void box.offsetWidth;
 
     box.classList.add("opened");
 
-    openedSecret24++;
+    hintText.innerHTML = hints[index];
+
+    setTimeout(() => {
+
+        popup.classList.add("show");
+
+    },180);
+
+}
 
 
-    if(navigator.vibrate){
+/* --------------------------------
+   CLOSE POPUP
+-------------------------------- */
 
-      navigator.vibrate([
-        18,
-        25,
-        18
-      ]);
+function closePopup(){
 
-    }
+    popup.classList.remove("show");
 
-
-    mysteryHintText.textContent=
-      box.dataset.hint;
-
-    mysteryHint.classList.add("show");
+}
 
 
-    /*
-      Only after all 24 boxes
-      have been touched/opened.
-    */
+/* --------------------------------
+   SCREEN CHANGE
+-------------------------------- */
 
-    if(
-      openedSecret24===
-      secret24Boxes.length
-    ){
+function showScreen(id){
 
-      setTimeout(function(){
+    document.querySelectorAll(".screen").forEach(screen => {
 
-        secret24Continue.classList.add("show");
+        screen.classList.remove("active");
 
-      },500);
+    });
 
-    }
+    document.getElementById(id).classList.add("active");
 
-  });
+}
+
+
+/* --------------------------------
+   AFTER ALL GIFTS
+-------------------------------- */
+
+let invitationShown = false;
+
+
+/*
+   Double click / tap the final gift after
+   all gifts have been explored to reveal
+   the invitation.
+
+   The user can open the gifts in any order.
+*/
+
+const openedGifts = new Set();
+
+document.querySelectorAll(".gift").forEach((box,index) => {
+
+    box.addEventListener("click",() => {
+
+        openedGifts.add(index);
+
+        if(openedGifts.size === 24){
+
+            setTimeout(() => {
+
+                if(!invitationShown){
+
+                    invitationShown = true;
+
+                    popup.classList.remove("show");
+
+                    showScreen("invitation");
+
+                }
+
+            },700);
+
+        }
+
+    });
 
 });
 
 
-/* =========================
-   CLOSE MYSTERY POPUP
-========================= */
+/* --------------------------------
+   FINAL SCREEN
+-------------------------------- */
 
-mysteryHintClose.addEventListener(
-  "click",
-  function(){
+function finishExperience(){
 
-    mysteryHint.classList.remove("show");
+    /*
+       Stop the song only after the invitation
+       has been viewed and the final button is pressed.
+    */
 
-  }
-);
+    song.pause();
+    song.currentTime = 0;
 
+    document.body.innerHTML = `
+        <div style="
+            position:fixed;
+            inset:0;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            text-align:center;
+            background:
+              radial-gradient(circle at center,#3d1745,#100014 65%);
+            color:white;
+            font-family:Georgia,serif;
+        ">
 
-mysteryHint.addEventListener(
-  "click",
-  function(event){
+            <div>
 
-    if(event.target===mysteryHint){
+                <div style="
+                    font-size:10px;
+                    letter-spacing:6px;
+                    opacity:.65;
+                    margin-bottom:20px;
+                ">
+                    ONE LAST LITTLE THING
+                </div>
 
-      mysteryHint.classList.remove("show");
+                <div style="
+                    font-size:clamp(42px,7vw,80px);
+                    font-weight:bold;
+                    text-shadow:
+                        0 0 8px white,
+                        0 0 25px rgba(255,150,255,.8);
+                ">
+                    ❤️
+                </div>
 
-    }
+            </div>
 
-  }
-);
-
-
-/* =========================
-   LAST THING
-========================= */
-
-secret24Continue.addEventListener(
-  "click",
-  function(){
-
-    surprise24Screen.classList.remove("active");
-
-    secretInviteScreen.classList.add("active");
-
-  }
-);
-
-
-/* =========================
-   INVITATION
-========================= */
-
-const secretInviteScreen=
-  document.getElementById("secretInviteScreen");
-
-const inviteEnvelope=
-  document.getElementById("inviteEnvelope");
-
-const inviteOpenButton=
-  document.getElementById("inviteOpenButton");
-
-const inviteCard=
-  document.getElementById("inviteCard");
-
-const inviteFinalButton=
-  document.getElementById("inviteFinalButton");
-
-
-inviteOpenButton.addEventListener(
-  "click",
-  function(){
-
-    inviteOpenButton.classList.add("hidden");
-
-    inviteEnvelope.classList.add("hidden");
-
-
-    setTimeout(function(){
-
-      inviteCard.classList.add("revealed");
-
-    },350);
-
-  }
-);
-
-
-inviteFinalButton.addEventListener(
-  "click",
-  function(){
-
-    inviteCard.classList.remove("revealed");
-
-
-    setTimeout(function(){
-
-      inviteCard.innerHTML=`
-
-        <div class="invite-kicker">
-          LOCKED
         </div>
+    `;
 
-        <h2 class="invite-title">
-          SEE YOU<br>
-          THERE ❤️
-        </h2>
-
-        <div class="invite-line"></div>
-
-        <div class="invite-secret">
-          THE REST STAYS A SECRET.
-        </div>
-
-      `;
-
-      inviteCard.classList.add("revealed");
-
-    },350);
-
-  }
-);
+}
 
 </script>
 
