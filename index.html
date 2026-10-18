@@ -3,217 +3,168 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Buddu Thalli Birthday ❤️</title>
 
 <style>
-
-/* =========================================================
-   BASIC
-========================================================= */
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
-html,
-body {
-    width: 100%;
-    min-height: 100%;
+html,body{
+    width:100%;
+    min-height:100%;
 }
 
-body {
-    overflow-x: hidden;
-
+body{
+    overflow:hidden;
     background:
-        radial-gradient(
-            circle at 50% 35%,
-            #42104f 0%,
-            #210725 35%,
-            #100315 65%,
-            #060208 100%
-        );
-
-    color: white;
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
+        radial-gradient(circle at 50% 35%,#42104f 0%,#210725 35%,#100315 65%,#060208 100%);
+    color:white;
+    font-family:Georgia,"Times New Roman",serif;
 }
-
 
 /* =========================================================
    COMMON SCREEN
 ========================================================= */
 
-.screen {
-    position: relative;
-
-    width: 100%;
-    min-height: 100vh;
-
-    display: none;
-
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-
-    overflow: hidden;
+.screen{
+    position:relative;
+    width:100%;
+    min-height:100vh;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    overflow:hidden;
 }
 
-.screen.active {
-    display: flex;
+.screen.active{
+    display:flex;
 }
 
 
 /* =========================================================
-   FLOATING BALLOONS
+   BALLOONS
 ========================================================= */
 
-.balloon {
-    position: fixed;
-
-    width: 55px;
-    height: 70px;
-
-    border-radius: 50%;
-
-    opacity: .8;
-
-    z-index: 1;
-
-    animation:
-        floatBalloon 6s ease-in-out infinite;
+.balloon{
+    position:fixed;
+    width:55px;
+    height:70px;
+    border-radius:50%;
+    opacity:.8;
+    z-index:1;
+    animation:floatBalloon 6s ease-in-out infinite;
 }
 
-.balloon::after {
-    content: "";
-
-    position: absolute;
-
-    width: 1px;
-    height: 100px;
-
-    background:
-        rgba(255,255,255,.4);
-
-    left: 50%;
-    top: 65px;
+.balloon::after{
+    content:"";
+    position:absolute;
+    width:1px;
+    height:100px;
+    background:rgba(255,255,255,.4);
+    left:50%;
+    top:65px;
 }
 
-.balloon1 {
-    left: 5%;
-    top: 15%;
-    background: #ff5c8a;
+.balloon1{
+    left:5%;
+    top:15%;
+    background:#ff5c8a;
 }
 
-.balloon2 {
-    left: 15%;
-    top: 70%;
-    background: #a855f7;
-    animation-delay: 1s;
+.balloon2{
+    left:15%;
+    top:70%;
+    background:#a855f7;
+    animation-delay:1s;
 }
 
-.balloon3 {
-    right: 7%;
-    top: 18%;
-    background: #ec4899;
-    animation-delay: 2s;
+.balloon3{
+    right:7%;
+    top:18%;
+    background:#ec4899;
+    animation-delay:2s;
 }
 
-.balloon4 {
-    right: 17%;
-    top: 72%;
-    background: #8b5cf6;
-    animation-delay: 3s;
+.balloon4{
+    right:17%;
+    top:72%;
+    background:#8b5cf6;
+    animation-delay:3s;
 }
 
-.balloon5 {
-    left: 40%;
-    top: 8%;
-    background: #f472b6;
-    animation-delay: 1.5s;
+.balloon5{
+    left:40%;
+    top:8%;
+    background:#f472b6;
+    animation-delay:1.5s;
 }
 
-.balloon6 {
-    right: 40%;
-    top: 82%;
-    background: #c084fc;
-    animation-delay: 2.5s;
+.balloon6{
+    right:40%;
+    top:82%;
+    background:#c084fc;
+    animation-delay:2.5s;
 }
 
-@keyframes floatBalloon {
-
-    0%,100% {
-        transform:
-            translateY(0)
-            rotate(-3deg);
+@keyframes floatBalloon{
+    0%,100%{
+        transform:translateY(0) rotate(-3deg);
     }
 
-    50% {
-        transform:
-            translateY(-18px)
-            rotate(3deg);
+    50%{
+        transform:translateY(-18px) rotate(3deg);
     }
 }
 
 
 /* =========================================================
-   FLOATING HEARTS
+   HEARTS
 ========================================================= */
 
-.heart {
-    position: fixed;
-
-    font-size: 30px;
-
-    opacity: .7;
-
-    z-index: 1;
-
-    animation:
-        floatHeart 7s ease-in-out infinite;
+.heart{
+    position:fixed;
+    font-size:30px;
+    opacity:.7;
+    z-index:1;
+    animation:floatHeart 7s ease-in-out infinite;
 }
 
-.heart1 {
-    left: 12%;
-    top: 40%;
+.heart1{
+    left:12%;
+    top:40%;
 }
 
-.heart2 {
-    right: 12%;
-    top: 45%;
-    animation-delay: 1s;
+.heart2{
+    right:12%;
+    top:45%;
+    animation-delay:1s;
 }
 
-.heart3 {
-    left: 27%;
-    bottom: 10%;
-    animation-delay: 2s;
+.heart3{
+    left:27%;
+    bottom:10%;
+    animation-delay:2s;
 }
 
-.heart4 {
-    right: 28%;
-    top: 12%;
-    animation-delay: 3s;
+.heart4{
+    right:28%;
+    top:12%;
+    animation-delay:3s;
 }
 
-@keyframes floatHeart {
-
-    0%,100% {
-        transform:
-            translateY(0);
-        opacity: .5;
+@keyframes floatHeart{
+    0%,100%{
+        transform:translateY(0);
+        opacity:.5;
     }
 
-    50% {
-        transform:
-            translateY(-15px);
-        opacity: .9;
+    50%{
+        transform:translateY(-15px);
+        opacity:.9;
     }
 }
 
@@ -222,108 +173,74 @@ body {
    FIRST SCREEN
 ========================================================= */
 
-.first-content {
-    width:
-        min(900px, 92%);
-
-    position: relative;
-
-    z-index: 5;
+.first-content{
+    width:min(900px,92%);
+    position:relative;
+    z-index:5;
 }
 
-.small-heading {
-    font-size: 14px;
-    letter-spacing: 5px;
-    opacity: .8;
-    margin-bottom: 20px;
+.small-heading{
+    font-size:14px;
+    letter-spacing:5px;
+    opacity:.8;
+    margin-bottom:20px;
 }
 
-.main-title {
-    font-size:
-        clamp(55px, 8vw, 105px);
-
-    line-height: .94;
-
-    font-weight: bold;
+.main-title{
+    font-size:clamp(55px,8vw,105px);
+    line-height:.94;
+    font-weight:bold;
 
     text-shadow:
-        0 0 10px
-        rgba(255,255,255,.8),
-
-        0 0 30px
-        rgba(255,80,220,.4);
+        0 0 10px rgba(255,255,255,.8),
+        0 0 30px rgba(255,80,220,.4);
 }
 
-.subtitle {
-    width:
-        min(700px, 95%);
-
-    margin:
-        30px auto 0;
-
-    font-size:
-        clamp(17px, 2.2vw, 24px);
-
-    line-height: 1.6;
-
-    color:
-        rgba(255,255,255,.88);
+.subtitle{
+    width:min(700px,95%);
+    margin:30px auto 0;
+    font-size:clamp(17px,2.2vw,24px);
+    line-height:1.6;
+    color:rgba(255,255,255,.88);
 }
 
-.question {
-    margin-top: 35px;
-
-    font-size:
-        clamp(19px, 2.5vw, 29px);
-
-    line-height: 1.45;
-
-    font-weight: bold;
+.question{
+    margin-top:35px;
+    font-size:clamp(19px,2.5vw,29px);
+    line-height:1.45;
+    font-weight:bold;
 }
 
-.ready-area {
-    margin-top: 30px;
-    min-height: 70px;
+.ready-area{
+    margin-top:30px;
+    min-height:70px;
 }
 
-#readyButton {
-    border:
-        1px solid
-        rgba(255,255,255,.6);
+#readyButton{
+    border:1px solid rgba(255,255,255,.6);
 
     background:
-        linear-gradient(
-            135deg,
-            #e85caf,
-            #9f3edb
-        );
+        linear-gradient(135deg,#e85caf,#9f3edb);
 
-    color: white;
+    color:white;
 
-    border-radius: 999px;
+    border-radius:999px;
 
-    padding:
-        15px 34px;
+    padding:15px 34px;
 
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
+    font-family:Georgia,"Times New Roman",serif;
 
-    font-size: 14px;
+    font-size:14px;
 
-    font-weight: bold;
+    font-weight:bold;
 
-    letter-spacing: 1px;
+    letter-spacing:1px;
 
-    cursor: pointer;
+    cursor:pointer;
 
     box-shadow:
-        0 0 15px
-        rgba(255,80,220,.45),
-
-        0 0 30px
-        rgba(180,70,230,.25);
+        0 0 15px rgba(255,80,220,.45),
+        0 0 30px rgba(180,70,230,.25);
 
     transition:
         left .55s ease,
@@ -331,25 +248,17 @@ body {
         transform .25s ease,
         box-shadow .25s ease;
 
-    position: relative;
+    position:relative;
 
-    z-index: 50;
+    z-index:50;
 }
 
-#readyButton:hover {
-    transform: scale(1.05);
-
-    box-shadow:
-        0 0 20px
-        rgba(255,80,220,.7),
-
-        0 0 40px
-        rgba(180,70,230,.4);
+#readyButton:hover{
+    transform:scale(1.05);
 }
 
-#readyButton.random-position {
-    position: fixed;
-    z-index: 9999;
+#readyButton.random-position{
+    position:fixed;
 }
 
 
@@ -357,271 +266,177 @@ body {
    SECOND SCREEN
 ========================================================= */
 
-.second-content {
-    width:
-        min(850px, 92%);
-
-    position: relative;
-
-    z-index: 5;
+.second-content{
+    width:min(850px,92%);
+    position:relative;
+    z-index:5;
 }
 
-.second-title {
-    font-size:
-        clamp(55px, 8vw, 100px);
+.second-title{
+    font-size:clamp(55px,8vw,100px);
 
     text-shadow:
         0 0 10px white,
-
-        0 0 30px
-        rgba(255,80,220,.4);
+        0 0 30px rgba(255,80,220,.4);
 }
 
-.second-text {
-    margin-top: 25px;
-
-    font-size:
-        clamp(18px, 2.4vw, 27px);
-
-    line-height: 1.6;
+.second-text{
+    margin-top:25px;
+    font-size:clamp(18px,2.4vw,27px);
+    line-height:1.6;
 }
 
-.go-button {
-    margin-top: 32px;
+.go-button{
+    margin-top:32px;
 
-    border:
-        1px solid
-        rgba(255,255,255,.6);
+    border:1px solid rgba(255,255,255,.6);
 
     background:
-        linear-gradient(
-            135deg,
-            #e85caf,
-            #9f3edb
-        );
+        linear-gradient(135deg,#e85caf,#9f3edb);
 
-    color: white;
+    color:white;
 
-    border-radius: 999px;
+    border-radius:999px;
 
-    padding:
-        15px 34px;
+    padding:15px 34px;
 
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
+    font-family:Georgia,"Times New Roman",serif;
 
-    font-size: 14px;
+    font-size:14px;
 
-    font-weight: bold;
+    font-weight:bold;
 
-    letter-spacing: 1px;
+    letter-spacing:1px;
 
-    cursor: pointer;
+    cursor:pointer;
 
     box-shadow:
-        0 0 15px
-        rgba(255,80,220,.45);
-
-    transition:
-        transform .25s ease;
+        0 0 15px rgba(255,80,220,.45);
 }
 
-.go-button:hover {
-    transform:
-        scale(1.05);
+.go-button:hover{
+    transform:scale(1.05);
 }
 
 
 /* =========================================================
-   PRAYER SCREEN
+   PRAYER
 ========================================================= */
 
-.prayer-container {
-    width:
-        min(900px, 94%);
-
-    max-height: 94vh;
-
-    overflow-y: auto;
-
-    position: relative;
-
-    z-index: 5;
-
-    scrollbar-width: none;
+.prayer-container{
+    width:min(900px,94%);
+    max-height:94vh;
+    overflow-y:auto;
+    position:relative;
+    z-index:5;
+    scrollbar-width:none;
 }
 
-.prayer-container::-webkit-scrollbar {
-    display: none;
+.prayer-container::-webkit-scrollbar{
+    display:none;
 }
 
-.assalam {
-    font-size:
-        clamp(27px, 4vw, 48px);
-
-    line-height: 1.3;
+.assalam{
+    font-size:clamp(27px,4vw,48px);
+    line-height:1.3;
 
     text-shadow:
         0 0 10px white,
-
-        0 0 25px
-        rgba(255,80,220,.35);
+        0 0 25px rgba(255,80,220,.35);
 }
 
-.prayer {
-    margin:
-        30px auto 0;
-
-    width:
-        min(800px, 95%);
+.prayer{
+    margin:30px auto 0;
+    width:min(800px,95%);
 }
 
 .roman-prayer p,
-.telugu-meaning p {
-    margin: 16px 0;
-
-    font-size:
-        clamp(17px, 2vw, 23px);
-
-    line-height: 1.7;
+.telugu-meaning p{
+    margin:16px 0;
+    font-size:clamp(17px,2vw,23px);
+    line-height:1.7;
 }
 
-.prayer-divider {
-    margin: 25px 0;
-    font-size: 25px;
+.prayer-divider{
+    margin:25px 0;
+    font-size:25px;
 }
 
-.ameen {
-    margin-top: 22px;
-
-    font-size: 30px;
-
-    font-weight: bold;
+.ameen{
+    margin-top:22px;
+    font-size:30px;
+    font-weight:bold;
 }
 
-.celebrate-button {
-    margin-top: 28px;
+.celebrate-button{
+    margin-top:28px;
 
-    opacity: 0;
+    opacity:0;
+    pointer-events:none;
 
-    pointer-events: none;
-
-    border:
-        1px solid
-        rgba(255,255,255,.6);
+    border:1px solid rgba(255,255,255,.6);
 
     background:
-        linear-gradient(
-            135deg,
-            #e85caf,
-            #9f3edb
-        );
+        linear-gradient(135deg,#e85caf,#9f3edb);
 
-    color: white;
+    color:white;
 
-    border-radius: 999px;
+    border-radius:999px;
 
-    padding:
-        16px 32px;
+    padding:16px 32px;
 
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
+    font-family:Georgia,"Times New Roman",serif;
 
-    font-size: 14px;
+    font-size:14px;
 
-    font-weight: bold;
+    font-weight:bold;
 
-    letter-spacing: 1px;
+    letter-spacing:1px;
 
-    cursor: pointer;
+    cursor:pointer;
 
     box-shadow:
-        0 0 15px
-        rgba(255,80,220,.45);
+        0 0 15px rgba(255,80,220,.45);
 
     transition:
         opacity .6s ease,
         transform .25s ease;
 }
 
-.celebrate-button.show {
-    opacity: 1;
-    pointer-events: auto;
+.celebrate-button.show{
+    opacity:1;
+    pointer-events:auto;
 }
 
-.celebrate-button:hover {
-    transform:
-        scale(1.05);
-}
-
-
-/* =========================================================
-   FULL SCREEN SCREENS
-========================================================= */
-
-.new-screen {
-    position: fixed;
-
-    inset: 0;
-
-    width: 100%;
-    height: 100vh;
-
-    display: none;
-
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-
-    overflow: hidden;
-
-    z-index: 1000;
-
-    background:
-        radial-gradient(
-            circle at center,
-            #42104f,
-            #18051e 55%,
-            #060208
-        );
-}
-
-.new-screen.active {
-    display: flex;
+.celebrate-button:hover{
+    transform:scale(1.05);
 }
 
 
 /* =========================================================
-   CALL SCREEN
-   THIS REPLACES THE UNWANTED
-   "SOMEONE IS CALLING..." SCREEN
+   BUBU CALLING SCREEN
+   THIS IS NOW THE ONLY CALL SCREEN
 ========================================================= */
 
-.call-screen {
-    position: fixed;
+.call-screen{
+    position:fixed;
+    inset:0;
 
-    inset: 0;
+    width:100%;
+    height:100vh;
 
-    width: 100%;
-    height: 100vh;
+    display:none;
 
-    display: none;
+    align-items:center;
+    justify-content:center;
 
-    align-items: center;
-    justify-content: center;
+    flex-direction:column;
 
-    flex-direction: column;
+    text-align:center;
 
-    text-align: center;
+    overflow:hidden;
 
-    overflow: hidden;
-
-    z-index: 2500;
+    z-index:2500;
 
     background:
         linear-gradient(
@@ -634,19 +449,19 @@ body {
         );
 }
 
-.call-screen.active {
-    display: flex;
+.call-screen.active{
+    display:flex;
 }
 
 
-/* Soft bokeh */
+/* soft background circles */
 
-.call-screen::before {
-    content: "";
+.call-screen::before{
+    content:"";
 
-    position: absolute;
+    position:absolute;
 
-    inset: -20%;
+    inset:-20%;
 
     background:
         radial-gradient(
@@ -673,276 +488,257 @@ body {
             transparent 36px
         );
 
-    filter: blur(2px);
+    filter:blur(2px);
 
-    pointer-events: none;
+    pointer-events:none;
+}
+
+.call-content{
+    position:relative;
+    z-index:5;
+
+    width:min(520px,92%);
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
 }
 
 
-.call-content {
-    position: relative;
+/* Bubu */
 
-    z-index: 5;
+.call-name{
+    font-family:Arial,Helvetica,sans-serif;
 
-    width:
-        min(520px, 92%);
+    font-size:clamp(30px,5vw,45px);
 
-    display: flex;
+    font-weight:700;
 
-    flex-direction: column;
+    color:#17120f;
 
-    align-items: center;
+    margin-bottom:28px;
+}
+
+.call-name span{
+    color:#21140f;
+}
+
+.calling-text{
+    font-family:Arial,Helvetica,sans-serif;
+
+    font-size:clamp(23px,4vw,34px);
+
+    color:#211a16;
+
+    margin-bottom:12px;
 }
 
 
-/* Bubu name */
+/* Character */
 
-.call-name {
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+.bubu-character{
+    width:clamp(170px,28vw,250px);
+    height:clamp(170px,28vw,250px);
 
-    font-size:
-        clamp(30px, 5vw, 45px);
+    display:flex;
 
-    font-weight: 700;
+    align-items:center;
+    justify-content:center;
 
-    color: #17120f;
+    font-size:clamp(115px,20vw,185px);
 
-    margin-bottom: 28px;
+    margin-bottom:12px;
+
+    animation:bubuFloat 1.8s ease-in-out infinite;
 }
 
-.call-name span {
-    color: #21140f;
-}
-
-
-/* Calling text */
-
-.calling-text {
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    font-size:
-        clamp(23px, 4vw, 34px);
-
-    color: #211a16;
-
-    margin-bottom: 18px;
-}
-
-
-/* Bubu visual */
-
-.bubu-character {
-    width:
-        clamp(170px, 28vw, 250px);
-
-    height:
-        clamp(170px, 28vw, 250px);
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    font-size:
-        clamp(115px, 20vw, 185px);
-
-    margin-bottom: 28px;
-
-    animation:
-        bubuFloat 1.8s ease-in-out infinite;
-}
-
-@keyframes bubuFloat {
-
-    0%,100% {
-        transform:
-            translateY(0);
+@keyframes bubuFloat{
+    0%,100%{
+        transform:translateY(0);
     }
 
-    50% {
-        transform:
-            translateY(-8px);
+    50%{
+        transform:translateY(-8px);
     }
-}
-
-
-/* Call buttons */
-
-.call-actions {
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    gap:
-        clamp(55px, 12vw, 100px);
-
-    margin-bottom: 22px;
-}
-
-.call-action {
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    gap: 8px;
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    color: #211a16;
-}
-
-.call-action-circle {
-    width:
-        clamp(68px, 12vw, 92px);
-
-    height:
-        clamp(68px, 12vw, 92px);
-
-    border-radius: 50%;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    font-size:
-        clamp(30px, 6vw, 45px);
-
-    box-shadow:
-        0 8px 20px
-        rgba(0,0,0,.15);
-}
-
-.decline-circle {
-    background: #ef382d;
-}
-
-.accept-circle {
-    background: #22b84b;
 }
 
 
 /* =========================================================
-   SWIPE TO ANSWER
+   CALL BUTTONS
 ========================================================= */
 
-.swipe-answer-area {
-    width:
-        min(390px, 90vw);
+.call-actions{
+    display:flex;
 
-    height: 62px;
+    align-items:center;
+    justify-content:center;
 
-    position: relative;
+    gap:clamp(55px,12vw,100px);
 
-    border-radius: 999px;
+    margin-top:4px;
 
-    background:
-        rgba(255,255,255,.38);
+    margin-bottom:25px;
+}
 
-    border:
-        1px solid
-        rgba(255,255,255,.65);
+.call-action{
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:8px;
+
+    font-family:Arial,Helvetica,sans-serif;
+
+    color:#211a16;
+}
+
+.call-action-circle{
+    width:clamp(68px,12vw,92px);
+    height:clamp(68px,12vw,92px);
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    font-size:clamp(30px,6vw,45px);
 
     box-shadow:
-        0 5px 20px
-        rgba(0,0,0,.12);
-
-    overflow: hidden;
-
-    touch-action: none;
-
-    user-select: none;
+        0 8px 20px rgba(0,0,0,.15);
 }
 
-.swipe-answer-text {
-    position: absolute;
-
-    inset: 0;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    font-size: 13px;
-
-    font-weight: 700;
-
-    letter-spacing: 1px;
-
-    color:
-        rgba(33,26,22,.7);
-
-    pointer-events: none;
+.decline-circle{
+    background:#ef382d;
 }
 
-.swipe-answer-handle {
-    position: absolute;
+.accept-circle{
+    background:#22b84b;
+}
 
-    left: 4px;
-    top: 4px;
 
-    width: 54px;
-    height: 54px;
+/* =========================================================
+   ACTUAL ACCEPT BUTTON
+   THIS IS THE SWIPE CONTROL
+========================================================= */
 
-    border-radius: 50%;
+.accept-swipe-area{
+    width:min(390px,90vw);
 
-    display: flex;
+    height:68px;
 
-    align-items: center;
-    justify-content: center;
+    position:relative;
 
-    background:
-        #22b84b;
+    border-radius:999px;
 
-    color: white;
+    background:rgba(255,255,255,.38);
 
-    font-size: 24px;
+    border:1px solid rgba(255,255,255,.7);
 
     box-shadow:
-        0 4px 12px
-        rgba(0,0,0,.2);
+        0 5px 20px rgba(0,0,0,.12);
 
-    cursor: grab;
+    overflow:hidden;
 
-    touch-action: none;
+    touch-action:none;
 
-    z-index: 5;
+    user-select:none;
 }
 
-.swipe-answer-handle:active {
-    cursor: grabbing;
+
+/*
+   Text stays behind the button
+*/
+
+.accept-swipe-text{
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding-left:55px;
+
+    font-family:Arial,Helvetica,sans-serif;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    color:rgba(33,26,22,.65);
+
+    pointer-events:none;
 }
 
-.swipe-note {
-    margin-top: 12px;
 
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+/*
+   GREEN ACCEPT BUTTON
+   User physically drags this
+*/
 
-    font-size: 12px;
+#acceptSwipeButton{
+    position:absolute;
 
-    color:
-        rgba(33,26,22,.65);
+    left:5px;
+    top:5px;
+
+    width:58px;
+    height:58px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#22b84b;
+
+    color:white;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    font-size:26px;
+
+    box-shadow:
+        0 4px 12px rgba(0,0,0,.22);
+
+    cursor:grab;
+
+    touch-action:none;
+
+    z-index:5;
+
+    transition:
+        box-shadow .2s ease;
+}
+
+#acceptSwipeButton:active{
+    cursor:grabbing;
+
+    box-shadow:
+        0 5px 16px rgba(0,0,0,.3);
+}
+
+.swipe-note{
+    margin-top:12px;
+
+    font-family:Arial,Helvetica,sans-serif;
+
+    font-size:12px;
+
+    color:rgba(33,26,22,.65);
 }
 
 
@@ -950,140 +746,159 @@ body {
    CALLING VIDEO
 ========================================================= */
 
-.calling-video-screen {
-    position: fixed;
+.calling-video-screen{
+    position:fixed;
 
-    inset: 0;
+    inset:0;
 
-    width: 100%;
-    height: 100vh;
+    width:100%;
+    height:100vh;
 
-    display: none;
+    display:none;
 
-    align-items: center;
-    justify-content: center;
+    align-items:center;
+    justify-content:center;
 
-    overflow: hidden;
+    overflow:hidden;
 
-    z-index: 3000;
+    z-index:3000;
 
-    background: #060208;
+    background:#060208;
 }
 
-.calling-video-screen.active {
-    display: flex;
+.calling-video-screen.active{
+    display:flex;
 }
 
-.calling-video {
-    width: 100vw;
-    height: 100vh;
+.calling-video{
+    width:100vw;
+    height:100vh;
 
-    object-fit: contain;
+    object-fit:contain;
 
-    background: #060208;
+    background:#060208;
 
-    display: block;
+    display:block;
 }
 
 
 /* =========================================================
-   HAPPY BIRTHDAY SCREEN
+   HAPPY BIRTHDAY
 ========================================================= */
 
-.new-birthday-content {
-    width:
-        min(900px, 92%);
+.new-screen{
+    position:fixed;
 
-    position: relative;
+    inset:0;
 
-    z-index: 5;
+    width:100%;
+    height:100vh;
+
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    overflow:hidden;
+
+    z-index:3500;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #42104f,
+            #18051e 55%,
+            #060208
+        );
 }
 
-.new-small-heading {
-    font-size: 14px;
-
-    letter-spacing: 5px;
-
-    opacity: .85;
-
-    margin-bottom: 20px;
+.new-screen.active{
+    display:flex;
 }
 
-.new-birthday-title {
-    font-size:
-        clamp(55px, 8vw, 105px);
+.new-birthday-content{
+    width:min(900px,92%);
 
-    line-height: .95;
+    position:relative;
 
-    font-weight: bold;
+    z-index:5;
+}
+
+.new-small-heading{
+    font-size:14px;
+
+    letter-spacing:5px;
+
+    opacity:.85;
+
+    margin-bottom:20px;
+}
+
+.new-birthday-title{
+    font-size:clamp(55px,8vw,105px);
+
+    line-height:.95;
+
+    font-weight:bold;
 
     text-shadow:
         0 0 10px white,
-
-        0 0 25px
-        rgba(255,80,220,.45),
-
-        0 0 45px
-        rgba(170,70,255,.3);
+        0 0 25px rgba(255,80,220,.45),
+        0 0 45px rgba(170,70,255,.3);
 }
 
-.new-birthday-name {
-    margin-top: 18px;
+.new-birthday-name{
+    margin-top:18px;
 
-    font-size:
-        clamp(32px, 5vw, 60px);
+    font-size:clamp(32px,5vw,60px);
 
-    color:
-        #ffd1f1;
+    color:#ffd1f1;
 
-    font-weight: bold;
+    font-weight:bold;
 
     text-shadow:
-        0 0 15px
-        rgba(255,100,220,.7);
+        0 0 15px rgba(255,100,220,.7);
 }
 
-.new-birthday-message {
-    width:
-        min(750px, 94%);
+.new-birthday-message{
+    width:min(750px,94%);
 
-    margin:
-        28px auto 0;
+    margin:28px auto 0;
 
-    font-size:
-        clamp(17px, 2.2vw, 24px);
+    font-size:clamp(17px,2.2vw,24px);
 
-    line-height: 1.7;
+    line-height:1.7;
 
-    color:
-        rgba(255,255,255,.92);
+    color:rgba(255,255,255,.92);
 }
 
 
 /* =========================================================
-   DOOR SCREEN
+   DOOR
 ========================================================= */
 
-.door-screen {
-    position: fixed;
+.door-screen{
+    position:fixed;
 
-    inset: 0;
+    inset:0;
 
-    width: 100%;
-    height: 100vh;
+    width:100%;
+    height:100vh;
 
-    display: none;
+    display:none;
 
-    align-items: center;
-    justify-content: center;
+    align-items:center;
+    justify-content:center;
 
-    flex-direction: column;
+    flex-direction:column;
 
-    text-align: center;
+    text-align:center;
 
-    overflow: hidden;
+    overflow:hidden;
 
-    z-index: 4000;
+    z-index:4000;
 
     background:
         radial-gradient(
@@ -1094,74 +909,55 @@ body {
         );
 }
 
-.door-screen.active {
-    display: flex;
+.door-screen.active{
+    display:flex;
 }
 
+.door-title{
+    position:relative;
 
-/* =========================================================
-   DOOR TEXT
-========================================================= */
+    z-index:20;
 
-.door-title {
-    position: relative;
+    width:min(850px,92%);
 
-    z-index: 20;
+    margin-bottom:25px;
 
-    width:
-        min(850px, 92%);
+    font-size:clamp(30px,5vw,65px);
 
-    margin-bottom: 25px;
+    line-height:1.2;
 
-    font-size:
-        clamp(30px, 5vw, 65px);
-
-    line-height: 1.2;
-
-    color: white;
+    color:white;
 
     text-shadow:
         0 0 10px white,
+        0 0 25px rgba(255,80,220,.5),
+        0 0 50px rgba(180,70,230,.35);
 
-        0 0 25px
-        rgba(255,80,220,.5),
-
-        0 0 50px
-        rgba(180,70,230,.35);
-
-    animation:
-        doorTextGlow 2s ease-in-out infinite;
+    animation:doorTextGlow 2s ease-in-out infinite;
 }
 
-@keyframes doorTextGlow {
-
-    0%,100% {
-        opacity: .9;
-
-        transform:
-            translateY(0);
+@keyframes doorTextGlow{
+    0%,100%{
+        opacity:.9;
+        transform:translateY(0);
     }
 
-    50% {
-        opacity: 1;
-
-        transform:
-            translateY(-4px);
+    50%{
+        opacity:1;
+        transform:translateY(-4px);
     }
 }
 
-.door-subtitle {
-    position: relative;
+.door-subtitle{
+    position:relative;
 
-    z-index: 20;
+    z-index:20;
 
-    margin-bottom: 25px;
+    margin-bottom:25px;
 
-    font-size:
-        clamp(16px, 2.3vw, 23px);
+    font-size:clamp(16px,2.3vw,23px);
 
-    color:
-        rgba(255,255,255,.85);
+    color:rgba(255,255,255,.85);
 }
 
 
@@ -1169,37 +965,33 @@ body {
    DOOR FRAME
 ========================================================= */
 
-.door-frame {
-    position: relative;
+.door-frame{
+    position:relative;
 
-    width:
-        min(340px, 72vw);
+    width:min(340px,72vw);
 
-    height:
-        min(460px, 60vh);
+    height:min(460px,60vh);
 
-    perspective: 1400px;
+    perspective:1400px;
 
-    z-index: 10;
+    z-index:10;
 
-    cursor: pointer;
+    cursor:pointer;
 
     filter:
         drop-shadow(
-            0 0 25px
-            rgba(190,70,230,.5)
+            0 0 25px rgba(190,70,230,.5)
         );
 }
 
-.door-inside {
-    position: absolute;
+.door-inside{
+    position:absolute;
 
-    inset: 0;
+    inset:0;
 
-    border-radius:
-        14px 14px 5px 5px;
+    border-radius:14px 14px 5px 5px;
 
-    overflow: hidden;
+    overflow:hidden;
 
     background:
         radial-gradient(
@@ -1210,63 +1002,55 @@ body {
         );
 
     box-shadow:
-        inset 0 0 60px
-        rgba(255,80,220,.3),
-
-        0 0 40px
-        rgba(180,70,230,.35);
+        inset 0 0 60px rgba(255,80,220,.3),
+        0 0 40px rgba(180,70,230,.35);
 }
 
-.door-heart {
-    position: absolute;
+.door-heart{
+    position:absolute;
 
-    left: 50%;
-    top: 43%;
+    left:50%;
+    top:43%;
 
-    transform:
-        translate(-50%, -50%);
+    transform:translate(-50%,-50%);
 
-    font-size:
-        clamp(65px, 10vw, 110px);
+    font-size:clamp(65px,10vw,110px);
 
     filter:
         drop-shadow(
-            0 0 20px
-            rgba(255,80,160,.8)
+            0 0 20px rgba(255,80,160,.8)
         );
 
-    animation:
-        heartBeat 1.2s infinite;
+    animation:heartBeat 1.2s infinite;
 }
 
-@keyframes heartBeat {
-
-    0%,100% {
+@keyframes heartBeat{
+    0%,100%{
         transform:
-            translate(-50%, -50%)
+            translate(-50%,-50%)
             scale(1);
     }
 
-    50% {
+    50%{
         transform:
-            translate(-50%, -50%)
+            translate(-50%,-50%)
             scale(1.12);
     }
 }
 
 
 /* =========================================================
-   ACTUAL DOORS
+   DOORS
 ========================================================= */
 
 .door-left,
-.door-right {
-    position: absolute;
+.door-right{
+    position:absolute;
 
-    top: 0;
+    top:0;
 
-    width: 50%;
-    height: 100%;
+    width:50%;
+    height:100%;
 
     background:
         linear-gradient(
@@ -1276,179 +1060,158 @@ body {
             #26072f
         );
 
-    border:
-        3px solid
-        #d88bd5;
+    border:3px solid #d88bd5;
 
     box-shadow:
-        inset 0 0 25px
-        rgba(255,100,220,.25);
+        inset 0 0 25px rgba(255,100,220,.25);
 }
 
-.door-left {
-    left: 0;
+.door-left{
+    left:0;
 
-    transform-origin:
-        left center;
+    transform-origin:left center;
 
-    border-radius:
-        14px 0 0 5px;
+    border-radius:14px 0 0 5px;
 
     transition:
         transform 1.1s cubic-bezier(.7,0,.2,1);
 }
 
-.door-right {
-    right: 0;
+.door-right{
+    right:0;
 
-    transform-origin:
-        right center;
+    transform-origin:right center;
 
-    border-radius:
-        0 14px 5px 0;
+    border-radius:0 14px 5px 0;
 
     transition:
         transform 1.1s cubic-bezier(.7,0,.2,1);
 }
 
-.door-panel {
-    position: absolute;
+.door-panel{
+    position:absolute;
 
-    left: 14%;
-    right: 14%;
+    left:14%;
+    right:14%;
 
-    top: 12%;
-    bottom: 12%;
+    top:12%;
+    bottom:12%;
 
-    border:
-        2px solid
-        rgba(255,200,250,.35);
+    border:2px solid rgba(255,200,250,.35);
 
-    border-radius: 8px;
+    border-radius:8px;
 }
 
-.door-handle {
-    position: absolute;
+.door-handle{
+    position:absolute;
 
-    top: 50%;
+    top:50%;
 
-    width: 13px;
-    height: 13px;
+    width:13px;
+    height:13px;
 
-    border-radius: 50%;
+    border-radius:50%;
 
-    background:
-        #ffd36e;
+    background:#ffd36e;
 
     box-shadow:
-        0 0 12px
-        rgba(255,210,100,.8);
+        0 0 12px rgba(255,210,100,.8);
 
-    z-index: 10;
+    z-index:10;
 }
 
-.door-left .door-handle {
-    right: 10px;
+.door-left .door-handle{
+    right:10px;
 }
 
-.door-right .door-handle {
-    left: 10px;
+.door-right .door-handle{
+    left:10px;
 }
 
 
 /* =========================================================
-   DOOR OPEN STATE
+   DOOR OPEN
 ========================================================= */
 
-.door-screen.opening .door-left {
-    transform:
-        rotateY(-105deg);
+.door-screen.opening .door-left{
+    transform:rotateY(-105deg);
 }
 
-.door-screen.opening .door-right {
-    transform:
-        rotateY(105deg);
+.door-screen.opening .door-right{
+    transform:rotateY(105deg);
 }
 
 .door-screen.opening .door-title,
-.door-screen.opening .door-subtitle {
-    opacity: 0;
+.door-screen.opening .door-subtitle{
+    opacity:0;
 
-    transition:
-        opacity .5s ease;
+    transition:opacity .5s ease;
 }
 
+.touch-door{
+    position:relative;
 
-/* =========================================================
-   TOUCH HINT
-========================================================= */
+    z-index:20;
 
-.touch-door {
-    position: relative;
+    margin-top:22px;
 
-    z-index: 20;
+    font-size:14px;
 
-    margin-top: 22px;
+    letter-spacing:2px;
 
-    font-size: 14px;
+    opacity:.85;
 
-    letter-spacing: 2px;
-
-    opacity: .85;
-
-    animation:
-        touchPulse 1.6s ease-in-out infinite;
+    animation:touchPulse 1.6s ease-in-out infinite;
 }
 
-@keyframes touchPulse {
-
-    0%,100% {
-        opacity: .5;
+@keyframes touchPulse{
+    0%,100%{
+        opacity:.5;
     }
 
-    50% {
-        opacity: 1;
+    50%{
+        opacity:1;
     }
 }
 
 
 /* =========================================================
-   FINAL BUBU VIDEO
+   FINAL VIDEO
 ========================================================= */
 
-.bubu-video-screen {
-    position: fixed;
+.bubu-video-screen{
+    position:fixed;
 
-    inset: 0;
+    inset:0;
 
-    width: 100%;
-    height: 100vh;
+    width:100%;
+    height:100vh;
 
-    display: none;
+    display:none;
 
-    align-items: center;
-    justify-content: center;
+    align-items:center;
+    justify-content:center;
 
-    overflow: hidden;
+    overflow:hidden;
 
-    z-index: 5000;
+    z-index:5000;
 
-    background: #060208;
+    background:#060208;
 }
 
-.bubu-video-screen.active {
-    display: flex;
+.bubu-video-screen.active{
+    display:flex;
 }
 
-.bubu-video {
-    width: 100vw;
-    height: 100vh;
+.bubu-video{
+    width:100vw;
+    height:100vh;
 
-    object-fit: contain;
+    object-fit:contain;
 
-    background: #060208;
+    background:#060208;
 
-    display: block;
+    display:block;
 }
 
 
@@ -1456,125 +1219,116 @@ body {
    MOBILE
 ========================================================= */
 
-@media (max-width: 600px) {
+@media(max-width:600px){
 
-    .small-heading {
-        font-size: 10px;
-        letter-spacing: 3px;
+    .small-heading{
+        font-size:10px;
+        letter-spacing:3px;
     }
 
-    .main-title {
-        font-size: 48px;
+    .main-title{
+        font-size:48px;
     }
 
-    .subtitle {
-        font-size: 16px;
-        line-height: 1.55;
+    .subtitle{
+        font-size:16px;
+        line-height:1.55;
     }
 
-    .question {
-        font-size: 20px;
+    .question{
+        font-size:20px;
     }
 
-    #readyButton {
-        padding:
-            13px 27px;
+    #readyButton{
+        padding:13px 27px;
     }
 
-    .assalam {
-        font-size: 27px;
+    .assalam{
+        font-size:27px;
     }
 
     .roman-prayer p,
-    .telugu-meaning p {
-        font-size: 16px;
-        line-height: 1.65;
+    .telugu-meaning p{
+        font-size:16px;
+        line-height:1.65;
     }
 
-    .celebrate-button {
-        width: 90%;
-
-        max-width: 330px;
-
-        font-size: 14px;
-
-        padding:
-            15px 20px;
+    .celebrate-button{
+        width:90%;
+        max-width:330px;
+        font-size:14px;
+        padding:15px 20px;
     }
 
-    .new-small-heading {
-        font-size: 10px;
-        letter-spacing: 3px;
+    .new-small-heading{
+        font-size:10px;
+        letter-spacing:3px;
     }
 
-    .new-birthday-title {
-        font-size: 52px;
+    .new-birthday-title{
+        font-size:52px;
     }
 
-    .new-birthday-name {
-        font-size: 34px;
+    .new-birthday-name{
+        font-size:34px;
     }
 
-    .new-birthday-message {
-        font-size: 17px;
-        line-height: 1.65;
+    .new-birthday-message{
+        font-size:17px;
+        line-height:1.65;
     }
 
-    .door-title {
-        font-size: 31px;
+    .door-title{
+        font-size:31px;
     }
 
-    .door-subtitle {
-        font-size: 17px;
+    .door-subtitle{
+        font-size:17px;
     }
 
-    .door-frame {
-        width: 250px;
-        height: 360px;
+    .door-frame{
+        width:250px;
+        height:360px;
     }
 
-    .touch-door {
-        font-size: 12px;
-        letter-spacing: 1.5px;
+    .touch-door{
+        font-size:12px;
+        letter-spacing:1.5px;
     }
 
-    .call-name {
-        font-size: 32px;
-        margin-bottom: 18px;
+    .call-name{
+        font-size:32px;
+        margin-bottom:15px;
     }
 
-    .calling-text {
-        font-size: 25px;
+    .calling-text{
+        font-size:25px;
     }
 
-    .bubu-character {
-        font-size: 120px;
-
-        width: 170px;
-        height: 170px;
-
-        margin-bottom: 18px;
+    .bubu-character{
+        font-size:120px;
+        width:170px;
+        height:170px;
+        margin-bottom:10px;
     }
 
-    .call-actions {
-        gap: 65px;
+    .call-actions{
+        gap:65px;
+        margin-bottom:20px;
     }
 
-    .swipe-answer-area {
-        width: 88vw;
-        max-width: 350px;
+    .accept-swipe-area{
+        width:88vw;
+        max-width:350px;
     }
 }
-
 </style>
 </head>
 
-
 <body>
 
-
 <!-- =====================================================
-     BACKGROUND DECORATIONS
+     BACKGROUND
 ===================================================== -->
 
 <div class="balloon balloon1"></div>
@@ -1594,9 +1348,7 @@ body {
      SCREEN 1
 ===================================================== -->
 
-<section
-    id="screen1"
-    class="screen active">
+<section id="screen1" class="screen active">
 
     <div class="first-content">
 
@@ -1611,31 +1363,22 @@ body {
         </h1>
 
         <p class="subtitle">
-
             Thirty days of wishes brought us
             all the way here...
             and now there's only one thing
             left to ask.
-
         </p>
 
         <div class="question">
-
             Are you ready to see<br>
-
             what surprise I planned
             for you? 👀 ❤️
-
         </div>
 
         <div class="ready-area">
 
-            <button
-                id="readyButton"
-                type="button">
-
+            <button id="readyButton" type="button">
                 I'M READY ✨
-
             </button>
 
         </div>
@@ -1649,9 +1392,7 @@ body {
      SCREEN 2
 ===================================================== -->
 
-<section
-    id="screen2"
-    class="screen">
+<section id="screen2" class="screen">
 
     <div class="second-content">
 
@@ -1660,21 +1401,13 @@ body {
         </h1>
 
         <p class="second-text">
-
             Ohhh wow, you are so excited! 👀❤️<br>
-
             I knew you wouldn't be able
             to wait anymore. 😂
-
         </p>
 
-        <button
-            id="goButton"
-            class="go-button"
-            type="button">
-
+        <button id="goButton" class="go-button" type="button">
             LET'S GO ✨
-
         </button>
 
     </div>
@@ -1686,20 +1419,14 @@ body {
      PRAYER SCREEN
 ===================================================== -->
 
-<section
-    id="screen3"
-    class="screen">
+<section id="screen3" class="screen">
 
     <div class="prayer-container">
 
         <h1 class="assalam">
-
             Assalamu Alaikum Ji,<br>
-
             Wa Rahmatullahi Wa Barakatuh ❤️
-
         </h1>
-
 
         <div class="prayer">
 
@@ -1732,11 +1459,9 @@ body {
 
             </div>
 
-
             <div class="prayer-divider">
                 ❤️
             </div>
-
 
             <div class="telugu-meaning">
 
@@ -1776,11 +1501,9 @@ body {
 
         </div>
 
-
         <div class="ameen">
             Aameen 🤲❤️
         </div>
-
 
         <button
             id="celebrateButton"
@@ -1797,13 +1520,11 @@ body {
 
 
 <!-- =====================================================
-     BUBU CALL SCREEN
-     NO EXTRA "SOMEONE IS CALLING" SCREEN
+     ONLY CALL SCREEN
+     FIRST EXTRA CALL SCREEN IS COMPLETELY REMOVED
 ===================================================== -->
 
-<section
-    id="callScreen"
-    class="call-screen">
+<section id="callScreen" class="call-screen">
 
     <div class="call-content">
 
@@ -1816,33 +1537,21 @@ body {
         </div>
 
 
-        <!--
-             This is the Bubu visual area.
+        <!-- Bubu character -->
 
-             If you later upload the exact Bubu image
-             to GitHub, it can be placed here.
-        -->
-
-        <div
-            class="bubu-character"
-            aria-label="Bubu">
-
+        <div class="bubu-character">
             🐼
-
         </div>
 
 
-        <!-- DECLINE / ACCEPT -->
+        <!-- DECLINE + ACCEPT -->
 
         <div class="call-actions">
 
             <div class="call-action">
 
-                <div
-                    class="call-action-circle decline-circle">
-
+                <div class="call-action-circle decline-circle">
                     ☎
-
                 </div>
 
                 <span>
@@ -1855,6 +1564,7 @@ body {
             <div class="call-action">
 
                 <div
+                    id="acceptPreview"
                     class="call-action-circle accept-circle">
 
                     ☎
@@ -1870,34 +1580,31 @@ body {
         </div>
 
 
-        <!-- SWIPE TO ANSWER -->
+        <!-- =================================================
+             ACTUAL SWIPE ACCEPT CONTROL
+        ================================================= -->
 
         <div
-            id="swipeAnswerArea"
-            class="swipe-answer-area">
+            id="acceptSwipeArea"
+            class="accept-swipe-area">
 
-            <div class="swipe-answer-text">
-
+            <div class="accept-swipe-text">
                 SWIPE TO ANSWER →
-
             </div>
 
-
-            <div
-                id="swipeAnswerHandle"
-                class="swipe-answer-handle">
+            <button
+                id="acceptSwipeButton"
+                type="button"
+                aria-label="Swipe to answer">
 
                 ☎
 
-            </div>
+            </button>
 
         </div>
 
-
         <div class="swipe-note">
-
             Swipe to lift the call ❤️
-
         </div>
 
     </div>
@@ -1929,7 +1636,7 @@ body {
 
 
 <!-- =====================================================
-     HAPPY BIRTHDAY SCREEN
+     HAPPY BIRTHDAY
 ===================================================== -->
 
 <section
@@ -1943,19 +1650,13 @@ body {
         </div>
 
         <h1 class="new-birthday-title">
-
             HAPPY<br>
             BIRTHDAY!
-
         </h1>
 
-
         <div class="new-birthday-name">
-
             BUDDU ❤️
-
         </div>
-
 
         <p class="new-birthday-message">
 
@@ -1982,21 +1683,17 @@ body {
 
 
 <!-- =====================================================
-     DOOR SCREEN
+     DOOR
 ===================================================== -->
 
-<section
-    id="doorScreen"
-    class="door-screen">
+<section id="doorScreen" class="door-screen">
 
     <h1 class="door-title">
 
         OPEN THE DOOR... 🚪❤️<br>
-
         BUBU IS WAITING FOR YOU 🥹
 
     </h1>
-
 
     <p class="door-subtitle">
 
@@ -2005,11 +1702,7 @@ body {
 
     </p>
 
-
-    <div
-        id="doorFrame"
-        class="door-frame">
-
+    <div id="doorFrame" class="door-frame">
 
         <div class="door-inside">
 
@@ -2019,7 +1712,6 @@ body {
 
         </div>
 
-
         <div class="door-left">
 
             <div class="door-panel"></div>
@@ -2027,7 +1719,6 @@ body {
             <div class="door-handle"></div>
 
         </div>
-
 
         <div class="door-right">
 
@@ -2037,14 +1728,10 @@ body {
 
         </div>
 
-
     </div>
 
-
     <div class="touch-door">
-
         👆 TOUCH THE DOOR TO OPEN
-
     </div>
 
 </section>
@@ -2074,12 +1761,10 @@ body {
 
 
 <!-- =====================================================
-     PRAYER AUDIO
+     AUDIO FILES
 ===================================================== -->
 
-<audio
-    id="birthdaySong"
-    preload="auto">
+<audio id="birthdaySong" preload="auto">
 
     <source
         src="birthday-song-00-00-to-00-58.mp3"
@@ -2088,13 +1773,7 @@ body {
 </audio>
 
 
-<!-- =====================================================
-     NEW HAPPY BIRTHDAY AUDIO
-===================================================== -->
-
-<audio
-    id="bubuWishAudio"
-    preload="auto">
+<audio id="bubuWishAudio" preload="auto">
 
     <source
         src="bubu-wish-audio.mp3"
@@ -2122,44 +1801,30 @@ const callScreen =
     document.getElementById("callScreen");
 
 const callingVideoScreen =
-    document.getElementById(
-        "callingVideoScreen"
-    );
+    document.getElementById("callingVideoScreen");
 
 const newBirthdayScreen =
-    document.getElementById(
-        "newBirthdayScreen"
-    );
+    document.getElementById("newBirthdayScreen");
 
 const doorScreen =
-    document.getElementById(
-        "doorScreen"
-    );
+    document.getElementById("doorScreen");
 
 const bubuVideoScreen =
-    document.getElementById(
-        "bubuVideoScreen"
-    );
+    document.getElementById("bubuVideoScreen");
 
 
 /* =========================================================
-   BUTTON REFERENCES
+   BUTTONS
 ========================================================= */
 
 const readyButton =
-    document.getElementById(
-        "readyButton"
-    );
+    document.getElementById("readyButton");
 
 const goButton =
-    document.getElementById(
-        "goButton"
-    );
+    document.getElementById("goButton");
 
 const celebrateButton =
-    document.getElementById(
-        "celebrateButton"
-    );
+    document.getElementById("celebrateButton");
 
 
 /* =========================================================
@@ -2167,39 +1832,20 @@ const celebrateButton =
 ========================================================= */
 
 const birthdaySong =
-    document.getElementById(
-        "birthdaySong"
-    );
+    document.getElementById("birthdaySong");
 
 const bubuWishAudio =
-    document.getElementById(
-        "bubuWishAudio"
-    );
+    document.getElementById("bubuWishAudio");
 
 const callingVideo =
-    document.getElementById(
-        "callingVideo"
-    );
+    document.getElementById("callingVideo");
 
 const bubuVideo =
-    document.getElementById(
-        "bubuVideo"
-    );
-
-
-/* =========================================================
-   DOOR
-========================================================= */
-
-const doorFrame =
-    document.getElementById(
-        "doorFrame"
-    );
+    document.getElementById("bubuVideo");
 
 
 /* =========================================================
    READY BUTTON
-   MOVES 3 TIMES
 ========================================================= */
 
 let readyMoves = 0;
@@ -2210,13 +1856,12 @@ let lastX = null;
 let lastY = null;
 
 
-function moveReadyButton() {
+function moveReadyButton(){
 
     const rect =
         readyButton.getBoundingClientRect();
 
     const margin = 25;
-
 
     const maxX =
         Math.max(
@@ -2226,7 +1871,6 @@ function moveReadyButton() {
             margin
         );
 
-
     const maxY =
         Math.max(
             margin,
@@ -2235,12 +1879,10 @@ function moveReadyButton() {
             margin
         );
 
-
     let randomX;
     let randomY;
 
-
-    do {
+    do{
 
         randomX =
             Math.floor(
@@ -2248,75 +1890,38 @@ function moveReadyButton() {
                 (maxX - margin + 1)
             ) + margin;
 
-
         randomY =
             Math.floor(
                 Math.random() *
                 (maxY - margin + 1)
             ) + margin;
 
-
-    } while (
-
+    }while(
         lastX !== null &&
-
-        Math.abs(
-            randomX - lastX
-        ) < 100 &&
-
-        Math.abs(
-            randomY - lastY
-        ) < 100
-
+        Math.abs(randomX-lastX)<100 &&
+        Math.abs(randomY-lastY)<100
     );
 
-
-    lastX = randomX;
-    lastY = randomY;
-
+    lastX=randomX;
+    lastY=randomY;
 
     readyButton.classList.add(
         "random-position"
     );
 
-
     readyButton.style.left =
-        randomX + "px";
-
+        randomX+"px";
 
     readyButton.style.top =
-        randomY + "px";
-
-
-    readyButton.style.transform =
-        "scale(1.05)";
-
-
-    setTimeout(
-        function () {
-
-            readyButton.style.transform =
-                "scale(1)";
-
-        },
-        250
-    );
-
+        randomY+"px";
 }
 
 
-/* =========================================================
-   READY BUTTON
-========================================================= */
-
 readyButton.addEventListener(
     "click",
-    function () {
+    function(){
 
-        if (
-            readyMoves <
-            MAX_READY_MOVES
-        ) {
+        if(readyMoves<MAX_READY_MOVES){
 
             readyMoves++;
 
@@ -2325,21 +1930,16 @@ readyButton.addEventListener(
             return;
         }
 
-
         readyButton.classList.remove(
             "random-position"
         );
 
-
-        readyButton.style.left = "";
-        readyButton.style.top = "";
-        readyButton.style.transform = "";
-
+        readyButton.style.left="";
+        readyButton.style.top="";
 
         screen1.classList.remove(
             "active"
         );
-
 
         screen2.classList.add(
             "active"
@@ -2355,36 +1955,30 @@ readyButton.addEventListener(
 
 goButton.addEventListener(
     "click",
-    function () {
+    function(){
 
         screen2.classList.remove(
             "active"
         );
 
-
         screen3.classList.add(
             "active"
         );
-
 
         celebrateButton.classList.remove(
             "show"
         );
 
-
         birthdaySong.pause();
 
-        birthdaySong.currentTime = 0;
-
+        birthdaySong.currentTime=0;
 
         birthdaySong.play().catch(
-            function(error) {
-
+            error=>{
                 console.log(
                     "Prayer music error:",
                     error
                 );
-
             }
         );
 
@@ -2393,12 +1987,12 @@ goButton.addEventListener(
 
 
 /* =========================================================
-   PRAYER AUDIO FINISHED
+   PRAYER FINISHED
 ========================================================= */
 
 birthdaySong.addEventListener(
     "ended",
-    function () {
+    function(){
 
         celebrateButton.classList.add(
             "show"
@@ -2409,226 +2003,206 @@ birthdaySong.addEventListener(
 
 
 /* =========================================================
-   LET'S START CELEBRATING
-   → CALL SCREEN
+   START CELEBRATING
+   → CALL SCREEN DIRECTLY
 ========================================================= */
 
 celebrateButton.addEventListener(
     "click",
-    function () {
+    function(){
 
         birthdaySong.pause();
 
-        birthdaySong.currentTime = 0;
-
+        birthdaySong.currentTime=0;
 
         bubuWishAudio.pause();
 
-        bubuWishAudio.currentTime = 0;
-
+        bubuWishAudio.currentTime=0;
 
         screen3.classList.remove(
             "active"
         );
 
-
         /*
-         * IMPORTANT:
+         * DIRECTLY SHOW THE CORRECT
+         * BUBU CALL SCREEN.
          *
-         * We do NOT play the calling video here.
-         *
-         * First the Bubu call screen appears.
-         *
-         * The calling video starts only AFTER
-         * the user swipes to answer.
+         * NO EXTRA CALLING SCREEN.
          */
 
         callScreen.classList.add(
             "active"
         );
 
-
-        resetSwipe();
+        resetAcceptSwipe();
 
     }
 );
 
 
 /* =========================================================
-   SWIPE TO ANSWER
+   ACCEPT BUTTON SWIPE
 ========================================================= */
 
-const swipeAnswerArea =
+const acceptSwipeArea =
     document.getElementById(
-        "swipeAnswerArea"
+        "acceptSwipeArea"
     );
 
-const swipeAnswerHandle =
+const acceptSwipeButton =
     document.getElementById(
-        "swipeAnswerHandle"
+        "acceptSwipeButton"
     );
 
 
-let isSwiping = false;
+let isDraggingAccept=false;
 
-let swipeStartX = 0;
+let dragStartX=0;
 
-let swipeStartLeft = 4;
+let buttonStartLeft=5;
 
-let callAnswered = false;
+let callAnswered=false;
 
 
-function getSwipeMaximum() {
+function getMaximumAcceptPosition(){
 
     return (
-        swipeAnswerArea.clientWidth -
-        swipeAnswerHandle.offsetWidth -
-        8
+        acceptSwipeArea.clientWidth -
+        acceptSwipeButton.offsetWidth -
+        10
     );
 
 }
 
 
-function resetSwipe() {
+function resetAcceptSwipe(){
 
-    isSwiping = false;
+    isDraggingAccept=false;
 
-    callAnswered = false;
+    callAnswered=false;
 
-    swipeAnswerHandle.style.left =
-        "4px";
+    acceptSwipeButton.style.left="5px";
 
 }
 
 
-function startSwipe(event) {
+function startAcceptSwipe(event){
 
-    if (callAnswered) {
+    if(callAnswered){
         return;
     }
 
-
-    isSwiping = true;
-
+    isDraggingAccept=true;
 
     const point =
         event.touches
         ? event.touches[0]
         : event;
 
+    dragStartX=point.clientX;
 
-    swipeStartX =
-        point.clientX;
-
-
-    swipeStartLeft =
+    buttonStartLeft=
         parseFloat(
-            swipeAnswerHandle.style.left
-        ) || 4;
+            acceptSwipeButton.style.left
+        ) || 5;
 
-
-    if (event.preventDefault) {
+    if(event.cancelable){
         event.preventDefault();
     }
 
 }
 
 
-function moveSwipe(event) {
+function moveAcceptSwipe(event){
 
-    if (!isSwiping) {
+    if(!isDraggingAccept){
         return;
     }
-
 
     const point =
         event.touches
         ? event.touches[0]
         : event;
 
-
     const distance =
-        point.clientX -
-        swipeStartX;
-
-
-    let newLeft =
-        swipeStartLeft +
-        distance;
-
+        point.clientX-dragStartX;
 
     const maximum =
-        getSwipeMaximum();
+        getMaximumAcceptPosition();
+
+    let newLeft =
+        buttonStartLeft+distance;
+
+    newLeft=Math.max(
+        5,
+        Math.min(
+            newLeft,
+            maximum
+        )
+    );
+
+    acceptSwipeButton.style.left=
+        newLeft+"px";
 
 
-    newLeft =
-        Math.max(
-            4,
-            Math.min(
-                newLeft,
-                maximum
-            )
-        );
+    /*
+     * Once the actual green Accept button
+     * reaches the end, answer the call.
+     */
 
-
-    swipeAnswerHandle.style.left =
-        newLeft + "px";
-
-
-    if (
+    if(
         newLeft >=
-        maximum * .88
-    ) {
+        maximum*0.88
+    ){
 
         answerCall();
 
     }
 
-
-    if (event.preventDefault) {
+    if(event.cancelable){
         event.preventDefault();
     }
 
 }
 
 
-function endSwipe() {
+function endAcceptSwipe(){
 
-    if (!isSwiping) {
+    if(!isDraggingAccept){
         return;
     }
 
+    isDraggingAccept=false;
 
-    isSwiping = false;
-
-
-    if (callAnswered) {
+    if(callAnswered){
         return;
     }
-
 
     const maximum =
-        getSwipeMaximum();
-
+        getMaximumAcceptPosition();
 
     const currentLeft =
         parseFloat(
-            swipeAnswerHandle.style.left
-        ) || 4;
+            acceptSwipeButton.style.left
+        ) || 5;
 
 
-    if (
+    if(
         currentLeft >=
-        maximum * .88
-    ) {
+        maximum*0.88
+    ){
 
         answerCall();
 
     }
-    else {
+    else{
 
-        swipeAnswerHandle.style.left =
-            "4px";
+        /*
+         * If user doesn't complete
+         * the swipe, button returns.
+         */
+
+        acceptSwipeButton.style.left="5px";
 
     }
 
@@ -2636,56 +2210,90 @@ function endSwipe() {
 
 
 /* =========================================================
-   ANSWER CALL
-   → BUBU CALLING VIDEO
+   MOUSE EVENTS
 ========================================================= */
 
-function answerCall() {
+acceptSwipeButton.addEventListener(
+    "mousedown",
+    startAcceptSwipe
+);
 
-    if (callAnswered) {
+document.addEventListener(
+    "mousemove",
+    moveAcceptSwipe
+);
+
+document.addEventListener(
+    "mouseup",
+    endAcceptSwipe
+);
+
+
+/* =========================================================
+   TOUCH EVENTS
+========================================================= */
+
+acceptSwipeButton.addEventListener(
+    "touchstart",
+    startAcceptSwipe,
+    {passive:false}
+);
+
+document.addEventListener(
+    "touchmove",
+    moveAcceptSwipe,
+    {passive:false}
+);
+
+document.addEventListener(
+    "touchend",
+    endAcceptSwipe
+);
+
+
+/* =========================================================
+   ANSWER CALL
+   → CALLING VIDEO
+========================================================= */
+
+function answerCall(){
+
+    if(callAnswered){
         return;
     }
 
+    callAnswered=true;
 
-    callAnswered = true;
-
-    isSwiping = false;
-
+    isDraggingAccept=false;
 
     const maximum =
-        getSwipeMaximum();
+        getMaximumAcceptPosition();
 
-
-    swipeAnswerHandle.style.left =
-        maximum + "px";
+    acceptSwipeButton.style.left=
+        maximum+"px";
 
 
     setTimeout(
-        function () {
+        function(){
 
             callScreen.classList.remove(
                 "active"
             );
 
-
             callingVideoScreen.classList.add(
                 "active"
             );
 
-
             callingVideo.pause();
 
-            callingVideo.currentTime = 0;
-
+            callingVideo.currentTime=0;
 
             callingVideo.play().catch(
-                function(error) {
-
+                error=>{
                     console.error(
                         "bubu calling.mp4 error:",
                         error
                     );
-
                 }
             );
 
@@ -2697,94 +2305,43 @@ function answerCall() {
 
 
 /* =========================================================
-   MOUSE
-========================================================= */
-
-swipeAnswerHandle.addEventListener(
-    "mousedown",
-    startSwipe
-);
-
-document.addEventListener(
-    "mousemove",
-    moveSwipe
-);
-
-document.addEventListener(
-    "mouseup",
-    endSwipe
-);
-
-
-/* =========================================================
-   TOUCH
-========================================================= */
-
-swipeAnswerHandle.addEventListener(
-    "touchstart",
-    startSwipe,
-    {
-        passive: false
-    }
-);
-
-document.addEventListener(
-    "touchmove",
-    moveSwipe,
-    {
-        passive: false
-    }
-);
-
-document.addEventListener(
-    "touchend",
-    endSwipe
-);
-
-
-/* =========================================================
    CALLING VIDEO FINISHED
-   → HAPPY BIRTHDAY SCREEN
+   → HAPPY BIRTHDAY
 ========================================================= */
 
 callingVideo.addEventListener(
     "ended",
-    function () {
+    function(){
 
         callingVideo.pause();
-
 
         callingVideoScreen.classList.remove(
             "active"
         );
 
-
         /*
-         * Happy Birthday screen appears FIRST.
+         * Happy Birthday screen appears.
          */
 
         newBirthdayScreen.classList.add(
             "active"
         );
 
-
         /*
-         * Then the NEW audio starts.
+         * NEW birthday audio starts
+         * exactly when this screen appears.
          */
 
         bubuWishAudio.pause();
 
-        bubuWishAudio.currentTime = 0;
-
+        bubuWishAudio.currentTime=0;
 
         bubuWishAudio.play().catch(
-            function(error) {
-
+            error=>{
                 console.error(
                     "bubu-wish-audio.mp3 error:",
                     error
                 );
-
             }
         );
 
@@ -2793,35 +2350,31 @@ callingVideo.addEventListener(
 
 
 /* =========================================================
-   BUBU WISH AUDIO FINISHED
+   BIRTHDAY AUDIO FINISHED
    → DOOR
 ========================================================= */
 
 bubuWishAudio.addEventListener(
     "ended",
-    function () {
+    function(){
 
         bubuWishAudio.pause();
 
-        bubuWishAudio.currentTime = 0;
-
+        bubuWishAudio.currentTime=0;
 
         newBirthdayScreen.classList.remove(
             "active"
         );
 
-
         doorScreen.classList.add(
             "active"
         );
-
 
         doorScreen.classList.remove(
             "opening"
         );
 
-
-        doorOpening = false;
+        doorOpening=false;
 
     }
 );
@@ -2831,18 +2384,21 @@ bubuWishAudio.addEventListener(
    DOOR
 ========================================================= */
 
-let doorOpening = false;
+const doorFrame =
+    document.getElementById(
+        "doorFrame"
+    );
+
+let doorOpening=false;
 
 
-function openDoor() {
+function openDoor(){
 
-    if (doorOpening) {
+    if(doorOpening){
         return;
     }
 
-
-    doorOpening = true;
-
+    doorOpening=true;
 
     doorScreen.classList.add(
         "opening"
@@ -2850,31 +2406,26 @@ function openDoor() {
 
 
     setTimeout(
-        function () {
+        function(){
 
             doorScreen.classList.remove(
                 "active"
             );
 
-
             bubuVideoScreen.classList.add(
                 "active"
             );
 
-
             bubuVideo.pause();
 
-            bubuVideo.currentTime = 0;
-
+            bubuVideo.currentTime=0;
 
             bubuVideo.play().catch(
-                function(error) {
-
+                error=>{
                     console.error(
                         "happy bday.mp4 error:",
                         error
                     );
-
                 }
             );
 
@@ -2885,32 +2436,21 @@ function openDoor() {
 }
 
 
-/* =========================================================
-   DOOR CLICK
-========================================================= */
-
 doorFrame.addEventListener(
     "click",
     openDoor
 );
 
-
-/* =========================================================
-   DOOR TOUCH
-========================================================= */
-
 doorFrame.addEventListener(
     "touchstart",
-    function(event) {
+    function(event){
 
         event.preventDefault();
 
         openDoor();
 
     },
-    {
-        passive: false
-    }
+    {passive:false}
 );
 
 
@@ -2920,7 +2460,7 @@ doorFrame.addEventListener(
 
 bubuVideo.addEventListener(
     "ended",
-    function () {
+    function(){
 
         bubuVideo.pause();
 
@@ -2929,50 +2469,43 @@ bubuVideo.addEventListener(
 
 
 /* =========================================================
-   WINDOW RESIZE
+   RESIZE
 ========================================================= */
 
 window.addEventListener(
     "resize",
-    function () {
+    function(){
 
-        if (
+        if(
             !readyButton.classList.contains(
                 "random-position"
             )
-        ) {
-
+        ){
             return;
-
         }
-
 
         const rect =
             readyButton.getBoundingClientRect();
 
+        const margin=20;
 
-        const margin = 20;
-
-
-        const maxX =
+        const maxX=
             Math.max(
                 margin,
-                window.innerWidth -
-                rect.width -
+                window.innerWidth-
+                rect.width-
                 margin
             );
 
-
-        const maxY =
+        const maxY=
             Math.max(
                 margin,
-                window.innerHeight -
-                rect.height -
+                window.innerHeight-
+                rect.height-
                 margin
             );
 
-
-        const safeX =
+        const safeX=
             Math.max(
                 margin,
                 Math.min(
@@ -2981,8 +2514,7 @@ window.addEventListener(
                 )
             );
 
-
-        const safeY =
+        const safeY=
             Math.max(
                 margin,
                 Math.min(
@@ -2991,17 +2523,14 @@ window.addEventListener(
                 )
             );
 
+        readyButton.style.left=
+            safeX+"px";
 
-        readyButton.style.left =
-            safeX + "px";
-
-
-        readyButton.style.top =
-            safeY + "px";
+        readyButton.style.top=
+            safeY+"px";
 
     }
 );
-
 
 </script>
 
