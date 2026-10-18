@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A Little Something</title>
+<title>Something Is Waiting</title>
 
 <style>
 * {
@@ -22,27 +22,40 @@ body {
     min-height: 100vh;
     overflow-x: hidden;
     background:
-        radial-gradient(circle at 50% 35%, rgba(111, 26, 125, 0.28), transparent 38%),
-        radial-gradient(circle at 50% 100%, rgba(103, 19, 111, 0.18), transparent 45%),
+        radial-gradient(
+            circle at 50% 38%,
+            rgba(112, 26, 126, 0.30),
+            transparent 38%
+        ),
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(104, 20, 115, 0.20),
+            transparent 45%
+        ),
         #100014;
-    color: #fff;
+
+    color: white;
     font-family: Georgia, "Times New Roman", serif;
 }
 
-/* ---------- BACKGROUND ---------- */
+/* =========================
+   BACKGROUND
+========================= */
 
-.background-glow {
+.background-circle {
     position: fixed;
-    width: 700px;
-    height: 700px;
+    width: 650px;
+    height: 650px;
     left: 50%;
     top: 45%;
     transform: translate(-50%, -50%);
     border-radius: 50%;
-    border: 1px solid rgba(244, 129, 255, 0.08);
+    border: 1px solid rgba(255, 125, 244, 0.07);
+
     box-shadow:
-        0 0 100px rgba(220, 72, 238, 0.08),
-        inset 0 0 100px rgba(220, 72, 238, 0.04);
+        0 0 100px rgba(220, 70, 240, 0.06),
+        inset 0 0 100px rgba(220, 70, 240, 0.035);
+
     pointer-events: none;
 }
 
@@ -51,20 +64,30 @@ body {
     width: 4px;
     height: 4px;
     border-radius: 50%;
-    background: #ff7de9;
-    box-shadow: 0 0 12px #ff5cde;
-    opacity: 0.65;
+
+    background: #ff7ce8;
+
+    box-shadow:
+        0 0 10px #ff5cde,
+        0 0 18px rgba(255, 75, 222, 0.6);
+
+    opacity: 0.5;
+
     animation: floatParticle linear infinite;
+
     pointer-events: none;
 }
 
 @keyframes floatParticle {
+
     0% {
-        transform: translateY(30vh) translateX(0);
+        transform:
+            translateY(105vh)
+            translateX(0);
         opacity: 0;
     }
 
-    20% {
+    15% {
         opacity: 0.7;
     }
 
@@ -73,396 +96,666 @@ body {
     }
 
     100% {
-        transform: translateY(-110vh) translateX(80px);
+        transform:
+            translateY(-20vh)
+            translateX(80px);
         opacity: 0;
     }
 }
 
-/* ---------- SCREENS ---------- */
+/* =========================
+   GENERAL SCREEN
+========================= */
 
 .screen {
     position: relative;
     z-index: 2;
-    min-height: 100vh;
+
     width: 100%;
+    min-height: 100vh;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 45px 20px;
+
+    padding: 30px 20px;
 }
 
 .hidden {
     display: none !important;
 }
 
-/* ---------- GIFT SCREEN ---------- */
+/* =========================
+   GIFT SCREEN
+========================= */
 
-.gift-page {
+.gift-screen {
     flex-direction: column;
+
     justify-content: flex-start;
-    padding-top: 78px;
+
+    padding-top: 60px;
 }
 
-.top-label {
+.small-heading {
     font-size: 9px;
+
     letter-spacing: 5px;
-    font-weight: bold;
-    color: rgba(255, 255, 255, 0.62);
-    margin-bottom: 13px;
+
+    color:
+        rgba(255,255,255,0.58);
+
+    margin-bottom: 12px;
+
     text-transform: uppercase;
 }
 
-.main-title {
-    font-size: clamp(42px, 6vw, 72px);
+.main-heading {
+
+    font-size:
+        clamp(42px, 6vw, 70px);
+
     line-height: 0.95;
+
     text-align: center;
+
     font-weight: bold;
+
     letter-spacing: -2px;
-    text-shadow:
-        0 0 7px rgba(255,255,255,0.95),
-        0 0 18px rgba(255,150,255,0.8),
-        0 0 38px rgba(239,77,255,0.4);
+
     margin-bottom: 12px;
+
+    text-shadow:
+        0 0 7px white,
+        0 0 18px rgba(255,155,255,0.85),
+        0 0 40px rgba(240,70,255,0.4);
 }
 
-.sub-title {
-    color: rgba(255,255,255,0.7);
-    font-size: 13px;
-    letter-spacing: 1px;
+.heading-subtitle {
+
+    font-size: 12px;
+
+    color:
+        rgba(255,255,255,0.68);
+
     text-align: center;
-    margin-bottom: 30px;
+
+    margin-bottom: 27px;
+
+    letter-spacing: 0.5px;
 }
+
+/* =========================
+   24 GIFT GRID
+========================= */
 
 .gift-grid {
-    width: min(610px, 94vw);
+
+    width:
+        min(460px, 94vw);
+
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 11px;
+
+    grid-template-columns:
+        repeat(6, 1fr);
+
+    gap: 9px;
+
+    position: relative;
+
+    z-index: 5;
 }
 
-/* ---------- GIFT BOX ---------- */
+/* =========================
+   GIFT BOX
+========================= */
 
-.gift {
+.gift-box {
+
     position: relative;
+
     aspect-ratio: 1 / 1;
-    border: 1px solid rgba(255, 196, 255, 0.45);
-    border-radius: 11px;
+
+    border:
+        1px solid
+        rgba(255,190,255,0.46);
+
+    border-radius: 9px;
+
     background:
         linear-gradient(
             145deg,
-            rgba(130, 57, 139, 0.32),
-            rgba(59, 20, 67, 0.7)
+            rgba(112,43,122,0.42),
+            rgba(54,18,62,0.75)
         );
-    cursor: pointer;
+
     overflow: hidden;
+
+    cursor: pointer;
+
     transition:
         transform 0.25s ease,
-        border-color 0.25s ease,
-        box-shadow 0.25s ease;
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
 }
 
-.gift:hover {
-    transform: translateY(-5px) scale(1.025);
-    border-color: rgba(255, 178, 255, 0.9);
+.gift-box:hover {
+
+    transform:
+        translateY(-4px)
+        scale(1.025);
+
+    border-color:
+        rgba(255,190,255,0.85);
+
     box-shadow:
-        0 0 20px rgba(240, 76, 255, 0.3),
-        inset 0 0 18px rgba(255, 98, 239, 0.12);
+        0 0 18px
+        rgba(245,70,236,0.35);
 }
 
-/* gift lid */
-.gift::before {
+/* Horizontal ribbon */
+
+.gift-box::before {
+
     content: "";
+
     position: absolute;
-    left: -3%;
-    right: -3%;
-    top: 22%;
+
+    left: -5%;
+    right: -5%;
+
+    top: 18%;
+
     height: 9%;
-    background: linear-gradient(
-        90deg,
-        rgba(255, 102, 230, 0.05),
-        rgba(255, 102, 230, 0.9),
-        rgba(255, 102, 230, 0.05)
-    );
-    box-shadow: 0 0 13px rgba(255, 91, 228, 0.55);
-}
 
-/* vertical ribbon */
-.gift::after {
-    content: "";
-    position: absolute;
-    top: -3%;
-    bottom: -3%;
-    left: 45%;
-    width: 10%;
-    transform: translateX(-50%);
-    background: linear-gradient(
-        90deg,
-        rgba(255, 85, 221, 0.08),
-        rgba(255, 98, 226, 0.82),
-        rgba(255, 85, 221, 0.08)
-    );
-    box-shadow: 0 0 12px rgba(255, 91, 228, 0.4);
-}
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,83,220,0.04),
+            rgba(255,106,227,0.92),
+            rgba(255,83,220,0.04)
+        );
 
-/* ribbon knot */
-.ribbon-knot {
-    position: absolute;
-    z-index: 4;
-    left: 45%;
-    top: 22%;
-    transform: translate(-50%, -50%);
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: #ff9bec;
     box-shadow:
-        0 0 8px #ff7be9,
-        0 0 16px rgba(255, 78, 222, 0.8);
+        0 0 12px
+        rgba(255,82,221,0.55);
 }
 
-/* ribbon bow */
-.ribbon-knot::before,
-.ribbon-knot::after {
+/* Vertical ribbon */
+
+.gift-box::after {
+
     content: "";
+
     position: absolute;
-    width: 15px;
-    height: 9px;
+
+    top: -5%;
+    bottom: -5%;
+
+    left: 45%;
+
+    width: 10%;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,80,219,0.05),
+            rgba(255,104,229,0.88),
+            rgba(255,80,219,0.05)
+        );
+
+    box-shadow:
+        0 0 12px
+        rgba(255,82,221,0.42);
+}
+
+/* =========================
+   RIBBON BOW
+========================= */
+
+.ribbon {
+
+    position: absolute;
+
+    z-index: 4;
+
+    left: 45%;
+
+    top: 18%;
+
+    width: 11px;
+    height: 11px;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background: #ff9bea;
+
+    box-shadow:
+        0 0 8px #ff78e5,
+        0 0 16px rgba(255,75,222,0.75);
+}
+
+.ribbon::before,
+.ribbon::after {
+
+    content: "";
+
+    position: absolute;
+
     top: 1px;
-    background: rgba(255, 125, 232, 0.82);
-    border: 1px solid rgba(255, 205, 250, 0.45);
+
+    width: 15px;
+
+    height: 9px;
+
+    background:
+        rgba(255,128,233,0.85);
+
+    border:
+        1px solid
+        rgba(255,215,250,0.38);
 }
 
-.ribbon-knot::before {
-    right: 6px;
-    transform: rotate(27deg);
-    border-radius: 8px 2px 8px 2px;
+.ribbon::before {
+
+    right: 5px;
+
+    transform:
+        rotate(28deg);
+
+    border-radius:
+        8px 2px 8px 2px;
 }
 
-.ribbon-knot::after {
-    left: 6px;
-    transform: rotate(-27deg);
-    border-radius: 2px 8px 2px 8px;
+.ribbon::after {
+
+    left: 5px;
+
+    transform:
+        rotate(-28deg);
+
+    border-radius:
+        2px 8px 2px 8px;
 }
 
-.gift-number {
+/* =========================
+   BOX NUMBER
+========================= */
+
+.box-number {
+
     position: absolute;
-    z-index: 6;
-    bottom: 7px;
-    right: 9px;
-    font-size: 8px;
+
+    right: 6px;
+
+    bottom: 5px;
+
+    z-index: 8;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 7px;
+
     letter-spacing: 1px;
-    color: rgba(255,255,255,0.45);
+
+    color:
+        rgba(255,255,255,0.42);
 }
 
-.gift.opened {
-    transform: scale(0.94);
-    opacity: 0.48;
-    border-color: rgba(255, 172, 255, 0.22);
-}
+/* =========================
+   OPENED BOX
+========================= */
 
-.gift.opened .ribbon-knot {
+.gift-box.opened {
+
+    opacity: 0.38;
+
+    transform:
+        scale(0.95);
+
+    border-color:
+        rgba(255,185,255,0.20);
+
     box-shadow: none;
 }
 
-/* ---------- POPUP ---------- */
+.gift-box.opened:hover {
+
+    transform:
+        scale(0.95);
+}
+
+/* =========================
+   POPUP
+========================= */
 
 .hint-overlay {
+
     position: fixed;
+
     inset: 0;
+
     z-index: 100;
+
     display: flex;
+
     align-items: center;
+
     justify-content: center;
+
     padding: 25px;
-    background: rgba(10, 0, 15, 0.42);
-    backdrop-filter: blur(5px);
-    animation: fadeIn 0.25s ease;
+
+    background:
+        rgba(9,0,14,0.48);
+
+    backdrop-filter:
+        blur(5px);
+
+    animation:
+        overlayIn 0.25s ease;
+
     cursor: pointer;
 }
 
 .hint-card {
-    width: min(420px, 90vw);
-    min-height: 155px;
-    padding: 38px 30px;
+
+    width:
+        min(420px, 90vw);
+
+    min-height: 150px;
+
+    padding:
+        38px 28px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    border:
+        1px solid
+        rgba(255,190,255,0.36);
+
     border-radius: 17px;
-    border: 1px solid rgba(255, 189, 255, 0.35);
+
     background:
         linear-gradient(
             145deg,
-            rgba(83, 27, 93, 0.97),
-            rgba(40, 10, 47, 0.98)
+            rgba(82,27,94,0.97),
+            rgba(39,9,47,0.98)
         );
+
     box-shadow:
-        0 0 35px rgba(221, 69, 239, 0.25),
-        inset 0 0 30px rgba(255, 130, 241, 0.06);
-    text-align: center;
-    cursor: default;
-    animation: popupIn 0.3s ease;
+        0 0 40px
+        rgba(220,68,239,0.25),
+
+        inset 0 0 30px
+        rgba(255,130,240,0.05);
+
+    cursor: pointer;
+
+    animation:
+        popupIn 0.28s ease;
 }
 
-.hint-card p {
-    font-size: clamp(18px, 3vw, 24px);
-    line-height: 1.4;
-    color: #fff;
-    text-shadow: 0 0 10px rgba(255,255,255,0.25);
+.hint-text {
+
+    font-size:
+        clamp(18px, 3vw, 23px);
+
+    line-height: 1.45;
+
+    color: white;
+
+    text-shadow:
+        0 0 10px
+        rgba(255,255,255,0.22);
 }
 
-.hint-card small {
-    display: block;
-    margin-top: 18px;
-    font-size: 8px;
+.hint-mini {
+
+    margin-top: 17px;
+
+    font-size: 7px;
+
     letter-spacing: 3px;
-    color: rgba(255,255,255,0.42);
+
+    color:
+        rgba(255,255,255,0.38);
+
     text-transform: uppercase;
 }
 
+@keyframes overlayIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
 @keyframes popupIn {
+
     from {
         opacity: 0;
-        transform: scale(0.85) translateY(15px);
+
+        transform:
+            scale(0.85)
+            translateY(12px);
     }
 
     to {
         opacity: 1;
-        transform: scale(1) translateY(0);
+
+        transform:
+            scale(1)
+            translateY(0);
     }
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-/* ---------- INVITATION ---------- */
+/* =========================
+   INVITATION
+========================= */
 
 .invitation-screen {
-    animation: invitationIn 1.2s ease;
-}
 
-@keyframes invitationIn {
-    from {
-        opacity: 0;
-        transform: scale(1.04);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
+    animation:
+        invitationIn 1s ease;
 }
 
 .invitation-card {
-    width: min(500px, 92vw);
-    padding: 45px 35px;
-    border: 1px solid rgba(255, 193, 255, 0.42);
+
+    width:
+        min(500px, 92vw);
+
+    padding:
+        43px 34px;
+
+    text-align: center;
+
+    border:
+        1px solid
+        rgba(255,193,255,0.42);
+
     border-radius: 18px;
+
     background:
         linear-gradient(
             145deg,
-            rgba(91, 33, 99, 0.7),
-            rgba(45, 12, 51, 0.82)
+            rgba(91,33,99,0.72),
+            rgba(45,12,51,0.85)
         );
+
     box-shadow:
-        0 0 60px rgba(219, 68, 237, 0.17),
-        inset 0 0 35px rgba(255, 145, 238, 0.05);
-    text-align: center;
+
+        0 0 60px
+        rgba(219,68,237,0.17),
+
+        inset 0 0 35px
+        rgba(255,145,238,0.05);
 }
 
 .invitation-label {
-    font-size: 9px;
+
+    font-size: 8px;
+
     letter-spacing: 6px;
-    color: rgba(255,255,255,0.58);
+
+    color:
+        rgba(255,255,255,0.56);
+
     margin-bottom: 18px;
+
     text-transform: uppercase;
 }
 
 .invitation-title {
-    font-size: clamp(47px, 7vw, 70px);
+
+    font-size:
+        clamp(46px, 7vw, 68px);
+
     line-height: 0.95;
+
+    margin-bottom: 27px;
+
     text-shadow:
         0 0 7px white,
-        0 0 18px rgba(255, 150, 255, 0.75),
-        0 0 35px rgba(239, 77, 255, 0.35);
-    margin-bottom: 28px;
+        0 0 18px rgba(255,150,255,0.75),
+        0 0 35px rgba(239,77,255,0.35);
 }
 
-.date {
+.invitation-date {
+
     font-size: 27px;
+
     font-weight: bold;
+
     letter-spacing: 1px;
+
     margin-bottom: 5px;
 }
 
-.time {
+.invitation-time {
+
     font-size: 10px;
+
     letter-spacing: 5px;
-    color: rgba(255,255,255,0.72);
+
+    color:
+        rgba(255,255,255,0.72);
+
     margin-bottom: 23px;
 }
 
-.divider {
+.invitation-divider {
+
     width: 55px;
+
     height: 1px;
-    margin: 0 auto 24px;
-    background: rgba(255, 190, 255, 0.55);
+
+    margin:
+        0 auto 23px;
+
+    background:
+        rgba(255,190,255,0.55);
 }
 
 .invitation-lines {
+
     font-size: 15px;
+
     line-height: 1.75;
+
     font-weight: bold;
 }
 
-.sealed {
-    margin-top: 20px;
+.invitation-sealed {
+
+    margin-top: 19px;
+
     font-size: 8px;
+
     letter-spacing: 3px;
-    color: rgba(255,255,255,0.46);
+
+    color:
+        rgba(255,255,255,0.44);
 }
 
-/* ---------- MOBILE ---------- */
+@keyframes invitationIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(1.04);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1);
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 700px) {
 
-    .gift-page {
+    .gift-screen {
+
         padding-top: 45px;
     }
 
-    .main-title {
-        font-size: 44px;
+    .main-heading {
+
+        font-size: 43px;
     }
 
-    .sub-title {
-        font-size: 11px;
-        margin-bottom: 24px;
+    .heading-subtitle {
+
+        font-size: 10px;
+
+        margin-bottom: 22px;
     }
 
     .gift-grid {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 9px;
-        width: min(410px, 94vw);
-    }
 
-    .gift {
-        border-radius: 9px;
-    }
+        width:
+            min(410px, 94vw);
 
-    .gift-number {
-        font-size: 7px;
-        bottom: 5px;
-        right: 6px;
+        grid-template-columns:
+            repeat(4, 1fr);
+
+        gap: 8px;
     }
 
     .invitation-card {
-        padding: 38px 25px;
+
+        padding:
+            38px 25px;
     }
 
     .invitation-title {
+
         font-size: 49px;
     }
 }
@@ -470,14 +763,17 @@ body {
 @media (max-width: 390px) {
 
     .gift-grid {
+
         gap: 7px;
     }
 
-    .gift-number {
+    .box-number {
+
         display: none;
     }
 
-    .main-title {
+    .main-heading {
+
         font-size: 39px;
     }
 }
@@ -486,73 +782,109 @@ body {
 
 <body>
 
-<div class="background-glow"></div>
+<!-- Background -->
 
-<!-- Floating particles -->
-<div class="particle" style="left:12%; animation-duration:11s; animation-delay:-2s;"></div>
-<div class="particle" style="left:27%; animation-duration:14s; animation-delay:-7s;"></div>
-<div class="particle" style="left:44%; animation-duration:12s; animation-delay:-4s;"></div>
-<div class="particle" style="left:62%; animation-duration:15s; animation-delay:-9s;"></div>
-<div class="particle" style="left:79%; animation-duration:10s; animation-delay:-5s;"></div>
-<div class="particle" style="left:91%; animation-duration:13s; animation-delay:-1s;"></div>
+<div class="background-circle"></div>
 
-<!-- =========================================================
-     MUSIC
-     File must be in the same GitHub repository as index.html
-     ========================================================= -->
+<div class="particle"
+     style="left:12%;animation-duration:11s;animation-delay:-2s;">
+</div>
 
-<audio id="birthdaySong" preload="auto">
-    <source src="Hey Rangule - NaaSongsHD.mp3" type="audio/mpeg">
+<div class="particle"
+     style="left:27%;animation-duration:14s;animation-delay:-7s;">
+</div>
+
+<div class="particle"
+     style="left:44%;animation-duration:12s;animation-delay:-4s;">
+</div>
+
+<div class="particle"
+     style="left:62%;animation-duration:15s;animation-delay:-9s;">
+</div>
+
+<div class="particle"
+     style="left:79%;animation-duration:10s;animation-delay:-5s;">
+</div>
+
+<div class="particle"
+     style="left:91%;animation-duration:13s;animation-delay:-1s;">
+</div>
+
+
+<!-- =====================================================
+     EXISTING AUDIO FILE
+     DO NOT DELETE THE FILE FROM GITHUB
+===================================================== -->
+
+<audio id="heyRangule" preload="auto">
+    <source
+        src="Hey Rangule - NaaSongsHD.mp3"
+        type="audio/mpeg">
 </audio>
 
 
-<!-- =========================================================
-     GIFT SCREEN
-     ========================================================= -->
+<!-- =====================================================
+     NEW 24 GIFT SCREEN
+===================================================== -->
 
-<section id="giftScreen" class="screen gift-page">
+<section
+    id="giftScreen"
+    class="screen gift-screen">
 
-    <div class="top-label">
+    <div class="small-heading">
         Something is waiting
     </div>
 
-    <h1 class="main-title">
+    <h1 class="main-heading">
         OPEN CAREFULLY.
     </h1>
 
-    <p class="sub-title">
+    <div class="heading-subtitle">
         Some things are better discovered.
-    </p>
+    </div>
 
-    <div id="giftGrid" class="gift-grid"></div>
+    <div
+        id="giftGrid"
+        class="gift-grid">
+    </div>
 
 </section>
 
 
-<!-- =========================================================
+<!-- =====================================================
      HINT POPUP
-     ========================================================= -->
+     NO CLOSE BUTTON
+===================================================== -->
 
-<div id="hintOverlay" class="hint-overlay hidden">
+<div
+    id="hintOverlay"
+    class="hint-overlay hidden">
 
-    <div id="hintCard" class="hint-card">
+    <div
+        id="hintCard"
+        class="hint-card">
 
-        <p id="hintText"></p>
+        <div
+            id="hintText"
+            class="hint-text">
+        </div>
 
-        <small>
-            some things are better discovered
-        </small>
+        <div class="hint-mini">
+            something is waiting
+        </div>
 
     </div>
 
 </div>
 
 
-<!-- =========================================================
-     INVITATION SCREEN
-     ========================================================= -->
+<!-- =====================================================
+     SAVE THE DATE
+===================================================== -->
 
-<section id="invitationScreen" class="screen invitation-screen hidden">
+<section
+    id="invitationScreen"
+    class="screen invitation-screen hidden">
 
     <div class="invitation-card">
 
@@ -565,15 +897,15 @@ body {
             THE DATE
         </h1>
 
-        <div class="date">
+        <div class="invitation-date">
             30 OCTOBER
         </div>
 
-        <div class="time">
+        <div class="invitation-time">
             10:00 AM
         </div>
 
-        <div class="divider"></div>
+        <div class="invitation-divider"></div>
 
         <div class="invitation-lines">
             ONE MORNING.<br>
@@ -581,7 +913,7 @@ body {
             ONE PLACE.
         </div>
 
-        <div class="sealed">
+        <div class="invitation-sealed">
             PRIVATE THEATRE · LOCATION SEALED
         </div>
 
@@ -592,20 +924,19 @@ body {
 
 <script>
 
-/* =========================================================
-   24 SUSPENSE HINTS
+/* =====================================================
+   24 INDIRECT HINTS
 
-   IMPORTANT:
-   These DO NOT reveal the actual gifts.
-   ========================================================= */
+   No actual gift names are revealed.
+===================================================== */
 
 const hints = [
 
     "Something you'll understand the moment you see it. 👀",
 
-    "A little change can make a familiar look feel completely different.",
+    "A little change can make a familiar look feel different.",
 
-    "For one of those days when you want everything to feel just right.",
+    "For one of those days when you want everything just right.",
 
     "Something small, but somehow always useful.",
 
@@ -639,7 +970,7 @@ const hints = [
 
     "Because one was never going to be enough.",
 
-    "This one isn't meant to be kept in a box for long.",
+    "This one isn't meant to stay in a box for long.",
 
     "Something that makes a celebration feel like a celebration.",
 
@@ -651,238 +982,287 @@ const hints = [
 ];
 
 
-/* =========================================================
-   CREATE THE 24 GIFT BOXES
-   ========================================================= */
+/* =====================================================
+   ELEMENTS
+===================================================== */
 
-const giftGrid = document.getElementById("giftGrid");
-
-hints.forEach((hint, index) => {
-
-    const gift = document.createElement("div");
-
-    gift.className = "gift";
-
-    gift.innerHTML = `
-        <div class="ribbon-knot"></div>
-        <span class="gift-number">${String(index + 1).padStart(2, "0")}</span>
-    `;
-
-    gift.dataset.index = index;
-
-    gift.addEventListener("click", () => {
-        openGift(index, gift);
-    });
-
-    giftGrid.appendChild(gift);
-});
-
-
-/* =========================================================
-   VARIABLES
-   ========================================================= */
-
-const audio = document.getElementById("birthdaySong");
-
-const giftScreen = document.getElementById("giftScreen");
-
-const invitationScreen =
-    document.getElementById("invitationScreen");
+const giftGrid =
+    document.getElementById("giftGrid");
 
 const hintOverlay =
     document.getElementById("hintOverlay");
 
+const hintCard =
+    document.getElementById("hintCard");
+
 const hintText =
     document.getElementById("hintText");
 
-let openedGifts = 0;
+const giftScreen =
+    document.getElementById("giftScreen");
+
+const invitationScreen =
+    document.getElementById("invitationScreen");
+
+const song =
+    document.getElementById("heyRangule");
+
+
+/* =====================================================
+   STATE
+===================================================== */
+
+let openedCount = 0;
+
 let musicStarted = false;
+
 let currentGift = null;
 
 
-/* =========================================================
-   START MUSIC
-   =========================================================
+/* =====================================================
+   CREATE ALL 24 BOXES
+===================================================== */
 
-   Browser autoplay restrictions mean the music starts
-   after the first gift is touched.
+hints.forEach((hint, index) => {
 
-   It starts from EXACTLY 0 seconds.
-   ========================================================= */
+    const box =
+        document.createElement("div");
 
-function startMusic() {
+    box.className =
+        "gift-box";
 
-    if (musicStarted) return;
+    box.innerHTML = `
 
-    musicStarted = true;
+        <div class="ribbon"></div>
 
-    audio.currentTime = 0;
+        <div class="box-number">
+            ${String(index + 1).padStart(2, "0")}
+        </div>
 
-    audio.play().catch(() => {
-        /*
-          If the browser blocks playback, the next user
-          interaction will try again.
-        */
-        musicStarted = false;
-    });
-}
+    `;
+
+    box.addEventListener(
+        "click",
+        () => openGift(box, index)
+    );
+
+    giftGrid.appendChild(box);
+
+});
 
 
-/* =========================================================
-   OPEN GIFT
-   ========================================================= */
+/* =====================================================
+   START SONG
+===================================================== */
 
-function openGift(index, giftElement) {
+function startSong() {
 
-    startMusic();
-
-    /*
-      Don't count the same gift twice.
-    */
-    if (giftElement.classList.contains("opened")) {
-        showHint(index);
+    if (musicStarted) {
         return;
     }
 
-    giftElement.classList.add("opened");
+    musicStarted = true;
 
-    openedGifts++;
+    /*
+      ALWAYS START FROM 0:00
+    */
 
-    showHint(index);
+    song.currentTime = 0;
+
+    song.play().catch(() => {
+
+        /*
+          Browser may wait for another
+          user interaction.
+        */
+
+        musicStarted = false;
+
+    });
+
 }
 
 
-/* =========================================================
-   SHOW HINT
-   ========================================================= */
+/* =====================================================
+   OPEN GIFT
+===================================================== */
 
-function showHint(index) {
+function openGift(box, index) {
+
+    /*
+      First box interaction starts
+      Hey Rangule from 0:00.
+    */
+
+    startSong();
+
+
+    /*
+      Don't count the same box twice.
+    */
+
+    if (!box.classList.contains("opened")) {
+
+        box.classList.add("opened");
+
+        openedCount++;
+
+    }
+
 
     currentGift = index;
 
-    hintText.textContent = hints[index];
+    hintText.textContent =
+        hints[index];
 
-    hintOverlay.classList.remove("hidden");
+    hintOverlay.classList.remove(
+        "hidden"
+    );
+
 }
 
 
-/* =========================================================
-   POPUP BEHAVIOUR
-   =========================================================
+/* =====================================================
+   CLOSE POPUP
 
-   There is NO CLOSE button.
+   There is deliberately NO close button.
 
-   Tapping outside the message closes it.
-   ========================================================= */
+   Just tap the popup.
+===================================================== */
 
-hintOverlay.addEventListener("click", function(event) {
+hintCard.addEventListener(
+    "click",
+    closePopup
+);
 
-    if (event.target === hintOverlay) {
 
-        closeHint();
+hintOverlay.addEventListener(
+    "click",
+    function(event) {
+
+        if (
+            event.target ===
+            hintOverlay
+        ) {
+
+            closePopup();
+
+        }
 
     }
-
-});
-
-
-/*
-   Also allow tapping the hint itself to continue.
-   This keeps the experience simple on mobile.
-*/
-
-document.getElementById("hintCard").addEventListener("click", function() {
-
-    closeHint();
-
-});
+);
 
 
-function closeHint() {
+function closePopup() {
 
-    hintOverlay.classList.add("hidden");
+    hintOverlay.classList.add(
+        "hidden"
+    );
+
 
     /*
-      Once all 24 boxes have been opened,
-      move directly to the invitation.
+      Once all 24 are opened,
+      move to invitation.
     */
 
-    if (openedGifts >= 24) {
+    if (openedCount >= 24) {
 
-        setTimeout(() => {
-
-            showInvitation();
-
-        }, 450);
+        setTimeout(
+            showInvitation,
+            450
+        );
 
     }
 
 }
 
 
-/* =========================================================
+/* =====================================================
    SHOW INVITATION
-   ========================================================= */
+===================================================== */
 
 function showInvitation() {
 
     /*
-      STOP THE SONG IMMEDIATELY.
+      IMPORTANT:
+      Stop Hey Rangule immediately.
     */
 
-    audio.pause();
+    song.pause();
 
-    audio.currentTime = 0;
+    song.currentTime = 0;
 
-    giftScreen.classList.add("hidden");
 
-    hintOverlay.classList.add("hidden");
+    /*
+      Hide gift experience.
+    */
 
-    invitationScreen.classList.remove("hidden");
+    giftScreen.classList.add(
+        "hidden"
+    );
 
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
+    hintOverlay.classList.add(
+        "hidden"
+    );
+
+
+    /*
+      Show Save The Date.
+    */
+
+    invitationScreen.classList.remove(
+        "hidden"
+    );
+
+
+    window.scrollTo(
+        0,
+        0
+    );
 
 }
 
 
-/* =========================================================
-   EXTRA SAFETY
-   =========================================================
+/* =====================================================
+   SONG SAFETY
+===================================================== */
 
-   If the song somehow reaches the end, don't restart it.
-   ========================================================= */
+song.addEventListener(
+    "ended",
+    function() {
 
-audio.addEventListener("ended", () => {
+        song.pause();
 
-    audio.pause();
-
-});
+    }
+);
 
 
 /*
-   If the first tap was blocked by the browser,
-   try again on the next interaction.
+   If autoplay/playback is temporarily
+   blocked, the next user interaction
+   gets another chance.
 */
 
-document.addEventListener("pointerdown", () => {
+document.addEventListener(
+    "pointerdown",
+    function() {
 
-    if (!musicStarted) {
+        if (!musicStarted) {
 
-        audio.currentTime = 0;
+            song.currentTime = 0;
 
-        audio.play()
-            .then(() => {
-                musicStarted = true;
-            })
-            .catch(() => {});
+            song.play()
+                .then(() => {
+
+                    musicStarted = true;
+
+                })
+                .catch(() => {});
+
+        }
 
     }
-
-}, { once: false });
-
+);
 
 </script>
 
