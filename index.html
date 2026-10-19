@@ -1325,31 +1325,189 @@ body{
 }
 
 </style>
-  <style>
+ <style>
+/* =========================================================
+   MOBILE PRAYER SCREEN FIX
+   Keeps the full greeting visible and allows prayer scrolling
+========================================================= */
+
 @media (max-width: 600px) {
 
+    html,
     body {
+        width: 100%;
+        max-width: 100%;
         overflow-x: hidden;
     }
 
-    * {
-        box-sizing: border-box;
+    /* IMPORTANT:
+       Do NOT disable scrolling on all screens.
+    */
+
+    #screen3 {
+        display: none;
+        width: 100%;
+        height: 100dvh;
+        min-height: 100dvh;
+
+        overflow-x: hidden;
+        overflow-y: auto;
+
+        align-items: flex-start;
+        justify-content: center;
+
+        padding:
+            28px 12px 50px;
     }
 
-    /* Make the opening greeting wrap instead of getting cut */
-    h1, h2, h3, p {
+    #screen3.active {
+        display: flex;
+    }
+
+
+    /* Prayer content */
+
+    #screen3 .prayer-container {
+
+        width: 100%;
         max-width: 100%;
+
+        padding:
+            10px 4px 40px;
+
+        margin: 0 auto;
     }
 
-    /* Mobile text should never extend outside its container */
-    .screen,
-    .section,
-    .content,
-    .message,
-    .welcome,
-    .greeting {
-        max-width: 100vw !important;
-        overflow: visible !important;
+
+    /* Full Assalamu Alaikum greeting */
+
+    #screen3 .assalam {
+
+        width: 100%;
+        max-width: 100%;
+
+        padding: 0 5px;
+
+        font-size:
+            clamp(23px, 6.3vw, 30px);
+
+        line-height: 1.45;
+
+        text-align: center;
+
+        white-space: normal;
+
+        overflow: visible;
+
+        word-break: normal;
+
+        overflow-wrap: normal;
+    }
+
+
+    /* Prayer card */
+
+    #screen3 .prayer {
+
+        width: 100%;
+        max-width: 100%;
+
+        margin:
+            25px auto 0;
+
+        padding:
+            22px 16px;
+
+        border-radius: 16px;
+    }
+
+
+    /* Prayer text */
+
+    #screen3 .roman-prayer p,
+    #screen3 .telugu-meaning p {
+
+        font-size: 16px;
+
+        line-height: 1.7;
+
+        margin-bottom: 14px;
+
+        overflow-wrap: break-word;
+    }
+
+
+    /* Aameen */
+
+    #screen3 .ameen {
+
+        margin-top: 22px;
+
+        font-size: 20px;
+
+        line-height: 1.5;
+    }
+
+
+    /* Celebration button */
+
+    #screen3 .celebrate-button {
+
+        margin-top: 25px;
+
+        margin-bottom: 20px;
+
+        padding:
+            14px 24px;
+
+        font-size: 12px;
+
+        max-width: 90vw;
+    }
+
+
+    /* Make sure the button becomes usable */
+
+    #screen3 .celebrate-button.show {
+
+        opacity: 1;
+
+        pointer-events: auto;
+    }
+
+}
+
+
+/* Extra-small phones */
+
+@media (max-width: 390px) {
+
+    #screen3 {
+        padding:
+            24px 10px 45px;
+    }
+
+    #screen3 .assalam {
+
+        font-size: 22px;
+
+        line-height: 1.45;
+
+        padding: 0 3px;
+    }
+
+    #screen3 .prayer {
+
+        padding:
+            20px 14px;
+    }
+
+    #screen3 .roman-prayer p,
+    #screen3 .telugu-meaning p {
+
+        font-size: 15px;
+
+        line-height: 1.65;
     }
 
 }
